@@ -6,20 +6,24 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <!-- CSRF Token -->
-        <meta name="csrf-token" content="{{ csrf_token() }}">
+    <!-- CSRF Token -->
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name', 'Laravel') }}</title>
 
-        <!-- Scripts -->
-        {{-- <script src="{{ asset('js/app.js') }}" defer></script> --}}
+    <!-- Scripts -->
+    {{-- <script src="{{ asset('js/app.js') }}" defer></script> --}}
 
-        <!-- Fonts -->
-        <link rel="dns-prefetch" href="//fonts.gstatic.com">
-        <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+    <!-- Fonts -->
+    <link rel="dns-prefetch" href="//fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
-        <!-- Styles -->
-        <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <!-- Styles -->
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
+    {{-- Owl-carousel --}}
+    <link rel="stylesheet" href="{{ url('/owlcarousel/owl.carousel.min.css') }}">
+    <link rel="stylesheet" href="{{ url('/owlcarousel/owl.theme.default.min.css')}}">
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
@@ -42,6 +46,13 @@
         <p>A <b>responsive</b> website created by me.</p>
     </div>
     {{-- HEADER --}}
+
+    {{-- CAROU-SEL  --}}
+        <section class="carousel my-2 mx-2">
+            @include('layouts.carousel')
+        </section>
+    {{-- CAROU-SEL --}}
+
 
     {{-- MAIN CONTENT --}}
     <div class="main">
@@ -66,15 +77,12 @@
     {{-- END MY WEBSITE --}}
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js">
     </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js">
     </script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
-    </script>
+    <script src="{{ url('owlcarousel/owl.carousel.min.js') }}"></script>
 </body>
 
 </html>
@@ -83,51 +91,54 @@
 {{-- CSS --}}
 <style>
     * {
-      box-sizing: border-box;
+        box-sizing: border-box;
     }
 
     /* Style the body */
     body {
-      font-family: Arial, Helvetica, sans-serif;
-      margin: 0;
-      font-size: 12px;
-      background-color: #dbefdc
+        font-family: Arial, Helvetica, sans-serif;
+        margin: 0;
+        font-size: 12px;
+        background-color: #dbefdc
     }
 
     /* Header/logo Title */
     .header {
-      padding: 80px;
-      text-align: center;
-      background: #1abc9c;
-      color: white;
+        padding: 80px;
+        text-align: center;
+        background: #1abc9c;
+        color: white;
     }
 
     /* Increase the font size of the heading */
     .header h1 {
-      font-size: 40px;
+        font-size: 40px;
+    }
+
+    .carousel{
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5);
     }
 
     /* footer */
     .footer {
-      /* text-align: center; */
+        /* text-align: center; */
     }
 
     /* Responsive layout - when the screen is less than 700px wide, make the two columns stack on top of each other instead of next to each other */
     @media screen and (max-width: 700px) {
-      .row {
-        flex-direction: column;
-      }
+        .row {
+            flex-direction: column;
+        }
     }
 
     /* Responsive layout - when the screen is less than 400px wide, make the navigation links stack on top of each other instead of next to each other */
     @media screen and (max-width: 400px) {
-      .navbar a {
-        float: none;
-        width: 100%;
-      }
+        .navbar a {
+            float: none;
+            width: 100%;
+        }
     }
-
-    </style>
+</style>
 
 
 <script>
@@ -138,4 +149,17 @@
     function closeSearch() {
       document.getElementById("myOverlay").style.display = "none";
     }
-    </script>
+
+    // OWL-CAROUSEL
+    $(document).ready(function(){
+        $('.owl-carousel').owlCarousel({
+            items:1,
+            margin:10,
+            loop:true,
+            autoHeight:true,
+            autoplay:true,
+            autoplayTimeout:3000,
+        });
+    });
+
+</script>

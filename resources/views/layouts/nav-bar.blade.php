@@ -66,6 +66,9 @@
         position: relative;
         background-color: #b7dfb8;
     }
+    .navbar .nav-item a{
+        font-size: 1.2rem;
+    }
     .marquee{
         position: absolute;
         top: 0;

@@ -4,6 +4,7 @@
 
 {{-- PRODUCT --}}
 <div class="container my-5">
+    <h3 class="text-primary mb-3">TOP SẢN PHẨM BÁN CHẠY</h3>
     <div class="grid-container">
 
         <div class="card">
