@@ -12,5 +12,7 @@ class Product extends Model
     protected $primaryKey = 'id';
     //mặc định khoá chính sẽ tự  động tăng
     public $incrementing = false;
-    protected $fillable = ['id', 'name', 'price', 'description', 'image', 'updated_at', 'created_at'];
+    protected $fillable = ['id', 'name', 'price', 'description','content','discount','sellCount','dvt',
+                            'madeIn', 'useFor', 'image', 'ingredient', 'safety', 'brandId', 'groupId','updated_at', 'created_at',
+                            ];
 }

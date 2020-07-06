@@ -27,15 +27,15 @@
             </div>
             <div class="footer-width-50">
                 <div class="slogan">
-                    <img src="{{url('img/logo-company.png')}}" alt="">
+                    <img src="{{url('img/footer/logo-company.png')}}" alt="">
                     <a href="">Người bạn đồng hành của mọi gia đình</a>
                     <a href="">Nâng tầm chất lượng cuộc sống Việt.</a>
                 </div>
                 <div class="download-app">
                     <a href="https://appstore.com" class="icon-appstore-footer"><img
-                            src="{{ url('img/download-appstore.png') }}"></a>
+                            src="{{ url('img/footer/download-appstore.png') }}"></a>
                     <a href="https://play.google.com" class="icon-android-footer"><img
-                            src="{{ url('img/download-googleplay.png') }}"></a>
+                            src="{{ url('img/footer/download-googleplay.png') }}"></a>
                 </div>
             </div>
         </div>
@@ -44,25 +44,25 @@
         <div class="footer-inner">
             <div class="footer-width-50">
                 <div class="footer-title">Phương thức thanh toán</div>
-                <div class="pull-left"><img src="{{url('img/payment.png')}}" alt="" width="40%"></div>
-                <div class="pull-left"><img src="{{ url('img/payment_cashdelivery.png') }}" alt="" width="30%"></div>
+                <div class="pull-left"><img src="{{url('img/footer/payment.png')}}" alt="" width="40%"></div>
+                <div class="pull-left"><img src="{{ url('img/footer/payment_cashdelivery.png') }}" alt="" width="30%"></div>
             </div>
             <div class="footer-width-25">
                 <div class="footer-title">Dịch vụ giao nhận</div>
-                <div class="pull-left"><img src="{{ url('img/delivery_ahamove.png') }}" alt="" width="35%">
-                    <img src="{{ url('img/delivery_GHN.png') }}" alt="" width="30%"></div>
-                <div class="pull-left"><img src="{{ url('img/delivery_ninjavan.png') }}" alt="" width="35%"></div>
+                <div class="pull-left"><img src="{{ url('img/footer/delivery_ahamove.png') }}" alt="" width="35%">
+                    <img src="{{ url('img/footer/delivery_GHN.png') }}" alt="" width="30%"></div>
+                <div class="pull-left"><img src="{{ url('img/footer/delivery_ninjavan.png') }}" alt="" width="35%"></div>
             </div>
             <div class="footer-width-25">
                 <div class="footer-title">Chứng nhận bởi</div>
-                <div class="pull-left"><img src="{{ url('img/verify_boCT.png')}}" alt="" width="70%"></div>
+                <div class="pull-left"><img src="{{ url('img/footer/verify_boCT.png')}}" alt="" width="70%"></div>
             </div>
         </div>
     </div>
     <div class="footer-third">
         <div class="footer-inner">
             <div class="footer-width-50">
-                <div class="footer-title">Công ty cổ phần dược phẩm Cucumber</div>
+                <div class="footer-title">Công ty cổ phần dược phẩm, thực phẩm chức năng Cucumber</div>
                 <ul class="footer-list">
                     <li class="footer-li">Giấy chứng nhận ĐKKD số 000000000000 do Sở KH-ĐT TP.HCM cấp ngày 01/01/2000
                     </li>
@@ -73,11 +73,11 @@
             </div>
             <div class="footer-width-25">
                 <div class="pull-left follow-icon">
-                    <a href="https://www.facebook.com" class=""><img src="{{url('img/follow_fb.png')}}" alt=""></a>
-                    <a href="https://www.instagram.com" class=""><img src="{{url('img/follow_in.png')}}" alt=""></a>
-                    <a href="https://twitter.com" class=""><img src="{{url('img/follow_tt.png')}}" alt=""></a>
-                    <a href="https://www.youtube.com" class=""><img src="{{url('img/follow_yt.png')}}" alt=""></a>
-                    <a href="https://www.linkedin.com" class=""><img src="{{url('img/follow_ln.png')}}" alt=""></a>
+                    <a href="https://www.facebook.com" class=""><img src="{{url('img/footer/follow_fb.png')}}" alt=""></a>
+                    <a href="https://www.instagram.com" class=""><img src="{{url('img/footer/follow_in.png')}}" alt=""></a>
+                    <a href="https://twitter.com" class=""><img src="{{url('img/footer/follow_tt.png')}}" alt=""></a>
+                    <a href="https://www.youtube.com" class=""><img src="{{url('img/footer/follow_yt.png')}}" alt=""></a>
+                    <a href="https://www.linkedin.com" class=""><img src="{{url('img/footer/follow_ln.png')}}" alt=""></a>
                 </div>
             </div>
             <div class="footer-width-25">
@@ -146,7 +146,7 @@
     ol,
     ul {
         box-sizing: border-box;
-        white-space: nowrap;
+        /* white-space: nowrap; */
     }
 
     .footer-title {

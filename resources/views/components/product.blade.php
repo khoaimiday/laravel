@@ -9,7 +9,6 @@
 </div> --}}
 
 
-
 <div class="card">
     <img src="{{ !empty($image)?: "https://picsum.photos/300/375" }}" alt="Denim Jeans" style="width:100%">
     <div class="card-body">
@@ -20,5 +19,7 @@
     </div>
 </div>
 
-
+<style>
+    
+</style>
 
