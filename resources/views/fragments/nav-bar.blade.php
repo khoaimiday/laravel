@@ -20,7 +20,7 @@
             <ul class="navbar-nav ml-auto">
 
                 {{-- search bar --}}
-                @include('layouts.search')
+                @include('fragments.search')
 
                 <!-- Authentication Links -->
                 @guest
