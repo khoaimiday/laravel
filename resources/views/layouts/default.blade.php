@@ -32,13 +32,15 @@
 </head>
 
 <body>
-
+  
     {{-- MY WEBSITE --}}
 
     {{-- NAV-BAR --}}
     @include('layouts.nav-bar')
     {{-- NAV-BAR --}}
-
+<div id="mainWrapper">
+    <div id="superTint"></div>
+    <div class="grid">
 
     {{-- HEADER --}}
     <div class="header">
@@ -67,14 +69,17 @@
     {{-- ABOUT PAGE --}}
     @include('layouts.about')
     {{-- END ABOUT PAGE --}}
-
+    </div>
+    </div>
     {{-- FOOTER --}}
     <div class="footer">
         @include('layouts.footer')
     </div>
-    {{-- FOOTER --}}
+
+    {{--END FOOTER --}}
 
     {{-- END MY WEBSITE --}}
+  
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -97,10 +102,9 @@
     /* Style the body */
     body {
         font-family: Arial, Helvetica, sans-serif;
-        margin: 0;
-        font-size: 12px;
-        background-color: #dbefdc
-    }
+        font-size: 11px;
+        background-color: #fff;
+            }
 
     /* Header/logo Title */
     .header {
@@ -112,7 +116,7 @@
 
     /* Increase the font size of the heading */
     .header h1 {
-        font-size: 40px;
+        font-size: 25px;
     }
 
     .carousel{
@@ -138,6 +142,42 @@
             width: 100%;
         }
     }
+    body #mainWrapper{
+        padding-top:0;
+        min-height:100%;
+        overflow:hidden;
+        position:relative;
+    }
+    @media (min-width:768px){
+        body #mainWrapper{
+            margin-left:95px;
+        }
+        footer{
+            margin-left:95px;
+        }
+    }
+    #superTint{
+        background:transparent;
+        display:block;
+        height:100%;
+        left:0;
+        transition:all 300ms;
+        opacity:0.75;
+        position:fixed;
+        top:0;
+        visibility:hidden;
+        width:100%;
+        z-index:110;
+    }
+    .grid{
+        position:relative;
+        width:100%;
+        float:left;
+        display:inline-block;
+        min-height:100%;
+        height:100%;
+    }
+
 </style>
 
 

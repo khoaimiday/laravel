@@ -94,7 +94,7 @@
     .main-footer {
         font-family: Roboto-Regular, 'Helvetica Neue', Helvetica, Tahoma, Arial, Sans-serif;
         font-weight: 200;
-        font-size: 12px;
+        font-size: 11px;
         padding: 0;
         min-width: 1188px;
         width: 100%;
@@ -150,7 +150,7 @@
     }
 
     .footer-title {
-        font-size: 16px;
+        font-size: 15px;
         font-weight: 300;
         line-height: 35px;
         color: #0f136d;
