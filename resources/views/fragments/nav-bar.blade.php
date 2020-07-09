@@ -1,11 +1,11 @@
 <div class="marquee">
-    <marquee> </marquee>
+    <marquee>Đây là một ví dụ về html marquee </marquee>
 </div>
 <nav class="navbar navbar-expand-md navbar-light shadow-sm">
     <div class="container-fluid">
-        <!-- <a class="navbar-brand" href="{{ url('/') }}">
+        <a class="navbar-brand" href="{{ url('/') }}">
             <img src="{{ url('favicon_io2/android-chrome-512x512.png')}}" alt="Logo">
-        </a> -->
+        </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
             <span class="navbar-toggler-icon"></span>

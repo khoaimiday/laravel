@@ -31,63 +31,6 @@
     @yield('style')
 </head>
 
-<body>
-
-    {{-- MY WEBSITE --}}
-
-    {{-- NAV-BAR --}}
-    @include('layouts.nav-bar')
-    {{-- NAV-BAR --}}
-
-
-    {{-- HEADER --}}
-    <div class="header">
-        <h1>My Website</h1>
-        <p>A <b>responsive</b> website created by me.</p>
-    </div>
-    {{-- HEADER --}}
-
-    {{-- CAROU-SEL  --}}
-        <section class="carousel my-2 mx-2">
-            @include('layouts.carousel')
-        </section>
-    {{-- CAROU-SEL --}}
-
-
-    {{-- MAIN CONTENT --}}
-    <div class="main">
-        @yield('content')
-    </div>
-    {{-- MAIN CONTENT --}}
-
-    {{-- USE-MORE --}}
-    @include('layouts.use-more')
-    {{-- END USE-MORE --}}
-
-    {{-- ABOUT PAGE --}}
-    @include('layouts.about')
-    {{-- END ABOUT PAGE --}}
-
-    {{-- FOOTER --}}
-    <div class="footer">
-        @include('layouts.footer')
-    </div>
-    {{-- FOOTER --}}
-
-    {{-- END MY WEBSITE --}}
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js">
-    </script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js">
-    </script>
-    <script src="{{ url('owlcarousel/owl.carousel.min.js') }}"></script>
-</body>
-
-</html>
-
-
 {{-- CSS --}}
 <style>
     * {
@@ -112,13 +55,33 @@
 
     /* Increase the font size of the heading */
     .header h1 {
-        font-size: 40px;
+        font-size: 30px;
     }
 
     .carousel{
         box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5);
     }
+    .carousel .owl-dots{
+        position: absolute;
+        bottom: 10px;
+        left: 0px;
+        right: 0px;
+    }
+    .owl-theme .owl-dots .owl-dot span {
+        border: 3px solid #fff;
+        height: 15px;
+        width: 15px;
+        background-color: transparent;
+        opacity: .4;
+        transition: opacity .3s;
+    }
+    .owl-theme .owl-dots .owl-dot.active span, .owl-theme .owl-dots .owl-dot:hover span{
+        background-color: white;
+        opacity: 1;
+        border: 3px solid #fff;
+    }
 
+    is-selected
     /* footer */
     .footer {
         /* text-align: center; */
@@ -138,9 +101,106 @@
             width: 100%;
         }
     }
+    body #mainWrapper{
+        padding-top:0;
+        min-height:100%;
+        overflow:hidden;
+        position:relative;
+    }
+    @media (min-width:768px){
+        body #mainWrapper{
+            margin-left:95px;
+        }
+        footer{
+            margin-left:95px;
+        }
+    }
+    #superTint{
+        background:transparent;
+        display:block;
+        height:100%;
+        left:0;
+        transition:all 300ms;
+        opacity:0.75;
+        position:fixed;
+        top:0;
+        visibility:hidden;
+        width:100%;
+        z-index:110;
+    }
+    .grid{
+        position:relative;
+        width:100%;
+        float:left;
+        display:inline-block;
+        min-height:100%;
+        height:100%;
+    }
+
 </style>
 
+{{-- BODY --}}
+<body>
 
+    {{-- MY WEBSITE --}}
+
+    {{-- NAV-BAR --}}
+    @include('fragments.nav-bar')
+    {{-- NAV-BAR --}}
+<div id="mainWrapper">
+    <div id="superTint"></div>
+    <div class="grid">
+
+    {{-- HEADER --}}
+    <div class="header">
+        <h1>My Website</h1>
+        <p>A <b>responsive</b> website created by me.</p>
+    </div>
+    {{-- HEADER --}}
+
+    {{-- CAROU-SEL  --}}
+        <section class="carousel my-2 mx-2">
+            @include('fragments.carousel')
+        </section>
+    {{-- CAROU-SEL --}}
+
+
+    {{-- MAIN CONTENT --}}
+    <div class="main">
+        @yield('content')
+    </div>
+    {{-- MAIN CONTENT --}}
+
+    {{-- USE-MORE --}}
+    @include('fragments.use-more')
+    {{-- END USE-MORE --}}
+
+    {{-- ABOUT PAGE --}}
+    @include('fragments.about')
+    {{-- END ABOUT PAGE --}}
+    </div>
+    </div>
+    {{-- FOOTER --}}
+    <div class="footer">
+        @include('fragments.footer')
+    </div>
+    {{-- FOOTER --}}
+
+    {{-- END MY WEBSITE --}}
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js">
+    </script>
+    <script src="{{ url('owlcarousel/owl.carousel.min.js') }}"></script>
+</body>
+{{-- END BODY --}}
+</html>
+
+
+{{-- SCRIPT --}}
 <script>
     function openSearch() {
       document.getElementById("myOverlay").style.display = "block";
@@ -158,7 +218,7 @@
             loop:true,
             autoHeight:true,
             autoplay:true,
-            autoplayTimeout:3000,
+            autoplayTimeout:5000,
         });
     });
 
