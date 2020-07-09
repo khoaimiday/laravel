@@ -9,31 +9,7 @@
 
         <div class="card">
             <img src="https://picsum.photos/300/375" alt="Denim Jeans" style="width:100%">
-            <h3>Tailored Jeans</h3>
-            <p class="price">$19.99</p>
-            <p>Some text about the jeans..</p>
-            <p><button>Add to Cart</button></p>
-        </div>
-
-        <div class="card">
-            <img src="https://picsum.photos/300/375" alt="Denim Jeans" style="width:100%">
-            <h3>Tailored Jeans</h3>
-            <p class="price">$19.99</p>
-            <p>Some text about the jeans..</p>
-            <p><button>Add to Cart</button></p>
-        </div>
-
-        <div class="card">
-            <img src="https://picsum.photos/300/375" alt="Denim Jeans" style="width:100%">
-            <h3>Tailored Jeans</h3>
-            <p class="price">$19.99</p>
-            <p>Some text about the jeans..</p>
-            <p><button>Add to Cart</button></p>
-        </div>
-
-        <div class="card">
-            <img src="https://picsum.photos/300/375" alt="Denim Jeans" style="width:100%">
-            <h3>Tailored Jeans</h3>
+            <h2>Tailored Jeans</h2>
             <p class="price">$19.99</p>
             <p>Some text about the jeans..</p>
             <p><button>Add to Cart</button></p>
@@ -49,7 +25,31 @@
 
         <div class="card">
             <img src="https://picsum.photos/300/375" alt="Denim Jeans" style="width:100%">
-            <h3>Tailored Jeans</h3>
+            <h2>Tailored Jeans</h2>
+            <p class="price">$19.99</p>
+            <p>Some text about the jeans..</p>
+            <p><button>Add to Cart</button></p>
+        </div>
+
+        <div class="card">
+            <img src="https://picsum.photos/300/375" alt="Denim Jeans" style="width:100%">
+            <h2>Tailored Jeans</h2>
+            <p class="price">$19.99</p>
+            <p>Some text about the jeans..</p>
+            <p><button>Add to Cart</button></p>
+        </div>
+
+        <div class="card">
+            <img src="https://picsum.photos/300/375" alt="Denim Jeans" style="width:100%">
+            <h2>Tailored Jeans</h2>
+            <p class="price">$19.99</p>
+            <p>Some text about the jeans..</p>
+            <p><button>Add to Cart</button></p>
+        </div>
+
+        <div class="card">
+            <img src="https://picsum.photos/300/375" alt="Denim Jeans" style="width:100%">
+            <h2>Tailored Jeans</h2>
             <p class="price">$19.99</p>
             <p>Some text about the jeans..</p>
             <p><button>Add to Cart</button></p>
@@ -75,7 +75,7 @@
 
     .price {
         color: grey;
-        font-size: 16px;
+        font-size: 22px;
     }
 
     .card button {
