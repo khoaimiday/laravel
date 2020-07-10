@@ -96,7 +96,7 @@
         font-weight: 200;
         font-size: 11px;
         padding: 0;
-        min-width: 1188px;
+        min-width: 1090px;
         width: 100%;
         color: #888;
         box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3);
@@ -141,11 +141,6 @@
         background-color: transparent;
     }
 
-    *,
-    li,
-    ol,
-    ul {
-        box-sizing: border-box;
         /* white-space: nowrap; */
     }
 

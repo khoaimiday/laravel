@@ -16,6 +16,7 @@
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
     <!-- Styles -->
@@ -46,20 +47,36 @@
     }
 
     /* Header/logo Title */
-    .header {
-        padding: 80px;
-        text-align: center;
-        background: #1abc9c;
-        color: white;
+    .header { 
+        width:100%;
+        height:100%;
+        padding-right:5%;
+        padding-top:5%;
+        color: #1B4E00;
+        text-align:right;
+        
+        font-family: 'M PLUS Rounded 1c', sans-serif;
     }
-
+    .headerfont{
+        
+        font-size: 60px;
+    }
+    .topheader{
+        padding-right:50px;
+        background-image: url('img/nav/3.png');
+        min-height:400px;
+        background-size:cover;
+        background-repeat:no-repeat;
+        background-color:rgba(0,0,0,0);
+        background-origin:padding-box;
+    }
     /* Increase the font size of the heading */
-    .header h1 {
-        font-size: 30px;
+    .header p {
+        font-size: 25px;
     }
 
-    .carousel{
-        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5);
+        .carousel{
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.8);
     }
     .carousel .owl-dots{
         position: absolute;
@@ -114,20 +131,11 @@
         footer{
             margin-left:95px;
         }
+        .navbar {
+            margin-left:95px;
+        }
     }
-    #superTint{
-        background:transparent;
-        display:block;
-        height:100%;
-        left:0;
-        transition:all 300ms;
-        opacity:0.75;
-        position:fixed;
-        top:0;
-        visibility:hidden;
-        width:100%;
-        z-index:110;
-    }
+
     .grid{
         position:relative;
         width:100%;
@@ -141,25 +149,27 @@
 
 {{-- BODY --}}
 <body>
-
     {{-- MY WEBSITE --}}
 
     {{-- NAV-BAR --}}
     @include('fragments.nav-bar')
     {{-- NAV-BAR --}}
 <div id="mainWrapper">
-    <div id="superTint"></div>
-    <div class="grid">
+   <div class="grid">
+    <div class="topheader">
+    {{-- NAV-BAR-TOP --}}
+    @include('fragments.nav-bar-top')
+    {{-- NAV-BAR-TOP --}}
 
     {{-- HEADER --}}
     <div class="header">
-        <h1>My Website</h1>
-        <p>A <b>responsive</b> website created by me.</p>
-    </div>
+        <div class="headerfont">Chăm sóc sức khoẻ</div> 
+        <p> là <b class="headerfont">Ưu tiên hàng đầu</b> của Cucumber.</p>
+    </div> 
     {{-- HEADER --}}
-
+    </div>
     {{-- CAROU-SEL  --}}
-        <section class="carousel my-2 mx-2">
+        <section class="carousel my-3 mx-3">
             @include('fragments.carousel')
         </section>
     {{-- CAROU-SEL --}}
@@ -171,15 +181,16 @@
     </div>
     {{-- MAIN CONTENT --}}
 
+    {{-- ABOUT PAGE --}}
+    @include('fragments.about')
+    {{-- END ABOUT PAGE --}}
+
     {{-- USE-MORE --}}
     @include('fragments.use-more')
     {{-- END USE-MORE --}}
 
-    {{-- ABOUT PAGE --}}
-    @include('fragments.about')
-    {{-- END ABOUT PAGE --}}
-    </div>
-    </div>
+   </div>
+  </div>
     {{-- FOOTER --}}
     <div class="footer">
         @include('fragments.footer')

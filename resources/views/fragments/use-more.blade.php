@@ -11,7 +11,7 @@
     .use-section {
         padding: 80px;
         text-align: center;
-        background: #1abc9c;
+        background:#9ACD32;
         color: white;
     }
 
