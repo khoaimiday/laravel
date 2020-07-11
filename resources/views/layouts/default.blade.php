@@ -46,44 +46,52 @@
         background-color: #dbefdc
     }
 
-    /* Header/logo Title */
-    .header { 
-        width:100%;
-        height:100%;
-        padding-right:5%;
-        padding-top:5%;
+    /* HEADER #### LOGO TITLE */
+    .header {
+        width: 100%;
+        height: 100%;
+        padding-right: 8%;
+        padding-top: 5%;
         color: #1B4E00;
-        text-align:right;
-        
+        text-align: right;
+
         font-family: 'M PLUS Rounded 1c', sans-serif;
     }
-    .headerfont{
-        
+
+    .headerfont {
+
         font-size: 60px;
     }
-    .topheader{
-        padding-right:50px;
+
+    .topheader {
+        /* padding-right: 50px; */
         background-image: url('img/nav/3.png');
-        min-height:400px;
-        background-size:cover;
-        background-repeat:no-repeat;
-        background-color:rgba(0,0,0,0);
-        background-origin:padding-box;
+        min-height: 400px;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-color: rgba(0, 0, 0, 0);
+        background-origin: padding-box;
     }
+
     /* Increase the font size of the heading */
     .header p {
         font-size: 25px;
     }
+    /* END HEADER #### LOGO TITLE */
 
-        .carousel{
-            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.8);
+
+    /* CAROUSEL */
+    .carousel {
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.8);
     }
-    .carousel .owl-dots{
+
+    .carousel .owl-dots {
         position: absolute;
         bottom: 10px;
         left: 0px;
         right: 0px;
     }
+
     .owl-theme .owl-dots .owl-dot span {
         border: 3px solid #fff;
         height: 15px;
@@ -92,17 +100,25 @@
         opacity: .4;
         transition: opacity .3s;
     }
-    .owl-theme .owl-dots .owl-dot.active span, .owl-theme .owl-dots .owl-dot:hover span{
+
+    .owl-theme .owl-dots .owl-dot.active span {
         background-color: white;
         opacity: 1;
         border: 3px solid #fff;
     }
 
-    is-selected
-    /* footer */
+    .owl-theme .owl-dots .owl-dot:hover span {
+        background-color: transparent;
+        border: 3px solid #fff;
+        opacity: 1;
+    }
+    /* END CAROUSEL */
+
+    /* FOOTER */
     .footer {
         /* text-align: center; */
     }
+    /* END FOOTER */
 
     /* Responsive layout - when the screen is less than 700px wide, make the two columns stack on top of each other instead of next to each other */
     @media screen and (max-width: 700px) {
@@ -118,80 +134,86 @@
             width: 100%;
         }
     }
-    body #mainWrapper{
-        padding-top:0;
-        min-height:100%;
-        overflow:hidden;
-        position:relative;
+
+    body #mainWrapper {
+        padding-top: 0;
+        min-height: 100%;
+        overflow: hidden;
+        position: relative;
     }
-    @media (min-width:768px){
-        body #mainWrapper{
-            margin-left:95px;
+
+    @media (min-width:768px) {
+        body #mainWrapper {
+            margin-left: 95px;
         }
-        footer{
-            margin-left:95px;
+
+        footer {
+            margin-left: 95px;
         }
+
         .navbar {
-            margin-left:95px;
+            margin-left: 95px;
         }
     }
-
-    .grid{
-        position:relative;
-        width:100%;
-        float:left;
-        display:inline-block;
-        min-height:100%;
-        height:100%;
+    .grid {
+        position: relative;
+        width: 100%;
+        float: left;
+        display: inline-block;
+        min-height: 100%;
+        height: 100%;
     }
-
 </style>
 
 {{-- BODY --}}
+
 <body>
     {{-- MY WEBSITE --}}
 
     {{-- NAV-BAR --}}
     @include('fragments.nav-bar')
     {{-- NAV-BAR --}}
-<div id="mainWrapper">
-   <div class="grid">
-    <div class="topheader">
-    {{-- NAV-BAR-TOP --}}
-    @include('fragments.nav-bar-top')
-    {{-- NAV-BAR-TOP --}}
+    <div id="mainWrapper">
+        <div class="grid">
+            <div class="topheader">
+                {{-- NAV-BAR-TOP --}}
+                @include('fragments.nav-bar-top')
+                {{-- NAV-BAR-TOP --}}
 
-    {{-- HEADER --}}
-    <div class="header">
-        
-        <div class="headerfont">Chăm sóc sức khoẻ</div> 
-        <p> là <b class="headerfont">Ưu tiên hàng đầu</b> của Cucumber.</p>
-    </div> 
-    {{-- HEADER --}}
+                {{-- HEADER --}}
+                <div class="header">
+
+                    <div class="headerfont">Chăm sóc sức khoẻ</div>
+                    <p> là <b class="headerfont">Ưu tiên hàng đầu</b> của Cucumber.</p>
+                </div>
+                {{-- HEADER --}}
+            </div>
+
+            <marquee behavior="alternate" direction="" truespeed="2300">Khúc này muội muốn để gì thì để :))))))))))Khúc này muội muốn để gì thì để :))))))))))Khúc này muội muốn để gì thì để :))))))))))</marquee>
+
+            {{-- CAROU-SEL  --}}
+            <section class="carousel my-1 mx-1">
+                @include('fragments.carousel')
+            </section>
+            {{-- CAROU-SEL --}}
+
+
+            {{-- MAIN CONTENT --}}
+            <div class="main">
+                @yield('content')
+            </div>
+            {{-- MAIN CONTENT --}}
+
+            {{-- ABOUT PAGE --}}
+            @include('fragments.about')
+            {{-- END ABOUT PAGE --}}
+
+            {{-- USE-MORE --}}
+            @include('fragments.use-more')
+            {{-- END USE-MORE --}}
+
+        </div>
     </div>
-    {{-- CAROU-SEL  --}}
-        <section class="carousel my-3 mx-3">
-            @include('fragments.carousel')
-        </section>
-    {{-- CAROU-SEL --}}
-
-
-    {{-- MAIN CONTENT --}}
-    <div class="main">
-        @yield('content')
-    </div>
-    {{-- MAIN CONTENT --}}
-
-    {{-- ABOUT PAGE --}}
-    @include('fragments.about')
-    {{-- END ABOUT PAGE --}}
-
-    {{-- USE-MORE --}}
-    @include('fragments.use-more')
-    {{-- END USE-MORE --}}
-
-   </div>
-  </div>
     {{-- FOOTER --}}
     <div class="footer">
         @include('fragments.footer')
@@ -209,6 +231,7 @@
     <script src="{{ url('owlcarousel/owl.carousel.min.js') }}"></script>
 </body>
 {{-- END BODY --}}
+
 </html>
 
 
@@ -235,3 +258,4 @@
     });
 
 </script>
+{{-- END SCRIPT --}}
