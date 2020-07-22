@@ -31,9 +31,7 @@
                     </li>
                     @endif
                     @else
-                    <a href="" class="iconSearch">
-                        <div class="search"><img src="{{ url('img/nav/search.png') }}" alt=""></div>
-                    </a>
+
                     <a href="" class="iconShoppingCart">
                         <div class="shoppingCart"><img src="{{ url('img/nav/shoppingCart.png') }}" alt=""></div>
                     </a>

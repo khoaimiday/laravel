@@ -117,6 +117,8 @@
     /* FOOTER */
     .footer {
         /* text-align: center; */
+        overflow: hidden;
+        position: relative;
     }
     /* END FOOTER */
 
@@ -134,48 +136,15 @@
             width: 100%;
         }
     }
-
-    body #mainWrapper {
-        padding-top: 0;
-        min-height: 100%;
-        overflow: hidden;
-        position: relative;
-    }
-
-    @media (min-width:768px) {
-        body #mainWrapper {
-            margin-left: 95px;
-        }
-
-        footer {
-            margin-left: 95px;
-        }
-
-        .navbar {
-            margin-left: 95px;
-        }
-    }
-    .grid {
-        position: relative;
-        width: 100%;
-        float: left;
-        display: inline-block;
-        min-height: 100%;
-        height: 100%;
-    }
 </style>
 
 {{-- BODY --}}
 
 <body>
     {{-- MY WEBSITE --}}
-
-    {{-- NAV-BAR --}}
-    @include('fragments.nav-bar')
-    {{-- NAV-BAR --}}
-    <div id="mainWrapper">
-        <div class="grid">
-            <div class="topheader">
+    
+    @include('fragments.topheader')
+             <div class="topheader">
                 {{-- NAV-BAR-TOP --}}
                 @include('fragments.nav-bar-top')
                 {{-- NAV-BAR-TOP --}}
@@ -212,14 +181,13 @@
             @include('fragments.use-more')
             {{-- END USE-MORE --}}
 
-        </div>
-    </div>
+       
     {{-- FOOTER --}}
     <div class="footer">
         @include('fragments.footer')
     </div>
     {{-- FOOTER --}}
-
+    
     {{-- END MY WEBSITE --}}
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
