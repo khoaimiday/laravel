@@ -33,6 +33,7 @@ Route::get('/test', function(){
     return view('product.index');
 })->middleware('auth');
 
+Route::get('/news','NewsController@index');
 
 // USER ROUTE
 Route::get('/product', 'ProductController@index');

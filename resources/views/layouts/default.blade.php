@@ -54,7 +54,6 @@
         padding-top: 5%;
         color: #1B4E00;
         text-align: right;
-
         font-family: 'M PLUS Rounded 1c', sans-serif;
     }
 
@@ -63,7 +62,7 @@
         font-size: 60px;
     }
 
-    .topheader {
+    .topheader2 {
         /* padding-right: 50px; */
         background-image: url('img/nav/3.png');
         min-height: 400px;
@@ -144,7 +143,7 @@
     {{-- MY WEBSITE --}}
     
     @include('fragments.topheader')
-             <div class="topheader">
+             <div class="topheader2">
                 {{-- NAV-BAR-TOP --}}
                 @include('fragments.nav-bar-top')
                 {{-- NAV-BAR-TOP --}}

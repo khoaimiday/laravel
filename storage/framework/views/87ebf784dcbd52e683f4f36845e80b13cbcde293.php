@@ -54,7 +54,6 @@
         padding-top: 5%;
         color: #1B4E00;
         text-align: right;
-
         font-family: 'M PLUS Rounded 1c', sans-serif;
     }
 
@@ -63,7 +62,7 @@
         font-size: 60px;
     }
 
-    .topheader {
+    .topheader2 {
         /* padding-right: 50px; */
         background-image: url('img/nav/3.png');
         min-height: 400px;
@@ -144,7 +143,7 @@
     
     
     <?php echo $__env->make('fragments.topheader', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
-             <div class="topheader">
+             <div class="topheader2">
                 
                 <?php echo $__env->make('fragments.nav-bar-top', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
                 

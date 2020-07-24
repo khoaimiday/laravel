@@ -1,3 +1,4 @@
+
 <div class="navigation topNav">
     <nav class="navbar navbar-expand-md navbar-light  ">
         <div class="container-fluid">
@@ -55,8 +56,8 @@
                 </ul>
             </div>
         </div>
+    </nav>
 </div>
-</nav>
 <style>
     .navbar .navbar-brand img {
         position: absolute;
