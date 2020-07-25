@@ -46,9 +46,12 @@
 
     }
     .new-wrap{
-        margin-left: 10px;
-        margin-right:10px;
+        margin-top:0;
+        margin-bottom:0;
         background-color: #dbefdc;
+        padding-left:5px;
+        padding-right:5px;
+        padding-top:0;
     }
 
     </style>
@@ -71,7 +74,7 @@
      </div>
   </div>
   <div class="container">
-    <div class="new-wrap px-2 py-2 mx-0">
+    <div class="new-wrap">
         @foreach ($news as $new)
         <div class="mt-2 mb-2 ml-2">
           <div class="new-topic">

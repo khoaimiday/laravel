@@ -38,6 +38,9 @@ Route::get('/news','NewsController@index');
 // USER ROUTE
 Route::get('/product', 'ProductController@index');
 Route::get('/seedproduct', 'ProductController@seedProduct');
+Route::get('/store',function(){
+    return view('components.store');
+});
 
 // FAKER
 Route::get('/customer', function(){

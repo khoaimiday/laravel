@@ -58,7 +58,6 @@
     }
 
     .headerfont {
-
         font-size: 60px;
     }
 
