@@ -141,7 +141,7 @@
 
 <body>
     {{-- MY WEBSITE --}}
-    
+
     @include('fragments.topheader')
              <div class="topheader2">
                 {{-- NAV-BAR-TOP --}}
@@ -177,16 +177,16 @@
             {{-- END ABOUT PAGE --}}
 
             {{-- USE-MORE --}}
-            @include('fragments.use-more')
+            {{-- @include('fragments.use-more') --}}
             {{-- END USE-MORE --}}
 
-       
+
     {{-- FOOTER --}}
     <div class="footer">
         @include('fragments.footer')
     </div>
     {{-- FOOTER --}}
-    
+
     {{-- END MY WEBSITE --}}
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
