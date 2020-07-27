@@ -33,13 +33,25 @@ Route::get('/test', function(){
     return view('product.index');
 })->middleware('auth');
 
-Route::get('/news','NewsController@index');
+
+//ADMIN ROUTE
+Route::get('/admin/index','PageController@getAdminIndex');  
+    //News
+    Route::get('/admin/news/index','NewsController@index');
+    Route::get('/admin/news/create','NewsController@create');
+    Route::post('/admin/news/postCreate','NewsController@postCreate');
+    Route::get('/admin/news/update/{id}','NewsController@update');
+    Route::post('/admin/news/postUpdate/{id}','NewsController@postUpdate');
+    Route::get('/admin/news/delete/{id}','NewsController@delete');
+
 
 // USER ROUTE
 Route::get('/product', 'ProductController@index');
 Route::get('/seedproduct', 'ProductController@seedProduct');
+Route::get('/news','PageController@newsIndex');
+Route::get('/home','HomeController@index');
 Route::get('/store',function(){
-    return view('components.store');
+    return view('store.store');
 });
 
 // FAKER

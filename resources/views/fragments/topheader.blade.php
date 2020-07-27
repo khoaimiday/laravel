@@ -1,7 +1,7 @@
 <header class="tophead">
     <div class="tophead-menu">
         <ul class="tophead-menu-list">
-            <li class="tophead-menu-left"><a href=""><img src="{{url('img/nav/Home.png')}}" alt="">  Trang chủ</a></li>
+            <li class="tophead-menu-left"><a href="{{ ('home') }}"><img src="{{url('img/nav/Home.png')}}" alt="">  Trang chủ</a></li>
             <li class="tophead-menu-left"><a href=""><img src="{{url('img/nav/Product.png')}}" alt="">  Sản phẩm</a></li>
                 <!-- <div class="tophead-menu-dropdown">
                     <ul class="tophead-menu-dropdown">
@@ -10,7 +10,7 @@
                     </ul>
                 </div> -->
             <li class="tophead-menu-left"><a href="{{ ('store') }}"><img src="{{url('img/nav/Store.png')}}" alt="">  Cửa hàng</a></li>
-            <li class="tophead-menu-right"><a href="">Giỏ hàng  <img src="{{url('img/nav/cart.png')}}" alt=""></a></li>
+            <li class="tophead-menu-right"><a href="">Giỏ hàng  <img src="{{url('img/nav/cart.png')}}" alt=""><span class="badge">3</span></a></li>
             <li class="tophead-menu-right"><a href="">Liên hệ  <img src="{{url('img/nav/Contact2.png')}}" alt=""></a></li>
             <li class="tophead-menu-right"><a href="">FAQs  <img src="{{url('img/nav/FAQ.png')}}" alt=""></a></li>
             <li class="tophead-menu-right"><a href="{{('news')}}">Blog  <img src="{{url('img/nav/Blog2.png')}}" alt=""></a></li>    
@@ -67,5 +67,14 @@
     .tophead-menu ul li a img{
         width:15px;
         height:15px;
+    }
+    .badge{
+        position:absolute;
+        top:0px;
+        right:0px;
+        padding:5px 10px;
+        border-radius:50%;
+        background:red;
+        color:white;
     }
 </style>
