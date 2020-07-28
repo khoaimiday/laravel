@@ -20,6 +20,7 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
     <!-- Styles -->
+    <link rel="stylesheet" href="{{ asset('css/style__product.css') }}">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
     {{-- Owl-carousel --}}
@@ -42,7 +43,7 @@
     body {
         font-family: Arial, Helvetica, sans-serif;
         margin: 0;
-        font-size: 12px;
+        font-size: 16px;
         background-color: #dbefdc
     }
 

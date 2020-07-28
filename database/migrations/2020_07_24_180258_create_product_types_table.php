@@ -16,7 +16,7 @@ class CreateProductTypesTable extends Migration
         Schema::create('product_types', function (Blueprint $table) {
             $table->id();
             $table->string('type_name')->unique();
-            $table->string('type_image')->nullable()->default('type-default.png');
+            $table->string('type_image')->default('type-default.png');
             $table->longText('description')->nullable();
             $table->softDeletes();
             $table->timestamps();
