@@ -31,10 +31,17 @@
                                 </div>
                                 <div class="form-group">
                                     <label>Nội dung</label>
-                                    <pre><textarea class="form-control" rows="10" name="content" placeholder="..."></textarea></pre>
+                                    {{-- <pre><textarea class="form-control" rows="10" name="content" id="content" placeholder="..."></textarea></pre> --}}
+                                    <textarea class="form-control ckeditor" rows="10" name="content" id="content" placeholder="..."></textarea>
                                     @if ($errors->has('content'))
                                         <p class="alert alert-danger">{{ $errors->first('content') }}</p>
-                                        @endif
+                                    @endif
+                                    <script>
+                                        CKEDITOR.replace( 'content', {
+                                            language: 'en',
+                                            uiColor: '#9AB8F3'
+                                        });
+                                    </script>
                                 </div>
                                 <div class="form-group">
                                     <label for="txt-name">Chủ đề</label>
@@ -46,7 +53,7 @@
                                         <div class="custom-file">
                                             <input type="file" class="custom-file-input" id="image" name="image">
                                             <label class="custom-file-label" for="image">Chọn hình</label>
-                                           
+
                                         </div>
                                     </div>
                                     @if ($errors->has('image'))

@@ -19,6 +19,26 @@
     <!-- Google Font: Source Sans Pro -->
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 </head>
+<style>
+    p.content{
+      white-space: nowrap;
+      word-wrap: break-word;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 400px;
+    }
+    .content .card-body .text-right{
+        display: flex;
+        justify-content: space-between;
+        width: 7.6em;
+    }
+    .content .card-body .text-right a{
+        padding: .5em .75em;
+    }
+    .content .card-body .text-right a i{
+        font-size: 12px;
+    }
+</style>
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
     <!-- Navbar -->
@@ -33,13 +53,13 @@
         <!-- /.content -->
     </div>
     <!-- /.content-wrapper -->
-@include('fragments.footer2')
+{{-- @include('fragments.footer2')
 
 <!-- Control Sidebar -->
     <aside class="control-sidebar control-sidebar-dark">
         <!-- Control sidebar content goes here -->
     </aside>
-    <!-- /.control-sidebar -->
+    <!-- /.control-sidebar --> --}}
 </div>
 <!-- ./wrapper -->
 
@@ -54,6 +74,9 @@
 <script src="{{ asset('js/adminlte.min.js') }}"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="{{ asset('dist/js/demo.js') }}"></script>
+{{-- CKEDITOR --}}
+<script src="{{ asset('editor/ckeditor/ckeditor.js') }}"></script>
+
 <!-- page script -->
 @yield('script-section')
 </body>

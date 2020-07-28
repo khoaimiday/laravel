@@ -11,6 +11,8 @@ use App\Product;
 use App\Product_type;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\View;
+use Illuminate\Support\Collection;
+use Illuminate\Pagination\LengthAwarePaginator;
 
 use Schema;
 
@@ -49,6 +51,23 @@ class AppServiceProvider extends ServiceProvider
             'productGlobal'         =>  $productGlobal,
             'sttNo'                 =>  $sttNo,
         ]);
+
+
+        // PANIGATE WITH COLLECTION
+        Collection::macro('paginate', function($perPage, $total = null, $page = null, $pageName = 'page') {
+            $page = $page ?: LengthAwarePaginator::resolveCurrentPage($pageName);
+
+            return new LengthAwarePaginator(
+                $this->forPage($page, $perPage),
+                $total ?: $this->count(),
+                $perPage,
+                $page,
+                [
+                    'path' => LengthAwarePaginator::resolveCurrentPath(),
+                    'pageName' => $pageName,
+                ]
+            );
+        });
 
     }
 }

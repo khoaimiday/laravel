@@ -81,6 +81,25 @@ class ProductSeeder extends Seeder
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
+            [
+                'product_name' => 'Bao cao su Durex',
+                'price' => 30000,
+                'short_description' => 'Bao cao su tăng cảm giác, kế hoạch hoá gia đình.',
+                'exp_date' => 12,
+                'product_info' => 'Mebendazole 500mg.',
+                'product_unit' => 'Hộp',
+                'product_quantity' => 6,
+                'product_use' => 'Phytogyno dùng để phòng và điều trị các bệnh viêm nhiễm đường sinh dục, thích hợp cho:
+                                    Vệ sinh vùng kín hàng ngày, đặc biệt tốt cho phụ nữ trong những ngày hành kinh và thời kỳ thai sản.
+                                    Điều trị ngứa do vi nấm, nhiễm nấm Candida, huyết trắng.
+                                    Bệnh nhân bị viêm, ngứa vùng sinh dục: ngứa âm hộ, viêm âm đạo, viêm ngoài tử cung, khí hư, huyết trắng.
+                                    Vệ sinh vùng sinh dục cho nam, nữ trước và sau khi quan hệ tình dục.
+                                    Nam giới bị viêm ngứa vùng sinh dục.',
+                'brand_id' => 6,
+                'product_types_id' => 5,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
         ]);
     }
 }
