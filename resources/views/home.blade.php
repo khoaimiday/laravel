@@ -72,12 +72,10 @@
         text-align: center;
         font-family: arial;
     }
-
     .price {
         color: grey;
         font-size: 22px;
     }
-
     .card button {
         border: none;
         outline: 0;
@@ -89,20 +87,15 @@
         width: 100%;
         font-size: 18px;
     }
-
     .card button:hover {
         opacity: 0.7;
     }
-
     .grid-container {
         margin: auto;
         display: grid;
         grid-gap: 50px 30px;
-
         grid-template-areas: 'myArea myArea myArea myArea';
     }
-
     /* END CSS PRODUCT  */
-
 </style>
 @endsection

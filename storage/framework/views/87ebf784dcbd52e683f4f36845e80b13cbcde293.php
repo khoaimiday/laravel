@@ -58,7 +58,6 @@
     }
 
     .headerfont {
-
         font-size: 60px;
     }
 
@@ -141,7 +140,7 @@
 
 <body>
     
-    
+
     <?php echo $__env->make('fragments.topheader', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
              <div class="topheader2">
                 
@@ -177,16 +176,16 @@
             
 
             
-            <?php echo $__env->make('fragments.use-more', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+            
             
 
-       
+
     
     <div class="footer">
         <?php echo $__env->make('fragments.footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
     </div>
     
-    
+
     
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

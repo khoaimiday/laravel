@@ -39,19 +39,11 @@ class LoginController extends Controller
         $this->middleware('guest')->except('logout');
     }
 
-    /**
-     * The user has been authenticated.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  mixed  $user
-     * @return mixed
-     */
-    protected function authenticated(Request $request, $user)
-    {
-            if($user->role == 0){
-                return redirect()->action('HomeController@index');
-            }else{
-                return view('admin.index');
-            }
+    protected function authenticated(Request $request, $user){
+        if($user->role ==0){
+            return redirect()->action('HomeController@index');
+        }else{
+            return view('admin.index');
+        }
     }
 }

@@ -21,7 +21,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="txt-name">Tiêu đề</label>
-                                <pre><input type="text" class="form-control" id="title" name="name"  value="{{ $new->title }}"></pre>
+                                <pre><input type="text" class="form-control" id="title" name="title"  value="{{ $new->title }}"></pre>
                             </div>
                             <div class="form-group">
                                 <label>Nội dung</label>

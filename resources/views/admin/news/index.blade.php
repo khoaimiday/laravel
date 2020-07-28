@@ -55,7 +55,7 @@
                                 <td>{{ $new->title }}</td>
                                 <td><p class="content">{{ $new->content }}</p></td>
                                 <td>{{ $new->topic }}</td>
-                                <td><img width="100px" src="{{ url('images/news'.$new->image) }}"/></td>
+                                <td><img width="100px" src="{{ url('images/news/'.$new->image) }}"/></td>
                                 <td>{{ $new->created_at }}</td>
                                 <td>{{ $new->updated_at  }}</td>
                                 <td class="text-right">

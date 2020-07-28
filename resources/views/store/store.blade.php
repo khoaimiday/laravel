@@ -83,7 +83,18 @@
             width: 25%;
             margin-bottom: 16px;
             padding: 0 8px;
-         
+        }
+        .column img{
+            height: 230px;
+        }
+        .column .wrap__img{
+            height: 300px;
+            padding :10px;
+        }
+        .column .content__img{
+            height: 300px;
+            padding: 10px;
+
         }
         @media screen and (max-width: 650px) {
             .column {
@@ -91,6 +102,7 @@
             display: block;
             }
         }
+
         .card {
             height:500px;
             box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
@@ -198,8 +210,10 @@ Mỗi một khách hàng đến Cucumber đều được hỗ trợ tận tình,
         <div class="row">
             <div class="column">
                  <div class="card">
+                    <div class="wrap__img">
                     <img src="{{url('img/store/store-p3.jpg')}}" style="width:100%">
-                    <div div class="container">
+                    </div>
+                    <div div class="container content__img">
                         <h2>Chị Anne</h2>
                         <p class="title">Nhân viên văn phòng</p>
                         <p>Công ty ABC Q.2 TPHCM</p>
@@ -209,8 +223,10 @@ Mỗi một khách hàng đến Cucumber đều được hỗ trợ tận tình,
             </div>
             <div class="column">
                  <div class="card">
+                 <div class="wrap__img">
                     <img src="{{url('img/store/store-p4.jpg')}}" style="width:100%">
-                    <div div class="container">
+                    </div>                    
+                    <div div class="container content__img">
                         <h2>Anh Johnatha</h2>
                         <p class="title">Chủ doanh nghiệp</p>
                         <p>Công ty HTH Q.11 TPHCM</p>
@@ -220,8 +236,10 @@ Mỗi một khách hàng đến Cucumber đều được hỗ trợ tận tình,
             </div>
             <div class="column">
                  <div class="card">
+                 <div class="wrap__img">
                     <img src="{{url('img/store/store-p5.jpg')}}" style="width:100%">
-                    <div div class="container">
+                    </div>                    
+                    <div div class="container content__img">
                         <h2>Chị Juliette</h2>
                         <p class="title">Nội trợ</p>
                         <p>Q.Ba Đình Hà Nội</p>
@@ -231,8 +249,10 @@ Mỗi một khách hàng đến Cucumber đều được hỗ trợ tận tình,
             </div>
             <div class="column">
                  <div class="card">
+                 <div class="wrap__img">
                     <img src="{{url('img/store/store-p6.jpg')}}" style="width:100%">
-                    <div div class="container">
+                    </div>                    
+                    <div div class="container content__img">
                         <h2>Bà Isal</h2>
                         <p class="title">Đã về hưu</p>
                         <p>Q.Từ Liêm Hà Nội</p>

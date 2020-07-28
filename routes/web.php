@@ -102,3 +102,7 @@ Route::get('/seedproduct', function(){
     return response()->json($products);
 
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
