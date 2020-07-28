@@ -4,58 +4,33 @@
 
 {{-- PRODUCT --}}
 <div class="container my-5">
-    <h3 class="text-primary mb-3">TOP SẢN PHẨM BÁN CHẠY</h3>
-    <div class="grid-container">
+    <h3 class="text-primary mb-3">SẢN PHẨM BÁN CHẠY</h3>
 
-        <div class="card">
-            <img src="https://picsum.photos/300/375" alt="Denim Jeans" style="width:100%">
-            <h2>Tailored Jeans</h2>
-            <p class="price">$19.99</p>
-            <p>Some text about the jeans..</p>
-            <p><button>Add to Cart</button></p>
+    <div class="row">
+        <div class="col-lg-3">
+            MENU
+            <ul>1</ul>
+            <ul>1</ul>
+            <ul>1</ul>
+            <ul>1</ul>
+            <ul>1</ul>
+            <ul>1</ul>
+            <ul>1</ul>
+            <ul>1</ul>
+            <ul>1</ul>
+            <ul>1</ul>
+            <li>1</li>
         </div>
-
-        <div class="card">
-            <img src="https://picsum.photos/300/375" alt="Denim Jeans" style="width:100%">
-            <h2>Tailored Jeans</h2>
-            <p class="price">$19.99</p>
-            <p>Some text about the jeans..</p>
-            <p><button>Add to Cart</button></p>
-        </div>
-
-        <div class="card">
-            <img src="https://picsum.photos/300/375" alt="Denim Jeans" style="width:100%">
-            <h2>Tailored Jeans</h2>
-            <p class="price">$19.99</p>
-            <p>Some text about the jeans..</p>
-            <p><button>Add to Cart</button></p>
-        </div>
-
-        <div class="card">
-            <img src="https://picsum.photos/300/375" alt="Denim Jeans" style="width:100%">
-            <h2>Tailored Jeans</h2>
-            <p class="price">$19.99</p>
-            <p>Some text about the jeans..</p>
-            <p><button>Add to Cart</button></p>
-        </div>
-
-        <div class="card">
-            <img src="https://picsum.photos/300/375" alt="Denim Jeans" style="width:100%">
-            <h2>Tailored Jeans</h2>
-            <p class="price">$19.99</p>
-            <p>Some text about the jeans..</p>
-            <p><button>Add to Cart</button></p>
-        </div>
-
-        <div class="card">
-            <img src="https://picsum.photos/300/375" alt="Denim Jeans" style="width:100%">
-            <h2>Tailored Jeans</h2>
-            <p class="price">$19.99</p>
-            <p>Some text about the jeans..</p>
-            <p><button>Add to Cart</button></p>
-        </div>
-
+        <div class="col-lg-9">
+            <div class="wrap__product">
+                @foreach ($productGlobal as $p)
+                <x-product :product="$p" />
+                @endforeach
+            </div>
+        </>
     </div>
+
+
 
 </div>
 {{-- END PRODUCT --}}
@@ -90,12 +65,21 @@
     .card button:hover {
         opacity: 0.7;
     }
+<<<<<<< HEAD
+=======
+/*
+>>>>>>> 0aae63810c0af3747f08b4fad4ceb09293b02440
     .grid-container {
         margin: auto;
         display: grid;
         grid-gap: 50px 30px;
         grid-template-areas: 'myArea myArea myArea myArea';
+<<<<<<< HEAD
     }
+=======
+    } */
+
+>>>>>>> 0aae63810c0af3747f08b4fad4ceb09293b02440
     /* END CSS PRODUCT  */
 </style>
 @endsection
