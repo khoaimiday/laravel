@@ -27,7 +27,6 @@
                 <x-product :product="$p" />
                 @endforeach
             </div>
-        </>
     </div>
 
 

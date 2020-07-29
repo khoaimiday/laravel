@@ -39,7 +39,7 @@ class NewsController extends Controller
             $imageName=$file->getClientOriginalName();
             $file->move('images/news',$imageName);
         }
-        else 
+        else
         {
             $imageName=null;
         }
@@ -77,7 +77,7 @@ class NewsController extends Controller
                 $imageName=$file->getClientOriginalName();
                 $file->move('images/news',$imageName);
             }
-            else 
+            else
             {
                 $new=News::find($id);
                 $imageName=$new->image;
