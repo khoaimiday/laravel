@@ -1,59 +1,47 @@
+
+
 <?php $__env->startSection('content'); ?>
 
 
 <div class="container my-5">
-    <h3 class="text-primary mb-3">TOP SẢN PHẨM BÁN CHẠY</h3>
-    <div class="grid-container">
+    <h3 class="text-primary mb-3">SẢN PHẨM BÁN CHẠY</h3>
 
-        <div class="card">
-            <img src="https://picsum.photos/300/375" alt="Denim Jeans" style="width:100%">
-            <h2>Tailored Jeans</h2>
-            <p class="price">$19.99</p>
-            <p>Some text about the jeans..</p>
-            <p><button>Add to Cart</button></p>
+    <div class="row">
+        <div class="col-lg-3">
+            MENU
+            <ul>1</ul>
+            <ul>1</ul>
+            <ul>1</ul>
+            <ul>1</ul>
+            <ul>1</ul>
+            <ul>1</ul>
+            <ul>1</ul>
+            <ul>1</ul>
+            <ul>1</ul>
+            <ul>1</ul>
+            <li>1</li>
         </div>
-
-        <div class="card">
-            <img src="https://picsum.photos/300/375" alt="Denim Jeans" style="width:100%">
-            <h2>Tailored Jeans</h2>
-            <p class="price">$19.99</p>
-            <p>Some text about the jeans..</p>
-            <p><button>Add to Cart</button></p>
-        </div>
-
-        <div class="card">
-            <img src="https://picsum.photos/300/375" alt="Denim Jeans" style="width:100%">
-            <h2>Tailored Jeans</h2>
-            <p class="price">$19.99</p>
-            <p>Some text about the jeans..</p>
-            <p><button>Add to Cart</button></p>
-        </div>
-
-        <div class="card">
-            <img src="https://picsum.photos/300/375" alt="Denim Jeans" style="width:100%">
-            <h2>Tailored Jeans</h2>
-            <p class="price">$19.99</p>
-            <p>Some text about the jeans..</p>
-            <p><button>Add to Cart</button></p>
-        </div>
-
-        <div class="card">
-            <img src="https://picsum.photos/300/375" alt="Denim Jeans" style="width:100%">
-            <h2>Tailored Jeans</h2>
-            <p class="price">$19.99</p>
-            <p>Some text about the jeans..</p>
-            <p><button>Add to Cart</button></p>
-        </div>
-
-        <div class="card">
-            <img src="https://picsum.photos/300/375" alt="Denim Jeans" style="width:100%">
-            <h2>Tailored Jeans</h2>
-            <p class="price">$19.99</p>
-            <p>Some text about the jeans..</p>
-            <p><button>Add to Cart</button></p>
-        </div>
-
+        <div class="col-lg-9">
+            <div class="wrap__product">
+                <?php $__currentLoopData = $productGlobal; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $p): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                 <?php if (isset($component)) { $__componentOriginal2c1b2c59fa706cf2cddefa5ad9acf56417989ab0 = $component; } ?>
+<?php $component = $__env->getContainer()->make(App\View\Components\Product::class, ['product' => $p]); ?>
+<?php $component->withName('product'); ?>
+<?php if ($component->shouldRender()): ?>
+<?php $__env->startComponent($component->resolveView(), $component->data()); ?>
+<?php $component->withAttributes([]); ?>
+<?php if (isset($__componentOriginal2c1b2c59fa706cf2cddefa5ad9acf56417989ab0)): ?>
+<?php $component = $__componentOriginal2c1b2c59fa706cf2cddefa5ad9acf56417989ab0; ?>
+<?php unset($__componentOriginal2c1b2c59fa706cf2cddefa5ad9acf56417989ab0); ?>
+<?php endif; ?>
+<?php echo $__env->renderComponent(); ?>
+<?php endif; ?> 
+                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+            </div>
+        </>
     </div>
+
+
 
 </div>
 
@@ -88,12 +76,21 @@
     .card button:hover {
         opacity: 0.7;
     }
+<<<<<<< HEAD
+=======
+/*
+>>>>>>> 0aae63810c0af3747f08b4fad4ceb09293b02440
     .grid-container {
         margin: auto;
         display: grid;
         grid-gap: 50px 30px;
         grid-template-areas: 'myArea myArea myArea myArea';
+<<<<<<< HEAD
     }
+=======
+    } */
+
+>>>>>>> 0aae63810c0af3747f08b4fad4ceb09293b02440
     /* END CSS PRODUCT  */
 </style>
 <?php $__env->stopSection(); ?>

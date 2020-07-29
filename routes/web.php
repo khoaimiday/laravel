@@ -37,10 +37,10 @@ Route::get('/test', function(){
 //ADMIN ROUTE
 Route::get('/admin/index','PageController@getAdminIndex');  
     //News
-    Route::get('/admin/news/index','NewsController@index');
-    Route::get('/admin/news/create','NewsController@create');
+    Route::get('/admin/news/index',['as'=>'admin-news','uses'=>'NewsController@index']);
+    Route::get('/admin/news/create',['as'=>'create-news','uses'=>'NewsController@create']);
     Route::post('/admin/news/postCreate','NewsController@postCreate');
-    Route::get('/admin/news/update/{id}','NewsController@update');
+    Route::get('/admin/news/update/{id}',['as'=>'update-news','uses'=>'NewsController@update']);
     Route::post('/admin/news/postUpdate/{id}','NewsController@postUpdate');
     Route::get('/admin/news/delete/{id}','NewsController@delete');
 
@@ -48,11 +48,12 @@ Route::get('/admin/index','PageController@getAdminIndex');
 // USER ROUTE
 Route::get('/product', 'ProductController@index');
 Route::get('/seedproduct', 'ProductController@seedProduct');
-Route::get('/news','PageController@newsIndex');
+Route::get('news',['as'=>'news','uses'=>'PageController@newsIndex']);
+Route::get('user/news/newsDetail/{id}',['as'=>'newsdetail','uses'=>'NewsController@newsDetail']);
 Route::get('/home','HomeController@index');
-Route::get('/store',function(){
-    return view('store.store');
-});
+Route::get('store',['as'=>'store','uses'=>function(){
+    return view('user.store.store');
+}]);
 
 // FAKER
 Route::get('/customer', function(){

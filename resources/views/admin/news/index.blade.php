@@ -2,12 +2,28 @@
 @section('title', 'NewsIndex')
 @section('content')
 <style>
-    p.content{
-      white-space: nowrap;
+    p.n_content,p.n_title{
+      white-space: pre;
       word-wrap: break-word;
       overflow: hidden;
       text-overflow: ellipsis;
-      max-width: 400px;
+      max-width: 180px;
+      max-height:180px;
+    }
+    .actionButton{
+        text-decoration:none;
+        font-size:15px;
+        color:#000;
+        opacity:1;
+        display:block;
+        padding:6px 15px;
+        margin:7px;
+        max-width:auto;
+        text-align:center;
+        border-radius:3px;
+        border:1px solid #ddd;
+        box-shadow: 0px 6px 8px 0px rgba(0,0,0,0.2);
+        cursor: pointer;
     }
 </style>
     <section class="content-header">
@@ -19,7 +35,7 @@
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="#">Trang chủ</a></li>
-                        <li class="breadcrumb-item active"> <a href="{{ url('admin/news/create') }}">Tạo mới</a></li>
+                        <li class="breadcrumb-item active"> <a href="{{ route('create-news') }}">Tạo mới</a></li>
                     </ol>
                 </div>
             </div>
@@ -52,21 +68,18 @@
                             @foreach($news as $new)
                             <tr>
                                 <td>{{ $new->id }}</td>
-                                <td>{{ $new->title }}</td>
-                                <td><p class="content">{{ $new->content }}</p></td>
+                                <td><p class="n_title">{{ $new->title }}</p></td>
+                                <td><p class="n_content">{{ $new->content }}</p></td>
                                 <td>{{ $new->topic }}</td>
                                 <td><img width="100px" src="{{ url('images/news/'.$new->image) }}"/></td>
                                 <td>{{ $new->created_at }}</td>
                                 <td>{{ $new->updated_at  }}</td>
                                 <td class="text-right">
-                                    <a class="btn btn-primary btn-sm-1" style="width:80px;" href="#">
-                                        <i class="fas fa-folder"></i> Xem
+                                    <a class="actionButton" href="{{ url('/admin/news/update/'.$new->id) }}">
+                                     Sửa
                                     </a>
-                                    <a class="btn btn-info btn-sm-1" style="width:80px;" href="{{ url('/admin/news/update/'.$new->id) }}">
-                                        <i class="fas fa-pencil-alt"></i> Sửa
-                                    </a>
-                                    <a class="btn btn-danger btn-sm-1" style="width:80px;" href="{{ url('/admin/news/delete/'.$new->id) }}">
-                                        <i class="fas fa-trash"></i> Xoá
+                                    <a class="actionButton" href="{{ url('/admin/news/delete/'.$new->id) }}">
+                                    Xoá
                                     </a>
                                 </td>
                             </tr>

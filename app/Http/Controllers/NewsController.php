@@ -6,14 +6,21 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\News;
 use App\Http\Requests\NewsRequest;
+use Illuminate\Database\Query\Builder;
 
 class NewsController extends Controller
 {
     public function index()
     {
-        $news=News::all();
+        $news=News::latest()->get();
         return view('admin.news.index')->with(['news'=>$news]);
     }
+
+    public function newsDetail($id)
+    {
+        $n=News::find($id);
+        return view('user.news.newsDetail')->with(['n'=>$n]);
+    } 
     public function create()
     {
         return view('admin.news.create');

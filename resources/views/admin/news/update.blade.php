@@ -45,6 +45,7 @@
                         <!-- /.card-body -->
                         <div class="card-footer">
                             <button type="submit" class="btn btn-primary">Chỉnh sửa</button>
+                            <a href="{{ route('admin-news')}}" class="btn btn-primary">Quay lại</a>
                         </div>
                     </form>
                 </div>

@@ -11,7 +11,8 @@ class PageController extends Controller
         return view('admin.index');
     }
     public function newsIndex(){
-        $news=News::all();
-        return view('news.news')->with(['news'=>$news]);
+        $news=News::where('topic','Bệnh thường gặp')->latest()->get();
+        $newss=News::where('topic','!==','Bệnh thường gặp')->latest()->get();
+        return view('user.news.news')->with(['news'=>$news],['newss'=>$newss]);
     }
 }

@@ -9,11 +9,11 @@
                         <li><a href="">Thực phẩm chức năng</a></li>
                     </ul>
                 </div> -->
-            <li class="tophead-menu-left"><a href="{{ ('store') }}"><img src="{{url('img/nav/Store.png')}}" alt="">  Cửa hàng</a></li>
+            <li class="tophead-menu-left"><a href="{{ route('store') }}"><img src="{{url('img/nav/Store.png')}}" alt="">  Cửa hàng</a></li>
             <li class="tophead-menu-right"><a href="">Giỏ hàng  <img src="{{url('img/nav/cart.png')}}" alt=""><span class="badge">3</span></a></li>
             <li class="tophead-menu-right"><a href="">Liên hệ  <img src="{{url('img/nav/Contact2.png')}}" alt=""></a></li>
             <li class="tophead-menu-right"><a href="">FAQs  <img src="{{url('img/nav/FAQ.png')}}" alt=""></a></li>
-            <li class="tophead-menu-right"><a href="{{('news')}}">Blog  <img src="{{url('img/nav/Blog2.png')}}" alt=""></a></li>    
+            <li class="tophead-menu-right"><a href="{{route('news')}}">Blog  <img src="{{url('img/nav/Blog2.png')}}" alt=""></a></li>    
         </ul>
     </div>
 </header>

@@ -6,11 +6,11 @@
     * {
         box-sizing: border-box;
     }
-    body {
+    .news-body {
         font-family: Arial, Helvetica, sans-serif;
         margin: 0px;
         font-size: 12px;
-        background-color:#dbefdc;
+        background-image:url('img/news/bg1.jpg');
     }
     .header {
         width: 100%;
@@ -40,7 +40,7 @@
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
-      max-width: 900px;
+      max-width: 800px;
     }
     .new-wrap{
         margin-top:0;
@@ -51,11 +51,12 @@
         padding-top:0;
     }
     .new-image a img{
-      max-width:450px;
+      max-width:300px;
+      border-radius:30px;
     }
     .column {
       float: left;
-      width: 55%;
+      width: 50%;
       margin-bottom: 16px;
       padding: 0 8px;
     }
@@ -65,10 +66,43 @@
         display: block;
       }
     }
-    .card {
-      height:500px;
-      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    .newscard {
+      margin:5px;
+      height:auto;
+      border-radius:10px;
+      background-image:url('img/news/bg-s.png');
+      background-size:cover;
+      padding:15px;
+      background-color:#fffff0;
+      box-shadow: 0 4px 15px 0 rgba(0, 0, 0, 0.2);
     }    
+    .readMore-button {
+        text-decoration:none;
+        font-size:15px;
+        color:#fff;
+        opacity:0.6;
+        background-color: #9acd32;
+        display:block;
+        padding:4px 8px;
+        margin:5px;
+        max-width:150px;
+        text-align:center;
+        border-radius:20px;
+        border:1px solid #9acd32;
+        box-shadow: 0px 6px 20px 0px rgba(0,0,0,0.2);
+        transition: all ease-in-out 0.2s;
+        cursor: pointer;
+    }
+    .readMore-button:hover{
+        text-decoration:none;
+        background-color:#fff;
+        opacity:0.3;
+        border:1px solid #ddd;
+        border-radius: 20px;
+        color:#000;
+        font-weight: 500px;
+        line-height: 25px;
+    }
     </style>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -88,26 +122,47 @@
         <p> giới thiệu <b class="headerfont">Blog chăm sóc sức khoẻ</b></p>
      </div>
   </div>
-  <div class="container">
-    <div class="new-wrap">
-        @foreach ($news as $new)
-        <div class="row">
-          <div class="column" >
-            <div class="card">
-            <div class="new-image">
-              <a href=""><img src="{{ url('images/news/'.$new->image) }}" alt=""></a>
+  <div class="news-body">
+  <div class="container">    
+        <div class="row">       
+            <div class="column">
+            @foreach ($news as $new)
+            <div class="newscard" >
+              <div class="new-image">
+                <a href=""><img src="{{ url('images/news/'.$new->image) }}" alt=""></a>
+              </div>
+              <div class="new-title">
+                <a href=""><h3 class="new-title-a">{{ $new->title }}</h3></a>
+              </div>
+              <div class="new-content">
+                <p>{{ $new->content }}</p>
+              </div>
+              <div class="readMore">
+                <a href="{{ url('/user/news/newsDetail/'.$new->id) }}" class="readMore-button">Đọc thêm..</a>
+              </div>
             </div>
-            <div class="new-title">
-              <a href=""><h3 class="new-title-a">{{ $new->title }}</h3></a>
+            @endforeach
+            <div class="column">
+            @foreach ($newss as $news)
+            <div class="newscard" >
+              <div class="new-image">
+                <a href=""><img src="{{ url('images/news/'.$news->image) }}" alt=""></a>
+              </div>
+              <div class="new-title">
+                <a href=""><h3 class="new-title-a">{{ $news->title }}</h3></a>
+              </div>
+              <div class="new-content">
+                <p>{{ $news->content }}</p>
+              </div>
+              <div class="readMore">
+                <a href="{{ url('/user/news/newsDetail/'.$news->id) }}" class="readMore-button">Đọc thêm..</a>
+              </div>
             </div>
-            <div class="new-content">
-              <p>{{ $new->content }}</p>
+            @endforeach
             </div>
-            </div>
-          </div> 
-        </div>
-        @endforeach
-    </div>
+          </div>
+        </div> 
+        
   </div>
 
   
@@ -118,6 +173,6 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
   </body>
 </html>
-
+</div>
 
 @include('fragments.footer2')

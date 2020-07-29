@@ -20,6 +20,7 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
     <!-- Styles -->
+    <link rel="stylesheet" href="<?php echo e(asset('css/style__product.css')); ?>">
     <link href="<?php echo e(asset('css/app.css')); ?>" rel="stylesheet">
 
     
@@ -42,7 +43,7 @@
     body {
         font-family: Arial, Helvetica, sans-serif;
         margin: 0;
-        font-size: 12px;
+        font-size: 16px;
         background-color: #dbefdc
     }
 
