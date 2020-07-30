@@ -9,17 +9,6 @@
     <div class="row">
         <div class="col-lg-3">
             MENU
-            <ul>1</ul>
-            <ul>1</ul>
-            <ul>1</ul>
-            <ul>1</ul>
-            <ul>1</ul>
-            <ul>1</ul>
-            <ul>1</ul>
-            <ul>1</ul>
-            <ul>1</ul>
-            <ul>1</ul>
-            <li>1</li>
         </div>
         <div class="col-lg-9">
             <div class="wrap__product">
@@ -64,21 +53,14 @@
     .card button:hover {
         opacity: 0.7;
     }
-<<<<<<< HEAD
-=======
 /*
->>>>>>> 0aae63810c0af3747f08b4fad4ceb09293b02440
     .grid-container {
         margin: auto;
         display: grid;
         grid-gap: 50px 30px;
         grid-template-areas: 'myArea myArea myArea myArea';
-<<<<<<< HEAD
-    }
-=======
     } */
 
->>>>>>> 0aae63810c0af3747f08b4fad4ceb09293b02440
     /* END CSS PRODUCT  */
 </style>
 @endsection

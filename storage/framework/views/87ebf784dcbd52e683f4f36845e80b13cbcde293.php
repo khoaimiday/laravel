@@ -224,6 +224,16 @@
         });
     });
 
+    function AddCart(id){
+        $.ajax({
+            url: '/AddCart/'+id,
+            type: 'GET',
+        }).done(function(response){
+            console.log(response);
+            $("#change-item-cart").empty();
+            $("#change-item-cart").html(response);
+        });
+    }
 </script>
 
 <?php /**PATH E:\xampp\htdocs\laravel\laravel\resources\views/layouts/default.blade.php ENDPATH**/ ?>

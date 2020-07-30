@@ -24,7 +24,7 @@ class ProductController extends Controller
          return view("admin.product.create");
     }
 
-``
+
      // CREATE PRODUCT
     public function postCreate(Request $request)
     {

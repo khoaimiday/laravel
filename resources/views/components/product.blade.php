@@ -1,13 +1,13 @@
-
+<!-- 
 {{-- <div class="card">
     <img src="{{ asset('img/'.$image) }}" alt="Denim Jeans" style="width:100%">
     <div class="card-body">
         <h5 class="card-title">{{ $name }}</h5>
-    <p class="price">{{ $price }}</p>
+    <p class="price">{{ number_format($price) }}</p>
     <p>{{$description}}</p>
-    <p><button>Add to Cart</button></p>
+    <p><a href="url('/AddCart/$id')"><button>Add to Cart</button></a></p>
     </div>
-</div> --}}
+</div> --}} -->
 
     <div class="card__product">
             <div class="box__img">
@@ -22,22 +22,37 @@
                         <a>{{ $name }}</a>
                     </div>
                 </div>
+                <br>
                 <div class="price__wraper" style="height: 34px">
                     <span class="price">
-                        <span class="woocommerce-Price-amount amount">{{ $price}}
+                        <span class="woocommerce-Price-amount amount"> {{ number_format($price) }}
                             <span class="woocommerce-Price-currencySymbol"> VND</span>
                         </span>
                         <span class="uom">/Hộp</span>
                     </span>
                 </div>
                 <div class="add__cart" style="height: 0px">
-                    <a href="/san-pham/?add-to-cart=16190" rel="nofollow" data-product_id="16190"
+                    <a onclick="AddCart({{$id}})" href="javascript:" rel="nofollow" data-product_id="16190"
                      class="btn btn-outline-primary btn-sm button is-outline">Thêm vào giỏ</a>
-                     <a href="/san-pham/?add-to-cart=16190" rel="nofollow" data-product_id="16190"
+                     <a onclick="AddCart({{$id}})" href="javascript:" rel="nofollow" data-product_id="16190"
                      class="btn btn-success btn-sm button is-outline">Mua ngay</a>
                 </div>
             </div>
     </div>
+<script>
+    function AddCart(id){
+        $.ajax({
+            url: '/AddCart/'+id,
+            type: 'GET',
+        }).done(function(response){
+            console.log(response);
+            $("#change-item-cart").empty();
+            $("#change-item-cart").html(response);
+            alertify.confirm("Đã thêm vào Giỏ hàng!", function(){
+                alertify.success('OK');
+            });
+        });
+    }
 
-
+</script>
 

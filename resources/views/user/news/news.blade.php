@@ -11,6 +11,7 @@
         margin: 0px;
         font-size: 12px;
         background-image:url('img/news/bg1.jpg');
+        background-size:cover;
     }
     .header {
         width: 100%;
@@ -18,7 +19,7 @@
         padding-right: 8%;
         padding-top: 5%;
         color: #1B4E00;
-        text-align: center;
+        text-align: right;
         font-family: 'M PLUS Rounded 1c', sans-serif;
     }
     .headerfont {
@@ -26,7 +27,7 @@
     }
 
     .topheader2 {
-        background-image: url('img/nav/3.png');
+        background-image: url('img/nav/1.png');
         min-height: 400px;
         background-size: cover;
         background-repeat: no-repeat;
@@ -40,7 +41,9 @@
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
-      max-width: 800px;
+      max-width: 700px;
+      text-align:right;
+     
     }
     .new-wrap{
         margin-top:0;
@@ -53,6 +56,10 @@
     .new-image a img{
       max-width:300px;
       border-radius:30px;
+      padding-bottom:10px;
+    }
+    h3.new-title-a {
+      text-decoration:none;
     }
     .column {
       float: left;
@@ -67,14 +74,16 @@
       }
     }
     .newscard {
+      display:block;
       margin:5px;
       height:auto;
-      border-radius:10px;
-      background-image:url('img/news/bg-s.png');
-      background-size:cover;
+      border:1px solid white;
+      
       padding:15px;
-      background-color:#fffff0;
+      background-color:#D7E7A9;
       box-shadow: 0 4px 15px 0 rgba(0, 0, 0, 0.2);
+      height:380px;
+      opacity:0.9;
     }    
     .readMore-button {
         text-decoration:none;
@@ -102,7 +111,21 @@
         color:#000;
         font-weight: 500px;
         line-height: 25px;
+        opacity:1.2;
     }
+    .news-pagination{
+      margin-left: 40%;
+      margin-top: 20px;
+      display:flex;
+      font-size:20px;
+}
+    .news-pagination li a{
+      padding: 10px 10px;
+      display: inline-block;
+      color: white;
+      background: none;
+      border: none;
+}
     </style>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -118,53 +141,59 @@
   <div class="topheader2">
     @include('fragments.nav-bar-top')
     <div class="header">
-      <div class="headerfont">Cucumber </div>
-        <p> giới thiệu <b class="headerfont">Blog chăm sóc sức khoẻ</b></p>
+      <div class="headerfont">Chăm sóc sức khoẻ </div>
+        <p> cùng <b class="headerfont">Cucumber</b></p>
      </div>
   </div>
-  <div class="news-body">
-  <div class="container">    
+    <div class="news-body">
+      <div class="container">    
         <div class="row">       
-            <div class="column">
-            @foreach ($news as $new)
-            <div class="newscard" >
+          <div class="column">
+            @foreach ($new1s as $new1)
+             <div class="newscard" >
               <div class="new-image">
-                <a href=""><img src="{{ url('images/news/'.$new->image) }}" alt=""></a>
+                <a href=""><img src="{{ url('images/news/'.$new1->image) }}" alt=""></a>
               </div>
               <div class="new-title">
-                <a href=""><h3 class="new-title-a">{{ $new->title }}</h3></a>
+                <a href="{{ url('/user/news/newsDetail/'.$new1->id) }}"><h3 class="new-title-a">{{ $new1->title }}</h3></a>
               </div>
               <div class="new-content">
-                <p>{{ $new->content }}</p>
+                <p>{{ $new1->created_at }}</p>
               </div>
               <div class="readMore">
-                <a href="{{ url('/user/news/newsDetail/'.$new->id) }}" class="readMore-button">Đọc thêm..</a>
+                <a href="{{ url('/user/news/newsDetail/'.$new1->id) }}" class="readMore-button">Đọc thêm..</a>
               </div>
             </div>
             @endforeach
-            <div class="column">
-            @foreach ($newss as $news)
-            <div class="newscard" >
-              <div class="new-image">
-                <a href=""><img src="{{ url('images/news/'.$news->image) }}" alt=""></a>
-              </div>
-              <div class="new-title">
-                <a href=""><h3 class="new-title-a">{{ $news->title }}</h3></a>
-              </div>
-              <div class="new-content">
-                <p>{{ $news->content }}</p>
-              </div>
-              <div class="readMore">
-                <a href="{{ url('/user/news/newsDetail/'.$news->id) }}" class="readMore-button">Đọc thêm..</a>
-              </div>
-            </div>
-            @endforeach
-            </div>
           </div>
-        </div> 
-        
-  </div>
-
+          <div class="column">
+            @foreach ($new2s as $new2)
+            <div class="newscard" >
+              <div class="new-image">
+                <a href=""><img src="{{ url('images/news/'.$new2->image) }}" alt=""></a>
+              </div>
+              <div class="new-title">
+                <a href="{{ url('/user/news/newsDetail/'.$new2->id) }}"><h3 class="new-title-a">{{ $new2->title }}</h3></a>
+              </div>
+              <div class="new-content">
+                <p>{{ $new2->created_at }}</p>
+              </div>
+              <div class="readMore">
+                <a href="{{ url('/user/news/newsDetail/'.$new2->id) }}" class="readMore-button">Đọc thêm..</a>
+              </div>
+            </div>
+            @endforeach
+          </div>
+        </div>
+        <ul class="news-pagination list-unstyled">
+            <li class="page-item"><a class="page-link" href="#">Trước</a></li>
+            <li class="page-item"><a class="page-link" href="#">1</a></li>
+            <li class="page-item"><a class="page-link" href="#">2</a></li>
+            <li class="page-item"><a class="page-link" href="#">3</a></li>
+            <li class="page-item"><a class="page-link" href="#">...Sau</a></li>
+          </ul>
+      </div> 
+    </div> 
   
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -173,6 +202,5 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
   </body>
 </html>
-</div>
 
 @include('fragments.footer2')

@@ -10,9 +10,35 @@
     <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <style>
+        .header {
+            width: 100%;
+            height: 100%;
+            padding-right: 8%;
+            padding-top: 5%;
+            color: #1B4E00;
+            text-align: center;
+            font-family: 'M PLUS Rounded 1c', sans-serif;
+        }
+        .headerfont {
+            font-size: 50px;
+        }
+        .topheader2 {
+            background-image: url('img/nav/4.jpg');
+            min-height: 400px;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-color: rgba(0, 0, 0, 0);
+            background-origin: padding-box;
+        }
+        .header p {
+            font-size: 25px;
+    }
         .slidestore{
             background-image: url('img/store/company1.jpg ');
             min-height: 500px;
+            max-width:900px;
+            padding:20px;
+            margin-bottom:20px;
             background-size: cover;
             background-repeat: no-repeat;
             background-origin: padding-box; 
@@ -114,12 +140,19 @@
  </head>
   <body>
   @include('fragments.topheader')
+  <div class="topheader2">
+    @include('fragments.nav-bar-top')
+    <div class="header">
+      <div class="headerfont">Giới thiệu </div>
+        <p> về <b class="headerfont">Cucumber</b></p>
+     </div>
+  </div>
    <div class="container">
     <div class="col-xl-12">
-        <div class="slidestore">
-        </div>
         <div class="titleStore">
             <p>Công ty Cucumber</p>
+        </div>
+        <div class="slidestore">
         </div>
         <div class="content">
 <pre>Được thành lập vào tháng 01/2017, Cucumber là một trong những chuỗi nhà thuốc bán lẻ hiện đại đang trên đà phát triển tại thị trường Việt Nam, luôn luôn hướng đến mục tiêu nâng cao chất lượng chăm sóc sức khỏe cho từng khách hàng.
