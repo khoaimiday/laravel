@@ -44,34 +44,3 @@
     <span class="span" style="display: block"></span>
     </div>
 </section>
-
-<style>
-    /* CSS ABOUT PAGE */
-.about{
-    text-align: center;
-    font-size: 15px;
-    background-color: white;
-}
-.about .featured-box{
-    margin: 0;
-    padding: 30px 15px;
-}
-
-.about .about__img{
-    width: 70px;
-    margin: 0 auto;
-}
-.about .about__img img{
-    width: 100%;
-}
-.about .about__content{
-    padding-top: 20px;
-    
-}
-.about__border-left{
-    border-left: 1px solid #ececec;
-}
-.about .span{
-    height: 30px;
-}
-</style>

@@ -9,7 +9,7 @@
     </div>
 </div> --}}
 
-    <div class="card__product">
+        <div class="card__product">
             <div class="box__img">
                 <a href=""><img src="https://image.pharmacity.vn/live/uploads/2020/02/P16935_1-1-600x600.jpg" alt="Product IMG" style="width:100%"/></a>
             </div>

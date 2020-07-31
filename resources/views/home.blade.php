@@ -2,35 +2,44 @@
 
 @section('content')
 
-{{-- PRODUCT --}}
-<div class="container my-5">
-    <h3 class="text-primary mb-3">SẢN PHẨM BÁN CHẠY</h3>
+<div class="container section-title-container container">
+    <h3 class="section-title section-title-center">
+        <b></b><span class="section-title-main">Sản phẩm mới</span><b></b>
+    </h3>
+</div>
 
-    <div class="row">
-        <div class="col-lg-3">
-            MENU
-            <ul>1</ul>
-            <ul>1</ul>
-            <ul>1</ul>
-            <ul>1</ul>
-            <ul>1</ul>
-            <ul>1</ul>
-            <ul>1</ul>
-            <ul>1</ul>
-            <ul>1</ul>
-            <ul>1</ul>
-            <li>1</li>
-        </div>
-        <div class="col-lg-9">
+
+{{-- PRODUCT --}}
+<div class="container my-2">
+    {{-- <div class="row"> --}}
             <div class="wrap__product">
                 @foreach ($productGlobal as $p)
-                <x-product :product="$p" />
+                    <div class="col-3">
+                        <x-product :product="$p" />
+                    </div>
                 @endforeach
             </div>
-    </div>
+    {{-- </div> --}}
+</div>
+{{-- END PRODUCT --}}
 
+<div class="container section-title-container container">
+    <h3 class="section-title section-title-center">
+        <b></b><span class="section-title-main">Sản phẩm khyến mãi</span><b></b>
+    </h3>
+</div>
 
-
+{{-- PRODUCT --}}
+<div class="container my-2">
+    {{-- <div class="row"> --}}
+            <div class="wrap__product">
+                @foreach ($productGlobal as $p)
+                    <div class="col-3">
+                        <x-product :product="$p" />
+                    </div>
+                @endforeach
+            </div>
+    {{-- </div> --}}
 </div>
 {{-- END PRODUCT --}}
 
@@ -39,7 +48,7 @@
 @section('style')
 <style>
     /* CSS PRODUCT  */
-    .card {
+    /* .card {
         box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
         max-width: 300px;
         align-items: center;
@@ -63,7 +72,7 @@
     }
     .card button:hover {
         opacity: 0.7;
-    }
+    } */
 <<<<<<< HEAD
 =======
 /*

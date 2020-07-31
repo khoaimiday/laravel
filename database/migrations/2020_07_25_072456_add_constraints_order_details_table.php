@@ -30,7 +30,9 @@ class AddConstraintsOrderDetailsTable extends Migration
     public function down()
     {
         Schema::table('order_details', function (Blueprint $table) {
-            $table->dropForeign(['product_id', 'order_id']);
+            // $table->dropForeign(['product_id', 'order_id']);
+            $table->dropForeign('order_details_product_id_foreign');
+            $table->dropForeign('order_details_order_id_foreign');
         });
     }
 }

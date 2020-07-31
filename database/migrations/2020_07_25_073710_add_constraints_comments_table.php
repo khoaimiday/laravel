@@ -29,7 +29,9 @@ class AddConstraintsCommentsTable extends Migration
     public function down()
     {
         Schema::table('comments', function (Blueprint $table) {
-            $table->dropForeign(['product_id', 'user_id']);
+            // $table->dropForeign(['product_id', 'user_id']);
+            $table->dropForeign('comments_product_id_foreign');
+            $table->dropForeign('comments_user_id_foreign');
         });
     }
 }
