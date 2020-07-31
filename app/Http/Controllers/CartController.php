@@ -11,7 +11,7 @@ class CartController extends Controller
 {
     public function index(){
         $products= DB::table('products')->get();
-        return view('user.cart.cart')->with(['products'=>$products]);
+        return view('user.cart.cartindex')->with(['products'=>$products]);
     }
     public function AddCart(Request $req, $id){
         $product=DB::table('products')->where('id',$id)->first();

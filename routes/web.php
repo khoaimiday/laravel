@@ -84,10 +84,11 @@ Route::get('/product', 'ProductController@index');
 Route::get('/seedproduct', 'ProductController@seedProduct');
 Route::get('news',['as'=>'news','uses'=>'PageController@newsIndex']);
 Route::get('user/news/newsDetail/{id}',['as'=>'newsdetail','uses'=>'NewsController@newsDetail']);
-Route::get('/home','HomeController@index');
+Route::get('/home',['as'=>'home','uses'=>'HomeController@index']);
+Route::post('/comment',['as'=>'comment','uses'=>'CommentController@Comment']);
 Route::get('store',['as'=>'store','uses'=>function(){
     return view('user.store.store');}]);
-
+Route::get('/cartindex',function(){return view('user.cart.cartindex'); });
 Route::get('/cart','CartController@index');
 Route::get('/AddCart/{id}',['as'=>'AddCart','uses'=>'CartController@AddCart']);
 // FAKER

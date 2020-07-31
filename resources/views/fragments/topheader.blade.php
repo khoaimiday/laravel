@@ -15,7 +15,7 @@
             <li class="tophead-menu-right cart">
                 <a class="" href="">Giỏ hàng
                     <img src="{{url('img/nav/cart.png')}}" alt="">
-                    <span class="badge">3</span>
+                    <span class="badge">2</span>
                 </a>
                 <div class="cart-hover">
                     <div id="change-item-cart">

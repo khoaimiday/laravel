@@ -4,7 +4,7 @@
     margin: 0 auto;
 }
 .card__product{
-    max-width: 25%;
+    /* max-width: 25%; */
     padding: 0 9.8px 19.6px;
     margin: 0;
 }
@@ -51,9 +51,7 @@
     color: #333;
     padding: 5px 0;
 }
-.price{
-    line-height: 1;
-}
+
 .box__text span.amount {
     color: #1b74e7;
     font-size: 17px;
@@ -70,3 +68,40 @@
     line-height: 1.4;
     border-radius: 0;
 }
+
+
+ /* CSS PRODUCT  */
+
+.price {
+    color: grey;
+    font-size: 22px;
+    line-height: 1;
+}
+
+/* .card button {
+    border: none;
+    outline: 0;
+    padding: 12px;
+    color: white;
+    background-color: #000;
+    text-align: center;
+    cursor: pointer;
+    width: 100%;
+    font-size: 18px;
+} */
+
+.card button:hover {
+    opacity: 0.7;
+}
+
+.grid-container {
+    margin: auto;
+    display: grid;
+    grid-gap: 50px 30px;
+    grid-template-areas: 'myArea myArea myArea myArea';
+}
+
+/* END CSS PRODUCT  */
+
+
+

@@ -14,7 +14,7 @@ class Cart{
         }
     }
 
-    public function AddCart($product,$id){
+    public function AddCart($product, $id){
         $newProduct = ['quantity'=> 0,'price'=>$product->price , 'productInfo'=>$product];
         if($this->products){
             if(array_key_exists($id, $this->products)){

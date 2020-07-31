@@ -34,8 +34,8 @@
                 <div class="add__cart" style="height: 0px">
                     <a onclick="AddCart({{$id}})" href="javascript:" rel="nofollow" data-product_id="16190"
                      class="btn btn-outline-primary btn-sm button is-outline">Thêm vào giỏ</a>
-                     <a onclick="AddCart({{$id}})" href="javascript:" rel="nofollow" data-product_id="16190"
-                     class="btn btn-success btn-sm button is-outline">Mua ngay</a>
+                     <a href="{{ url('/user/product/productDetail/'.$id)}}" rel="nofollow" data-product_id="16190"
+                     class="btn btn-success btn-sm button is-outline">Chi tiết</a>
                 </div>
             </div>
     </div>
