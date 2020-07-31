@@ -2,6 +2,7 @@
 
 @section('content')
 
+<<<<<<< HEAD
 {{-- CAROU-SEL  --}}
 <section class="carousel my-1 mx-1">
     @include('fragments.carousel')
@@ -45,11 +46,26 @@
     {{-- PRODUCT --}}
     <div class="container my-5">
         <div class="row">
+=======
+<div class="container section-title-container container">
+    <h3 class="section-title section-title-center">
+        <b></b><span class="section-title-main">Sản phẩm mới</span><b></b>
+    </h3>
+</div>
+
+
+{{-- PRODUCT --}}
+<div class="container my-2">
+    {{-- <div class="row"> --}}
+>>>>>>> 2fc7c06f80385e349cc6db659be4d47fe87199de
             <div class="wrap__product">
                 @foreach ($productGlobal as $p)
-                <x-product :product="$p" />
+                    <div class="col-3">
+                        <x-product :product="$p" />
+                    </div>
                 @endforeach
             </div>
+<<<<<<< HEAD
         </div>
     </div>
     {{-- END PRODUCT --}}
@@ -114,3 +130,77 @@
 
 
 //HOME.BLADE
+=======
+    {{-- </div> --}}
+</div>
+{{-- END PRODUCT --}}
+
+<div class="container section-title-container container">
+    <h3 class="section-title section-title-center">
+        <b></b><span class="section-title-main">Sản phẩm khyến mãi</span><b></b>
+    </h3>
+</div>
+
+{{-- PRODUCT --}}
+<div class="container my-2">
+    {{-- <div class="row"> --}}
+            <div class="wrap__product">
+                @foreach ($productGlobal as $p)
+                    <div class="col-3">
+                        <x-product :product="$p" />
+                    </div>
+                @endforeach
+            </div>
+    {{-- </div> --}}
+</div>
+{{-- END PRODUCT --}}
+
+@endsection
+
+@section('style')
+<style>
+    /* CSS PRODUCT  */
+    /* .card {
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        max-width: 300px;
+        align-items: center;
+        text-align: center;
+        font-family: arial;
+    }
+    .price {
+        color: grey;
+        font-size: 22px;
+    }
+    .card button {
+        border: none;
+        outline: 0;
+        padding: 12px;
+        color: white;
+        background-color: #000;
+        text-align: center;
+        cursor: pointer;
+        width: 100%;
+        font-size: 18px;
+    }
+    .card button:hover {
+        opacity: 0.7;
+    } */
+<<<<<<< HEAD
+=======
+/*
+>>>>>>> 0aae63810c0af3747f08b4fad4ceb09293b02440
+    .grid-container {
+        margin: auto;
+        display: grid;
+        grid-gap: 50px 30px;
+        grid-template-areas: 'myArea myArea myArea myArea';
+<<<<<<< HEAD
+    }
+=======
+    } */
+
+>>>>>>> 0aae63810c0af3747f08b4fad4ceb09293b02440
+    /* END CSS PRODUCT  */
+</style>
+@endsection
+>>>>>>> 2fc7c06f80385e349cc6db659be4d47fe87199de

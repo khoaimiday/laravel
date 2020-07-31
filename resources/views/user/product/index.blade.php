@@ -3,21 +3,39 @@
 
 @section('content')
 
-
-
 {{-- PRODUCT --}}
 <div class="container my-5">
-    <h3 class="text-primary mb-3">TOP SẢN PHẨM BÁN CHẠY</h3>
-    <div class="grid-container">
+    <h3 class="text-primary mb-3">SẢN PHẨM BÁN CHẠY</h3>
 
-        @foreach ($products as $p)
-            <x-product :product="$p" />
-        @endforeach
-
+    <div class="row">
+        <div class="col-lg-3">
+            MENU
+            <ul>1</ul>
+            <ul>1</ul>
+            <ul>1</ul>
+            <ul>1</ul>
+            <ul>1</ul>
+            <ul>1</ul>
+            <ul>1</ul>
+            <ul>1</ul>
+            <ul>1</ul>
+            <ul>1</ul>
+            <li>1</li>
+        </div>
+        <div class="col-lg-9">
+            <div class="wrap__product">
+                @foreach ($productGlobal as $p)
+                <x-product :product="$p" />
+                @endforeach
+            </div>
     </div>
+
+
 
 </div>
 {{-- END PRODUCT --}}
+
+
 
 @endsection
 
