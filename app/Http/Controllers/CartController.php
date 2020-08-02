@@ -14,6 +14,7 @@ class CartController extends Controller
         return view('user.cart.cartindex')->with(['products'=>$products]);
     }
     public function AddCart(Request $req, $id){
+       // $req->session()->forget('Cart');
         $product=DB::table('products')->where('id',$id)->first();
         if($product != null){
             $oldCart = Session('Cart') ? Session('Cart') : null;

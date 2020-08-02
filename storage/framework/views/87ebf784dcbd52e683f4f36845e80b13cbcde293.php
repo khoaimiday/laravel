@@ -19,10 +19,6 @@
     <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
-    <!-- Styles -->
-    <link rel="stylesheet" href="<?php echo e(asset('css/style__product.css')); ?>">
-    <link href="<?php echo e(asset('css/app.css')); ?>" rel="stylesheet">
-
     
     <link rel="stylesheet" href="<?php echo e(url('/owlcarousel/owl.carousel.min.css')); ?>">
     <link rel="stylesheet" href="<?php echo e(url('/owlcarousel/owl.theme.default.min.css')); ?>">
@@ -30,6 +26,12 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="<?php echo e(asset('css/style__product.css')); ?>">
+    <link href="<?php echo e(asset('css/app.css')); ?>" rel="stylesheet">
+    <link rel="stylesheet" href="<?php echo e(asset('css/style__promotion.css')); ?>">
+
     <?php echo $__env->yieldContent('style'); ?>
 </head>
 
@@ -44,7 +46,7 @@
         font-family: Arial, Helvetica, sans-serif;
         margin: 0;
         font-size: 16px;
-        background-color: #dbefdc
+        /* background-color: #dbefdc */
     }
 
     /* HEADER #### LOGO TITLE */
@@ -76,17 +78,19 @@
     .header p {
         font-size: 25px;
     }
+
     /* END HEADER #### LOGO TITLE */
 
 
     /* CAROUSEL */
     .carousel {
         box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.8);
+        /* overflow: hidden; */
     }
 
     .carousel .owl-dots {
         position: absolute;
-        bottom: 10px;
+        bottom: 20px;
         left: 0px;
         right: 0px;
     }
@@ -111,7 +115,91 @@
         border: 3px solid #fff;
         opacity: 1;
     }
+    .owl-carousel .owl-item img{
+        /* transform: translate(10px, -60px); */
+    }
+
     /* END CAROUSEL */
+
+
+    /* LINE BREAK */
+    .section-title-container {
+        margin-top: 3.5em;
+    }
+
+    .section-title {
+        position: relative;
+        -js-display: flex;
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-flow: row wrap;
+        flex-flow: row wrap;
+        -ms-flex-align: center;
+        align-items: center;
+        -ms-flex-pack: justify;
+        justify-content: space-between;
+        width: 100%;
+    }
+
+    .section-title b {
+        display: block;
+        -ms-flex: 1;
+        flex: 1;
+        height: 2px;
+        opacity: .1;
+        background-color: currentColor;
+    }
+
+    .section-title-center span {
+        margin: 0 15px;
+        text-align: center;
+
+    }
+
+    .section-title span {
+        text-transform: uppercase;
+    }
+
+    .container:after,
+    .row:after,
+    .clearfix:after,
+    .clear:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+
+    /*END LINE BREAK */
+
+  /* CSS ABOUT PAGE */
+.about{
+    margin: 15px;
+    text-align: center;
+    font-size: 15px;
+    background-color: white;
+}
+.about .featured-box{
+    margin: 0;
+    padding: 30px 15px;
+}
+
+.about .about__img{
+    width: 70px;
+    margin: 0 auto;
+}
+.about .about__img img{
+    width: 100%;
+}
+.about .about__content{
+    padding-top: 20px;
+
+}
+.about__border-left{
+    border-left: 1px solid #ececec;
+}
+.about .span{
+    height: 30px;
+}
 
     /* FOOTER */
     .footer {
@@ -119,6 +207,7 @@
         overflow: hidden;
         position: relative;
     }
+
     /* END FOOTER */
 
     /* Responsive layout - when the screen is less than 700px wide, make the two columns stack on top of each other instead of next to each other */
@@ -143,43 +232,41 @@
     
 
     <?php echo $__env->make('fragments.topheader', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
-             <div class="topheader2">
-                
-                <?php echo $__env->make('fragments.nav-bar-top', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
-                
+    
+    
+    <?php echo $__env->make('fragments.nav-bar-top', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+    
+ 
+    
+    
+    
+    
 
-                
-                <div class="header">
+    
+    <section class="carousel">
+        <?php echo $__env->make('fragments.carousel', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+    </section>
+    
 
-                    <div class="headerfont">Chăm sóc sức khoẻ</div>
-                    <p> là <b class="headerfont">Ưu tiên hàng đầu</b> của Cucumber.</p>
-                </div>
-                
-            </div>
+    
+    <section class="promotion container">
+        <?php echo $__env->make('fragments.promotion', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+    </section>
+    
 
-            <marquee behavior="alternate" direction="" truespeed="2300">Khúc này muội muốn để gì thì để :))))))))))Khúc này muội muốn để gì thì để :))))))))))Khúc này muội muốn để gì thì để :))))))))))</marquee>
+    
+    <div class="main">
+        <?php echo $__env->yieldContent('content'); ?>
+    </div>
+    
 
-            
-            <section class="carousel my-1 mx-1">
-                <?php echo $__env->make('fragments.carousel', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
-            </section>
-            
+    
+    <?php echo $__env->make('fragments.use-more', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+    
 
-
-            
-            <div class="main">
-                <?php echo $__env->yieldContent('content'); ?>
-            </div>
-            
-
-            
-            <?php echo $__env->make('fragments.about', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
-            
-
-            
-            
-            
-
+    
+    <?php echo $__env->make('fragments.about', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+    
 
     
     <div class="footer">
@@ -216,7 +303,7 @@
     $(document).ready(function(){
         $('.owl-carousel').owlCarousel({
             items:1,
-            margin:10,
+            // margin:10,
             loop:true,
             autoHeight:true,
             autoplay:true,
@@ -229,11 +316,17 @@
             url: '/AddCart/'+id,
             type: 'GET',
         }).done(function(response){
-            console.log(response);
             $("#change-item-cart").empty();
             $("#change-item-cart").html(response);
         });
+        alertify.alert("Cucumber","Đã thêm sản phẩm vào giỏ hàng",function(){
+                alertify.message(' Đăng nhập để giao hàng ngay!');
+        });
     }
+    
+    // $("#change-item-cart").on("click".".si-close i",function(){
+    //     console.log($(this).data("id"));
+    // });
 </script>
 
 <?php /**PATH E:\xampp\htdocs\laravel\laravel\resources\views/layouts/default.blade.php ENDPATH**/ ?>

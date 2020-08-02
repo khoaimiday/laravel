@@ -15,7 +15,7 @@
     }
     .cart-body {
       margin: 0px;
-      padding:0px;
+      padding:40px;
       background-image:url('/img/cart/bg1.jpg');
       background-size:cover;
       
@@ -27,11 +27,11 @@
       align-content:center;
     }
     .cart-card {
-      margin:5px 10px;
+      margin:0px 40px;
       height:auto;
       border:solid 2px white;
       background-color:#ffffe6;
-      padding:30px;
+      padding:20px;
       box-shadow: 0 4px 15px 0 rgba(0, 0, 0, 0.2);
     }
     /* pre{
@@ -334,7 +334,7 @@ p.text-total {
                                     <div class="col-6 col-md-7 col-lg-8">
                                         <div><a href="">Xóa tất cả sản phẩm trong giỏ</a></div>
                                     </div> -->
-                                    <div class="col-12 col-md-5 col-lg-4">
+                                    <div class="col-12 col-md-5 col-lg-4" style="float:right">
                                         <p class="text-total">
                                             <span class="text-right">Tổng cộng: </span>
                                             <span class="total">
@@ -343,7 +343,7 @@ p.text-total {
                                         </p>
                                     </div>
                                 </div>
-                                <div class="clearfix text-right m-3">
+                                <div class=" text-right m-3" style="float:right;flex:auto">
                                     <a class="btn-cart" href="">Chọn thêm sản phẩm</a>
                                     <a class="btn-cart" href="">Tiến hành đặt hàng</a>
                                     

@@ -83,15 +83,18 @@ Route::group(['prefix' => 'admin/'], function () {
 Route::get('/product', function(){
     return view('user.product.index');
 });
+Route::get('/productdetail', function(){
+    return view('user.product.details');
+});
 Route::get('/seedproduct', 'ProductController@seedProduct');
 Route::get('news',['as'=>'news','uses'=>'PageController@newsIndex']);
 Route::get('user/news/newsDetail/{id}',['as'=>'newsdetail','uses'=>'NewsController@newsDetail']);
 Route::get('/home',['as'=>'home','uses'=>'HomeController@index']);
 Route::post('/comment',['as'=>'comment','uses'=>'CommentController@Comment']);
 Route::get('store',['as'=>'store','uses'=>function(){
-<<<<<<< HEAD
     return view('user.store.store');}]);
 Route::get('/cartindex',function(){return view('user.cart.cartindex'); });
+Route::get('/cartconfirm',function(){return view('user.cart.cartconfirm'); });
 Route::get('/cart','CartController@index');
 Route::get('/AddCart/{id}',['as'=>'AddCart','uses'=>'CartController@AddCart']);
 // FAKER
@@ -142,9 +145,6 @@ Route::get('/AddCart/{id}',['as'=>'AddCart','uses'=>'CartController@AddCart']);
 //     return response()->json($products);
 
 // });
-=======
-    return view('user.store.store'); }]);
->>>>>>> 2fc7c06f80385e349cc6db659be4d47fe87199de
 
 
 

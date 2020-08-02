@@ -1,17 +1,6 @@
-<!-- 
-{{-- <div class="card">
-    <img src="{{ asset('img/'.$image) }}" alt="Denim Jeans" style="width:100%">
-    <div class="card-body">
-        <h5 class="card-title">{{ $name }}</h5>
-    <p class="price">{{ number_format($price) }}</p>
-    <p>{{$description}}</p>
-    <p><a href="url('/AddCart/$id')"><button>Add to Cart</button></a></p>
-    </div>
-</div> --}} -->
-
-        <div class="card__product">
+   <div class="card__product">
             <div class="box__img">
-                <a href=""><img src="https://image.pharmacity.vn/live/uploads/2020/02/P16935_1-1-600x600.jpg" alt="Product IMG" style="width:100%"/></a>
+                <a href=""><img src="{{ url('image/product/'.$image) }}" alt="Product IMG" style="width:100%"/></a>
             </div>
             <div class="box__text">
                 <div class="title__wraper">
@@ -39,20 +28,5 @@
                 </div>
             </div>
     </div>
-<script>
-    function AddCart(id){
-        $.ajax({
-            url: '/AddCart/'+id,
-            type: 'GET',
-        }).done(function(response){
-            console.log(response);
-            $("#change-item-cart").empty();
-            $("#change-item-cart").html(response);
-            alertify.confirm("Đã thêm vào Giỏ hàng!", function(){
-                alertify.success('OK');
-            });
-        });
-    }
 
-</script>
 

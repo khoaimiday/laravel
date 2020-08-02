@@ -249,8 +249,9 @@
 
 <body>
     {{-- MY WEBSITE --}}
-
+    <div class="topheader" style="position:relative;z-index:2;">
         @include('fragments.topheader')
+    </div>
     {{-- <div class="topheader2"> --}}
     {{-- NAV-BAR-TOP --}}
         @include('fragments.nav-bar-top')
@@ -267,7 +268,7 @@
 
 
     {{-- MAIN CONTENT --}}
-    <div class="main">
+    <div class="main" style="position:fixed;z-index:2;">
         @yield('content')
     </div>
     {{-- MAIN CONTENT --}}

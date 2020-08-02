@@ -236,7 +236,7 @@
     {{-- NAV-BAR-TOP --}}
     @include('fragments.nav-bar-top')
     {{-- NAV-BAR-TOP --}}
-
+ 
     {{-- HEADER --}}
     {{-- <div class="header">
 
@@ -320,10 +320,16 @@
             url: '/AddCart/'+id,
             type: 'GET',
         }).done(function(response){
-            console.log(response);
             $("#change-item-cart").empty();
             $("#change-item-cart").html(response);
         });
+        alertify.alert("Cucumber","Đã thêm sản phẩm vào giỏ hàng",function(){
+                alertify.message(' Đăng nhập để giao hàng ngay!');
+        });
     }
+    
+    // $("#change-item-cart").on("click".".si-close i",function(){
+    //     console.log($(this).data("id"));
+    // });
 </script>
 {{-- END SCRIPT --}}

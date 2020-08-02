@@ -23,23 +23,11 @@
                             <table>
                                 <tbody>
                                     <tr>
-                                        <td class="si-pic"><img src="img/select-product-1.jpg" alt=""></td>
+                                        <td class="si-pic"><img src="" alt=""></td>
                                         <td class="si-text">
                                             <div class="product-selected">
-                                                <p>₫60.00 x 1</p>
-                                                <h6>Kabino Bedside Table</h6>
-                                            </div>
-                                        </td>
-                                        <td class="si-close">
-                                            <i class="ti-close"></i>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="si-pic"><img src="img/select-product-2.jpg" alt=""></td>
-                                        <td class="si-text">
-                                            <div class="product-selected">
-                                                <p>₫60.00 x 1</p>
-                                                <h6>Kabino Bedside Table</h6>
+                                                <h5>Giỏ hàng trống</h5>
+                                                <p></p>
                                             </div>
                                         </td>
                                         <td class="si-close">
@@ -50,13 +38,13 @@
                             </table>
                         </div>
                         <div class="select-total">
-                            <span>total:</span>
-                            <h5>₫120.00</h5>
+                            <span>Total:</span>
+                            <h5>0</h5>
                         </div>
                     </div>
                     <div class="select-button">
-                        <a href="#" class="primary-btn view-card">VIEW CARD</a>
-                        <a href="#" class="primary-btn checkout-btn">CHECK OUT</a>
+                        <a href="#" class="primary-btn view-cart">Xem giỏ hàng</a>
+                        <a href="#" class="primary-btn delete-btn">Huỷ</a>
                     </div>
                 </div>
             </li>
@@ -97,7 +85,7 @@
 
     .tophead-menu-list li a:hover {
         background-color: #000;
-        opacity: 0.3;
+        opacity: 0.5;
         border: 1px solid #ddd;
         border-radius: 20px;
         color: #ddd;
@@ -110,7 +98,7 @@
         margin-top: 0;
         padding: 2px;
         background: #9acd32;
-        opacity: 0.8;
+        opacity: 1;
     }
 
     .tophead-menu ul {
@@ -127,13 +115,15 @@
     }
 
     .badge {
-        position: absolute;
-        top: 0px;
-        right: 0px;
+        position: relative;
+        bottom:-10px;
+        right: 10px;
         padding: 5px 10px;
+        margin-right:-20px;
         border-radius: 50%;
         background: red;
         color: white;
+        display:inline-block;
     }
 
     .cart-hover {
@@ -145,29 +135,36 @@
         z-index: 999;
         text-align: left;
         padding: 30px;
-        opacity: 1s;
+        opacity: 1.5;
         visibility: hidden;
         box-shadow: 0 13px 32px rgba(51, 51, 51, 0.5);
-        transition: all 0.3s;
+        transition: all 0.2s ease-in-out;
     }
 
     .tophead-menu ul li.cart:hover .cart-hover {
-        opacity: 1.2;
+        opacity: 10;
         visibility: visible;
+        z-index:10000;
         top: 40px;
 
     }
+    .cart-hover:hover{
+        opacity: 10;
+        visibility: visible;
+        z-index:10000;
+        top: 40px; 
+    }
     .select-items table {
-	width: 100%;
+	width:80%;
+    border-radius:10px;
     }
     .select-items table tr td {
 	    padding-bottom: 20px;
     }
     .select-items table tr td.si-pic img {
 	    border: 1px solid #ebebeb;
-    }
-    .select-items table tr td.si-pic img {
-	    border: 1px solid #ebebeb;
+        width:60px;
+        height:60px;
     }
     .select-items table tr td.si-text {
 	    padding-left: 18px;
@@ -183,7 +180,7 @@
 
     .select-items table tr td.si-close {
 	    color: #252525;
-	    font-size: 16px;
+	    font-size: 20px;
 	    cursor: pointer;
     }
     .select-total {
@@ -203,23 +200,27 @@
 	    color: #e7ab3c;
 	    float: right;
     }
-    .select-button a.view-card {
-	    font-size: 12px;
+    .select-button a.view-cart {
+	    font-size: 15px;
 	    letter-spacing: 2px;
 	    display: block;
 	    text-align: center;
-	    background: #191919;
+	    background: #9acd32;
 	    color: #ffffff;
-	    padding: 15px 30px 12px;
+	    padding: 8px 15px ;
 	    margin-bottom: 10px;
+        box-shadow: 0 13px 32px rgba(51, 51, 51, 0.5);
     }
-    .select-button a.checkout-btn {
-	    font-size: 12px;
+    .select-button a.delete-btn {
+	    font-size: 15px;
 	    letter-spacing: 2px;
 	    display: block;
 	    text-align: center;
+        background: #111;
+        opacity:0.8;
 	    color: #ffffff;
-	    padding: 15px 30px 12px;
+	    padding: 8px 15px ;
+        box-shadow: 0 13px 32px rgba(51, 51, 51, 0.5);
     }
 </style>
     <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
@@ -243,11 +244,9 @@
             url: 'AddCart/'+id,
             type: 'GET',
         }).done(function(response){
-            console.log(response);
             $("#change-item-cart").empty();
             $("#change-item-cart").html(response);
-            alert('Đã thêm vào Giỏ hàng!');
-        });
+        });          
     }
 
 </script>
