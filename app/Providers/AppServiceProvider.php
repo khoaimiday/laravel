@@ -38,15 +38,15 @@ class AppServiceProvider extends ServiceProvider
     {
         Schema::defaultStringLength(191);
         $productGlobal              = Product::all()->take(4);
-        $producttype                = Product_type::all();
-        // $brandGlobal                = Brand::all();
+        $productType                = Product_type::all();
+        $brandGlobal                = Brand::all();
         // $feedbackHomepage           = Feedback::where('feed_status', 1)->get();
         $sttNo                      = 0;
 
 
         View::share([
-            'producttype'        =>  $producttype,
-            // 'brandGlobal'           =>  $brandGlobal,
+            'productType'        =>  $productType,
+            'brandGlobal'           =>  $brandGlobal,
             // 'feedbackHomepage'      =>  $feedbackHomepage,
             'productGlobal'         =>  $productGlobal,
             'sttNo'                 =>  $sttNo,

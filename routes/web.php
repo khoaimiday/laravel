@@ -48,7 +48,7 @@ Route::group(['prefix' => 'admin/'], function () {
     Route::get('/news/delete/{id}','NewsController@delete');
 
     //CART
-    
+
 
     //PRODUCT
     Route::get('/product/index', 'ProductController@index');
@@ -68,12 +68,29 @@ Route::group(['prefix' => 'admin/'], function () {
     Route::get('/brand/delete/{id}','BrandController@delete');
 
     //PRODUCT TYPE
-    Route::get('/producttype/index', 'ProductTypeController@index');
-    Route::get('/producttype/create','ProductTypeController@create');
-    Route::post('/producttype/postCreate','ProductTypeController@postCreate');
-    Route::get('/producttype/update/{id}','ProductTypeController@update');
-    Route::post('/producttype/postUpdate/{id}','ProductTypeController@postUpdate');
-    Route::get('/producttype/delete/{id}','ProductTypeController@delete');
+    Route::get('/categories/index', 'ProductTypeController@index');
+    Route::get('/categories/create','ProductTypeController@create');
+    Route::post('/categories/postCreate','ProductTypeController@postCreate');
+    Route::get('/categories/update/{id}','ProductTypeController@update');
+    Route::post('/categories/postUpdate/{id}','ProductTypeController@postUpdate');
+    Route::get('/categories/delete/{id}','ProductTypeController@delete');
+
+    //FEED BACK
+    Route::get('/feedback/index', 'FeedBackController@index');
+    Route::get('/feedback/create','FeedBackController@create');
+    Route::post('/feedback/postCreate','FeedBackController@postCreate');
+    Route::get('/feedback/update/{id}','FeedBackController@update');
+    Route::post('/feedback/postUpdate/{id}','FeedBackController@postUpdate');
+    Route::get('/feedback/delete/{id}','FeedBackController@delete');
+
+    //COMMENT
+    Route::get('/comment/index', 'CommentController@index');
+    Route::get('/comment/create','CommentController@create');
+    Route::post('/comment/postCreate','CommentController@postCreate');
+    Route::get('/comment/update/{id}','CommentController@update');
+    Route::post('/comment/postUpdate/{id}','CommentController@postUpdate');
+    Route::get('/comment/delete/{id}','CommentController@delete');
+
 
 });
 ###############################################################################
@@ -87,64 +104,25 @@ Route::get('/productdetail', function(){
     return view('user.product.details');
 });
 Route::get('/seedproduct', 'ProductController@seedProduct');
+
 Route::get('news',['as'=>'news','uses'=>'PageController@newsIndex']);
+
 Route::get('user/news/newsDetail/{id}',['as'=>'newsdetail','uses'=>'NewsController@newsDetail']);
+
 Route::get('/home',['as'=>'home','uses'=>'HomeController@index']);
+
 Route::post('/comment',['as'=>'comment','uses'=>'CommentController@Comment']);
+
 Route::get('store',['as'=>'store','uses'=>function(){
     return view('user.store.store');}]);
+
 Route::get('/cartindex',function(){return view('user.cart.cartindex'); });
+
 Route::get('/cartconfirm',function(){return view('user.cart.cartconfirm'); });
+
 Route::get('/cart','CartController@index');
+
 Route::get('/AddCart/{id}',['as'=>'AddCart','uses'=>'CartController@AddCart']);
-// FAKER
-// Route::get('/customer', function(){
-//     $faker = Faker\Factory::create();
-//     $limit = 100;
-//     $customer = [];
-//     for ($i=0; $i < $limit; $i++) {
-//         $customer[$i] = [
-//             'Họ và tên' => $faker->name,
-//             'Email' => $faker->email,
-//             'Số điện thoại' => $faker->phoneNumber,
-//             'Website' => $faker->domainName,
-//             'Tuổi' => $faker->numberBetween(20,100),
-//             'Địa chỉ' => $faker->address,
-
-//         ];
-//     }
-//     return response()->json($customer);
-// });
-// Route::get('/seedproduct', function(){
-//     $faker = Faker\Factory::create();
-//     $limit = 30;
-//     $products = [];
-//     for ($i=0; $i < $limit; $i++) {
-//         $products[$i] = [
-//                 'id'=> $faker->numberBetween($min = 1000, $max = 9000),
-//                 'name'=>$faker->name,
-//                 'price'=>$faker->randomDigitNotNull,
-//                 'description'=>$faker->text,
-//                 'content'=>$faker->text,
-//                 'discount'=>$faker->randomDigit,
-//                 'sellCount'=>$faker->randomDigit,
-//                 'dvt'=>'hộp',
-//                 'madeIn'=>$faker->country,
-//                 'useFor'=>$faker->title($gender = 'male'|'female'),
-//                 'image'=>'',
-//                 'ingredient'=>$faker->text,
-//                 'safety'=>$faker->text,
-//                 'brandId'=>$faker->state,
-//                 'groupId'=>$faker->randomDigit,
-//         ];
-//     }
-//     foreach ($products as $product) {
-//         $p = new Product($product);
-//         $p->save();
-//     }
-//     return response()->json($products);
-
-// });
 
 
 

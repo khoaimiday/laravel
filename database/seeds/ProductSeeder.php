@@ -24,6 +24,7 @@ class ProductSeeder extends Seeder
                 'product_unit' => 'Hộp',
                 'product_quantity' => 1,
                 'product_use' => 'Nhiễm một hay nhiều loại giun đường ruột: Giun đũa (Ascaris lumbricoides), giun tóc (Trichuris trichiura), giun móc (Ancylostoma duodenale, Necator americanus), giun kim (Enterobius Vermicularis).',
+                'product_maintain'=>'',
                 'brand_id' => 1,
                 'product_types_id' => 2,
                 'created_at' => now(),
@@ -38,6 +39,7 @@ class ProductSeeder extends Seeder
                 'product_unit' => 'Chai',
                 'product_quantity' => 1,
                 'product_use' => 'Trị cảm ho, sổ mũi, nhức đầu, đau bụng, chóng mặt, nhức mỏi tay chân, say sóng khi đi tàu xe, buồn nôn, sưng viêm, trật gân, kiến cắn, muỗi chích…',
+                'product_maintain'=>'',
                 'brand_id' => 2,
                 'product_types_id' => 7,
                 'created_at' => now(),
@@ -57,6 +59,7 @@ class ProductSeeder extends Seeder
                                     Bệnh nhân bị viêm, ngứa vùng sinh dục: ngứa âm hộ, viêm âm đạo, viêm ngoài tử cung, khí hư, huyết trắng.
                                     Vệ sinh vùng sinh dục cho nam, nữ trước và sau khi quan hệ tình dục.
                                     Nam giới bị viêm ngứa vùng sinh dục.',
+                'product_maintain'=>'',
                 'brand_id' => 6,
                 'product_types_id' => 5,
                 'created_at' => now(),
@@ -76,6 +79,7 @@ class ProductSeeder extends Seeder
                                     Bệnh nhân bị viêm, ngứa vùng sinh dục: ngứa âm hộ, viêm âm đạo, viêm ngoài tử cung, khí hư, huyết trắng.
                                     Vệ sinh vùng sinh dục cho nam, nữ trước và sau khi quan hệ tình dục.
                                     Nam giới bị viêm ngứa vùng sinh dục.',
+                'product_maintain'=>'',
                 'brand_id' => 6,
                 'product_types_id' => 5,
                 'created_at' => now(),
@@ -95,6 +99,7 @@ class ProductSeeder extends Seeder
                                     Bệnh nhân bị viêm, ngứa vùng sinh dục: ngứa âm hộ, viêm âm đạo, viêm ngoài tử cung, khí hư, huyết trắng.
                                     Vệ sinh vùng sinh dục cho nam, nữ trước và sau khi quan hệ tình dục.
                                     Nam giới bị viêm ngứa vùng sinh dục.',
+                'product_maintain'=>'',
                 'brand_id' => 6,
                 'product_types_id' => 5,
                 'created_at' => now(),
@@ -109,6 +114,7 @@ class ProductSeeder extends Seeder
                 'product_unit' => 'Hộp',
                 'product_quantity' => 1,
                 'product_use' => 'Nhiễm một hay nhiều loại giun đường ruột: Giun đũa (Ascaris lumbricoides), giun tóc (Trichuris trichiura), giun móc (Ancylostoma duodenale, Necator americanus), giun kim (Enterobius Vermicularis).',
+                'product_maintain'=>'',
                 'brand_id' => 1,
                 'product_types_id' => 2,
                 'created_at' => now(),
@@ -123,6 +129,7 @@ class ProductSeeder extends Seeder
                 'product_unit' => 'Chai',
                 'product_quantity' => 1,
                 'product_use' => 'Trị cảm ho, sổ mũi, nhức đầu, đau bụng, chóng mặt, nhức mỏi tay chân, say sóng khi đi tàu xe, buồn nôn, sưng viêm, trật gân, kiến cắn, muỗi chích…',
+                'product_maintain'=>'',
                 'brand_id' => 2,
                 'product_types_id' => 7,
                 'created_at' => now(),
@@ -142,6 +149,7 @@ class ProductSeeder extends Seeder
                                     Bệnh nhân bị viêm, ngứa vùng sinh dục: ngứa âm hộ, viêm âm đạo, viêm ngoài tử cung, khí hư, huyết trắng.
                                     Vệ sinh vùng sinh dục cho nam, nữ trước và sau khi quan hệ tình dục.
                                     Nam giới bị viêm ngứa vùng sinh dục.',
+                'product_maintain'=>'',
                 'brand_id' => 6,
                 'product_types_id' => 5,
                 'created_at' => now(),
@@ -161,6 +169,7 @@ class ProductSeeder extends Seeder
                                     Bệnh nhân bị viêm, ngứa vùng sinh dục: ngứa âm hộ, viêm âm đạo, viêm ngoài tử cung, khí hư, huyết trắng.
                                     Vệ sinh vùng sinh dục cho nam, nữ trước và sau khi quan hệ tình dục.
                                     Nam giới bị viêm ngứa vùng sinh dục.',
+                'product_maintain'=>'',
                 'brand_id' => 6,
                 'product_types_id' => 5,
                 'created_at' => now(),
@@ -180,6 +189,7 @@ class ProductSeeder extends Seeder
                                     Bệnh nhân bị viêm, ngứa vùng sinh dục: ngứa âm hộ, viêm âm đạo, viêm ngoài tử cung, khí hư, huyết trắng.
                                     Vệ sinh vùng sinh dục cho nam, nữ trước và sau khi quan hệ tình dục.
                                     Nam giới bị viêm ngứa vùng sinh dục.',
+                'product_maintain'=>'',
                 'brand_id' => 6,
                 'product_types_id' => 5,
                 'created_at' => now(),

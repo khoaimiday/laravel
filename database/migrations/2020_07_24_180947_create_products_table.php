@@ -26,6 +26,7 @@ class CreateProductsTable extends Migration
             $table->integer('product_quantity')->nullable();      // Quantity of product within per unit
             $table->longText('product_use')->nullable();          // Use for customer
             $table->longText('product_maintain')->nullable();
+            $table->integer('sold_out')->default(0);
             $table->unsignedBigInteger('brand_id');
             $table->unsignedBigInteger('product_types_id');
             $table->softDeletes();

@@ -23,7 +23,7 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-header">
-                        <h3 class="card-title">Danh sách tin tức trên Blog sức khoẻ</h3>
+                        <h3 class="card-title">Danh Sách Sản Phẩm</h3>
                     </div>
                     <!-- /.card-header -->
                     <div class="card-body">
@@ -47,11 +47,11 @@
                                 <td>{{ $product->product_name }}</td>
                                 <td><p class="content">{{ $product->short_description }}</p></td>
                                 <td>{{ $product->price }}</td>
-                                <td><img width="100px" src="{{ url('images/news'.$product->image) }}"/></td>
+                                <td><img width="50px" src="{{ url('img/feature/'.$product->image) }}" alt="IMG PRODUCT"/></td>
                                 <td>{{ $product->created_at }}</td>
                                 <td>{{ $product->updated_at  }}</td>
                                 <td class="text-right">
-                                    <a class="btn btn-primary btn-sm-1"  href="#">
+                                <a class="btn btn-primary btn-sm-1"  href="{{ url('/admin/product/detail/'.$product->id) }}">
                                         <i class="fas fa-folder"></i>
                                     </a>
                                     <a class="btn btn-info btn-sm-1"  href="{{ url('/admin/product/update/'.$product->id) }}">

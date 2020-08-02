@@ -16,9 +16,9 @@ class Product extends Model
     // khai báo trường khoá chính
     protected $primaryKey = 'id';
     //mặc định khoá chính sẽ tự  động tăng
-    public $incrementing = false;
-    protected $fillable = ['id', 'product_name', 'price', 'short_description','long_description','image','exp_date','product_info',
-                            'product_unit', 'product_quantity', 'product_use', 'product_maintain', 'brand_id', 'product_types_id', 'updated_at', 'created_at' ];
+    public $incrementing = true;
+    protected $fillable = ['id', 'product_name', 'price', 'short_description','long_description','image','exp_date','product_info', 'sold_out',
+                            'product_unit', 'product_quantity', 'product_use', 'product_maintain', 'brand_id', 'product_types_id', 'updated_at', 'created_at', 'deleted_at' ];
 
     public function roleBrand(){
         return $this->belongsTo(Brand::class);
@@ -35,4 +35,3 @@ class Product extends Model
     protected $dates = ['deleted_at'];
 
 }
-
