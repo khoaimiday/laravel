@@ -37,7 +37,7 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         Schema::defaultStringLength(191);
-        $productGlobal              = Product::all()->take(4);
+        $productGlobal              = Product::all()->take(7);
         $productType                = Product_type::all();
         $brandGlobal                = Brand::all();
         // $feedbackHomepage           = Feedback::where('feed_status', 1)->get();

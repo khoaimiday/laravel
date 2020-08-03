@@ -14,6 +14,10 @@
     <!-- Scripts -->
     {{-- <script src="{{ asset('js/app.js') }}" defer></script> --}}
 
+    <!-- FONT AWESOME--->
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    {{-- <link rel="stylesheet" href="{{asset("plugins/fontawesome-free/css/all.min.css")}}"> --}}
+
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@700&display=swap" rel="stylesheet">
@@ -236,7 +240,7 @@
     {{-- NAV-BAR-TOP --}}
     @include('fragments.nav-bar-top')
     {{-- NAV-BAR-TOP --}}
- 
+
     {{-- HEADER --}}
     {{-- <div class="header">
 
@@ -327,7 +331,7 @@
                 alertify.message(' Đăng nhập để giao hàng ngay!');
         });
     }
-    
+
     // $("#change-item-cart").on("click".".si-close i",function(){
     //     console.log($(this).data("id"));
     // });

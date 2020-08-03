@@ -35,7 +35,7 @@ Route::get('/test', function(){
 
 
 //ADMIN ROUTE
-Route::group(['prefix' => 'admin/'], function () {
+Route::group(['prefix' => 'admin/', 'middleware' => 'isLogin'], function () {
 
     Route::get('/index','PageController@getAdminIndex');
 
