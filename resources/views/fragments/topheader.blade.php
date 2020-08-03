@@ -239,14 +239,22 @@
     <script src="js/js/owl.carousel.min.js"></script>
     <script src="js/js/main.js"></script>
     <script>
-    function AddCart(id){
+   function AddCart(id){
+        
         $.ajax({
-            url: 'AddCart/'+id,
+            url: '/AddCart/'+id,
             type: 'GET',
         }).done(function(response){
             $("#change-item-cart").empty();
             $("#change-item-cart").html(response);
-        });          
+        });
+        alertify.alert("Cucumber xin chào!","Đã thêm sản phẩm vào giỏ hàng của bạn!",function(){
+                alertify.message(' Đăng nhập để giao hàng ngay!');
+        });
+             
     }
+    // $("#change-item-cart").on("click".".si-close i",function(){
+    //     console.log($(this).data("id"));
+    // });
 
 </script>
