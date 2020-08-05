@@ -28,7 +28,7 @@ class CreateProductsTable extends Migration
             $table->longText('product_maintain')->nullable();
             $table->integer('sold_out')->default(0);
             $table->unsignedBigInteger('brand_id');
-            $table->unsignedBigInteger('product_types_id');
+            $table->unsignedBigInteger('product_type_id');
             $table->softDeletes();
             $table->timestamps();
         });

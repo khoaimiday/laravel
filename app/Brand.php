@@ -13,6 +13,7 @@ class Brand extends Model
     public $fillable =['id' , 'brand_name', 'brand_email' , 'description', 'brand_logo', 'created_at', 'updated_at'];
     public $timestamps = true; // Force to have
     public $incrementing = true; // Force to have
+    
     public function roleProduct(){
         return $this->hasMany(Product::class);
     }
