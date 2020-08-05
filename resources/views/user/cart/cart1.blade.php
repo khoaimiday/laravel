@@ -23,6 +23,7 @@
         <div class="select-total">
             <span>total:</span>
             <h5>{{number_format(Session::get('Cart') ->totalPrice)}}Đ</h5>
+            <input hidden id="total-quantity-cart" type="number" value="{{ Session::get('Cart')->totalQuantity}}">
         </div>
     @endif
     

@@ -30,7 +30,11 @@
             <li class="tophead-menu-right cart">
                 <a class="" href="">Giỏ hàng
                     <img src="{{url('img/nav/cart.png')}}" alt="">
-                    <span class="badge">2</span>
+                    @if(Session::has('Cart')!=null)
+                    <span id="total-quantity-badge" class="badge">{{Session::get('Cart')->totalQuantity}}</span>
+                    @else
+                    <span class="badge" id="total-quantity-badge">0</span>
+                    @endif
                 </a>
                 <div class="cart-hover">
                     <div id="change-item-cart">
@@ -267,8 +271,7 @@
             url: '/AddCart/'+id,
             type: 'GET',
         }).done(function(response){
-            $("#change-item-cart").empty();
-            $("#change-item-cart").html(response);
+            RenderCart(response);
             alertify.success('Đã thêm vào giỏ hàng!');
         });        
     }
@@ -278,10 +281,15 @@
             url: 'DeleteItemCart/'+$(this).data("id"),
             type: 'GET',
         }).done(function(response){
-            $("#change-item-cart").empty();
-            $("#change-item-cart").html(response);
+            RenderCart(response);
             alertify.success(' Đã xoá sản phẩm!');
         });
     });
+    
+    function RenderCart(response){
+        $("#change-item-cart").empty();
+        $("#change-item-cart").html(response);
+        $("#total-quantity-badge").text($("#total-quantity-cart").val());
+    }
 
 </script>
