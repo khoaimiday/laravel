@@ -23,6 +23,18 @@ class CartController extends Controller
 
             $req->session()->put('Cart',$newCart);
         }
-        return view('user.cart.cart',compact('newCart'));
+        return view('user.cart.cart1');
     }
+    public function DeleteItemCart(Request $req, $id){
+        $oldCart = Session('Cart') ? Session('Cart') : null;
+        $newCart=new Cart($oldCart);
+        $newCart->DeleteItemCart($id);
+        if(count($newCart->products)>0){
+            $req->session()->put('Cart',$newCart);
+        }
+        else{
+            $req->session()->forget('Cart'); 
+        }
+         return view('user.cart.cart1');
+     }
 }

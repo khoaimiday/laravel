@@ -124,5 +124,7 @@ Route::get('/cart','CartController@index');
 
 Route::get('/AddCart/{id}',['as'=>'AddCart','uses'=>'CartController@AddCart']);
 
+Route::get('/DeleteItemCart/{id}',['as'=>'DeleteItemCart','uses'=>'CartController@DeleteItemCart']);
+
 
 

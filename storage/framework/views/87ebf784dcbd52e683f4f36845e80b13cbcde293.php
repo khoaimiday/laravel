@@ -325,9 +325,9 @@
     //     });
     // }
     
-    $("#change-item-cart").on("click".".si-close i",function(){
-        console.log($(this).data("id"));
-    });
+    // $("#change-item-cart").on("click".".si-close i",function(){
+    //     console.log($(this).data("id"));
+    // });
 </script>
 
 <?php /**PATH E:\xampp\htdocs\laravel\laravel\resources\views/layouts/default.blade.php ENDPATH**/ ?>

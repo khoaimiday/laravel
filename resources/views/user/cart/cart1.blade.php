@@ -1,11 +1,11 @@
 
-    @if($newCart != null)
+    @if(Session::has("Cart") !=null)
         <div class="select-items">
             <table>
                 <tbody>
-                    @foreach($newCart->products as $item) 
+                    @foreach(Session::get('Cart')->products as $item) 
                     <tr>
-                        <td class="si-pic"><img src="{{ url('image/product/'.$item['productInfo']->image) }}" alt=""></td>
+                        <td class="si-pic"><img src="{{ url('img/feature/product/'.$item['productInfo']->image) }}" alt=""></td>
                         <td class="si-text">
                             <div class="product-selected">
                                 <h6>{{($item['productInfo']->product_name)}}</h6>
@@ -13,7 +13,7 @@
                             </div>
                         </td>
                         <td class="si-close">
-                            <i class="ti-close">X</i>
+                            <i class="ti-close" data-id="{{$item['productInfo']->id}}">X</i>
                         </td>
                     </tr>
                     @endforeach
@@ -22,7 +22,7 @@
         </div>
         <div class="select-total">
             <span>total:</span>
-            <h5>{{number_format($newCart->totalPrice)}}Đ</h5>
+            <h5>{{number_format(Session::get('Cart') ->totalPrice)}}Đ</h5>
         </div>
     @endif
     

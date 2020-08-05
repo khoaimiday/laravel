@@ -329,8 +329,8 @@
     //     });
     // }
     
-    $("#change-item-cart").on("click".".si-close i",function(){
-        console.log($(this).data("id"));
-    });
+    // $("#change-item-cart").on("click".".si-close i",function(){
+    //     console.log($(this).data("id"));
+    // });
 </script>
 {{-- END SCRIPT --}}

@@ -1,3 +1,18 @@
+    <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css"/>
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/default.min.css"/>
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/semantic.min.css"/>
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/bootstrap.min.css"/>
+    <script src="js/js/jquery-3.3.1.min.js"></script>
+    <script src="js/js/bootstrap.min.js"></script>
+    <script src="js/js/jquery-ui.min.js"></script>
+    <script src="js/js/jquery.countdown.min.js"></script>
+    <script src="js/js/jquery.nice-select.min.js"></script>
+    <script src="js/js/jquery.zoom.min.js"></script>
+    <script src="js/js/jquery.dd.min.js"></script>
+    <script src="js/js/jquery.slicknav.js"></script>
+    <script src="js/js/owl.carousel.min.js"></script>
+    <script src="js/js/main.js"></script>
 <header class="tophead">
     <div class="tophead-menu">
         <ul class="tophead-menu-list">
@@ -19,28 +34,33 @@
                 </a>
                 <div class="cart-hover">
                     <div id="change-item-cart">
+                        @if(Session::has("Cart") !=null)
                         <div class="select-items">
                             <table>
                                 <tbody>
+                                    @foreach(Session::get('Cart')->products as $item)
                                     <tr>
-                                        <td class="si-pic"><img src="" alt=""></td>
+                                        <td class="si-pic"><img src="{{ url('img/feature/product/'.$item['productInfo']->image) }}" alt="">
+                                        </td>
                                         <td class="si-text">
                                             <div class="product-selected">
-                                                <h5>Giỏ hàng trống</h5>
-                                                <p></p>
+                                                <h6>{{($item['productInfo']->product_name)}}</h6>
+                                                <p>{{number_format($item['productInfo']->price)}}Đ x {{$item['quantity']}}</p>
                                             </div>
                                         </td>
                                         <td class="si-close">
-                                            <i class="ti-close"></i>
+                                            <i class="ti-close" data-id="{{$item['productInfo']->id}}">X</i>
                                         </td>
                                     </tr>
+                                    @endforeach
                                 </tbody>
                             </table>
                         </div>
                         <div class="select-total">
-                            <span>Total:</span>
-                            <h5>0</h5>
+                            <span>total:</span>
+                            <h5>{{number_format(Session::get('Cart') ->totalPrice)}}Đ</h5>
                         </div>
+                        @endif
                     </div>
                     <div class="select-button">
                         <a href="#" class="primary-btn view-cart">Xem giỏ hàng</a>
@@ -217,44 +237,51 @@
 	    display: block;
 	    text-align: center;
         background: #111;
+        border:1px solid #000;
         opacity:0.8;
 	    color: #ffffff;
 	    padding: 8px 15px ;
-        box-shadow: 0 13px 32px rgba(51, 51, 51, 0.5);
+        box-shadow: 5px 13px 22px rgba(0, 0, 51, 0.5);
+    }
+    .alertify-notifier.ajs-bottom.ajs-right{
+        color: white;
+        letter-spacing:2px;
+        background: #9acd32;
+        opacity: 0.8;
+    }
+    .alertify-notifier .ajs-message.ajs-success {
+        color:white;
+        letter-spacing:2px;
+        background:#9acd32;
+        opacity:0.8;
+        border: 1px solid #6B8E23;
+        border-radius: 15px 30px;
+        padding:10px;
+        box-shadow: 5px 10px 20px rgba(0, 0, 0, 0.8);
     }
 </style>
-    <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
-    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css"/>
-    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/default.min.css"/>
-    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/semantic.min.css"/>
-    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/bootstrap.min.css"/>
-    <script src="js/js/jquery-3.3.1.min.js"></script>
-    <script src="js/js/bootstrap.min.js"></script>
-    <script src="js/js/jquery-ui.min.js"></script>
-    <script src="js/js/jquery.countdown.min.js"></script>
-    <script src="js/js/jquery.nice-select.min.js"></script>
-    <script src="js/js/jquery.zoom.min.js"></script>
-    <script src="js/js/jquery.dd.min.js"></script>
-    <script src="js/js/jquery.slicknav.js"></script>
-    <script src="js/js/owl.carousel.min.js"></script>
-    <script src="js/js/main.js"></script>
-    <script>
+    
+<script>
    function AddCart(id){
-        
         $.ajax({
             url: '/AddCart/'+id,
             type: 'GET',
         }).done(function(response){
             $("#change-item-cart").empty();
             $("#change-item-cart").html(response);
-        });
-        alertify.alert("Cucumber xin chào!","Đã thêm sản phẩm vào giỏ hàng của bạn!",function(){
-                alertify.message(' Đăng nhập để giao hàng ngay!');
-        });
-             
+            alertify.success('Đã thêm vào giỏ hàng!');
+        });        
     }
-    // $("#change-item-cart").on("click".".si-close i",function(){
-    //     console.log($(this).data("id"));
-    // });
+
+    $("#change-item-cart").on("click",".si-close i",function(){
+        $.ajax({
+            url: 'DeleteItemCart/'+$(this).data("id"),
+            type: 'GET',
+        }).done(function(response){
+            $("#change-item-cart").empty();
+            $("#change-item-cart").html(response);
+            alertify.success(' Đã xoá sản phẩm!');
+        });
+    });
 
 </script>
