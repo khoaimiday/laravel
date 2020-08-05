@@ -35,9 +35,9 @@ Route::get('/test', function(){
 
 
 //ADMIN ROUTE
-Route::group(['prefix' => 'admin/'], function () {
+Route::group(['prefix' => 'admin/', 'middleware' => 'isLogin'], function () {
 
-    Route::get('/index','PageController@getAdminIndex');
+    Route::get('/index','PageController@adminIndex');
 
     //NEWS
     Route::get('/news/index',['as'=>'admin-news','uses'=>'NewsController@index']);
@@ -100,9 +100,9 @@ Route::group(['prefix' => 'admin/'], function () {
 Route::get('/product', function(){
     return view('user.product.index');
 });
-Route::get('/productdetail', function(){
-    return view('user.product.details');
-});
+Route::get('product/detail/{id}', 'ProductController@detail');
+
+
 Route::get('/seedproduct', 'ProductController@seedProduct');
 
 Route::get('news',['as'=>'news','uses'=>'PageController@newsIndex']);
@@ -127,4 +127,10 @@ Route::get('/AddCart/{id}',['as'=>'AddCart','uses'=>'CartController@AddCart']);
 Route::get('/DeleteItemCart/{id}',['as'=>'DeleteItemCart','uses'=>'CartController@DeleteItemCart']);
 
 
+// SEARCH ROUTER
+
+Route::group(['prefix' => 'search/'], function(){
+    Route::get('cate/{id}', 'SearchController@filterCategories');
+    Route::post('searchByFilter', 'SearchController@searchByFilter');
+});
 

@@ -18,7 +18,7 @@ class AddConstraintsProductTable extends Migration
             // $table->foreignId('product_types_id')->constrained();
 
             $table->foreign('brand_id')->references('id')->on('brands');
-            $table->foreign('product_types_id')->references('id')->on('product_types');
+            $table->foreign('product_type_id')->references('id')->on('product_types');
         });
     }
 
@@ -31,7 +31,7 @@ class AddConstraintsProductTable extends Migration
     {
         Schema::table('products', function (Blueprint $table) {
             $table->dropForeign('products_brand_id_foreign');
-            $table->dropForeign('products_product_types_id_foreign');
+            $table->dropForeign('products_product_type_id_foreign');
             // $table->dropForeign(['product_types_id']);
         });
     }

@@ -156,7 +156,7 @@
                             </div>
                         </div>
                         <div class="card-footer">
-                            <a href="{{url('admin/product/index')}}"><button type="button" class="btn btn-primary">Back</button></a>
+                            <a href="{{ url()->previous() }}"><button type="button" class="btn btn-primary">Back</button></a>
 
                         </div>
                     </div>

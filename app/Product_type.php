@@ -15,6 +15,7 @@ class Product_type extends Model
     public $fillable =['id' , 'type_name', 'type_image' , 'description'];
     public $timestamps = true; // Force to have
     public $incrementing = true; // Force to have
+
     public function roleProduct(){
         return $this->hasMany(Product::class);
     }

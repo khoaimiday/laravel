@@ -18,7 +18,7 @@ class Product extends Model
     //mặc định khoá chính sẽ tự  động tăng
     public $incrementing = true;
     protected $fillable = ['id', 'product_name', 'price', 'short_description','long_description','image','exp_date','product_info', 'sold_out',
-                            'product_unit', 'product_quantity', 'product_use', 'product_maintain', 'brand_id', 'product_types_id', 'updated_at', 'created_at', 'deleted_at' ];
+                            'product_unit', 'product_quantity', 'product_use', 'product_maintain', 'brand_id', 'product_type_id', 'updated_at', 'created_at', 'deleted_at' ];
 
     public function roleBrand(){
         return $this->belongsTo(Brand::class);

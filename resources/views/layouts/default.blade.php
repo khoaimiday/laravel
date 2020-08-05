@@ -14,6 +14,10 @@
     <!-- Scripts -->
     {{-- <script src="{{ asset('js/app.js') }}" defer></script> --}}
 
+    <!-- FONT AWESOME--->
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    {{-- <link rel="stylesheet" href="{{asset("plugins/fontawesome-free/css/all.min.css")}}"> --}}
+
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@700&display=swap" rel="stylesheet">
@@ -236,7 +240,7 @@
     {{-- NAV-BAR-TOP --}}
     @include('fragments.nav-bar-top')
     {{-- NAV-BAR-TOP --}}
- 
+
     {{-- HEADER --}}
     {{-- <div class="header">
 
@@ -315,6 +319,7 @@
         });
     });
 
+<<<<<<< HEAD
     // function AddCart(id){
         
     //     $.ajax({
@@ -329,6 +334,21 @@
     //     });
     // }
     
+=======
+    function AddCart(id){
+        $.ajax({
+            url: '/AddCart/'+id,
+            type: 'GET',
+        }).done(function(response){
+            $("#change-item-cart").empty();
+            $("#change-item-cart").html(response);
+        });
+        alertify.alert("Cucumber","Đã thêm sản phẩm vào giỏ hàng",function(){
+                alertify.message(' Đăng nhập để giao hàng ngay!');
+        });
+    }
+
+>>>>>>> 3bb1f5dde1bc899b897aef44f77c49a16be33b8c
     // $("#change-item-cart").on("click".".si-close i",function(){
     //     console.log($(this).data("id"));
     // });

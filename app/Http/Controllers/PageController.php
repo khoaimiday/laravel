@@ -7,12 +7,19 @@ use App\News;
 
 class PageController extends Controller
 {
-    public function getAdminIndex()
+    public function adminIndex()
     {
-        return view('admin.index');
+        $userCount = User::count();
+        $productCount = Product::count();
+        $orderCount = Order::count();
+        $cartCount = Cart::count();
+        $feedCount = Feedback::count();
+
+        return view('admin.index', compact('userCount', 'productCount', 'orderCount', 'cartCount', 'feedCount'));
     }
+
     public function newsIndex()
-    {   
+    {
         $new1s=News::where('topic','Bệnh thường gặp')->latest()->get();
         // return view('user.news.news')->with(['new1s'=>$new1s]);
 

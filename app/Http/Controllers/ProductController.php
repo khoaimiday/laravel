@@ -203,7 +203,7 @@ class ProductController extends Controller
     // Function link to update page
     public function detail($id)
     {
-        $pro = Product::withTrashed()->join('product_types', 'products.product_types_id', '=', 'product_types.id')
+        $pro = Product::withTrashed()->join('product_types', 'products.product_type_id', '=', 'product_types.id')
             ->join('brands', 'products.brand_id', '=', 'brands.id')
             ->where('products.id', $id)
             ->select('product_types.type_name', 'brands.brand_name', 'products.*')->first();

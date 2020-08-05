@@ -26,7 +26,7 @@ class ProductSeeder extends Seeder
                 'product_use' => 'Nhiễm một hay nhiều loại giun đường ruột: Giun đũa (Ascaris lumbricoides), giun tóc (Trichuris trichiura), giun móc (Ancylostoma duodenale, Necator americanus), giun kim (Enterobius Vermicularis).',
                 'product_maintain'=>'',
                 'brand_id' => 1,
-                'product_types_id' => 2,
+                'product_type_id' => 2,
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
@@ -41,7 +41,7 @@ class ProductSeeder extends Seeder
                 'product_use' => 'Trị cảm ho, sổ mũi, nhức đầu, đau bụng, chóng mặt, nhức mỏi tay chân, say sóng khi đi tàu xe, buồn nôn, sưng viêm, trật gân, kiến cắn, muỗi chích…',
                 'product_maintain'=>'',
                 'brand_id' => 2,
-                'product_types_id' => 7,
+                'product_type_id' => 7,
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
@@ -61,7 +61,7 @@ class ProductSeeder extends Seeder
                                     Nam giới bị viêm ngứa vùng sinh dục.',
                 'product_maintain'=>'',
                 'brand_id' => 6,
-                'product_types_id' => 5,
+                'product_type_id' => 5,
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
@@ -81,7 +81,7 @@ class ProductSeeder extends Seeder
                                     Nam giới bị viêm ngứa vùng sinh dục.',
                 'product_maintain'=>'',
                 'brand_id' => 6,
-                'product_types_id' => 5,
+                'product_type_id' => 5,
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
@@ -101,7 +101,7 @@ class ProductSeeder extends Seeder
                                     Nam giới bị viêm ngứa vùng sinh dục.',
                 'product_maintain'=>'',
                 'brand_id' => 6,
-                'product_types_id' => 5,
+                'product_type_id' => 5,
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
@@ -116,7 +116,7 @@ class ProductSeeder extends Seeder
                 'product_use' => 'Nhiễm một hay nhiều loại giun đường ruột: Giun đũa (Ascaris lumbricoides), giun tóc (Trichuris trichiura), giun móc (Ancylostoma duodenale, Necator americanus), giun kim (Enterobius Vermicularis).',
                 'product_maintain'=>'',
                 'brand_id' => 1,
-                'product_types_id' => 2,
+                'product_type_id' => 2,
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
@@ -131,7 +131,7 @@ class ProductSeeder extends Seeder
                 'product_use' => 'Trị cảm ho, sổ mũi, nhức đầu, đau bụng, chóng mặt, nhức mỏi tay chân, say sóng khi đi tàu xe, buồn nôn, sưng viêm, trật gân, kiến cắn, muỗi chích…',
                 'product_maintain'=>'',
                 'brand_id' => 2,
-                'product_types_id' => 7,
+                'product_type_id' => 7,
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
@@ -151,7 +151,7 @@ class ProductSeeder extends Seeder
                                     Nam giới bị viêm ngứa vùng sinh dục.',
                 'product_maintain'=>'',
                 'brand_id' => 6,
-                'product_types_id' => 5,
+                'product_type_id' => 5,
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
@@ -171,7 +171,7 @@ class ProductSeeder extends Seeder
                                     Nam giới bị viêm ngứa vùng sinh dục.',
                 'product_maintain'=>'',
                 'brand_id' => 6,
-                'product_types_id' => 5,
+                'product_type_id' => 5,
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
@@ -191,7 +191,207 @@ class ProductSeeder extends Seeder
                                     Nam giới bị viêm ngứa vùng sinh dục.',
                 'product_maintain'=>'',
                 'brand_id' => 6,
-                'product_types_id' => 5,
+                'product_type_id' => 5,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'product_name' => 'Bao cao su Durex Kéo dài thời gian quan hệ 1',
+                'price' => 30000,
+                'short_description' => 'Bao cao su tăng cảm giác, kế hoạch hoá gia đình.',
+                'exp_date' => 12,
+                'product_info' => 'Mebendazole 500mg.',
+                'product_unit' => 'Hộp',
+                'product_quantity' => 6,
+                'product_use' => 'Phytogyno dùng để phòng và điều trị các bệnh viêm nhiễm đường sinh dục, thích hợp cho:
+                                    Vệ sinh vùng kín hàng ngày, đặc biệt tốt cho phụ nữ trong những ngày hành kinh và thời kỳ thai sản.
+                                    Điều trị ngứa do vi nấm, nhiễm nấm Candida, huyết trắng.
+                                    Bệnh nhân bị viêm, ngứa vùng sinh dục: ngứa âm hộ, viêm âm đạo, viêm ngoài tử cung, khí hư, huyết trắng.
+                                    Vệ sinh vùng sinh dục cho nam, nữ trước và sau khi quan hệ tình dục.
+                                    Nam giới bị viêm ngứa vùng sinh dục.',
+                'product_maintain'=>'',
+                'brand_id' => 6,
+                'product_type_id' => 5,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'product_name' => 'Bao cao su Durex Kéo dài thời gian quan hệ 2',
+                'price' => 30000,
+                'short_description' => 'Bao cao su tăng cảm giác, kế hoạch hoá gia đình.',
+                'exp_date' => 12,
+                'product_info' => 'Mebendazole 500mg.',
+                'product_unit' => 'Hộp',
+                'product_quantity' => 6,
+                'product_use' => 'Phytogyno dùng để phòng và điều trị các bệnh viêm nhiễm đường sinh dục, thích hợp cho:
+                                    Vệ sinh vùng kín hàng ngày, đặc biệt tốt cho phụ nữ trong những ngày hành kinh và thời kỳ thai sản.
+                                    Điều trị ngứa do vi nấm, nhiễm nấm Candida, huyết trắng.
+                                    Bệnh nhân bị viêm, ngứa vùng sinh dục: ngứa âm hộ, viêm âm đạo, viêm ngoài tử cung, khí hư, huyết trắng.
+                                    Vệ sinh vùng sinh dục cho nam, nữ trước và sau khi quan hệ tình dục.
+                                    Nam giới bị viêm ngứa vùng sinh dục.',
+                'product_maintain'=>'',
+                'brand_id' => 6,
+                'product_type_id' => 5,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'product_name' => 'Bao cao su Durex Kéo dài thời gian quan hệ 3',
+                'price' => 30000,
+                'short_description' => 'Bao cao su tăng cảm giác, kế hoạch hoá gia đình.',
+                'exp_date' => 12,
+                'product_info' => 'Mebendazole 500mg.',
+                'product_unit' => 'Hộp',
+                'product_quantity' => 6,
+                'product_use' => 'Phytogyno dùng để phòng và điều trị các bệnh viêm nhiễm đường sinh dục, thích hợp cho:
+                                    Vệ sinh vùng kín hàng ngày, đặc biệt tốt cho phụ nữ trong những ngày hành kinh và thời kỳ thai sản.
+                                    Điều trị ngứa do vi nấm, nhiễm nấm Candida, huyết trắng.
+                                    Bệnh nhân bị viêm, ngứa vùng sinh dục: ngứa âm hộ, viêm âm đạo, viêm ngoài tử cung, khí hư, huyết trắng.
+                                    Vệ sinh vùng sinh dục cho nam, nữ trước và sau khi quan hệ tình dục.
+                                    Nam giới bị viêm ngứa vùng sinh dục.',
+                'product_maintain'=>'',
+                'brand_id' => 6,
+                'product_type_id' => 5,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'product_name' => 'Bao cao su Durex Kéo dài thời gian quan hệ 4',
+                'price' => 30000,
+                'short_description' => 'Bao cao su tăng cảm giác, kế hoạch hoá gia đình.',
+                'exp_date' => 12,
+                'product_info' => 'Mebendazole 500mg.',
+                'product_unit' => 'Hộp',
+                'product_quantity' => 6,
+                'product_use' => 'Phytogyno dùng để phòng và điều trị các bệnh viêm nhiễm đường sinh dục, thích hợp cho:
+                                    Vệ sinh vùng kín hàng ngày, đặc biệt tốt cho phụ nữ trong những ngày hành kinh và thời kỳ thai sản.
+                                    Điều trị ngứa do vi nấm, nhiễm nấm Candida, huyết trắng.
+                                    Bệnh nhân bị viêm, ngứa vùng sinh dục: ngứa âm hộ, viêm âm đạo, viêm ngoài tử cung, khí hư, huyết trắng.
+                                    Vệ sinh vùng sinh dục cho nam, nữ trước và sau khi quan hệ tình dục.
+                                    Nam giới bị viêm ngứa vùng sinh dục.',
+                'product_maintain'=>'',
+                'brand_id' => 6,
+                'product_type_id' => 5,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'product_name' => 'Bao cao su Durex Kéo dài thời gian quan hệ 5',
+                'price' => 30000,
+                'short_description' => 'Bao cao su tăng cảm giác, kế hoạch hoá gia đình.',
+                'exp_date' => 12,
+                'product_info' => 'Mebendazole 500mg.',
+                'product_unit' => 'Hộp',
+                'product_quantity' => 6,
+                'product_use' => 'Phytogyno dùng để phòng và điều trị các bệnh viêm nhiễm đường sinh dục, thích hợp cho:
+                                    Vệ sinh vùng kín hàng ngày, đặc biệt tốt cho phụ nữ trong những ngày hành kinh và thời kỳ thai sản.
+                                    Điều trị ngứa do vi nấm, nhiễm nấm Candida, huyết trắng.
+                                    Bệnh nhân bị viêm, ngứa vùng sinh dục: ngứa âm hộ, viêm âm đạo, viêm ngoài tử cung, khí hư, huyết trắng.
+                                    Vệ sinh vùng sinh dục cho nam, nữ trước và sau khi quan hệ tình dục.
+                                    Nam giới bị viêm ngứa vùng sinh dục.',
+                'product_maintain'=>'',
+                'brand_id' => 6,
+                'product_type_id' => 5,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'product_name' => 'Bao cao su Durex Kéo dài thời gian quan hệ 6',
+                'price' => 30000,
+                'short_description' => 'Bao cao su tăng cảm giác, kế hoạch hoá gia đình.',
+                'exp_date' => 12,
+                'product_info' => 'Mebendazole 500mg.',
+                'product_unit' => 'Hộp',
+                'product_quantity' => 6,
+                'product_use' => 'Phytogyno dùng để phòng và điều trị các bệnh viêm nhiễm đường sinh dục, thích hợp cho:
+                                    Vệ sinh vùng kín hàng ngày, đặc biệt tốt cho phụ nữ trong những ngày hành kinh và thời kỳ thai sản.
+                                    Điều trị ngứa do vi nấm, nhiễm nấm Candida, huyết trắng.
+                                    Bệnh nhân bị viêm, ngứa vùng sinh dục: ngứa âm hộ, viêm âm đạo, viêm ngoài tử cung, khí hư, huyết trắng.
+                                    Vệ sinh vùng sinh dục cho nam, nữ trước và sau khi quan hệ tình dục.
+                                    Nam giới bị viêm ngứa vùng sinh dục.',
+                'product_maintain'=>'',
+                'brand_id' => 6,
+                'product_type_id' => 5,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'product_name' => 'Bao cao su Durex Kéo dài thời gian quan hệ 7',
+                'price' => 30000,
+                'short_description' => 'Bao cao su tăng cảm giác, kế hoạch hoá gia đình.',
+                'exp_date' => 12,
+                'product_info' => 'Mebendazole 500mg.',
+                'product_unit' => 'Hộp',
+                'product_quantity' => 6,
+                'product_use' => 'Phytogyno dùng để phòng và điều trị các bệnh viêm nhiễm đường sinh dục, thích hợp cho:
+                                    Vệ sinh vùng kín hàng ngày, đặc biệt tốt cho phụ nữ trong những ngày hành kinh và thời kỳ thai sản.
+                                    Điều trị ngứa do vi nấm, nhiễm nấm Candida, huyết trắng.
+                                    Bệnh nhân bị viêm, ngứa vùng sinh dục: ngứa âm hộ, viêm âm đạo, viêm ngoài tử cung, khí hư, huyết trắng.
+                                    Vệ sinh vùng sinh dục cho nam, nữ trước và sau khi quan hệ tình dục.
+                                    Nam giới bị viêm ngứa vùng sinh dục.',
+                'product_maintain'=>'',
+                'brand_id' => 6,
+                'product_type_id' => 5,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'product_name' => 'Bao cao su Durex Kéo dài thời gian quan hệ 8',
+                'price' => 30000,
+                'short_description' => 'Bao cao su tăng cảm giác, kế hoạch hoá gia đình.',
+                'exp_date' => 12,
+                'product_info' => 'Mebendazole 500mg.',
+                'product_unit' => 'Hộp',
+                'product_quantity' => 6,
+                'product_use' => 'Phytogyno dùng để phòng và điều trị các bệnh viêm nhiễm đường sinh dục, thích hợp cho:
+                                    Vệ sinh vùng kín hàng ngày, đặc biệt tốt cho phụ nữ trong những ngày hành kinh và thời kỳ thai sản.
+                                    Điều trị ngứa do vi nấm, nhiễm nấm Candida, huyết trắng.
+                                    Bệnh nhân bị viêm, ngứa vùng sinh dục: ngứa âm hộ, viêm âm đạo, viêm ngoài tử cung, khí hư, huyết trắng.
+                                    Vệ sinh vùng sinh dục cho nam, nữ trước và sau khi quan hệ tình dục.
+                                    Nam giới bị viêm ngứa vùng sinh dục.',
+                'product_maintain'=>'',
+                'brand_id' => 6,
+                'product_type_id' => 5,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'product_name' => 'Bao cao su Durex Kéo dài thời gian quan hệ 9',
+                'price' => 30000,
+                'short_description' => 'Bao cao su tăng cảm giác, kế hoạch hoá gia đình.',
+                'exp_date' => 12,
+                'product_info' => 'Mebendazole 500mg.',
+                'product_unit' => 'Hộp',
+                'product_quantity' => 6,
+                'product_use' => 'Phytogyno dùng để phòng và điều trị các bệnh viêm nhiễm đường sinh dục, thích hợp cho:
+                                    Vệ sinh vùng kín hàng ngày, đặc biệt tốt cho phụ nữ trong những ngày hành kinh và thời kỳ thai sản.
+                                    Điều trị ngứa do vi nấm, nhiễm nấm Candida, huyết trắng.
+                                    Bệnh nhân bị viêm, ngứa vùng sinh dục: ngứa âm hộ, viêm âm đạo, viêm ngoài tử cung, khí hư, huyết trắng.
+                                    Vệ sinh vùng sinh dục cho nam, nữ trước và sau khi quan hệ tình dục.
+                                    Nam giới bị viêm ngứa vùng sinh dục.',
+                'product_maintain'=>'',
+                'brand_id' => 6,
+                'product_type_id' => 5,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'product_name' => 'Bao cao su Durex Kéo dài thời gian quan hệ 10',
+                'price' => 30000,
+                'short_description' => 'Bao cao su tăng cảm giác, kế hoạch hoá gia đình.',
+                'exp_date' => 12,
+                'product_info' => 'Mebendazole 500mg.',
+                'product_unit' => 'Hộp',
+                'product_quantity' => 6,
+                'product_use' => 'Phytogyno dùng để phòng và điều trị các bệnh viêm nhiễm đường sinh dục, thích hợp cho:
+                                    Vệ sinh vùng kín hàng ngày, đặc biệt tốt cho phụ nữ trong những ngày hành kinh và thời kỳ thai sản.
+                                    Điều trị ngứa do vi nấm, nhiễm nấm Candida, huyết trắng.
+                                    Bệnh nhân bị viêm, ngứa vùng sinh dục: ngứa âm hộ, viêm âm đạo, viêm ngoài tử cung, khí hư, huyết trắng.
+                                    Vệ sinh vùng sinh dục cho nam, nữ trước và sau khi quan hệ tình dục.
+                                    Nam giới bị viêm ngứa vùng sinh dục.',
+                'product_maintain'=>'',
+                'brand_id' => 6,
+                'product_type_id' => 5,
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
