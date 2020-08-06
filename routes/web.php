@@ -17,10 +17,6 @@ use App\Product;
 */
 
 
-Route::get('/', function () {
-    return view('home');
-});
-
 Auth::routes();
 
 Route::get('/logout', function(){
@@ -96,37 +92,27 @@ Route::group(['prefix' => 'admin/', 'middleware' => 'isLogin'], function () {
 ###############################################################################
 
 //USER ROUTE
+Route::get('/', 'HomeController@index');
 
 Route::get('/product', function(){
     return view('user.product.index');
 });
+
 Route::get('product/detail/{id}', 'ProductController@detail');
-
-
-Route::get('/seedproduct', 'ProductController@seedProduct');
-
 Route::get('news',['as'=>'news','uses'=>'PageController@newsIndex']);
-
 Route::get('user/news/newsDetail/{id}',['as'=>'newsdetail','uses'=>'NewsController@newsDetail']);
-
-Route::get('/home',['as'=>'home','uses'=>'HomeController@index']);
-
 Route::post('/comment',['as'=>'comment','uses'=>'CommentController@Comment']);
-
 Route::get('store',['as'=>'store','uses'=>function(){
     return view('user.store.store');}]);
 
-Route::get('/cartindex',function(){return view('user.cart.cartindex'); });
-
-Route::get('/cartconfirm',function(){return view('user.cart.cartconfirm'); });
-
+//CART ROUTE
 Route::get('/cart','CartController@index');
-
 Route::get('/AddCart/{id}',['as'=>'AddCart','uses'=>'CartController@AddCart']);
+Route::get('/cartconfirm',function(){return view('user.cart.cartconfirm'); });
+Route::get('/cartindex',function(){return view('user.cart.cartindex'); });
 
 
 // SEARCH ROUTER
-
 Route::group(['prefix' => 'search/'], function(){
     Route::get('cate/{id}', 'SearchController@filterCategories');
     Route::post('searchByFilter', 'SearchController@searchByFilter');

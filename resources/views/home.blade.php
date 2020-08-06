@@ -9,18 +9,34 @@
 </div>
 
 
-{{-- PRODUCT --}}
-<div class="container my-2">
-    {{-- <div class="row"> --}}
-            <div class="wrap__product">
-                @foreach ($productGlobal as $p)
-                    <div class="col-3">
+    {{--NEW PRODUCT --}}
+    <div class="container my-2">
+        <div class="row">
+                @foreach ($newProduct as $p)
+                    <div class="col-md-3 col-sm-6">
                         <x-product :product="$p" />
                     </div>
                 @endforeach
-            </div>
         </div>
     </div>
+
+    <div class="container section-title-container container">
+        <h3 class="section-title section-title-center">
+            <b></b><span class="section-title-main">Sản phẩm bán chạy</span><b></b>
+        </h3>
+    </div>
+
+
+        {{--NEW PRODUCT --}}
+        <div class="container my-2">
+            <div class="row">
+                    @foreach ($soldProduct as $p)
+                        <div class="col-md-3 col-sm-6">
+                            <x-product :product="$p" />
+                        </div>
+                    @endforeach
+            </div>
+        </div>
     {{-- END PRODUCT --}}
 
     <div class="container section-title-container container">

@@ -1,41 +1,31 @@
 
-<div class="navigation topNav">
-    <nav class="navbar navbar-expand-md navbar-light {{--shadow-sm--}} ">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="{{ url('/') }}">
-
-            </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
-            <div class="collapse navbar-collapse align-items-baseline" id="navbarSupportedContent">
-                <!-- Left Side Of Navbar -->
-                {{-- <ul class="navbar-nav mr-auto">
-            </ul> --}}
-            <form id="search-nav">
-                <input type="search" placeholder="Search">
-            </form>
-
-
-                <!-- Right Side Of Navbar -->
-                <ul class="navbar-nav ml-auto">
+<div class="top-nav">
+    <div class="container-fluid">
+        <div class="row justify-content-between align-items-center">
+            <div class="col-md-8">
+                <div class="row" style="justify-content: flex-end;">
+                    <div class="search-area" id="search-area">
+                    <form role="search" method="post" class="search-form clearfix" action="{{ url('/search/input') }}">
+                            <input type="hidden" name="post_type" value="product">
+                            <input type="search" class="field-search" placeholder="Tìm kiếm..." value="" name="s" title="Tìm kiếm">
+                            <button class="button-search">
+                                <i class="fa fa-search"></i>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <ul class="row px-3" style="justify-content: flex-end; list-style: none;">
                     <!-- Authentication Links -->
                     @guest
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ route('login') }}">Đăng Nhập</a>
-                    </li>
-                    @if (Route::has('register'))
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ route('register') }}">Đăng Ký</a>
-                    </li>
-                    @endif
+                    <div class="customer-area">
+                        <i class="fa fa-user"></i>
+                        <div class="customer-content">
+                            <a href="{{ route('register') }}">Đăng ký</a> / <a href="{{ route('login') }}">Đăng nhập</a>
+                        </div>
+                    </div>
                     @else
-
-                    <a href="" class="iconShoppingCart">
-                        <div class="shoppingCart"><img src="{{ url('img/nav/shoppingCart.png') }}" alt=""></div>
-                    </a>
                     <li class="nav-item dropdown">
                         <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
@@ -53,121 +43,94 @@
                         </div>
                     </li>
                     @endguest
+                    <div class="woocommerce-cart-mini">
+                        <a href="https://mypharma.vn/gio-hang/">
+                            <i class="fa fa-shopping-cart"></i>
+                            <span class="cart-content">Giỏ hàng (0)</span>
+                        </a>
+                    </div>
                 </ul>
             </div>
         </div>
-    </nav>
+    </div>
 </div>
+
+
+
 <style>
-    .navbar .navbar-brand img {
-        position: absolute;
-        width: 100px;
-        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    }
-
-    .navbar {
-        position: relative;
-        background: transparent;
-        z-index: 100;
-        height: 30px;
-        padding: 3px 6px;
-
-    }
-
-    .navbar .nav-item a {
-        font-size: 16px;
-        font-weight: 600;
-    }
-
-    .topNav {
-        padding: 20px;
-        /* border-bottom:1px solid #fff; */
-        transition: top 0.3s;
-    }
-
-    .search img {
-        width: 18px;
-        margin-bottom: -8px;
-    }
-
-    .shoppingCart img {
-        width: 18px;
-        margin-bottom: -8px;
-    }
-
-    /* INPUT SEARCH */
-
-    a {
-        color: #69C;
-        text-decoration: none;
-    }
-
-    .topNav .navbar a:hover {
-        color: #F60;
-    }
-
-    .topNav .navbar h1 {
-        font: 1.7em;
-        line-height: 110%;
-        color: #000;
-    }
-
-    .topNav .navbar p {
-        margin: 0 0 20px;
-    }
-
-    .topNav .navbar input {
-        outline: none;
-    }
-
-    input[type=search] {
-        -webkit-appearance: textfield;
-        -webkit-box-sizing: content-box;
-        font-family: inherit;
-        font-size: 100%;
-    }
-
-    input::-webkit-search-decoration,
-    input::-webkit-search-cancel-button {
-        display: none;
-    }
-
-
-    input[type=search] {
-        background: #fcfbfb url(https://static.tumblr.com/ftv85bp/MIXmud4tx/search-icon.png) no-repeat 9px center;
-        border: solid 1px #ccc;
-        padding: 9px 10px 9px 32px;
-        width: 55px;
-
-        -webkit-border-radius: 10em;
-        -moz-border-radius: 10em;
-        border-radius: 10em;
-
-        -webkit-transition: all .5s;
-        -moz-transition: all .5s;
-        transition: all .5s;
-        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5);
-    }
-
-    input[type=search]:focus {
-        width: 330px;
-        background-color: #fff;
-        /* border-color: #66CC75; */
-
-        -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
-        -moz-box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
-        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3);
-    }
-
-
-    input:-moz-placeholder {
-        color: #999;
-    }
-
-    input::-webkit-input-placeholder {
-        color: #999;
-    }
-
-
-    /* END INPUT SEARCH */
+.top-nav{
+    /* background-color: #9acd32; */
+}
+.customer-area {
+    display: -ms-flexbox;
+    display: flex;
+    align-items: center;
+    color: #9acd32;
+}
+.customer-area i {
+    font-size: 26px;
+    margin: 0 8px 0 0;
+}
+.customer-area a{
+    text-decoration: none;
+}
+.search-area {
+    width: 100%;
+    max-width: 550px;
+    position: relative;
+}
+.field-search {
+    float: left;
+    border: 1px solid #9acd32;
+    height: 40px;
+    line-height: 19px;
+    padding: 11px 10px 10px;
+    /* -webkit-border-radius: 10px 0 0 10px;
+    -moz-border-radius: 10px 0 0 10px;
+    border-radius: 10px 0 0 10px; */
+    width: calc(100% - 40px);
+}
+.button-search {
+    height: 40px;
+    width: 40px;
+    background: #9acd32 none;
+    float: left;
+    color: #fff;
+    border: 0;
+    -webkit-border-radius: 0 10px 10px 0;
+    -moz-border-radius: 0 10px 10px 0;
+    border-radius: 0 10px 10px 0;
+    font-size: 19px;
+    position: relative;
+}
+.button-search i {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%,-50%);
+    -ms-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+}
+.icofont-search-2:before {
+    content: "\ed12";
+}
+.woocommerce-cart-mini {
+    margin: 0 0 0 30px;
+}
+.woocommerce-cart-mini a {
+    display: -ms-flexbox;
+    display: flex;
+    align-items: center;
+    color: #9acd32;
+    text-transform: uppercase;
+    font-weight: 500;
+    font-size: 15px;
+}
+.woocommerce-cart-mini i {
+    margin: 0 8px 0 0;
+    font-size: 28px;
+}
+.icofont-cart-alt:before {
+    content: "\eed1";
+}
 </style>

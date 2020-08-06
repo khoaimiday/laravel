@@ -88,8 +88,9 @@
 
     /* CAROUSEL */
     .carousel {
-        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.8);
-        /* overflow: hidden; */
+        width: 100%;
+        height: 400px;
+        overflow: hidden;
     }
 
     .carousel .owl-dots {
@@ -235,12 +236,11 @@
 <body>
     {{-- MY WEBSITE --}}
 
-    @include('fragments.topheader')
-    {{-- <div class="topheader2"> --}}
     {{-- NAV-BAR-TOP --}}
     @include('fragments.nav-bar-top')
     {{-- NAV-BAR-TOP --}}
-
+    @include('fragments.topheader')
+    {{-- <div class="topheader2"> --}}
     {{-- HEADER --}}
     {{-- <div class="header">
 

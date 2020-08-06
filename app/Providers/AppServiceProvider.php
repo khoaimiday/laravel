@@ -37,6 +37,7 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         Schema::defaultStringLength(191);
+
         $productGlobal              = Product::paginate(12);
         $productType                = Product_type::all();
         $brandGlobal                = Brand::all();

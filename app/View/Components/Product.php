@@ -37,7 +37,8 @@ class Product extends Component
         $this->product_unit = $product['product_unit'];
         $this->product_quantity = $product['product_quantity'];
         $this->product_use = $product['product_use'];
-        $this->product_type = 'Sản phẩm tiện lợi';
+        $this->product_type = $product['product_type_id'];
+        $this->product_brand = $product['brand_id'];
     }
 
     /**
