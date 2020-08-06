@@ -48,9 +48,9 @@
                     </div>
                 </div>
             </li>
-            <li class="tophead-menu-right"><a href="">Liên hệ <img src="{{url('img/nav/Contact2.png')}}" alt=""></a>
+            <li class="tophead-menu-right"><a href="{{url('contact')}}">Liên hệ <img src="{{url('img/nav/Contact2.png')}}" alt=""></a>
             </li>
-            <li class="tophead-menu-right"><a href="">FAQs <img src="{{url('img/nav/FAQ.png')}}" alt=""></a></li>
+            <li class="tophead-menu-right"><a href="{{url('FAQ')}}">FAQs <img src="{{url('img/nav/FAQ.png')}}" alt=""></a></li>
             <li class="tophead-menu-right"><a href="{{route('news')}}">Blog <img src="{{url('img/nav/Blog2.png')}}"
                         alt=""></a></li>
         </ul>

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CustomerController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Product;
@@ -16,10 +17,6 @@ use App\Product;
 |
 */
 
-
-Route::get('/', function () {
-    return view('home');
-});
 
 Auth::routes();
 
@@ -76,11 +73,7 @@ Route::group(['prefix' => 'admin/', 'middleware' => 'isLogin'], function () {
     Route::get('/categories/delete/{id}','ProductTypeController@delete');
 
     //FEED BACK
-    Route::get('/feedback/index', 'FeedBackController@index');
-    Route::get('/feedback/create','FeedBackController@create');
-    Route::post('/feedback/postCreate','FeedBackController@postCreate');
-    Route::get('/feedback/update/{id}','FeedBackController@update');
-    Route::post('/feedback/postUpdate/{id}','FeedBackController@postUpdate');
+    Route::get('/feedback/feedbackList', 'HomeController@feedbackList');
     Route::get('/feedback/delete/{id}','FeedBackController@delete');
 
     //COMMENT
@@ -90,43 +83,45 @@ Route::group(['prefix' => 'admin/', 'middleware' => 'isLogin'], function () {
     Route::get('/comment/update/{id}','CommentController@update');
     Route::post('/comment/postUpdate/{id}','CommentController@postUpdate');
     Route::get('/comment/delete/{id}','CommentController@delete');
-
+    //ADMIN
+    //CUSTOMER
 
 });
 ###############################################################################
 
 //USER ROUTE
+Route::get('/', 'HomeController@index');
 
 Route::get('/product', function(){
     return view('user.product.index');
 });
+
 Route::get('product/detail/{id}', 'ProductController@detail');
-
-
-Route::get('/seedproduct', 'ProductController@seedProduct');
-
 Route::get('news',['as'=>'news','uses'=>'PageController@newsIndex']);
-
 Route::get('user/news/newsDetail/{id}',['as'=>'newsdetail','uses'=>'NewsController@newsDetail']);
-
-Route::get('/home',['as'=>'home','uses'=>'HomeController@index']);
-
 Route::post('/comment',['as'=>'comment','uses'=>'CommentController@Comment']);
-
 Route::get('store',['as'=>'store','uses'=>function(){
     return view('user.store.store');}]);
 
+//CART ROUTE
+Route::get('/cart','CartController@index');
+Route::get('/AddCart/{id}',['as'=>'AddCart','uses'=>'CartController@AddCart']);
+Route::get('/cartconfirm',function(){return view('user.cart.cartconfirm'); });
 Route::get('/cartindex',function(){return view('user.cart.cartindex'); });
 
-Route::get('/cartconfirm',function(){return view('user.cart.cartconfirm'); });
-
-Route::get('/cart','CartController@index');
-
-Route::get('/AddCart/{id}',['as'=>'AddCart','uses'=>'CartController@AddCart']);
-
+Route::get('/contact','HomeController@contact');
+Route::post('/feedback/postFeedback','FeedbackController@postFeedback');
+Route::get('/FAQ','HomeController@FAQ');
+Route::get('/superAdmin/adminList','CustomerController@adminList');
+Route::get('/superAdmin/CreateAdmin','CustomerController@CreateAdmin');
+Route::post('/superAdmin/PostCreateAdmin','CustomerController@PostCreateAdmin');
+Route::get('/superAdmin/adminUpdate/{id}','CustomerController@adminUpdate');
+Route::post('/superAdmin/AdminPostUpdate/{id}','CustomerController@AdminPostUpdate');
+Route::get('/superAdmin/deleteAdmin/{id}','CustomerController@deleteAdmin');
+//customer
+Route::get('customer/customerList','CustomerController@customerList');
 
 // SEARCH ROUTER
-
 Route::group(['prefix' => 'search/'], function(){
     Route::get('cate/{id}', 'SearchController@filterCategories');
     Route::post('searchByFilter', 'SearchController@searchByFilter');

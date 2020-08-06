@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Product;
 class HomeController extends Controller
 {
     /**
@@ -13,7 +13,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        // $this->middleware('auth');
     }
 
     /**
@@ -23,6 +23,24 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $newProduct = Product::orderBy('created_at','desc')->limit(4)->get();
+        $soldProduct = Product::orderBy('sold_out', 'desc')->limit(4)->get();
+        return view('home', compact('newProduct', 'soldProduct'));
     }
+    public function login()
+    {
+        return view('login');
+
+    }
+    public function contact()
+    {
+        return view('user.contact.index');
+
+    }
+    public function FAQ()
+    {
+        return view('user.FAQ.index');
+    }
+    
 }
+
