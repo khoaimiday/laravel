@@ -13,6 +13,7 @@ class CartController extends Controller
         $products= DB::table('products')->get();
         return view('user.cart.cartindex')->with(['products'=>$products]);
     }
+
     public function AddCart(Request $req, $id){
        // $req->session()->forget('Cart');
         $product=DB::table('products')->where('id',$id)->first();
@@ -25,6 +26,7 @@ class CartController extends Controller
         }
         return view('user.cart.cartindex');
     }
+<<<<<<< HEAD
     public function DeleteItemCart(Request $req, $id){
         $oldCart = Session('Cart') ? Session('Cart') : null;
         $newCart=new Cart($oldCart);
@@ -41,5 +43,8 @@ class CartController extends Controller
      public function ListOrder(){
          return view('user.cart.cartlist');
      }
+=======
+
+>>>>>>> c5cbed9196dd361291665631b0a1274d7ef2fe4d
 }
 
