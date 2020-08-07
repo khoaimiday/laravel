@@ -101,9 +101,10 @@ Route::get('news',['as'=>'news','uses'=>'PageController@newsIndex']);
 Route::get('user/news/newsDetail/{id}',['as'=>'newsdetail','uses'=>'NewsController@newsDetail']);
 Route::post('/comment',['as'=>'comment','uses'=>'CommentController@Comment']);
 Route::get('store',['as'=>'store','uses'=>function(){
-    return view('user.store.store');}]);
+    return view('user.store.store');} ]);
+Route::get('/cartlist',['as'=>'ListOrder','uses'=>'CartController@listOrder']);
 
-//CART ROUTE
+Route::get('/cartconfirm',function(){return view('user.cart.cartconfirm');} );
 Route::get('/cart','CartController@index');
 Route::get('/AddCart/{id}',['as'=>'AddCart','uses'=>'CartController@AddCart']);
 Route::get('/cartconfirm',function(){return view('user.cart.cartconfirm'); });
@@ -120,6 +121,11 @@ Route::post('/superAdmin/AdminPostUpdate/{id}','CustomerController@AdminPostUpda
 Route::get('/superAdmin/deleteAdmin/{id}','CustomerController@deleteAdmin');
 //customer
 Route::get('customer/customerList','CustomerController@customerList');
+Route::get('/DeleteItemCart/{id}',['as'=>'DeleteItemCart','uses'=>'CartController@DeleteItemCart']);
+Route::get('/minusItem/{id}',['as'=>'minusItem','uses'=>'CartController@minusItem']);
+Route::get('/plusItem/{id}',['as'=>'plusItem','uses'=>'CartController@plusItem']);
+Route::get('/DeleteListItemCart/{id}',['as'=>'DeleteListItemCart','uses'=>'CartController@DeleteListItemCart']);
+
 
 // SEARCH ROUTER
 Route::group(['prefix' => 'search/'], function(){

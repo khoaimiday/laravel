@@ -14,6 +14,10 @@
     <!-- Scripts -->
     
 
+    <!-- FONT AWESOME--->
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    
+
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@700&display=swap" rel="stylesheet">
@@ -84,8 +88,9 @@
 
     /* CAROUSEL */
     .carousel {
-        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.8);
-        /* overflow: hidden; */
+        width: 100%;
+        height: 400px;
+        overflow: hidden;
     }
 
     .carousel .owl-dots {
@@ -231,12 +236,11 @@
 <body>
     
 
-    <?php echo $__env->make('fragments.topheader', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
-    
     
     <?php echo $__env->make('fragments.nav-bar-top', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
     
- 
+    <?php echo $__env->make('fragments.topheader', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+    
     
     
     
@@ -311,18 +315,19 @@
         });
     });
 
-    function AddCart(id){
-        $.ajax({
-            url: '/AddCart/'+id,
-            type: 'GET',
-        }).done(function(response){
-            $("#change-item-cart").empty();
-            $("#change-item-cart").html(response);
-        });
-        alertify.alert("Cucumber","Đã thêm sản phẩm vào giỏ hàng",function(){
-                alertify.message(' Đăng nhập để giao hàng ngay!');
-        });
-    }
+    // function AddCart(id){
+        
+    //     $.ajax({
+    //         url: '/AddCart/'+id,
+    //         type: 'GET',
+    //     }).done(function(response){
+    //         $("#change-item-cart").empty();
+    //         $("#change-item-cart").html(response);
+    //     });
+    //     alertify.alert("Cucumber","Đã thêm sản phẩm vào giỏ hàng",function(){
+    //             alertify.message(' Đăng nhập để giao hàng ngay!');
+    //     });
+    // }
     
     // $("#change-item-cart").on("click".".si-close i",function(){
     //     console.log($(this).data("id"));
