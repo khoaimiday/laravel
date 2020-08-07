@@ -103,22 +103,19 @@ Route::get('news',['as'=>'news','uses'=>'PageController@newsIndex']);
 Route::get('user/news/newsDetail/{id}',['as'=>'newsdetail','uses'=>'NewsController@newsDetail']);
 Route::post('/comment',['as'=>'comment','uses'=>'CommentController@Comment']);
 Route::get('store',['as'=>'store','uses'=>function(){
-    return view('user.store.store');}]);
-
-<<<<<<< HEAD
+    return view('user.store.store');} ]);
 Route::get('/cartlist',['as'=>'ListOrder','uses'=>'CartController@listOrder']);
 
-Route::get('/cartconfirm',function(){return view('user.cart.cartconfirm'); });
-
-=======
-//CART ROUTE
->>>>>>> c5cbed9196dd361291665631b0a1274d7ef2fe4d
+Route::get('/cartconfirm',function(){return view('user.cart.cartconfirm');} );
 Route::get('/cart','CartController@index');
 Route::get('/AddCart/{id}',['as'=>'AddCart','uses'=>'CartController@AddCart']);
 Route::get('/cartconfirm',function(){return view('user.cart.cartconfirm'); });
 Route::get('/cartindex',function(){return view('user.cart.cartindex'); });
 
 Route::get('/DeleteItemCart/{id}',['as'=>'DeleteItemCart','uses'=>'CartController@DeleteItemCart']);
+Route::get('/minusItem/{id}',['as'=>'minusItem','uses'=>'CartController@minusItem']);
+Route::get('/plusItem/{id}',['as'=>'plusItem','uses'=>'CartController@plusItem']);
+Route::get('/DeleteListItemCart/{id}',['as'=>'DeleteListItemCart','uses'=>'CartController@DeleteListItemCart']);
 
 
 // SEARCH ROUTER

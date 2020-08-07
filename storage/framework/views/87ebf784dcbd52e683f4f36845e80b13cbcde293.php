@@ -88,8 +88,9 @@
 
     /* CAROUSEL */
     .carousel {
-        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.8);
-        /* overflow: hidden; */
+        width: 100%;
+        height: 400px;
+        overflow: hidden;
     }
 
     .carousel .owl-dots {
@@ -235,12 +236,11 @@
 <body>
     
 
-    <?php echo $__env->make('fragments.topheader', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
-    
     
     <?php echo $__env->make('fragments.nav-bar-top', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
     
-
+    <?php echo $__env->make('fragments.topheader', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+    
     
     
     

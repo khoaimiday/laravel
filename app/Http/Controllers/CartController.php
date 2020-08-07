@@ -26,7 +26,7 @@ class CartController extends Controller
         }
         return view('user.cart.cartindex');
     }
-<<<<<<< HEAD
+
     public function DeleteItemCart(Request $req, $id){
         $oldCart = Session('Cart') ? Session('Cart') : null;
         $newCart=new Cart($oldCart);
@@ -43,8 +43,33 @@ class CartController extends Controller
      public function ListOrder(){
          return view('user.cart.cartlist');
      }
-=======
 
->>>>>>> c5cbed9196dd361291665631b0a1274d7ef2fe4d
+     public function DeleteListItemCart(Request $req, $id){
+        $oldCart = Session('Cart') ? Session('Cart') : null;
+        $newCart=new Cart($oldCart);
+        $newCart->DeleteItemCart($id);
+        if(count($newCart->products)>0){
+            $req->session()->put('Cart',$newCart);
+        }
+        else{
+            $req->session()->forget('Cart'); 
+        }
+         return view('user.cart.cartlist-detail');
+     } 
+
+     public function minusItem(Request $req, $id){
+        $oldCart = Session('Cart') ? Session('Cart') : null;
+        $newCart=new Cart($oldCart);
+        $newCart->minusItem($id);
+        $req->session()->put('Cart',$newCart);     
+        return view('user.cart.cartlist-detail');
+     }
+     public function plusItem(Request $req, $id){
+        $oldCart = Session('Cart') ? Session('Cart') : null;
+        $newCart=new Cart($oldCart);
+        $newCart->plusItem($id);
+        $req->session()->put('Cart',$newCart);     
+        return view('user.cart.cartlist-detail');
+     }
 }
 

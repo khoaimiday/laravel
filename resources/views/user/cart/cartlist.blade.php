@@ -97,10 +97,11 @@
             padding-top: 30px;
         }
 
-        .cart-table table tr td.cart-pic {
+        .cart-table table tr td.cart-pic img {
             width: 80px;
             height:80px;
-            border: 1px solid #ebebeb;
+            border: 2px solid #ebebeb;
+            margin-right:20px;
         }
 
         .cart-table table tr td.cart-title {
@@ -254,14 +255,21 @@
         }
 
         .proceed-checkout ul li.subtotal {
-            font-weight: 400;
+            font-weight: 400px;
             text-transform: capitalize;
             border-bottom: 1px solid #ffffff;
             padding-bottom: 14px;
         }
+        .proceed-checkout ul li.discounttotal {
+            font-weight: 400px;
+            text-transform: capitalize;
+            border-bottom: 1px solid #ffffff;
+            padding-bottom: 14px;
+            padding-top:10px;
+        }
 
         .proceed-checkout ul li.subtotal span {
-            font-weight: 700;
+            font-weight: 700px;
         }
 
         .proceed-checkout ul li.cart-total {
@@ -291,6 +299,9 @@
 </head>
 
 <body>
+    <div id="preloder">
+        <div class="loader"></div>
+    </div>
     @include('fragments.topheader')
 
     <div class="cart-body">
@@ -321,7 +332,6 @@
                                             <th>Đơn giá</th>
                                             <th>Số lượng</th>
                                             <th>Tạm tính</th>
-                                            <th>Lưu lại</th>
                                             <th>Xoá</th>
                                         </tr>
                                     </thead>
@@ -339,15 +349,14 @@
                                             <td class="qua-col first-row">
                                                 <div class="quantity">
                                                     <div class="pro-qty">
-                                                        <span class="dec qtybtn">-</span>
+                                                        <span class="dec qtybtn" onclick="minusItem({{$item['productInfo']->id}})">-</span>
                                                         <input type="text" value="{{$item['quantity']}}">
-                                                        <span class="inc qtybtn">+</span>
+                                                        <span class="inc qtybtn" onclick="plusItem({{$item['productInfo']->id}})">+</span>
                                                     </div>
                                                 </div>
                                             </td>
-                                            <td class="total-price first-row">{{number_format($item['price'])}}Đ</td>
-                                            <td class="close-td first-row"><i class="ti-save"></i></td>
-                                            <td class="close-td first-row"><i class="ti-close"></i></td>
+                                            <td class="total-price first-row" id="tempTotal-{{$item['productInfo']->id}}">{{number_format($item['price'])}}Đ</td>
+                                            <td class="close-td first-row"><i class="ti-close" onclick="DeleteListItemCart({{$item['productInfo']->id}});">x</i></td>
                                         </tr>
                                         @endforeach
                                     </tbody>
@@ -359,7 +368,7 @@
                                         <ul>
                                             <li class="subtotal">Tạm tính
                                                 <span>{{number_format(Session::get('Cart')->totalPrice)}}Đ</span></li>
-                                            <li class="subtotal">Giảm giá(nếu có)
+                                            <li class="discounttotal">Chiết khấu (Nếu có)
                                                 <span></span></li>
                                             <li class="cart-total">Tổng cộng
                                                 <span>{{number_format(Session::get('Cart')->totalPrice)}}Đ</span></li>
@@ -375,19 +384,46 @@
             </section>
         </div>
     </div>
-
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-        crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-        crossorigin="anonymous"></script>
     @include('fragments.footer3')
 </body>
+<script>
+    (function ($) {
+        $(window).on('load', function () {
+            $(".loader").fadeOut();
+            $("#preloder").delay(200).fadeOut("slow");
+        }); 
+    })(jQuery);
+    
+    function DeleteListItemCart(id){
+        $.ajax({
+            url: '/DeleteListItemCart/'+id,
+            type: 'GET',
+        }).done(function(response){
+            RenderListCart(response);
+            alertify.success('Đã xoá sản phẩm!');
+        });        
+    }
+    function minusItem(id){
+        $.ajax({
+            url: '/minusItem/'+id,
+            type: 'GET',
+        }).done(function(response){
+            RenderListCart(response);
+        });        
+    }
+    function plusItem(id){
+        $.ajax({
+            url: '/plusItem/'+id,
+            type: 'GET',
+        }).done(function(response){
+            RenderListCart(response);
+        });    
+    }    
+    function RenderListCart(response){
+        $("#cartlist-detail").empty();
+        $("#cartlist-detail").html(response);
+    }
+    
+</script>
 
 </html>
