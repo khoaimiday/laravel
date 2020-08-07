@@ -9,134 +9,8 @@
     <!-- Bootstrap CSS -->
     <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <style>
-        .header {
-            width: 100%;
-            height: 100%;
-            padding-right: 8%;
-            padding-top: 5%;
-            color: #1B4E00;
-            text-align: center;
-            font-family: 'M PLUS Rounded 1c', sans-serif;
-        }
-        .headerfont {
-            font-size: 50px;
-        }
-        .topheader2 {
-            background-image: url('img/nav/4.jpg');
-            min-height: 400px;
-            background-size: cover;
-            background-repeat: no-repeat;
-            background-color: rgba(0, 0, 0, 0);
-            background-origin: padding-box;
-        }
-        .header p {
-            font-size: 25px;
-    }
-        .slidestore{
-            background-image: url('img/store/company1.jpg ');
-            min-height: 500px;
-            max-width:900px;
-            padding:20px;
-            margin-bottom:20px;
-            background-size: cover;
-            background-repeat: no-repeat;
-            background-origin: padding-box; 
-        }
-        .slidestore2{
-            background-image: url('img/store/store1.jpg ');
-            min-height: 500px;
-            background-size: cover;
-            background-repeat: no-repeat;
-            background-origin: padding-box; 
-            margin-bottom:10px;
-        }
-        .slidestore3{
-            background-image: url('img/store/store3.jpg ');
-            min-height: 500px;
-            background-size: cover;
-            background-repeat: no-repeat;
-            background-origin: padding-box;
-            margin-bottom:10px; 
-        }
-        .slidestore4{
-            background-image: url('img/store/store4.jpg ');
-            min-height: 500px;
-            background-size: cover;
-            background-repeat: no-repeat;
-            background-origin: padding-box; 
-            margin-bottom:10px;
-        }
-        .slidestore5{
-            background-image: url('img/store/store5.jpg ');
-            min-height: 500px;
-            background-size: cover;
-            background-repeat: no-repeat;
-            background-origin: padding-box;
-            margin-bottom:10px;
-        }
-        .slidestore6{
-            background-image: url('img/store/store6.jpg ');
-            min-height: 500px;
-            background-size: cover;
-            background-repeat: no-repeat;
-            background-origin: padding-box; 
-            margin-bottom:10px;
-        }
-        .person1{
-            background-image: url('img/store/store-p2.jpg ');
-            min-height: 500px;
-            background-size: cover;
-            background-repeat: no-repeat;
-            background-origin: padding-box; 
-            margin-bottom:10px;
-        }
-        
-        .titleStore{
-            color: #1B4E00;
-            text-align: center;
-            font-family: 'M PLUS Rounded 1c', sans-serif;
-            padding:15px;
-            font-size:50px;
-            padding-bottom:20px;
-        }
-        pre{
-            white-space:pre-wrap;
-            word-wrap: break-word;  
-        }
-        .column {
-            float: left;
-            width: 25%;
-            margin-bottom: 16px;
-            padding: 0 8px;
-        }
-        .column img{
-            height: 230px;
-        }
-        .column .wrap__img{
-            height: 300px;
-            padding :10px;
-        }
-        .column .content__img{
-            height: 300px;
-            padding: 10px;
-
-        }
-        @media screen and (max-width: 650px) {
-            .column {
-            width: 100%;
-            display: block;
-            }
-        }
-
-        .card {
-            height:500px;
-            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-        }
-        .title {
-            color: grey;
-        }
-    </style>
+    <link rel="stylesheet" href="{{ asset('css/style__store.css')}}">
+    <style> </style>
  </head>
   <body>
   @include('fragments.topheader')
@@ -165,20 +39,20 @@ Hiện nay Cucumber đã xây dựng 5 cửa hàng nhà thuốc lẻ và thực 
 
 Tại các cửa hàng trong hệ thống Cucumber, chúng tôi cung cấp đầy đủ những loại thuốc từ Tây y đến Đông y, bên cạnh đó, Cucumber còn có những sản phẩm để bạn chăm sóc sức khỏe và sắc đẹp cho những người thân yêu trong gia đình. Những nhóm sản phẩm chính chúng tôi cung cấp, bao gồm:
 
-    - Dược phẩm                                           
+    - Dược phẩm
     - Thực phẩm chức năng
     - Sản phẩm chăm sóc sức khỏe và làm đẹp
     - Thực phẩm bổ sung Vitamin và khoáng chất
 
 Đến với mọi cửa hàng của Cucumber, bạn đều được trải nghiệm và mua sắm những sản phẩm chất lượng cao, uy tín hàng đầu trên thị trường chăm sóc sức khỏe.
 
-Mỗi một khách hàng đến Cucumber đều được hỗ trợ tận tình, tư vấn tận tâm như kim chỉ nam cho hoạt động kinh doanh của chúng tôi: “Tiết kiệm hơn – Sống khỏe hơn”. 
-        </pre> 
+Mỗi một khách hàng đến Cucumber đều được hỗ trợ tận tình, tư vấn tận tâm như kim chỉ nam cho hoạt động kinh doanh của chúng tôi: “Tiết kiệm hơn – Sống khỏe hơn”.
+        </pre>
       </div>
       <hr style="width:50%"></hr>
       <div class="titleStore">
             <p>Về các cửa hàng Cucumber</p>
-      </div>    
+      </div>
       <div class="row">
         <div class="col-md-4">
             <div class="contentStore">
@@ -258,7 +132,7 @@ Mỗi một khách hàng đến Cucumber đều được hỗ trợ tận tình,
                  <div class="card">
                  <div class="wrap__img">
                     <img src="{{url('img/store/store-p4.jpg')}}" style="width:100%">
-                    </div>                    
+                    </div>
                     <div div class="container content__img">
                         <h2>Anh Johnatha</h2>
                         <p class="title">Chủ doanh nghiệp</p>
@@ -271,7 +145,7 @@ Mỗi một khách hàng đến Cucumber đều được hỗ trợ tận tình,
                  <div class="card">
                  <div class="wrap__img">
                     <img src="{{url('img/store/store-p5.jpg')}}" style="width:100%">
-                    </div>                    
+                    </div>
                     <div div class="container content__img">
                         <h2>Chị Juliette</h2>
                         <p class="title">Nội trợ</p>
@@ -284,7 +158,7 @@ Mỗi một khách hàng đến Cucumber đều được hỗ trợ tận tình,
                  <div class="card">
                  <div class="wrap__img">
                     <img src="{{url('img/store/store-p6.jpg')}}" style="width:100%">
-                    </div>                    
+                    </div>
                     <div div class="container content__img">
                         <h2>Bà Isal</h2>
                         <p class="title">Đã về hưu</p>
@@ -293,7 +167,7 @@ Mỗi một khách hàng đến Cucumber đều được hỗ trợ tận tình,
                     </div>
                 </div>
             </div>
-        </div>  
+        </div>
     </div>
    </div>
     <!-- Optional JavaScript -->

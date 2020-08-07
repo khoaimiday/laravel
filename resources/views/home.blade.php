@@ -2,12 +2,24 @@
 
 @section('content')
 
+
+{{-- CAROU-SEL  --}}
+<section class="carousel">
+    @include('fragments.carousel')
+</section>
+{{-- CAROU-SEL --}}
+
+{{-- Promotion --}}
+<section class="promotion container">
+    @include('fragments.promotion')
+</section>
+{{-- End Promotion --}}
+
 <div class="container section-title-container container">
     <h3 class="section-title section-title-center">
         <b></b><span class="section-title-main">Sản phẩm mới</span><b></b>
     </h3>
 </div>
-
 
     {{--NEW PRODUCT --}}
     <div class="container my-2">
@@ -66,7 +78,7 @@
 
 
 {{-- USE-MORE --}}
-{{-- @include('fragments.use-more') --}}
+@include('fragments.use-more')
 {{-- END USE-MORE --}}
 
 {{-- ABOUT PAGE --}}
@@ -96,7 +108,3 @@
     </style>
 
     @endsection
-
-
-
-

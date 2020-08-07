@@ -3,22 +3,11 @@
 
 @section('content')
 
-<div class="hero hero-page padding-small">
-    <div class="container">
-        <div class="row d-flex">
-            <div class="col-lg-12">
-                <h1>Product Details</h1>
-            </div>
-            <div class="row">
-                <div class="col-md-12">
-                    {{-- {{ Breadcrumbs::render('product-detail', $product) }} --}}
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+
+{{-- {{ Breadcrumbs::render('product-detail', $product) }} --}}
+
 <!-- Product Details -->
-<div class="container product_details py-5">
+<div class="container product_details pt-5">
     <div class="row">
         <!-- Product Image -->
         <div class="col-lg-6">
@@ -26,16 +15,14 @@
                 style="max-width: 100%; max-height: auto;">
                 <div class="carousel-inner">
                     <div class="carousel-item  active"> <img class="rounded"
-                            src="https://image.pharmacity.vn/live/uploads/2020/02/P16935_1-1-600x600.jpg" height="auto"
-                            width="90%"> </div>
-                    @foreach($productGlobal as $galleryFea)
-                    <div class="carousel-item"> <img class="rounded"
-                            src="https://image.pharmacity.vn/live/uploads/2020/02/P16935_1-1-600x600.jpg" height="auto"
-                            width="90%"> </div>
+                            src="{{ url('img/feature/product/'.$pro->image) }}" height="auto" width="90%"> </div>
+                    @foreach($pro as $galleryFea)
+                    <div class="carousel-item"> <img class="rounded" src="{{ url('img/feature/product/'.$pro->image) }}"
+                            height="auto" width="90%"> </div>
                     @endforeach
                 </div>
             </div>
-            {{-- <div class="product-slider">
+            <div class="product-slider">
                 <div id="ThumbProduct" class="carousel slide" data-interval="false">
                     <div class="carousel-inner">
                         <div class="item active">
@@ -47,7 +34,7 @@
                         </div>
                     </div>
                 </div>
-            </div> --}}
+            </div>
         </div>
         <!-- Product Info-->
         <div class="col-lg-6">
@@ -56,53 +43,51 @@
                         RỬA TAY</a></p>
             </div>
             <div class="row">
-                <p class="product_name">NƯỚC RỬA TAY ONE (6ML)</p>
+                <p class="product_name">{{$pro->product_name}}</p>
             </div>
             <div class="row">
-                <p class="product_cate mb-3">Brand: <a href="">ONE CLEAR</a></p>
+                <p class="product_cate mb-3">Brand: <a href="">{{$pro->brand_name}}</a></p>
             </div>
             <div class="row">
                 <p class="price product-page-price ">
-                    <span class="woocommerce-Price-amount amount">28,000 <span class="woocommerce-Price-currencySymbol">
+                    <span class="woocommerce-Price-amount amount">{{$pro->price}}<span
+                            class="woocommerce-Price-currencySymbol">
                             VND</span></span>
-                    <span class="uom">/Chai</span></p>
+                    <span class="uom">/{{$pro->product_unit}}</span></p>
             </div>
             <div class="row">
-                <p class="product_description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores eveniet
-                    voluptas ex, quidem exercitationem asperiores consectetur cum ratione est ipsam id minus? Nisi, vero
-                    doloribus impedit ut officia excepturi alias.</p>
+                <p class="product_description">{{$pro->short_description}}</p>
             </div>
 
             {{--Form Cart--}}
             <form action="" method="POST" class="from-cart">
                 @csrf
-                <div class="row d-flex py-4">
+                <div class="row d-flex py-4 align-items-center">
                     <div class="quantity buttons_added add__cart col-md-3 d-flex  justify-content-center">
-                        <input type="button" value="-" class="minus button is-form rounded-0 ">
-                        {{-- <label class="screen-reader-text" for="quantity_5f239d60ccf6d">Số lượng</label> --}}
+                        <input type="button" value="-" class="minus button is-form rounded-0">
                         <input type="number" id="quantity_5f239d60ccf6d" class="input-text qty text rounded-0" step="1"
                             min="1" max="2862" name="quantity" value="1" title="Qty" size="4" pattern="[0-9]*"
                             inputmode="numeric" aria-labelledby="Gel rửa tay khô  hương lotus rice On1 (60ml) quantity">
                         <input type="button" value="+" class="plus button is-form rounded-0 ">
                     </div>
-                    <div class="col-md-5">
+                    <div class="col-md-5 pr-1">
                         <button type="submit" class="btn btn-primary wide btn-md btn-block add__cart"><i
                                 class="fas fa-shopping-cart"></i> Add to Cart</button>
                     </div>
             </form>
             {{--End Form--}}
             {{--Form--}}
-            <form action="" method="POST">
-                {{csrf_field()}}
-                <input type="hidden" name="idProduct" value="$product->id}}">
-                <input type="number" id="2" name="addQuantity" style="display:none" min="1" value="$quantity}}">
-                <button type="submit" class="btn btn-success wide btn-md btn-block add__cart"><b>Buy Now</b></button>
+            <div class="col-md-4 pl-0">
+                    <form action="" method="POST" class="m-0">
+                        {{csrf_field()}}
+                        <button type="submit" class="btn btn-success wide btn-md btn-block add__cart"><b>Buy Now</b></button>
+                    </form>
+            </div>
 
-            </form>
             {{--End Form--}}
         </div>
         <div class="row">
-            <div class="product_meta"> <span class="sku_wrapper">SKU: <span class="sku">P17783</span></span> <span
+            <div class="product_meta"> <span class="sku_wrapper">SKU: <span class="sku">{{$pro->id}}</span></span> <span
                     class="posted_in">Danh mục: <a href="https://www.pharmacity.vn/danh-muc-san-pham/cham-soc-ca-nhan/"
                         rel="tag">Chăm sóc cá nhân</a>, <a
                         href="https://www.pharmacity.vn/danh-muc-san-pham/cham-soc-ca-nhan/san-pham-phong-tam/"
@@ -134,42 +119,31 @@
 <!-- Product Description-->
 <div class="container product-description bg-white card mb-5">
     <div class="row py-3">
-        <div class="col ">
-            <ul class="nav nav-pills d-flex justify-content-center">
+        <div class="col">
+            <ul class="nav nav-pills d-flex justify-content-center mb-4">
                 <li class="nav-item"><a data-toggle="tab" href="#description" class="nav-link active"
                         aria-selected="true" style="margin-right: 15px;">Description</a></li>
                 <li class="nav-item"><a data-toggle="tab" href="#reviews" class="nav-link" aria-selected="false"
                         style="margin-left: 15px;">Reviews</a></li>
             </ul>
-            <div class="tab-content">
+            <div class="tab-content" style="height: 500px; overflow: scroll;">
                 <div id="description" class="tab-pane active">
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Harum corrupti modi delectus non amet
-                        tenetur eum quod, nulla inventore quibusdam aliquam? Quidem ipsa autem iste quos quia, molestias
-                        magnam cupiditate!
-                        Tempore expedita voluptatum suscipit eveniet, qui consequatur sunt! Magni ad repudiandae fuga
-                        quasi alias recusandae consequatur sunt tempore voluptas voluptatem veritatis, facilis deserunt,
-                        dolorum perspiciatis in, itaque necessitatibus placeat distinctio.
-                        Debitis labore reprehenderit, eos doloremque, et nobis excepturi ea architecto est sint iusto
-                        nostrum harum dignissimos. Vitae nihil nostrum eum, hic ea sequi minus ab repellendus non fugit
-                        praesentium modi.
-                        Debitis, optio maiores. Perferendis molestiae omnis sunt iure debitis quia provident quibusdam
-                        autem aperiam aliquam explicabo libero, repellat sint pariatur quis, voluptate blanditiis magni
-                        temporibus? Optio maiores unde nihil beatae!
-                        Obcaecati perspiciatis quisquam sed mollitia aspernatur eum asperiores, accusamus aut possimus,
-                        unde, quaerat eaque inventore illo magnam repellat modi earum quo minus fugit maiores facilis
-                        iusto velit necessitatibus. Neque, architecto!</p>
+                    <div>{!!$pro->long_description!!}</div>
                 </div>
                 <div id="reviews" class="tab-pane">
-                    @foreach($productGlobal as $comment)
+                    @foreach($comments as $c)
                     <div class="row review d-flex justify-content-center">
-                        <div class="col-3 text-center"><img src="" alt="$comment->name}}"
-                                class="review-image"><span>$comment->created_at}}</span></div>
-                        <div class="col-9 review-text" style="padding-right: 65px;">
-                            <h6>$comment->name}}</h6>
+                        <div class="col-2 text-center">
+                            <img src="{{ asset('img/admin1.jpg')}}" alt="{{$c->name}}" class="review-image d-block"
+                                style="width:100px; margin: auto">
+                            <span style="font-size: .8em; ">{{$c->created_at}}</span></div>
+                        <div class="col-9 review-text" style="padding: 5px 65px 0 15px;">
+                            <h6><b>Title:</b> {{$c->title}}</h6>
                             <hr width="100%">
-                            <p>{$comment->cmt_content}}</p>
+                            <p>{{$c->content}}</p>
                         </div>
                     </div>
+                    <hr>
                     @endforeach
                     @auth
                     <div class="row review d-flex justify-content-center">
@@ -198,39 +172,31 @@
         </div>
     </div>
 </div>
-{{-- <!-- Product Title: You May Also Like -->
+<!-- Product Title: You May Also Like -->
 <div class="hero hero-page gray-bg padding-small">
     <div class="container">
         <div class="row d-flex">
             <div class="col-lg-12">
-                <h1 style="text-align: center;">You May Also Like</h1>
+                <h1 style="text-align: center;" class="font-weight-bold">You May Also Like</h1>
                 </p>
             </div>
         </div>
     </div>
 </div>
+
 <!-- Similar Product -->
-<div class="container">
-    <div class="row py-5">
-        @foreach($productGlobal as $similar)
+<div class="container" style="margin-bottom:200px">
+    <div class="row my-4">
+        @foreach($sameProduct as $p)
         <div class="col-xl-3">
-            <div class="product_grid card-body card d-flex justify-content-center align-items-center">
-                <div class="product_image d-flex justify-content-center align-items-center" style="min-height: 220px;">
-                    <a href="" class="image ">
-                        <!-- <img class="pic_2 rounded" src="img/5.jpg" alt=""> -->
-                        <img class="img-fluid rounded" src="" alt="" width="200" height="auto">
-                    </a>
-                </div>
-                <div class="product_content">
-                    <h3 class="title"><a href="">$similar->product_title}}</a></h3>
-<div class="price">$ $similar->price}}</div>
-<a href="" class="btn btn-dark"><i class="fas fa-shopping-cart"></i> Add to cart</a>
+            <div class="wrap__product">
+                <x-product :product="$p" />
+            </div>
+        </div>
+        @endforeach
+    </div>
 </div>
-</div>
-</div>
-@endforeach
-</div>
-</div> --}}
+
 
 @endsection
 
@@ -279,5 +245,31 @@
         border-top: 1px dotted #ddd;
         padding: 5px 0;
     }
+
+    .product_details .from-cart .button {
+        width: 30px;
+    }
 </style>
 @endsection
+
+<script>
+    $(document).ready(function() {
+        $("#content-slider").lightSlider({
+            loop: true,
+            keyPress: true
+        });
+        $('#image-gallery').lightSlider({
+            gallery: true,
+            item: 1,
+            thumbItem: 9,
+            slideMargin: 0,
+            speed: 500,
+            auto: true,
+            loop: true,
+            onSliderLoad: function() {
+                $('#image-gallery').removeClass('cS-hidden');
+            }
+        });
+    });
+
+</script>

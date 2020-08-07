@@ -5,7 +5,7 @@
             <div class="box__text">
                 <div class="title__wraper">
                     <div class="categories">
-                        <h5 class="card-title">{{ $product_type }}</h5>
+                        <h5 class="card-title">{{ $type_name }}</h5>
                     </div>
                     <div class="product__title" style="height: 73px">
                         <a>{{ $name }}</a>

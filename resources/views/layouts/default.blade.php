@@ -31,10 +31,16 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
+    <!-- lightSlider -->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="{{asset("css/lightslider.css")}}">
+
     <!-- Styles -->
     <link rel="stylesheet" href="{{ asset('css/style__product.css') }}">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('css/style__promotion.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/style__store.css')}}">
+
 
     @yield('style')
 </head>
@@ -51,6 +57,17 @@
         margin: 0;
         font-size: 16px;
         /* background-color: #dbefdc */
+    }
+    /* Chrome, Safari, Edge, Opera */
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+    }
+
+    /* Firefox */
+    input[type=number] {
+    -moz-appearance: textfield;
     }
 
     /* HEADER #### LOGO TITLE */
@@ -250,17 +267,6 @@
     {{-- HEADER --}}
     {{-- </div> --}}
 
-    {{-- CAROU-SEL  --}}
-    <section class="carousel">
-        @include('fragments.carousel')
-    </section>
-    {{-- CAROU-SEL --}}
-
-    {{-- Promotion --}}
-    <section class="promotion container">
-        @include('fragments.promotion')
-    </section>
-    {{-- End Promotion --}}
 
     {{-- MAIN CONTENT --}}
     <div class="main">
@@ -268,13 +274,6 @@
     </div>
     {{-- MAIN CONTENT --}}
 
-    {{-- USE-MORE --}}
-    @include('fragments.use-more')
-    {{-- END USE-MORE --}}
-
-    {{-- ABOUT PAGE --}}
-    @include('fragments.about')
-    {{-- END ABOUT PAGE --}}
 
     {{-- FOOTER --}}
     <div class="footer">
@@ -291,6 +290,8 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js">
     </script>
     <script src="{{ url('owlcarousel/owl.carousel.min.js') }}"></script>
+    <script src="{{asset("js/lightslider.js")}}"></script>
+
 </body>
 {{-- END BODY --}}
 
@@ -299,42 +300,15 @@
 
 {{-- SCRIPT --}}
 <script>
-    function openSearch() {
-      document.getElementById("myOverlay").style.display = "block";
-    }
-
-    function closeSearch() {
-      document.getElementById("myOverlay").style.display = "none";
-    }
-
     // OWL-CAROUSEL
     $(document).ready(function(){
         $('.owl-carousel').owlCarousel({
             items:1,
-            // margin:10,
             loop:true,
             autoHeight:true,
             autoplay:true,
             autoplayTimeout:5000,
         });
     });
-
-    // function AddCart(id){
-        
-    //     $.ajax({
-    //         url: '/AddCart/'+id,
-    //         type: 'GET',
-    //     }).done(function(response){
-    //         $("#change-item-cart").empty();
-    //         $("#change-item-cart").html(response);
-    //     });
-    //     alertify.alert("Cucumber","Đã thêm sản phẩm vào giỏ hàng",function(){
-    //             alertify.message(' Đăng nhập để giao hàng ngay!');
-    //     });
-    // }
-    
-    // $("#change-item-cart").on("click".".si-close i",function(){
-    //     console.log($(this).data("id"));
-    // });
 </script>
 {{-- END SCRIPT --}}

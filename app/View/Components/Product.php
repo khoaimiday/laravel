@@ -19,6 +19,7 @@ class Product extends Component
     public $product_quantity;
     public $product_use;
     public $product_type;
+    public $type_name;
 
     /**
      * Create a new component instance.
@@ -38,6 +39,7 @@ class Product extends Component
         $this->product_quantity = $product['product_quantity'];
         $this->product_use = $product['product_use'];
         $this->product_type = $product['product_type_id'];
+        $this->type_name = $product['type_name'];
         $this->product_brand = $product['brand_id'];
     }
 

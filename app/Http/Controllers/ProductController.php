@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Product;
 use App\Product_type;
 use App\Brand;
+use App\Comment;
 use App\Http\Controllers\Faker\Factory;
 use Illuminate\Support\Facades\DB;
 
@@ -13,9 +14,9 @@ use Illuminate\Support\Facades\DB;
 class ProductController extends Controller
 {
     public function index(){
-        $products = Product::all();
+        $products = Product::join('product_types', 'products.product_type_id', '=', 'product_types.id')
+        ->select('products.*', 'product_types.*')->get();
         return view('admin.product.index',['products'=>$products]);
-
     }
 
 
@@ -75,7 +76,7 @@ class ProductController extends Controller
                 return redirect("admin/product/createProduct")->with(['flash_level' => 'danger', 'flash_message' => 'You can only upload image with file .jpg | .png | .jpeg !']);
             }
             $imageName = $file->getClientOriginalName();
-            $file->move("img/feature/", $imageName);
+            $file->move("img/feature/product/", $imageName);
             $p->image = $imageName;
         } else {
             $imageName = "";
@@ -147,7 +148,7 @@ class ProductController extends Controller
         $p->product_name        = $request->prodName;
         $p->price               = $request->prodPrice;
         $p->brand_id            = $request->prodBrand;
-        $p->product_types_id    = $request->prodCate;
+        $p->product_type_id    = $request->prodCate;
         $p->exp_date            = $request->prodWarranty;
         $p->short_description   = trim($request->shortDesc);
         $p->long_description    = trim($request->longDesc);
@@ -163,7 +164,7 @@ class ProductController extends Controller
                 return redirect("admin/product/update/".$id)->with(['flash_level' => 'danger', 'flash_message' => 'You can only upload image with file .jpg | .png | .jpeg !']);
             }
             $imageName = $file->getClientOriginalName();
-            $file->move("img/feature/", $imageName);
+            $file->move("img/feature/product/", $imageName);
             $p->image = $imageName;
         } else {
             $imageName = "";
@@ -200,8 +201,7 @@ class ProductController extends Controller
         return redirect()->action('ProductController@index')->with(['flash_level' => 'success', 'flash_message' => 'Updated Successfully !']);
     }
 
-    // Function link to update page
-    public function detail($id)
+    public function detailAdmin($id)
     {
         $pro = Product::withTrashed()->join('product_types', 'products.product_type_id', '=', 'product_types.id')
             ->join('brands', 'products.brand_id', '=', 'brands.id')
@@ -218,5 +218,25 @@ class ProductController extends Controller
         return redirect()->action('ProductController@index');
     }
 
+    public function detail($id)
+    {
+        $comments = Comment::join('users', 'comments.user_id', '=', 'users.id')
+        ->join('products', 'comments.product_id', '=', 'products.id')
+        ->where('comments.product_id', $id)
+        ->where('comments.status','1')
+        ->orderBy('comments.created_at', 'desc')
+        ->select('users.*', 'products.*', 'comments.*')->get();
+
+        $pro = Product::withTrashed()->join('product_types', 'products.product_type_id', '=', 'product_types.id')
+            ->join('brands', 'products.brand_id', '=', 'brands.id')
+            ->where('products.id', $id)
+            ->select('product_types.type_name', 'brands.brand_name', 'products.*')->first();
+        $product = Product::find($id);
+
+        $sameProduct = Product::where('id','<>',$id)->where('product_type_id', $product->product_type_id)->limit(4)->get();
+        // $galleryFea = Gallery::where('product_id', $id)->get();
+        // $galleryThum = Gallery::where('product_id', $id)->get();
+        return view('user.product.details', compact('pro','product','comments','sameProduct'));
+    }
 
 }

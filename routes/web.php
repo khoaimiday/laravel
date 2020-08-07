@@ -52,7 +52,7 @@ Route::group(['prefix' => 'admin/', 'middleware' => 'isLogin'], function () {
     Route::get('/product/create','ProductController@create');
     Route::post('/product/postCreate','ProductController@postCreate');
     Route::get('/product/update/{id}','ProductController@update');
-    Route::get('/product/detail/{id}','ProductController@detail');
+    Route::get('/product/detail/{id}','ProductController@detailAdmin');
     Route::post('/product/postUpdate/{id}','ProductController@postUpdate');
     Route::get('/product/delete/{id}','ProductController@delete');
 
@@ -97,6 +97,7 @@ Route::get('/product', function(){
 });
 
 Route::get('product/detail/{id}', 'ProductController@detail');
+
 Route::get('news',['as'=>'news','uses'=>'PageController@newsIndex']);
 Route::get('user/news/newsDetail/{id}',['as'=>'newsdetail','uses'=>'NewsController@newsDetail']);
 Route::post('/comment',['as'=>'comment','uses'=>'CommentController@Comment']);

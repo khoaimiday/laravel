@@ -1,0 +1,127 @@
+
+        .header {
+            width: 100%;
+            height: 100%;
+            padding-right: 8%;
+            padding-top: 5%;
+            color: #1B4E00;
+            text-align: center;
+            font-family: 'M PLUS Rounded 1c', sans-serif;
+        }
+        .headerfont {
+            font-size: 50px;
+        }
+        .topheader2 {
+            background-image: url('../img/nav/4.jpg');
+            min-height: 400px;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-color: rgba(0, 0, 0, 0);
+            background-origin: padding-box;
+        }
+        .header p {
+            font-size: 25px;
+        }
+        .slidestore{
+            background-image: url('../img/store/company1.jpg ');
+            min-height: 500px;
+            max-width:900px;
+            padding:20px;
+            margin-bottom:20px;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-origin: padding-box;
+        }
+        .slidestore2{
+            background-image: url('../img/store/store1.jpg ');
+            min-height: 500px;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-origin: padding-box;
+            margin-bottom:10px;
+        }
+        .slidestore3{
+            background-image: url('img/store/store3.jpg ');
+            min-height: 500px;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-origin: padding-box;
+            margin-bottom:10px;
+        }
+        .slidestore4{
+            background-image: url('../img/store/store4.jpg ');
+            min-height: 500px;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-origin: padding-box;
+            margin-bottom:10px;
+        }
+        .slidestore5{
+            background-image: url('../img/store/store5.jpg ');
+            min-height: 500px;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-origin: padding-box;
+            margin-bottom:10px;
+        }
+        .slidestore6{
+            background-image: url('../img/store/store6.jpg ');
+            min-height: 500px;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-origin: padding-box;
+            margin-bottom:10px;
+        }
+        .person1{
+            background-image: url('../img/store/store-p2.jpg ');
+            min-height: 500px;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-origin: padding-box;
+            margin-bottom:10px;
+        }
+
+        .titleStore{
+            color: #1B4E00;
+            text-align: center;
+            font-family: 'M PLUS Rounded 1c', sans-serif;
+            padding:15px;
+            font-size:50px;
+            padding-bottom:20px;
+        }
+        pre{
+            white-space:pre-wrap;
+            word-wrap: break-word;
+        }
+        .column {
+            float: left;
+            width: 25%;
+            margin-bottom: 16px;
+            padding: 0 8px;
+        }
+        .column img{
+            height: 230px;
+        }
+        .column .wrap__img{
+            height: 300px;
+            padding :10px;
+        }
+        .column .content__img{
+            height: 300px;
+            padding: 10px;
+
+        }
+        @media screen and (max-width: 650px) {
+            .column {
+            width: 100%;
+            display: block;
+            }
+        }
+
+        .card {
+            height:500px;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        }
+        .title {
+            color: grey;
+        }

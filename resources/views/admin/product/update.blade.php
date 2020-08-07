@@ -191,6 +191,10 @@
             </script>
         </div>
     </div>
+    <div class="form-group">
+        <label class="form-control-label text-uppercase">Upload Feature Image: <span class="required">*</span></label><br>
+        <input type="file" class="custom-fileip" name="prodImg"><br>
+      </div>
 </div>
 </div>
 <div class="card-footer">

@@ -13,6 +13,8 @@ use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\Collection;
 use Illuminate\Pagination\LengthAwarePaginator;
+use Illuminate\Support\Facades\DB;
+
 
 use Schema;
 
@@ -38,7 +40,9 @@ class AppServiceProvider extends ServiceProvider
     {
         Schema::defaultStringLength(191);
 
-        $productGlobal              = Product::paginate(12);
+        $productGlobal = Product::join('product_types', 'products.product_type_id', '=', 'product_types.id')
+        ->select('products.*', 'product_types.*')->paginate(12);
+
         $productType                = Product_type::all();
         $brandGlobal                = Brand::all();
         // $feedbackGlobal           = Feedback::where('feed_status', 1)->get();
