@@ -116,7 +116,7 @@ Route::post('/comment',['as'=>'comment','uses'=>'CommentController@Comment']);
 Route::get('store',['as'=>'store','uses'=>function(){
     return view('user.store.store');}]);
 
-Route::get('/cartindex',function(){return view('user.cart.cartindex'); });
+Route::get('/cartlist',['as'=>'ListOrder','uses'=>'CartController@listOrder']);
 
 Route::get('/cartconfirm',function(){return view('user.cart.cartconfirm'); });
 

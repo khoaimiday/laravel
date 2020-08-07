@@ -14,6 +14,10 @@
     <!-- Scripts -->
     
 
+    <!-- FONT AWESOME--->
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    
+
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@700&display=swap" rel="stylesheet">
@@ -236,7 +240,7 @@
     
     <?php echo $__env->make('fragments.nav-bar-top', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
     
- 
+
     
     
     

@@ -48,12 +48,12 @@
                                         </td>
                                         <td class="si-text">
                                             <div class="product-selected">
-                                                <h6>{{($item['productInfo']->product_name)}}</h6>
+                                                <h6><pre>{{($item['productInfo']->product_name)}}</pre></h6>
                                                 <p>{{number_format($item['productInfo']->price)}}Đ x {{$item['quantity']}}</p>
                                             </div>
                                         </td>
                                         <td class="si-close">
-                                            <i class="ti-close" data-id="{{$item['productInfo']->id}}">X</i>
+                                            <i class="ti-close" data-id="{{$item['productInfo']->id}}">x</i>
                                         </td>
                                     </tr>
                                     @endforeach
@@ -61,13 +61,13 @@
                             </table>
                         </div>
                         <div class="select-total">
-                            <span>total:</span>
+                            <span>Tổng cộng: </span>
                             <h5>{{number_format(Session::get('Cart') ->totalPrice)}}Đ</h5>
                         </div>
                         @endif
                     </div>
                     <div class="select-button">
-                        <a href="#" class="primary-btn view-cart">Xem giỏ hàng</a>
+                        <a href="{{route('ListOrder')}}" class="primary-btn view-cart">Xem giỏ hàng</a>
                         <a href="#" class="primary-btn delete-btn">Huỷ</a>
                     </div>
                 </div>
@@ -149,12 +149,14 @@
         color: white;
         display:inline-block;
     }
-
+    pre{
+        white-space:normal;
+    }
     .cart-hover {
         position: absolute;
         right: 10px;
         top: 50px;
-        width: 350px;
+        width: 400px;
         background: #ffffff;
         z-index: 999;
         text-align: left;
@@ -170,7 +172,6 @@
         visibility: visible;
         z-index:10000;
         top: 40px;
-
     }
     .cart-hover:hover{
         opacity: 10;
@@ -179,11 +180,11 @@
         top: 40px; 
     }
     .select-items table {
-	width:80%;
-    border-radius:10px;
+	    width:90%;
+        border-radius:10px;
     }
     .select-items table tr td {
-	    padding-bottom: 20px;
+	    padding-bottom: 10px;
     }
     .select-items table tr td.si-pic img {
 	    border: 1px solid #ebebeb;
@@ -191,12 +192,12 @@
         height:60px;
     }
     .select-items table tr td.si-text {
-	    padding-left: 18px;
+	    padding-left: 15px;
     }
     .product-selected p {
 	    color: #e7ab3c;
-	    line-height: 30px;
-	    margin-bottom: 7px;
+	    line-height: 20px;
+	    margin-bottom: 5px;
     }
     .product-selected h6 {
 	    color: #232530;
@@ -204,8 +205,17 @@
 
     .select-items table tr td.si-close {
 	    color: #252525;
-	    font-size: 20px;
+	    font-size: 18px;
 	    cursor: pointer;
+        padding: 10px;
+        text-decoration: none;
+        display:block;
+        position:absolute;
+        right:0%;
+        transform:translate(0%,-50%;)
+    }
+    .select-items table tr td.si-close:hover {
+        opacity:0.6;
     }
     .select-total {
 	    overflow: hidden;

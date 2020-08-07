@@ -23,7 +23,7 @@ class CartController extends Controller
 
             $req->session()->put('Cart',$newCart);
         }
-        return view('user.cart.cart1');
+        return view('user.cart.cartindex');
     }
     public function DeleteItemCart(Request $req, $id){
         $oldCart = Session('Cart') ? Session('Cart') : null;
@@ -35,6 +35,11 @@ class CartController extends Controller
         else{
             $req->session()->forget('Cart'); 
         }
-         return view('user.cart.cart1');
+         return view('user.cart.cartindex');
+     }
+
+     public function ListOrder(){
+         return view('user.cart.cartlist');
      }
 }
+

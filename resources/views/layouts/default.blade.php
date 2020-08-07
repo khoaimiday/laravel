@@ -319,7 +319,6 @@
         });
     });
 
-<<<<<<< HEAD
     // function AddCart(id){
         
     //     $.ajax({
@@ -334,21 +333,6 @@
     //     });
     // }
     
-=======
-    function AddCart(id){
-        $.ajax({
-            url: '/AddCart/'+id,
-            type: 'GET',
-        }).done(function(response){
-            $("#change-item-cart").empty();
-            $("#change-item-cart").html(response);
-        });
-        alertify.alert("Cucumber","Đã thêm sản phẩm vào giỏ hàng",function(){
-                alertify.message(' Đăng nhập để giao hàng ngay!');
-        });
-    }
-
->>>>>>> 3bb1f5dde1bc899b897aef44f77c49a16be33b8c
     // $("#change-item-cart").on("click".".si-close i",function(){
     //     console.log($(this).data("id"));
     // });
