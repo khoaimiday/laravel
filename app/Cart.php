@@ -34,19 +34,10 @@ class Cart{
         unset($this->products[$id]);
     }
 
-    // public function UpdateItem($id, $quantity){
-    //     $this->totalQuantity -= $this->products[$id]['quantity'];
-    //     $this->totalPrice -= $this->products[$id]['price'];
-
-    //     $this->products[$id]['quantity'] = $quantity;
-    //     $this->products[$id]['price']=$quantity * $this->products[$id]['productInfo']->price;
-
-    //     $this->totalQuantity += $this->products[$id]['quantity'];
-    //     $this->totalPrice += $this ->products[$id]['price'];
-    // }
     public function minusItem($id){
         if ($this->products[$id]['quantity']>1){
             $this->products[$id]['quantity'] = $this->products[$id]['quantity'] - 1;
+            $this->totalQuantity--;
             $this->products[$id]['price']=$this->products[$id]['quantity'] * $this->products[$id]['productInfo']->price;
             $this->totalPrice = $this->totalPrice -$this->products[$id]['productInfo']->price;
         } else {
@@ -55,8 +46,27 @@ class Cart{
     }
     public function plusItem($id){
         $this->products[$id]['quantity'] = $this->products[$id]['quantity'] + 1 ;
+        $this->totalQuantity++;
         $this->products[$id]['price']=$this->products[$id]['quantity'] * $this->products[$id]['productInfo']->price;
         $this->totalPrice = $this->totalPrice +$this->products[$id]['productInfo']->price;
     }
+
+    public function updateItem($id,$quantity){
+        $this->totalQuantity -= $this->products[$id]['quantity'];
+        $this->totalPrice -= $this->products[$id]['price'];
+        if ($quantity>1){
+            $this->products[$id]['quantity']=$quantity;
+            $this->products[$id]['price']=$quantity * $this->products[$id]['productInfo']->price;    
+        }else{
+            $this->products[$id]['quantity']=1;           
+            $this->products[$id]['price']= $this->products[$id]['productInfo']->price;
+        }
+        $this->totalQuantity += $this->products[$id]['quantity'];
+        $this->totalPrice += $this->products[$id]['price'];
+    }
+    public function all(){
+        
+    }
+    
 }
 ?>

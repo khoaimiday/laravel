@@ -44,6 +44,17 @@ Route::group(['prefix' => 'admin/', 'middleware' => 'isLogin'], function () {
     Route::get('/news/delete/{id}','NewsController@delete');
 
     //CART
+    Route::get('/order/index',['as'=>'admin-order','uses'=>'OrdersController@index']);
+    Route::get('/order/close',['as'=>'closed-order','uses'=>'OrdersController@close']);
+    Route::get('/order/create',['as'=>'create-order','uses'=>'OrdersController@create']);
+    Route::post('/order/postCreate','OrdersController@postCreate');
+    Route::get('/order/update/{id}',['as'=>'update-order','uses'=>'OrdersController@update']);
+    Route::post('/order/postUpdate/{id}','OrdersControllerr@postUpdate');
+    Route::get('/order/detail/{id}',['as'=>'detail-order','uses'=>'OrdersController@detail']);
+    Route::get('/order/tempdelete/{id}',['as'=>'tempdelete-order','uses'=>'OrdersController@tempdelete']);
+    Route::get('/order/undo/{id}',['as'=>'undo-order','uses'=>'OrdersController@undo']);
+    Route::get('/order/delete/{id}',['as'=>'delete-order','uses'=>'OrdersController@delete']);
+
 
 
     //PRODUCT
@@ -99,13 +110,23 @@ Route::get('user/news/newsDetail/{id}',['as'=>'newsdetail','uses'=>'NewsControll
 Route::post('/comment',['as'=>'comment','uses'=>'CommentController@Comment']);
 Route::get('store',['as'=>'store','uses'=>function(){
     return view('user.store.store');} ]);
+    
 Route::get('/cartlist',['as'=>'ListOrder','uses'=>'CartController@listOrder']);
-
 Route::get('/cartconfirm',function(){return view('user.cart.cartconfirm');} );
 Route::get('/cart','CartController@index');
 Route::get('/AddCart/{id}',['as'=>'AddCart','uses'=>'CartController@AddCart']);
 Route::get('/cartconfirm',function(){return view('user.cart.cartconfirm'); });
 Route::get('/cartindex',function(){return view('user.cart.cartindex'); });
+Route::get('/DeleteItemCart/{id}',['as'=>'DeleteItemCart','uses'=>'CartController@DeleteItemCart']);
+Route::get('/minusItem/{id}',['as'=>'minusItem','uses'=>'CartController@minusItem']);
+Route::get('/plusItem/{id}',['as'=>'plusItem','uses'=>'CartController@plusItem']);
+Route::post('/saveCart',['as'=>'saveCart','uses'=>'CartController@saveCart']);
+Route::post('/deleteCart',['as'=>'deleteCart','uses'=>'CartController@deleteCart']);
+Route::get('/updateItem/{id}/{quantity}',['as'=>'updateItem','uses'=>'CartController@updateItem']);
+Route::get('/DeleteListItemCart/{id}',['as'=>'DeleteListItemCart','uses'=>'CartController@DeleteListItemCart']);
+Route::get('/checkOrderLogin',['as'=>'checkOrderLogin','uses'=>'OrdersController@checkOrderLogin']);
+Route::post('/checkOrder',['as'=>'checkOrder','uses'=>'OrdersController@checkOrder']);
+
 
 Route::get('/contact','HomeController@contact');
 Route::post('/feedback/postFeedback','FeedbackController@postFeedback');
@@ -118,10 +139,6 @@ Route::post('/superAdmin/AdminPostUpdate/{id}','CustomerController@AdminPostUpda
 Route::get('/superAdmin/deleteAdmin/{id}','CustomerController@deleteAdmin');
 //customer
 Route::get('customer/customerList','CustomerController@customerList');
-Route::get('/DeleteItemCart/{id}',['as'=>'DeleteItemCart','uses'=>'CartController@DeleteItemCart']);
-Route::get('/minusItem/{id}',['as'=>'minusItem','uses'=>'CartController@minusItem']);
-Route::get('/plusItem/{id}',['as'=>'plusItem','uses'=>'CartController@plusItem']);
-Route::get('/DeleteListItemCart/{id}',['as'=>'DeleteListItemCart','uses'=>'CartController@DeleteListItemCart']);
 
 
 // SEARCH ROUTER

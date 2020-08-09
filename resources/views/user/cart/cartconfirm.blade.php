@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <title>Giỏ hàng</title>
+    <title>Xác nhận đơn hàng</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -56,7 +56,7 @@
            <div class="row ">
                <div class="text-center m-auto">
                    <h2>Xác nhận đơn hàng</h2>
-                   <div>Mã đơn hàng: 10001</div>
+                   <div>Mã đơn hàng:{{$order->id}}</div>
                 </div>
            </div>
            <div class="row mt-5">
@@ -64,18 +64,17 @@
                     <p class="text-uppercase">
                         <strong>Khách hàng: </strong>
                     </p>
-                    <div>Họ tên: Vũ Đức Huy</div>
-                    <div>Điện thoại: 0900999000</div>
-                    <div>Địa chỉ: 121 Nguyen Thi Nghia P1 Q1 TpHCM</div>
-                    <div>Email: vuduchuy@gmail.com</div>
-                    <div>Ghi chú: Giao hàng giờ hành chính</div>
+                    <div>Họ tên: {{$order->order_name}}</div>
+                    <div>Điện thoại: {{$order->order_phone}}</div>
+                    <div>Địa chỉ: {{$order->order_address}}</div>
+                    <div>Ghi chú: {{$order->order_note}}</div>
                </div>
                <div class="col-6 order-information">
                     <p class="text-uppercase">
                         <strong>Thông tin đơn hàng: </strong>
                     </p>
-                    <div>Mã đặt hàng: 10011</div>
-                    <div>Ngày đặt hàng: 30/07/2020</div>
+                    <div>Mã đặt hàng: {{$order->id}}</div>
+                    <div>Ngày đặt hàng: {{$order->created_at}}</div>
                     <div>Trạng thái: Đang xử lý</div>
                 </div>
            </div>
@@ -88,43 +87,27 @@
                     <th scope="col">Mã sản phẩm</th>
                     <th scope="col">Tên sản phẩm</th>
                     <th scope="col">Số lượng</th>
-                    <th scope="col">Đơn giá(VNĐ)</th>
                     <th scope="col">Thành tiền(VNĐ)</th>
                   </tr>
                 </thead>
                 <tbody>
+                @foreach {{$orderDetail as orderDetail}}
                     <tr>
                       <td>1</td>
-                      <td>1001001</td>
-                      <td>Dầu dưỡng nuôi dưỡng và bảo vệ tóc Mega NNO Hair Serum (3 vỉ x 5 viên/hộp)</td>
-                      <td>1</td>
-                      <td class="text-price"><strong>230,000</strong></td>
-                      <td class="text-price"><strong>230,000</strong></td>
+                      <td>{{$orderDetail->id}}</td>
+                      <td>{{$orderDetail->name}}</td>
+                      <td>{{$orderDetail->quantity}}</td>
+                      <td class="text-price"><strong>{{number_format($orderDetail->price)}}</strong></td>
                     </tr>
-                    <tr>
-                      <td>2</td>
-                      <td>1001002</td>
-                      <td>Thực phẩm bảo vệ sức khỏe bổ sung vitamin E Mega Natural Vitamin E 400IU (Chai 30 viên)</td>
-                      <td>1</td>
-                      <td class="text-price"><strong>90,000</strong></td>
-                      <td class="text-price"><strong>90,000</strong></td>
-                    </tr>
-                  <tr>
-                    <td class="text-right" colspan="5"><strong>Tổng thành tiền: </strong></td>
-                    <td class="text-price">
-                      <strong>
-                        320,000 VNĐ
-                      </strong>
-                    </td>
-                  </tr>
                       <tr>
                         <td class="text-right" colspan="5"><strong>Áp dụng giảm giá (nếu có): </strong></td>
                         <td></td>
                       </tr>
                       <tr>
                         <td class="text-right" colspan="5"><strong>Tổng tiền phải trả: </strong></td>
-                          <td class="text-price"><strong>320,000 VNĐ</strong></td>
+                          <td class="text-price"><strong>{{number_format($order->totalPrice)}}</strong></td>
                       </tr>
+                @endforeach
                 </tbody>
               </table>
            </div>
