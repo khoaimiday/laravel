@@ -31,6 +31,7 @@
                             <thead>
                             <tr>
                                 <th>Id</th>
+                                <th>Active</th>
                                 <th>Tên Thương Hiệu</th>
                                 <th>Email</th>
                                 <th>Mô tả</th>
@@ -41,9 +42,10 @@
                             </tr>
                             </thead>
                             <tbody>
-                            @foreach($brandGlobal as $brand)
+                            @foreach($brands as $brand)
                             <tr>
                                 <td>{{ $brand->id }}</td>
+                                <td><input type="checkbox" {{isset($brand->deleted_at)? '' : 'checked'}}></td>
                                 <td>{{ $brand->brand_name }}</td>
                                 <td>{{ $brand->brand_email }}</td>
                                 <td><p class="content">{{ $brand->description }}</p></td>

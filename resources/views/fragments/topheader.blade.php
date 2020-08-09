@@ -6,14 +6,14 @@
     <script src="js/js/jquery-3.3.1.min.js"></script>
     <script src="js/js/bootstrap.min.js"></script>
     <script src="js/js/jquery-ui.min.js"></script>
-    <script src="js/js/jquery.dd.min.js"></script>  
+    <script src="js/js/jquery.dd.min.js"></script>
     <script src="js/js/main.js"></script>
 <header class="tophead">
     <div class="tophead-menu">
         <ul class="tophead-menu-list">
             <li class="tophead-menu-left"><a href="{{ ('home') }}"><img src="{{url('img/nav/Home.png')}}" alt=""> Trang
                     chủ</a></li>
-            <li class="tophead-menu-left"><a href=""><img src="{{url('img/nav/Product.png')}}" alt=""> Sản phẩm</a></li>
+            <li class="tophead-menu-left"><a href="{{('product')}}"><img src="{{url('img/nav/Product.png')}}" alt=""> Sản phẩm</a></li>
             <!-- <div class="tophead-menu-dropdown">
                     <ul class="tophead-menu-dropdown">
                         <li><a href="">Dược phẩm không kê đơn</a></li>
@@ -172,7 +172,7 @@
         opacity: 10;
         visibility: visible;
         z-index:10000;
-        top: 40px; 
+        top: 40px;
     }
     .select-items table {
 	    width:90%;
@@ -269,7 +269,7 @@
         box-shadow: 5px 10px 20px rgba(0, 0, 0, 0.8);
     }
 </style>
-    
+
 <script>
    function AddCart(id){
         $.ajax({
@@ -278,7 +278,7 @@
         }).done(function(response){
             RenderCart(response);
             alertify.success('Đã thêm vào giỏ hàng!');
-        });        
+        });
     }
 
     $("#change-item-cart").on("click",".si-close i",function(){
@@ -290,7 +290,7 @@
             alertify.success(' Đã xoá sản phẩm!');
         });
     });
-    
+
     function RenderCart(response){
         $("#change-item-cart").empty();
         $("#change-item-cart").html(response);

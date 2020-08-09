@@ -20,7 +20,7 @@ class CreateProductsTable extends Migration
             $table->longText('short_description')->nulable();
             $table->longText('long_description')->nullable();
             $table->string('image')->default('default.png');
-            $table->integer('exp_date')->default(24);
+            $table->integer('exp_date')->nullable();
             $table->text('product_info')->nullable();
             $table->string('product_unit')->default('box');
             $table->integer('product_quantity')->nullable();      // Quantity of product within per unit

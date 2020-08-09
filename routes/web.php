@@ -25,10 +25,9 @@ Route::get('/logout', function(){
     return view('login');
 });
 
+Route::get('/', 'HomeController@index');
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/test', function(){
-    return view('product.index');
-})->middleware('auth');
+
 
 
 //ADMIN ROUTE
@@ -48,13 +47,14 @@ Route::group(['prefix' => 'admin/', 'middleware' => 'isLogin'], function () {
 
 
     //PRODUCT
-    Route::get('/product/index', 'ProductController@index');
+    Route::get('/product/index', 'ProductController@indexAdmin');
     Route::get('/product/create','ProductController@create');
     Route::post('/product/postCreate','ProductController@postCreate');
     Route::get('/product/update/{id}','ProductController@update');
-    Route::get('/product/detail/{id}','ProductController@detailAdmin');
     Route::post('/product/postUpdate/{id}','ProductController@postUpdate');
     Route::get('/product/delete/{id}','ProductController@delete');
+    Route::get('/product/detail/{id}','ProductController@detailAdmin');
+
 
     //BRAND
     Route::get('/brand/index', 'BrandController@index');
@@ -90,13 +90,9 @@ Route::group(['prefix' => 'admin/', 'middleware' => 'isLogin'], function () {
 ###############################################################################
 
 //USER ROUTE
-Route::get('/', 'HomeController@index');
 
-Route::get('/product', function(){
-    return view('user.product.index');
-});
-
-Route::get('product/detail/{id}', 'ProductController@detail');
+Route::get('/product', 'ProductController@index');
+Route::get('product/detail/{id}', 'ProductController@details');
 
 Route::get('news',['as'=>'news','uses'=>'PageController@newsIndex']);
 Route::get('user/news/newsDetail/{id}',['as'=>'newsdetail','uses'=>'NewsController@newsDetail']);
@@ -131,6 +127,6 @@ Route::get('/DeleteListItemCart/{id}',['as'=>'DeleteListItemCart','uses'=>'CartC
 // SEARCH ROUTER
 Route::group(['prefix' => 'search/'], function(){
     Route::get('cate/{id}', 'SearchController@filterCategories');
-    Route::post('searchByFilter', 'SearchController@searchByFilter');
+    Route::get('searchByFilter', 'SearchController@searchByFilter');
 });
 

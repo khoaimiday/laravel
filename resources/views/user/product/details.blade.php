@@ -11,22 +11,21 @@
     <div class="row">
         <!-- Product Image -->
         <div class="col-lg-6">
-            <div id="CarouselProduct" class="carousel slide shadow-none" data-ride="carousel"
-                style="max-width: 100%; max-height: auto;">
+            <div id="CarouselProduct" class="slide shadow-none" data-ride="carousel" style="max-width: 100%; max-height: auto;">
                 <div class="carousel-inner">
                     <div class="carousel-item  active"> <img class="rounded"
                             src="{{ url('img/feature/product/'.$pro->image) }}" height="auto" width="90%"> </div>
                     @foreach($pro as $galleryFea)
                     <div class="carousel-item"> <img class="rounded" src="{{ url('img/feature/product/'.$pro->image) }}"
-                            height="auto" width="90%"> </div>
+                            height="500px" width="90%"> </div>
                     @endforeach
                 </div>
             </div>
-            <div class="product-slider">
+            {{-- <div class="product-slider">
                 <div id="ThumbProduct" class="carousel slide" data-interval="false">
                     <div class="carousel-inner">
                         <div class="item active">
-                            @foreach($productGlobal as $galleryThum)
+                            @foreach($pro as $galleryThum)
                             <div data-target="#CarouselProduct" data-slide-to="" class="SubThumbProduct rounded">
                                 <img src="" class="rounded" width="50px" height="50px">
                             </div>
@@ -34,7 +33,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> --}}
         </div>
         <!-- Product Info-->
         <div class="col-lg-6">

@@ -11,49 +11,49 @@ class SearchController extends Controller
 {
     public function filterCategories($id){
         // $cate = Product_type::where('id', $id)->first();
-        $productGlobal = Product_type::find($id)->roleProduct()->paginate(12);
-        return view('user.product.index', compact('productGlobal'));
+        $products = Product::where('product_type_id', $id)->paginate(12);
+        return view('user.product.index', compact('products'));
     }
 
     public function searchByFilter(Request $request){
-        $cate    = $request->category;
+        $brand      = $request->brand;
         $sortBy     = $request->sortBy;
         $fromPrice  = $request->fromPrice;
         $toPrice    = $request->toPrice;
 
-        $products = Product::all();
 
+    $builder = Product::query();
     // If the category is selected
-    if($request->has('category')) {
-    $products = $products->intersect(Product::whereIn('id', $cate)->get());
+    if($request->has('brand')) {
+        $builder->whereIn('brand_id',$brand);
     }
 
-    // If the price input
+    // // If the price input
     if($request->has(['fromPrice', 'toPrice']) && $request->toPrice != 0){
-        $products = $products->whereBetween('price', [$fromPrice, $toPrice]);
+        $builder->whereBetween('price', [$fromPrice, $toPrice]);
     }
 
 
     // If the sort selected
     if($request->has('sortBy')){
-       switch ($request->sortBy) {
+       switch ($sortBy) {
             case '1':
-                $products = $products->sortBy('price');
+                $builder->orderBy('price');
             break;
             case '2':
-                $products = $products->sortByDesc('price');
+                $builder->orderBy('price','desc');
             break;
             case '3':
-                $products = $products->sortBy('product_name');
+                $builder->orderBy('product_name');
             break;
             case '4':
-                $products = $products->sortByDesc('product_name');
+                $builder->orderBy('product_name','desc');
             break;
        }
     }
+    $products = $builder->paginate(12);
 
-    $productGlobal = $products->paginate(12);
-        return view('user.product.index', compact('productGlobal'));
+        return view('user.product.index', compact('products'));
     }
 
 }

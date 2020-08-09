@@ -31,12 +31,13 @@
                             <thead>
                             <tr>
                                 <th>Id</th>
+                                <th>Active</th>
                                 <th>Tiêu đề</th>
                                 <th>Nội dung</th>
-                                <th>Chủ đề</th>
+                                <th>Giá Bán</th>
                                 <th>Hình ảnh</th>
-                                <th>Ngày tạo</th>
-                                <th>Chỉnh sửa</th>
+                                <th>Đã Bán</th>
+                                <th>Ngày Cập Nhật</th>
                                 <th></th>
                             </tr>
                             </thead>
@@ -44,11 +45,12 @@
                             @foreach($products as $product)
                             <tr>
                                 <td>{{ $product->id }}</td>
+                                <td><input type="checkbox" {{isset($product->deleted_at)? '' : 'checked'}}></td>
                                 <td>{{ $product->product_name }}</td>
-                                <td><p class="content">{{ $product->short_description }}</p></td>
+                                <td>{{ $product->short_description }}</td>
                                 <td>{{ $product->price }}</td>
-                                <td><img width="50px" src="{{ url('img/feature/'.$product->image) }}" alt="IMG PRODUCT"/></td>
-                                <td>{{ $product->created_at }}</td>
+                                <td><img width="50px" src="{{ url('img/feature/product/'.$product->image) }}" alt="IMG PRODUCT"/></td>
+                                <td>{{ $product->sold_out}}</td>
                                 <td>{{ $product->updated_at  }}</td>
                                 <td class="text-right">
                                 <a class="btn btn-primary btn-sm-1"  href="{{ url('/admin/product/detail/'.$product->id) }}">

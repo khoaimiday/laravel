@@ -39,10 +39,8 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         Schema::defaultStringLength(191);
-
-        $productGlobal = Product::join('product_types', 'products.product_type_id', '=', 'product_types.id')
-        ->select('products.*', 'product_types.*')->paginate(12);
-
+        // $productGlobal = Product::join('product_types', 'products.product_type_id', '=', 'product_types.id')
+        // ->select('products.*', 'product_types.*')->paginate(12);
         $productType                = Product_type::all();
         $brandGlobal                = Brand::all();
         // $feedbackGlobal           = Feedback::where('feed_status', 1)->get();
@@ -53,7 +51,7 @@ class AppServiceProvider extends ServiceProvider
             'productType'        =>  $productType,
             'brandGlobal'           =>  $brandGlobal,
             // 'feedbackGlobal'      =>  $feedbackGlobal,
-            'productGlobal'         =>  $productGlobal,
+            // 'productGlobal'         =>  $productGlobal,
             'sttNo'                 =>  $sttNo,
         ]);
 

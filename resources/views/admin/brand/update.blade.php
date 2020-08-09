@@ -36,9 +36,9 @@
                                                 <div class="col-md-10 d-flex justify-content-center">
                                                     <div id="CarouselProduct" class="carousel slide" data-ride="carousel" style="max-width: 100%; max-height: auto;">
                                                         <div class="carousel-inner">
-                                                            <div class="carousel-item  active"> <img class="rounded" src="{{asset('img/feature/brand/'.$brand->type_image)}}" height="auto" width="100%"> </div>
+                                                            <div class="carousel-item  active"> <img class="rounded" src="{{asset('img/feature/brand/'.$brand->brand_logo)}}" height="auto" width="100%"> </div>
                                                             {{-- @foreach($galleryFea as $galleryFea) --}}
-                                                            <div class="carousel-item"> <img class="rounded" src="{{asset('img/feature/brand/'.$brand->type_image)}}" height="auto" width="100%"> </div>
+                                                            <div class="carousel-item"> <img class="rounded" src="{{asset('img/feature/brand/'.$brand->brand_logo)}}" height="auto" width="100%"> </div>
                                                             {{-- @endforeach --}}
                                                         </div>
                                                     </div>
@@ -80,8 +80,13 @@
                                                 <div class="form-group">
                                                     <label class="form-control-label text-uppercase">Status active<span class="required">*</span></label>
                                                     <select name="sts_cd" class="form-control">
-                                                        <option value="A" @if (!isset($cate->deleted_at)) selected @endif> Active</option>
-                                                        <option value="D" @if (isset($cate->deleted_at)) selected @endif> DeActive</option>
+                                                        @if (!isset($brand->deleted_at))
+                                                            <option value="A" selected="selected"> Active</option>
+                                                            <option value="D" > DeActive</option>
+                                                        @else
+                                                            <option value="A" > Active</option>
+                                                            <option value="D" selected="selected"> DeActive</option>
+                                                        @endif
                                                     </select>
                                                 </div>
                                                 <div class="form-group">

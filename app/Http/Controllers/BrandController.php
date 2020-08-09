@@ -8,7 +8,8 @@ use Illuminate\Http\Request;
 class BrandController extends Controller
 {
     public function index(){
-        return view('admin.brand.index');
+        $brands      = Brand::withTrashed()->get();
+        return view('admin.brand.index',compact('brands'));
    }
 
     public function create(){
@@ -42,7 +43,7 @@ class BrandController extends Controller
     }
 
     public function update($id){
-        $brand = Brand::find($id);
+        $brand = Brand::withTrashed()->findOrFail($id);
         return view('admin.brand.update')->with(['brand'=>$brand]);
     }
 

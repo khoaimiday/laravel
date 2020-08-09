@@ -31,6 +31,7 @@
                             <thead>
                             <tr>
                                 <th>Id</th>
+                                <th>Active</th>
                                 <th>Tiêu đề</th>
                                 <th>Mô Tả</th>
                                 <th>Hình ảnh</th>
@@ -43,6 +44,7 @@
                             @foreach($productType as $cate)
                             <tr>
                                 <td>{{ $cate->id }}</td>
+                                <td><input type="checkbox" {{isset($cate->deleted_at)? '' : 'checked'}}></td>
                                 <td>{{ $cate->type_name }}</td>
                                 <td><p class="content">{{ $cate->description }}</p></td>
                                 <td><img width="50px" src="{{ url('img/feature/'.$cate->type_image) }}" alt="IMG CATEGORIES"/></td>

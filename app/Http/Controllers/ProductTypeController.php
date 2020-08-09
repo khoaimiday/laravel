@@ -10,7 +10,8 @@ use Illuminate\Http\Request;
 class ProductTypeController extends Controller
 {
     public function index(){
-         return view('admin.categories.index');
+        $productType = Product_type::withTrashed()->get();
+         return view('admin.categories.index',compact('productType'));
     }
 
     public function create(){
@@ -43,7 +44,7 @@ class ProductTypeController extends Controller
     }
 
     public function update($id){
-        $cate = Product_type::find($id);
+        $cate = Product_type::withTrashed()->findOrFail($id);
         return view('admin.categories.update')->with(['cate'=>$cate]);
     }
 

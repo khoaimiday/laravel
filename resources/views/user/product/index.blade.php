@@ -24,21 +24,18 @@
 
                 </div>
                 <!-- Brand -->
-                <form action="{{url('search/searchByFilter')}}" method="POST">
+                <form action="{{url('search/searchByFilter')}}" method="GET">
                     @csrf
                 <div class="form-group mt-5">
                     <h6 class="text-uppercase text-center w_title">NHÀ CUNG CẤP</h6>
                     <hr width="100%" style="margin-left: 0;">
                     <label for=""></label>
                     @foreach($brandGlobal as $b)
-
                     <div class="form-check">
-
                       <label class="form-check-label">
-                        <input type="checkbox" class="form-check-input" name="category[]" id="" value="{{$b->id}}">
+                        <input type="checkbox" class="form-check-input" name="brand[]" id="" value="{{$b->id}}">
                         {{$b->brand_name}}
                       </label>
-
                     </div>
                     @endforeach
                 </div>
@@ -81,7 +78,7 @@
                 </div>
                 @endif --}}
                 <div class="row product_list d-flex">
-                    @foreach ($productGlobal as $p)
+                    @foreach ($products as $p)
 
                     <div class="col-xl-3 my-5">
                             <div class="wrap__product">
@@ -91,7 +88,7 @@
                     @endforeach
                 </div>
                 <div class="row justify-content-center">
-                    <div class="">{!! $productGlobal->links() !!}</div>
+                    <div class="">{!! $products->links() !!}</div>
                 </div>
 
                 </div><br>

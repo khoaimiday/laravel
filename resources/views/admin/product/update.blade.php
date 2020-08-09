@@ -95,7 +95,7 @@
         <div class="col-md-3">
             <div class="form-group">
                 <label class="form-control-label text-uppercase">Sold Out</label>
-                <input type="text" class="form-control" value="{{$p->sold_out}}" name="sollOut">
+                <input type="text" class="form-control" value="{{$p->sold_out}}" name="soldOut">
             </div>
         </div>
         <div class="col-md-3">
@@ -145,26 +145,29 @@
         </div>
     </div>
     <!-- Warranty Period, Create At -->
-    <div class="row">
-        <div class="col-md-6">
-            <div class="form-group">
-                <label class="form-control-label text-uppercase">Warranty Period</label>
-                <input type="text" class="form-control" value="{{$p->exp_date}}" name="prodWarranty">
-            </div>
-        </div>
-        <div class="col-md-6">
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="form-group">
-                        <label class="form-control-label text-uppercase">Create At</label>
-                        <input type="text" class="form-control" value="{{$p->created_at}}" readonly>
-                    </div>
+        <div class="row">
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label class="form-control-label text-uppercase">Warranty Period</label>
+                    <input type="text" class="form-control" value="{{$p->exp_date}}" name="prodWarranty">
                 </div>
-                <div class="col-md-6">
-                    <div class="form-group">
-                        <label class="form-control-label text-uppercase">Update At</label>
-                        <input type="text" class="form-control" value="{{$p->updated_at}}" readonly>
-                    </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label class="form-control-label text-uppercase">Sold Out</label>
+                    <input type="text" class="form-control" value="{{$p->sold_out}}" name="soldOut">
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label class="form-control-label text-uppercase">Create At</label>
+                    <input type="text" class="form-control" value="{{$p->created_at}}" readonly>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label class="form-control-label text-uppercase">Update At</label>
+                    <input type="text" class="form-control" value="{{$p->updated_at}}" readonly>
                 </div>
             </div>
         </div>
