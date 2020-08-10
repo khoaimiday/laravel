@@ -92,6 +92,7 @@
 
         /* NEWS-HOT */
         .news-hot{
+            width: 60%;
             margin: 30px auto;
         }
         .news-hot-content{
