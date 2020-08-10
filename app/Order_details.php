@@ -2,6 +2,7 @@
 
 namespace App;
 use App\Cart;
+use App\Orders;
 use App\Product;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -16,8 +17,11 @@ class Order_details extends Model
     public $incrementing = true;
     protected $fillable = ['id','quantity','price','order_id','product_id','product_name','totalPrice','totalQuantity','created_at','updated_at'];
 
-    // public function orderDetailonProduct(){
-    //     return $this->belongsTo('App\Product','product_id');
-    // }
+    public function orderDetailonProduct(){
+        return $this->belongsTo(Product::class);
+    }
+    public function OrderdetailToOrders(){
+        return $this->belongsTo(Orders::class);
+    }
 }
 

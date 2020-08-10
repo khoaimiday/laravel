@@ -329,9 +329,9 @@
                                             <div class="col-sm-6">
                                                 <i class="deleteCart">Huỷ Giỏ hàng</i>
                                             </div>
-                                            <div class="col-sm-6">
+                                            <!-- <div class="col-sm-6">
                                                 <i class="saveCart">Lưu giỏ hàng</i>
-                                            </div>
+                                            </div> -->
                                         </div>
                                     </div>
                                 </div>       

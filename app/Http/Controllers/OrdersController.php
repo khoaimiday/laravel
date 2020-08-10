@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Cart;
 use App\User;
+use App\Product;
 use Auth;
 use Illuminate\Database\Eloquent\Model;
 use App\Orders;
@@ -42,8 +43,7 @@ class OrdersController extends Controller
                 'note.max' => 'Ghi chú không quá 500 kí tự',
             ]
         );
-
-            $orders = $rq->all();
+            // $orders = $rq->all();
             $userId=Auth::user()->id;
             $userOrder = User::where('id',$userId)->first();
             $order = new Orders;
@@ -57,24 +57,26 @@ class OrdersController extends Controller
             $order->totalPrice=Session::get('Cart')->totalPrice;
             $order->totalQuantity=Session::get('Cart')->totalQuantity;
             $order->save();
-            $newOrder=Orders::where('user_id',$userId)->first();
+             $newOrder=Orders::where('user_id',$userId)->first();
             $productCarts=Session::get('Cart')->all();
-            foreach ($productCarts as $productCart) {
-                $orderDetail = new Order_details;
-                $orderDetail->product_id = $productCart['productInfo']->id;
-                $orderDetail->price = $productCart['productInfo']->$price*$productCart['quantity'];
-                $orderDetail->quantity = $productCart['quantity'];
-                $orderDetail->order_id = $newOrder->order_id;
-                $orderDetail->product_name = $productCart['productInfo']->product_name;
-                $orderDetail->save();                
+            $products=$rq->session()->get('Cart');
+          
+            if ($products != null){
+                foreach($products->products as $product) {
+                $orderDetail = new Order_details();
+                $orderDetail->quantity = $product['quantity'];
+                $orderDetail->price = $product['price'];
+                $orderDetail->order_id = $newOrder->id;
+                $orderDetail->product_id = $product['productInfo']->id;
+                $orderDetail->product_name = $product['productInfo']->product_name;   
+                $orderDetail->save(); 
+               } 
+               $orderDetails = Order_details::where('order_id',$newOrder->order_id)->get();
+               $totalPrice = Session::get('Cart')->totalPrice;
+               $rq->session()->forget('Cart');
+               return view('user.cart.orderconfirm', compact('order', 'orderDetails'));
             }
-            
-            $orderDetails = Order_details::where('order_id',$newOrder->order_id)->get();
-            $totalPrice = Session::get('Cart')->totalPrice;
-            Cart::destroy();
-            return view('user.cart.orderconfirm', compact('newOrder', 'orderDetails', 'totalPrice'));
-        
-    
+        return view('user.cart.cartlist');
     }
     //ADMIN
     public function index()
@@ -128,7 +130,7 @@ class OrdersController extends Controller
 
     public function undo($id) {
         Orders::where('id', $id)->update([
-            'order_delivery'=> 1
+            'order_delivery'=> 0
         ]);
         return back()->with('undo_success', 'Đã hoàn tác đơn hàng!');
     }

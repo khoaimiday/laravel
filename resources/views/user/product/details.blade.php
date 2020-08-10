@@ -11,7 +11,8 @@
     <div class="row">
         <!-- Product Image -->
         <div class="col-lg-6">
-            <div id="CarouselProduct" class="slide shadow-none" data-ride="carousel" style="max-width: 100%; max-height: auto;">
+            <div id="CarouselProduct" class="slide shadow-none" data-ride="carousel"
+                style="max-width: 100%; max-height: auto;">
                 <div class="carousel-inner">
                     <div class="carousel-item  active"> <img class="rounded"
                             src="{{ url('img/feature/product/'.$pro->image) }}" height="auto" width="90%"> </div>
@@ -77,10 +78,11 @@
             {{--End Form--}}
             {{--Form--}}
             <div class="col-md-4 pl-0">
-                    <form action="" method="POST" class="m-0">
-                        {{csrf_field()}}
-                        <button type="submit" class="btn btn-success wide btn-md btn-block add__cart"><b>Buy Now</b></button>
-                    </form>
+                <form action="" method="POST" class="m-0">
+                    {{csrf_field()}}
+                    <button type="submit" class="btn btn-success wide btn-md btn-block add__cart"><b>Buy
+                            Now</b></button>
+                </form>
             </div>
 
             {{--End Form--}}
@@ -116,8 +118,8 @@
 </div>
 </div>
 <!-- Product Description-->
-<div class="container product-description bg-white card mb-5">
-    <div class="row py-3">
+<div class="container product-description bg-white card mt-10">
+    <div class="row">
         <div class="col">
             <ul class="nav nav-pills d-flex justify-content-center mb-4">
                 <li class="nav-item"><a data-toggle="tab" href="#description" class="nav-link active"
@@ -125,44 +127,59 @@
                 <li class="nav-item"><a data-toggle="tab" href="#reviews" class="nav-link" aria-selected="false"
                         style="margin-left: 15px;">Reviews</a></li>
             </ul>
-            <div class="tab-content" style="height: 500px; overflow: scroll;">
+            <div class="tab-content" style="height: 500px;">
                 <div id="description" class="tab-pane active">
                     <div>{!!$pro->long_description!!}</div>
                 </div>
                 <div id="reviews" class="tab-pane">
-                    @foreach($comments as $c)
-                    <div class="row review d-flex justify-content-center">
-                        <div class="col-2 text-center">
-                            <img src="{{ asset('img/admin1.jpg')}}" alt="{{$c->name}}" class="review-image d-block"
-                                style="width:100px; margin: auto">
-                            <span style="font-size: .8em; ">{{$c->created_at}}</span></div>
-                        <div class="col-9 review-text" style="padding: 5px 65px 0 15px;">
-                            <h6><b>Title:</b> {{$c->title}}</h6>
-                            <hr width="100%">
-                            <p>{{$c->content}}</p>
-                        </div>
-                    </div>
-                    <hr>
-                    @endforeach
+
                     @auth
                     <div class="row review d-flex justify-content-center">
-                        <div class="col-3 text-center"><img src="" alt="{{Auth::user()->name}}"
-                                class="review-image"><span></span></div>
-                        <div class="col-9 review-text" style="padding-right: 65px;">
-                            <form role="form" action="" method="POST" enctype="multipart/form-data">
+                        <div class="col-6 text-center" id="fetchCmt">
+                            @foreach($cmts as $cmt)
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    Đăng bởi: Người dùng có mã <b>{{$cmt->user_id }}</b> lúc <i>{{$cmt->created_at}}</i>
+                                </div>
+                                <div class="panel-body">
+                                    <div class="panel-title">
+                                        <h6> {{$cmt->title}}</h6>
+                                    </div>
+                                    <div class="panel-content">
+                                        <p>{{$cmt->content}}</p>
+                                    </div>
+                                </div>
+                                <div class="panel-footer" align="right">
+                                    <button class="btn btn-default reply" type="button">Trả lời</button>
+                                </div>
+                            </div>
+                            @endforeach
+
+                        </div>
+                        <div class="col-6 review-text" style="padding-right: 65px;">
+                            <form role="form" action="{{route('comment',$pro->id)}}" id="cmt_form" method="POST"
+                                enctype="multipart/form-data">
                                 {{ csrf_field() }}
                                 <div>
-                                    <h6>{{Auth::user()->name}}</h6>
+                                    <h6>Xin chào, {{Auth::user()->name}}! Bạn có thắc mắc gì về sản phẩm này không?</h6>
                                     <hr width=" 100%">
                                 </div>
                                 <div class="form-group">
-                                    <textarea name="postComment" id="" class="form-control"
-                                        placeholder="Looks like you want to share something ?"></textarea>
+                                    <label for="">Tiêu đề</label>
+                                    <input type="text" class="form-control" name="title">
+                                </div>
+                                <div class="form-group">
+                                    <label for="">Bình luận của bạn</label>
+                                    <textarea name="content" id="" class="form-control" cols="30" rows="7"
+                                        placeholder="(không được để trống)" required></textarea>
                                 </div>
                                 <div class="form-group d-flex justify-content-center">
-                                    <input type="submit" class="btn btn-success" value="Post">
+                                    <input type="submit" class="btn btn-info px-3 py-2" id="cmt_submit" value="Gửi">
                                 </div>
                             </form>
+                            <span id="cmt_messeage"></span>
+                            <br>
+                            <div id="cmt_display"></div>
                         </div>
                     </div>
                     @endauth
@@ -172,7 +189,7 @@
     </div>
 </div>
 <!-- Product Title: You May Also Like -->
-<div class="hero hero-page gray-bg padding-small">
+<div class="hero hero-page gray-bg padding-small mt-5">
     <div class="container">
         <div class="row d-flex">
             <div class="col-lg-12">
@@ -196,7 +213,22 @@
     </div>
 </div>
 
-
+<!-- @foreach($comments as $c)
+@if($c->reply != null )
+<div class="row review d-flex justify-content-center">
+    <div class="col-2 text-center">
+        <img src="{{ asset('img/admin1.jpg')}}" alt="{{$c->name}}" class="review-image d-block"
+            style="width:100px; margin: auto">
+        <span style="font-size: .8em; ">{{$c->created_at}}</span></div>
+    <div class="col-9 review-text" style="padding: 5px 65px 0 15px;">
+        <h6><b>Title:</b> {{$c->title}}</h6>
+        <hr width="100%">
+        <p>{{$c->content}}</p>
+    </div>
+</div>
+<hr>
+@endif
+@endforeach -->
 @endsection
 
 @section('style')
@@ -252,7 +284,7 @@
 @endsection
 
 <script>
-    $(document).ready(function() {
+    $(document).ready(function () {
         $("#content-slider").lightSlider({
             loop: true,
             keyPress: true
@@ -265,10 +297,21 @@
             speed: 500,
             auto: true,
             loop: true,
-            onSliderLoad: function() {
+            onSliderLoad: function () {
                 $('#image-gallery').removeClass('cS-hidden');
             }
         });
+
+
+        $("#cmt_submit").on("click",function(){
+            $.ajax({
+                url: "/fetchCmt",
+                method: "GET",
+            }).done(function(response){
+                $("#fetchCmt").empty();
+                $("#fetchCmt").html(response);
+            }
+        }
     });
 
 </script>

@@ -48,7 +48,7 @@
                             </div>
                             <div class="form-group">
                                 <label>Tổng tiền</label>
-                                <input  class="form-control" name="totalPrice" placeholder="" value="{{$order->$totalPrice}}" readonly>
+                                <input  class="form-control" name="totalPrice" placeholder="" value="{{$order->totalPrice}}" readonly>
                             </div>     
                             <div class="form-group">
                                 <label>Tên khách hàng</label>
