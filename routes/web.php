@@ -111,7 +111,7 @@ Route::post('/comment/{proId}',['as'=>'comment','uses'=>'CommentController@Comme
 Route::get('/fetchCmt',['as'=>'fetchCmt','uses'=>'CommentController@fetchCmt']);
 Route::get('store',['as'=>'store','uses'=>function(){
     return view('user.store.store');} ]);
-    
+
 Route::get('/cartlist',['as'=>'ListOrder','uses'=>'CartController@listOrder']);
 Route::get('/cart','CartController@index');
 Route::get('/AddCart/{id}',['as'=>'AddCart','uses'=>'CartController@AddCart']);
@@ -143,6 +143,7 @@ Route::get('customer/customerList','CustomerController@customerList');
 
 // SEARCH ROUTER
 Route::group(['prefix' => 'search/'], function(){
+    Route::get('/searchajax/{query}', ['as'=>'searchajax', 'uses'=>'SearchController@getSearchAjax']);
     Route::get('cate/{id}', 'SearchController@filterCategories');
     Route::get('searchByFilter', 'SearchController@searchByFilter');
 });
