@@ -43,9 +43,10 @@ class OrdersController extends Controller
                 'note.max' => 'Ghi chú không quá 500 kí tự',
             ]
         );
-            // $orders = $rq->all();
+        
             $userId=Auth::user()->id;
-            $userOrder = User::where('id',$userId)->first();
+            
+            $cus=User::where('id',$userId)->first();
             $order = new Orders;
             $order->user_id=$userId;
             $order->order_address=$rq['address'];
@@ -53,12 +54,12 @@ class OrdersController extends Controller
             $order->order_name=$rq['name'];
             $order->order_note=$rq['note'];
             $order->order_confirm=0;
-            $order->order_delivery=0;
-            $order->totalPrice=Session::get('Cart')->totalPrice;
-            $order->totalQuantity=Session::get('Cart')->totalQuantity;
+            $order->order_delivery=0; 
+            $order->totalPrice=$rq->session()->get('Cart')->totalPrice;
+            $order->totalQuantity=$rq->session()->get('Cart')->totalQuantity;
             $order->save();
-             $newOrder=Orders::where('user_id',$userId)->first();
-            $productCarts=Session::get('Cart')->all();
+             $newOrder=Orders::where('user_id',$userId)->latest()->first();
+            $productCarts=$rq->session()->get('Cart')->all();
             $products=$rq->session()->get('Cart');
           
             if ($products != null){
@@ -71,13 +72,14 @@ class OrdersController extends Controller
                 $orderDetail->product_name = $product['productInfo']->product_name;   
                 $orderDetail->save(); 
                } 
-               $orderDetails = Order_details::where('order_id',$newOrder->order_id)->get();
-               $totalPrice = Session::get('Cart')->totalPrice;
-               $rq->session()->forget('Cart');
-               return view('user.cart.orderconfirm', compact('order', 'orderDetails'));
-            }
-        return view('user.cart.cartlist');
-    }
+            } 
+            
+            $orderDetails = Order_details::where('order_id',$newOrder->id )->get();     
+            $rq->session()->forget('Cart');
+            return view('user.cart.orderconfirm',compact('cus','newOrder','orderDetails')); 
+        }   
+    
+
     //ADMIN
     public function index()
     {

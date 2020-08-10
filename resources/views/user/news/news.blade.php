@@ -48,7 +48,7 @@
     .new-wrap{
         margin-top:0;
         margin-bottom:0;
-        background-color: #dbefdc;
+        background-color: #ffffe6;
         padding-left:5px;
         padding-right:5px;
         padding-top:0;
@@ -63,7 +63,7 @@
     }
     .column {
       float: left;
-      width: 50%;
+      width: 100%;
       margin-bottom: 16px;
       padding: 0 8px;
     }
@@ -95,6 +95,7 @@
         padding:4px 8px;
         margin:5px;
         max-width:150px;
+        margin-left:40px;
         text-align:center;
         border-radius:20px;
         border:1px solid #9acd32;
@@ -149,40 +150,23 @@
       <div class="container">    
         <div class="row">       
           <div class="column">
-            @foreach ($new1s as $new1)
+            @foreach ($news as $new)
              <div class="newscard" >
               <div class="new-image">
-                <a href=""><img src="{{ url('images/news/'.$new1->image) }}" alt=""></a>
+                <a href=""><img src="{{ url('images/news/'.$new->image) }}" alt=""></a>
               </div>
               <div class="new-title">
-                <a href="{{ url('/user/news/newsDetail/'.$new1->id) }}"><h3 class="new-title-a">{{ $new1->title }}</h3></a>
+                <a href="{{ url('/user/news/newsDetail/'.$new->id) }}"><h3 class="new-title-a">{{ $new->title }}</h3></a>
               </div>
               <div class="new-content">
-                <p>{{ $new1->created_at }}</p>
+                <p>{{ $new->created_at }}</p>
               </div>
               <div class="readMore">
-                <a href="{{ url('/user/news/newsDetail/'.$new1->id) }}" class="readMore-button">Đọc thêm..</a>
+                <a href="{{ url('/user/news/newsDetail/'.$new ->id) }}" class="readMore-button">Đọc thêm..</a>
               </div>
             </div>
             @endforeach
           </div>
-          <div class="column">
-            @foreach ($new2s as $new2)
-            <div class="newscard" >
-              <div class="new-image">
-                <a href=""><img src="{{ url('images/news/'.$new2->image) }}" alt=""></a>
-              </div>
-              <div class="new-title">
-                <a href="{{ url('/user/news/newsDetail/'.$new2->id) }}"><h3 class="new-title-a">{{ $new2->title }}</h3></a>
-              </div>
-              <div class="new-content">
-                <p>{{ $new2->created_at }}</p>
-              </div>
-              <div class="readMore">
-                <a href="{{ url('/user/news/newsDetail/'.$new2->id) }}" class="readMore-button">Đọc thêm..</a>
-              </div>
-            </div>
-            @endforeach
           </div>
         </div>
         <ul class="news-pagination list-unstyled">

@@ -15,7 +15,7 @@
             @foreach(Session::get("Cart")->products as $item)
             <tr>
                 <td class="cart-pic first-row">
-                    <!-- <img src="{{ url('img/feature/product/'.$item['productInfo']->image)}}" alt=""> -->
+                    <img src="{{ url('img/feature/product/'.$item['productInfo']->image)}}" alt="">
                 </td>
                 <td class="cart-title first-row">
                     <h5>{{($item['productInfo']->product_name)}}</h5>
@@ -50,9 +50,9 @@
                 <div class="col-lg-6">
                     <a href="" class="deleteCart">Huỷ Giỏ hàng</a>
                 </div>
-                <!-- <div class="col-lg-6">
-                    <a href="" class="saveCart">Lưu giỏ hàng</a>
-                </div> -->
+                <div class="col-sm-6">
+                    <a href="{{ url('/product') }}" class="buymore">Mua thêm</a>
+                </div>
             </div>
         </div>
     </div>

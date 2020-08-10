@@ -53,11 +53,6 @@ class CommentController extends Controller
             return back()->with('comment_success', 'Cảm ơn quý khách đã bình luận về sản phẩm này!');
     }
 
-    public function fetchCmt(){
-        $cmts=Comment::latest()->get();   
-        return view('user.product.cmt_add',compact('cmts',$cmts));
-    }
-
 
     //ADMIN
     public function list(){

@@ -218,7 +218,7 @@
                                     </tr>
                                     <tr class="form-group">
                                         <td><label for=""> Số điện thoại</label></td>
-                                        <td><input type="text" class="form-control" name="phone" value="{{$userOrder->phone}}"></td>
+                                        <td><input type="number" class="form-control" name="phone" value="{{$userOrder->phone}}"></td>
                                     </tr>
                                     <tr class="form-group">
                                         <td><label for=""> Địa chỉ</label></td>
@@ -260,8 +260,8 @@
                                         @foreach(Session::get("Cart")->products as $item)
                                         <tr>
                                             <td class="cart-pic first-row">
-                                                <!-- <img src="{{ url('img/feature/product/'.$item['productInfo']->image)}}"
-                                                    alt=""> -->
+                                                <img src="{{ url('img/feature/product/'.$item['productInfo']->image)}}"
+                                                    alt="">
                                             </td>
                                             <td class="cart-title first-row">
                                                 <h6>{{($item['productInfo']->product_name)}}</h6>

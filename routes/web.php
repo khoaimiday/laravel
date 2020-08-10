@@ -108,7 +108,6 @@ Route::get('product/detail/{id}', 'ProductController@details');
 Route::get('news',['as'=>'news','uses'=>'PageController@newsIndex']);
 Route::get('user/news/newsDetail/{id}',['as'=>'newsdetail','uses'=>'NewsController@newsDetail']);
 Route::post('/comment/{proId}',['as'=>'comment','uses'=>'CommentController@Comment']);
-Route::get('/fetchCmt',['as'=>'fetchCmt','uses'=>'CommentController@fetchCmt']);
 Route::get('store',['as'=>'store','uses'=>function(){
     return view('user.store.store');} ]);
     
@@ -125,7 +124,7 @@ Route::get('/updateItem/{id}/{quantity}',['as'=>'updateItem','uses'=>'CartContro
 Route::get('/DeleteListItemCart/{id}',['as'=>'DeleteListItemCart','uses'=>'CartController@DeleteListItemCart']);
 Route::get('/checkOrderLogin',['as'=>'checkOrderLogin','uses'=>'OrdersController@checkOrderLogin']);
 Route::post('/checkOrder',['as'=>'checkOrder','uses'=>'OrdersController@checkOrder']);
-Route::get('/cartconfirm',['as'=>'OrderConfirm','uses'=>'OrdersController@checkOrder']);
+//Route::get('/orderconfirm',['as'=>'OrderConfirm','uses'=>'OrdersController@checkOrder']);
 
 
 Route::get('/contact','HomeController@contact');

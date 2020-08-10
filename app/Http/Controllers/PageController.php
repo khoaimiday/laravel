@@ -20,10 +20,7 @@ class PageController extends Controller
 
     public function newsIndex()
     {
-        $new1s=News::where('topic','Bệnh thường gặp')->latest()->get();
-        // return view('user.news.news')->with(['new1s'=>$new1s]);
-
-        $new2s=News::where('topic','Chăm sóc sức khoẻ')->latest()->get();
-        return view('user.news.news')->with(['new1s'=>$new1s,'new2s'=>$new2s]);
+        $news=News::latest()->get();
+        return view('user.news.news')->with(['news'=>$news]);
     }
 }

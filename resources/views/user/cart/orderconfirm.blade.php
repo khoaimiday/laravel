@@ -56,7 +56,7 @@
            <div class="row ">
                <div class="text-center m-auto">
                    <h2>Xác nhận đơn hàng</h2>
-                   <div>Mã đơn hàng:{{$order->id}}</div>
+                   <div>Mã đơn hàng:{{$newOrder->id}}</div>
                 </div>
            </div>
            <div class="row mt-5">
@@ -64,17 +64,17 @@
                     <p class="text-uppercase">
                         <strong>Khách hàng: </strong>
                     </p>
-                    <div>Họ tên: {{$order->order_name}}</div>
-                    <div>Điện thoại: {{$order->order_phone}}</div>
-                    <div>Địa chỉ: {{$order->order_address}}</div>
-                    <div>Ghi chú: {{$order->order_note}}</div>
+                    <div>Tên Khách hàng: {{$newOrder->order_name}}</div>
+                    <div>Điện thoại: {{$newOrder->order_phone}}</div>
+                    <div>Địa chỉ: {{$newOrder->order_address}}</div>
+                    <div>Ghi chú: {{$newOrder->order_note}}</div>
                </div>
                <div class="col-6 order-information">
                     <p class="text-uppercase">
                         <strong>Thông tin đơn hàng: </strong>
                     </p>
-                    <div>Mã đặt hàng: {{$order->id}}</div>
-                    <div>Ngày đặt hàng: {{$order->created_at}}</div>
+                    <!-- <div>Mã đặt hàng: {{$order->id}}</div> -->
+                    <div>Ngày đặt hàng: {{$newOrder->created_at}}</div>
                     <div>Trạng thái: Đang xử lý</div>
                 </div>
            </div>
@@ -91,7 +91,7 @@
                   </tr>
                 </thead>
                 <tbody>
-                @foreach {{$orderDetail as orderDetail}}
+                <!-- @foreach {{$orderDetails as orderDetail}} -->
                     <tr>
                       <td>1</td>
                       <td>{{$orderDetail->id}}</td>
@@ -99,15 +99,15 @@
                       <td>{{$orderDetail->quantity}}</td>
                       <td class="text-price"><strong>{{number_format($orderDetail->price)}}</strong></td>
                     </tr>
-                      <tr>
+                <!-- @endforeach -->
+                    <tr>
                         <td class="text-right" colspan="5"><strong>Áp dụng giảm giá (nếu có): </strong></td>
                         <td></td>
                       </tr>
                       <tr>
-                        <td class="text-right" colspan="5"><strong>Tổng tiền phải trả: </strong></td>
-                          <td class="text-price"><strong>{{number_format($order->totalPrice)}}</strong></td>
+                          <td class="text-right" colspan="5"><strong>Tổng tiền phải trả: </strong></td>
+                          <td class="text-price"><strong>{{number_format($newOrder->totalPrice)}}</strong></td>
                       </tr>
-                @endforeach
                 </tbody>
               </table>
            </div>

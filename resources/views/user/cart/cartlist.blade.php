@@ -231,7 +231,7 @@
             box-shadow: 0px 6px 20px 0px rgba(0, 0, 0, 0.2);
             transition: all ease-in-out 0.2s;
         }
-        .proceed-checkout .saveCart{
+        .proceed-checkout .buymore{
             font-size: 14px;
             font-weight: 700;
             color: #ffffff;
@@ -288,8 +288,8 @@
                                         @foreach(Session::get("Cart")->products as $item)
                                         <tr>
                                             <td class="cart-pic first-row">
-                                                <!-- <img src="{{ url('img/feature/product/'.$item['productInfo']->image)}}"
-                                                    alt=""> -->
+                                                <img src="{{ url('img/feature/product/'.$item['productInfo']->image)}}"
+                                                    alt="">
                                             </td>
                                             <td class="cart-title first-row">
                                                 <h5>{{($item['productInfo']->product_name)}}</h5>
@@ -329,9 +329,9 @@
                                             <div class="col-sm-6">
                                                 <i class="deleteCart">Huỷ Giỏ hàng</i>
                                             </div>
-                                            <!-- <div class="col-sm-6">
-                                                <i class="saveCart">Lưu giỏ hàng</i>
-                                            </div> -->
+                                            <div class="col-sm-6">
+                                                <a href="{{ url('/product') }}" class="buymore">Mua thêm</a>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>       
