@@ -18,9 +18,5 @@ class PageController extends Controller
         return view('admin.index', compact('userCount', 'productCount', 'orderCount', 'cartCount', 'feedCount'));
     }
 
-    public function newsIndex()
-    {
-        $news=News::latest()->get();
-        return view('user.news.news')->with(['news'=>$news]);
-    }
+    
 }

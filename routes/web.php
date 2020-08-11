@@ -105,7 +105,7 @@ Route::group(['prefix' => 'admin/', 'middleware' => 'isLogin'], function () {
 Route::get('/product', 'ProductController@index');
 Route::get('product/detail/{id}', 'ProductController@details');
 
-Route::get('news',['as'=>'news','uses'=>'PageController@newsIndex']);
+Route::get('news',['as'=>'news','uses'=>'NewsController@newsIndex']);
 Route::get('user/news/newsDetail/{id}',['as'=>'newsdetail','uses'=>'NewsController@newsDetail']);
 Route::post('/comment/{proId}',['as'=>'comment','uses'=>'CommentController@Comment']);
 Route::get('store',['as'=>'store','uses'=>function(){

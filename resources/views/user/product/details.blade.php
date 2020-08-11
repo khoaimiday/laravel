@@ -150,6 +150,7 @@
                                     </div>
                                 </div>
                                 <div class="panel-footer" align="right">
+                                    <input type="hidden" name="cmt_id" id="cmt_id" value="0">
                                     <button class="btn btn-default reply" type="button">Trả lời</button>
                                 </div>
                             </div>
@@ -291,6 +292,11 @@
                 $('#image-gallery').removeClass('cS-hidden');
             }
         });
+    $(document).on('click','.reply',function(){
+        var cmt_id=$(this).attr("id");
+        $('#cmt_id').val(cmt_id);
+        $('#cmt_name').focus();
+    });
 
     });
 

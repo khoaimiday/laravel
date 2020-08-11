@@ -65,10 +65,10 @@
                                 <td>{{ $cmt->id }}</td>
                                 <td>{{ $cmt->user_id}}</td>
                                 <td>{{ $cmt->product_id}}</td>
-                                <td>{{ $order->created_at }}</td>
+                                <td>{{ $cmt->created_at }}</td>
                                 <td>{{ $cmt->title }}</td>
                                 <td>{{ $cmt->content }}</td>
-                                <td>{{ $order->reply }}</td>
+                                <td>{{ $cmt->reply }}</td>
                                 <td class="text-right">
                                     <a class="actionButton" href="{{ route('reply-cmt',$cmt->id)}}">Trả lời</a>
                                     <a class="actionButton" href="{{ route('tempDel-cmt',$cmt->id) }}">Xoá</a>

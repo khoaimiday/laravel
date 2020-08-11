@@ -73,7 +73,6 @@
                     <p class="text-uppercase">
                         <strong>Thông tin đơn hàng: </strong>
                     </p>
-                    <!-- <div>Mã đặt hàng: {{$order->id}}</div> -->
                     <div>Ngày đặt hàng: {{$newOrder->created_at}}</div>
                     <div>Trạng thái: Đang xử lý</div>
                 </div>
@@ -87,25 +86,27 @@
                     <th scope="col">Mã sản phẩm</th>
                     <th scope="col">Tên sản phẩm</th>
                     <th scope="col">Số lượng</th>
+                    <th scope="col">Đơn giá</th>
                     <th scope="col">Thành tiền(VNĐ)</th>
                   </tr>
                 </thead>
                 <tbody>
-                <!-- @foreach {{$orderDetails as orderDetail}} -->
+                @foreach ($orderDetails as $orderDetail)
                     <tr>
-                      <td>1</td>
-                      <td>{{$orderDetail->id}}</td>
-                      <td>{{$orderDetail->name}}</td>
+                      <td>{{$loop->iteration}}</td>
+                      <td>{{$orderDetail->product_id}}</td>
+                      <td>{{$orderDetail->product_name}}</td>
                       <td>{{$orderDetail->quantity}}</td>
+                      <td>{{number_format(($orderDetail->price)/($orderDetail->quantity))}}</td>
                       <td class="text-price"><strong>{{number_format($orderDetail->price)}}</strong></td>
                     </tr>
-                <!-- @endforeach -->
+                @endforeach
                     <tr>
-                        <td class="text-right" colspan="5"><strong>Áp dụng giảm giá (nếu có): </strong></td>
+                        <td class="text-right" colspan="4"><strong>Áp dụng giảm giá (nếu có): </strong></td>
                         <td></td>
                       </tr>
                       <tr>
-                          <td class="text-right" colspan="5"><strong>Tổng tiền phải trả: </strong></td>
+                          <td class="text-right" colspan="4"><strong>Tổng tiền phải trả: </strong></td>
                           <td class="text-price"><strong>{{number_format($newOrder->totalPrice)}}</strong></td>
                       </tr>
                 </tbody>

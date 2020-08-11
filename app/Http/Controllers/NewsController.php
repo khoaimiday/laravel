@@ -9,7 +9,12 @@ use App\Http\Requests\NewsRequest;
 use Illuminate\Database\Query\Builder;
 
 class NewsController extends Controller
-{
+{   
+    public function newsIndex()
+    {
+        $news=News::latest()->paginate(5)   ;
+        return view('user.news.news')->with(['news'=>$news]);
+    }
     public function index()
     {
         $news=News::latest()->get();
