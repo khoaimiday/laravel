@@ -83,12 +83,16 @@
         }
     }
     function clearSearch(){
-        $('#searchList').hide();
+        setTimeout(() => {
+            $('#searchList').hide();
+        }, 300);
     }
 </script>
 
 <style>
-.top-nav{
+.inputHTLM {
+cursor: pointer;
+}.top-nav{
     /* background-color: #9acd32; */
 }
 .customer-area {

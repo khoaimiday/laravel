@@ -17,7 +17,7 @@
       margin: 0px;
       padding:0px;
       background-image:url('/img/news/bg2.jpg');
-      
+
     }
     .newsdetail-img img{
       width:70%;
@@ -45,7 +45,7 @@
     pre{
       white-space:pre-wrap;
       word-wrap: break-word;
-      color:white;  
+      color:white;
     }
     </style>
   </head>
@@ -53,17 +53,19 @@
   @include('fragments.topheader')
 
   <div class="newsdetail-body">
+    {{ Breadcrumbs::render('newsdetail', $n) }}
+
   <div class="container">
   <div class="newsdetail-card">
         <h2>{{$n->title}}</h2>
           <p style="text-align:right;padding-right:30px">Cập nhật ngày: {{ $n->updated_at }}</p>
         <div>
-            <div class="newsdetail-img" style="align-content:center"><img src="{{ url('images/news/'.$n->image) }}" alt=""></div> 
+            <div class="newsdetail-img" style="align-content:center"><img src="{{ url('images/news/'.$n->image) }}" alt=""></div>
             <pre>{!!$n->content!!}</pre>
         </div>
       </div>
   </div>
-  
+
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

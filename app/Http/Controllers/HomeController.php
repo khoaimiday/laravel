@@ -24,7 +24,7 @@ class HomeController extends Controller
     public function index()
     {
         $newProduct = Product::orderBy('created_at','desc')->limit(4)->get();
-       $soldProduct = Product::orderBy('sold_out', 'desc')->limit(4)->get();
+        $soldProduct = Product::orderBy('sold_out', 'desc')->limit(4)->get();
         return view('home', compact('newProduct', 'soldProduct'));
     }
     public function login()

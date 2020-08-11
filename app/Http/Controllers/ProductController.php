@@ -199,9 +199,9 @@ class ProductController extends Controller
         // ->where('comments.status','1')
         // ->orderBy('comments.created_at', 'desc')
         // ->select('users.*', 'products.*', 'comments.*')->get();
-      
-             
-        
+
+
+
 
         $pro = Product::withTrashed()->join('product_types', 'products.product_type_id', '=', 'product_types.id')
             ->join('brands', 'products.brand_id', '=', 'brands.id')
@@ -209,9 +209,10 @@ class ProductController extends Controller
             ->select('product_types.type_name', 'brands.brand_name', 'products.*')->firstOrFail();
 
             $product = Product::find($id);
-            $cmts=Comment::where('product_id',$id)->latest()->get(); 
-        $sameProduct = Product::where('id','<>',$id)->where('product_type_id', $product->product_type_id)->limit(4)->get();
-        return view('user.product.details', compact('pro','cmts','sameProduct'));
+            $cate = Product_type::find($product->product_type_id);
+            $cmts=Comment::where('product_id',$id)->latest()->get();
+            $sameProduct = Product::where('id','<>',$id)->where('product_type_id', $product->product_type_id)->limit(4)->get();
+        return view('user.product.details', compact('pro','cmts','sameProduct','cate'));
     }
 
 }

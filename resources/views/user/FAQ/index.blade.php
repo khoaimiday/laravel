@@ -232,7 +232,7 @@
   width: 50%;
   padding-left: 30px;
   padding-right: 30px;
-  
+
 
 }
 
@@ -271,7 +271,7 @@ input[type=submit]:hover {
 .container {
   border-radius: 5px;
   padding-right: 50px;
-  
+
 }
 .row{
     padding-top: 20px;
@@ -354,7 +354,7 @@ h2{
   padding-top: 50px;
   padding-bottom: 50px;
   padding-left: 20%;
-   
+
 }
 .main
 {
@@ -386,12 +386,14 @@ h2{
     </section>
     {{-- CAROU-SEL --}}
     <body>
-<div class="main">
 
-        
+<div class="main">
+    {{ Breadcrumbs::render('FAQ') }}
+
+
 <h1>Các câu hỏi thường gặp</h1>
-<div class="box"> 
-    
+<div class="box">
+
 
 
 <button class="accordion">Làm thế nào để đăng ký trên trang web</button>
@@ -405,8 +407,8 @@ h2{
       <p>1.Nhập đầy đủ thông tin </p>
       <p>2.Cuối cùng bấm nút dăng ký</p>
       <div class="img"><img src="img/faq/index2.jpg"></div>
-      
-  
+
+
 </div>
 </div>
 
@@ -431,7 +433,7 @@ h2{
 </div>
 </div>
 
-</body>   
+</body>
     {{-- FOOTER --}}
     <div class="footer">
         @include('fragments.footer')
@@ -501,7 +503,7 @@ for (i = 0; i < acc.length; i++) {
       panel.style.maxHeight = null;
     } else {
       panel.style.maxHeight = panel.scrollHeight + "px";
-    } 
+    }
   });
 }
 </script>

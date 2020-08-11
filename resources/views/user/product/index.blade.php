@@ -5,7 +5,7 @@
 
 {{-- PRODUCT --}}
 <div class="container my-5">
-    {{-- <h3 class="text-primary mb-3">SẢN PHẨM BÁN CHẠY</h3> --}}
+{{ Breadcrumbs::render('product') }}
 
     <div class="container product__box">
         <div class="row">

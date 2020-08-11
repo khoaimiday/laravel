@@ -11,75 +11,13 @@
             </ul>
             <div class="tab-panels">
                 <div class="panel entry-content active" id="tab-description">
-                    <p><strong>Thành phần:</strong> Ethanol, nước, glycerin, carbomer, hương liệu</p>
-                    <p><strong>Công dụng:</strong> Dùng để làm sạch khuẩn nhanh, vô trùng tay hàng ngày. Đặc biệt, sau
-                        khi tiếp xúc với động vật, sau khi ho, hắt hơi và sau khi đi vệ sinh.</p>
-                    <p><strong>Hướng dẫn sử dụng:</strong> Cho 3-5ml sản phẩm vào lòng bàn tay, xoa đều hai lòng bàn
-                        tay, giữa các kẽ ngón tay cho đến khô. Không rửa lại với nước. Có thể sử dụng nhiều lần trong
-                        ngày</p>
-                    <p><strong>Bảo quản:&nbsp;</strong><br> Bảo quản nơi khô ráo, tránh ánh nắng trực tiếp<br> Tránh xa
-                        nguồn nhiệt</p>
-                    <p><strong>Dung tích:</strong> 250ml</p>
-                    <p><strong>Xuất xứ thương hiệu:</strong> Việt Nam</p>
-                    <p><strong>Sản xuất tại:</strong> Việt Nam</p>
-                    <p><em>*Pharmacity cam kết chỉ bán sản phẩm còn dài hạn sử dụng.</em></p>
+                    {{-- <div>{!!$pro->long_description!!}</div> --}}
                 </div>
                 <div class="panel entry-content" id="tab-pwb_tab">
                     <h2>Thương hiệu</h2>
                 </div>
                 <div class="panel entry-content" id="tab-reviews">
-                    <div class="row" id="reviews">
-                        <div class="col large-12" id="comments">
-                            <h3 class="normal">Đánh giá</h3>
-                            <p class="woocommerce-noreviews">Chưa có đánh giá nào cho sản phẩm này.</p>
-                        </div>
-                        <div id="review_form_wrapper" class="large-12 col">
-                            <div id="review_form" class="col-inner">
-                                <div class="review-form-inner has-border">
-                                    <div id="respond" class="comment-respond">
-                                        <h3 id="reply-title" class="comment-reply-title">Bạn là người nhận xét đầu tiền
-                                            về sản phẩm “Gel rửa tay khô hương hoa anh đào On1 Fresh Sakura (250ml)”
-                                            <small><a rel="nofollow" id="cancel-comment-reply-link"
-                                                    href="/san-pham/gel-rua-tay-kho-huong-hoa-anh-dao-on1-fresh-sakura-250ml/#respond"
-                                                    style="display:none;">Cancel reply</a></small></h3>
-                                        <form action="https://www.pharmacity.vn/wp-comments-post.php" method="post"
-                                            id="commentform" class="comment-form" novalidate="novalidate">
-                                            <div class="comment-form-rating"><label for="rating">Đánh giá</label>
-                                                <p class="stars"> <span> <a class="star-1" href="#">1</a> <a
-                                                            class="star-2" href="#">2</a> <a class="star-3"
-                                                            href="#">3</a> <a class="star-4" href="#">4</a> <a
-                                                            class="star-5" href="#">5</a> </span> </p><select
-                                                    name="rating" id="rating" required="" style="display: none;">
-                                                    <option value="">Rate…</option>
-                                                    <option value="5">Perfect</option>
-                                                    <option value="4">Good</option>
-                                                    <option value="3">Average</option>
-                                                    <option value="2">Not that bad</option>
-                                                    <option value="1">Very poor</option>
-                                                </select>
-                                            </div>
-                                            <p class="comment-form-comment"><label for="comment">Nhận xét của
-                                                    bạn&nbsp;<span class="required">*</span></label><textarea
-                                                    id="comment" name="comment" cols="45" rows="8"
-                                                    required=""></textarea></p><input name="wpml_language_code"
-                                                type="hidden" value="vi">
-                                            <p class="comment-form-author"><label for="author">Tên&nbsp;<span
-                                                        class="required">*</span></label> <input id="author"
-                                                    name="author" type="text" value="" size="30" required=""></p>
-                                            <p class="comment-form-email"><label for="email">Email&nbsp;<span
-                                                        class="required">*</span></label> <input id="email" name="email"
-                                                    type="email" value="" size="30" required=""></p>
-                                            <p class="form-submit"><input name="submit" type="submit" id="submit"
-                                                    class="submit" value="GỬI"> <input type="hidden"
-                                                    name="comment_post_ID" value="153777" id="comment_post_ID"> <input
-                                                    type="hidden" name="comment_parent" id="comment_parent" value="0">
-                                            </p>
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+
                 </div>
             </div>
         </div>

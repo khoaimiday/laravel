@@ -4,7 +4,7 @@
 @section('content')
 
 
-{{-- {{ Breadcrumbs::render('product-detail', $product) }} --}}
+{{-- {{ Breadcrumbs::render('product-detail', $pro) }} --}}
 
 <!-- Product Details -->
 <div class="container product_details pt-5">
@@ -214,7 +214,7 @@
     </div>
 </div>
 
-<!-- @foreach($comments as $c)
+{{-- <!-- @foreach($comments as $c)
 @if($c->reply != null )
 <div class="row review d-flex justify-content-center">
     <div class="col-2 text-center">
@@ -229,7 +229,7 @@
 </div>
 <hr>
 @endif
-@endforeach -->
+@endforeach --> --}}
 @endsection
 
 @section('style')

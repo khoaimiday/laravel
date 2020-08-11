@@ -53,7 +53,7 @@
       text-overflow: ellipsis;
       max-width: 700px;
       text-align:right;
-     
+
     }
     .new-wrap{
         margin-top:0;
@@ -107,7 +107,7 @@
       box-shadow: 0 4px 15px 0 rgba(0, 0, 0, 0.2);
       height:300px;
       opacity:0.9;
-    }    
+    }
     a.readMore-button {
         text-decoration:none;
         font-size:15px;
@@ -162,7 +162,7 @@
       color:#333;
       padding:100px;
     }
-   
+
       @media (min-width: 650px){
       .text-box{
         width: 47%;
@@ -197,7 +197,7 @@
     .post-sidebar{
       padding-top:40px;
       border-left:1px solid #ececec;
-      
+
     }
     .widget ul{
       border-top:1px solid #ececec;
@@ -210,7 +210,7 @@
       display:inline-block;
       float:left;
       background-color:#FFFFAA;
-     
+
     }
     .recent-news{
       border:1px solid #9acd32;
@@ -250,7 +250,7 @@
   </head>
   <body>
   @include('fragments.topheader')
-  
+
   <div class="topheader2">
     @include('fragments.nav-bar-top')
     <div class="header">
@@ -258,10 +258,11 @@
         <p> cùng <b class="headerfont">Cucumber</b></p>
      </div>
   </div>
-  
+  {{ Breadcrumbs::render('news') }}
+
     <div class="news-body">
-      <div class="container">    
-        <div class="row row-large">     
+      <div class="container">
+        <div class="row row-large">
           <div class="large-8 col-8">
             @foreach ($news as $new)
              <div class="newscard" >
@@ -276,7 +277,7 @@
                 <p>{{ $new->created_at }}</p>
                 <a href="{{ url('/user/news/newsDetail/'.$new ->id) }}" class="readMore-button">Đọc thêm..</a>
                 </div>
-              </div> 
+              </div>
             </div>
             @endforeach
             {{ $news->links() }}
@@ -292,12 +293,12 @@
             <div class="post-sidebar">
                 <h4 align="center" style="color:black;font-weight:500"><b>Các tin tức liên quan</b> </h4>
                 <div class="widge">
-                  <ul style="list-style-type:none;">           
+                  <ul style="list-style-type:none;">
                   @foreach ($news as $new)
                     @if($new->topic =="Tin tức")
                     <li class="recent-news">
                     <a href=""><img src="{{ url('images/news/'.$new->image) }}" alt=""></a>
-                    <a href="{{ url('/user/news/newsDetail/'.$new->id) }}"><p class="new-title-b">{{ $new->title }}</p></a>                
+                    <a href="{{ url('/user/news/newsDetail/'.$new->id) }}"><p class="new-title-b">{{ $new->title }}</p></a>
                     </li>
                   @endif
                   @endforeach
@@ -307,9 +308,9 @@
           </div>
           </div>
         </div>
-        
-      </div> 
-    </div> 
+
+      </div>
+    </div>
     <div class="image-header">
       <div class="text-box x10 md-x5 lg-x5 y85 md-y95 lg-y85">
         <h1 class="text">

@@ -232,7 +232,7 @@
   width: 50%;
   padding-left: 30px;
   padding-right: 30px;
-  
+
 
 }
 
@@ -271,7 +271,7 @@ input[type=submit]:hover {
 .container {
   border-radius: 5px;
   padding-right: 50px;
-  
+
 }
 .row{
     padding-top: 20px;
@@ -324,7 +324,7 @@ label{
     {{-- CAROU-SEL --}}
 
     <body>
-   
+
    <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -333,7 +333,7 @@ label{
    <title>Document</title>
 </head>
 <body>
-
+    {{ Breadcrumbs::render('contact') }}
 <div class="row">
  <div class="column">
  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.2725035832495!2d106.6563019820322!3d10.790428741312278!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752ecb5f1f5265%3A0x7ca605ca712192e!2zMTAxMCBDw6FjaCBN4bqhbmcgVGjDoW5nIFTDoW0sIFBoxrDhu51uZyA1LCBUw6JuIELDrG5oLCBUaMOgbmggcGjhu5EgSOG7kyBDaMOtIE1pbmgsIFZp4buHdCBOYW0!5e0!3m2!1svi!2s!4v1596107714615!5m2!1svi!2s" width="100%" height="100%" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
@@ -360,11 +360,11 @@ label{
 </body>
 </html>
 
-    
 
-   
 
-   
+
+
+
 
     {{-- FOOTER --}}
     <div class="footer">

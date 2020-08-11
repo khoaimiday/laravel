@@ -11,9 +11,9 @@
 <header class="tophead">
     <div class="tophead-menu">
         <ul class="tophead-menu-list">
-            <li class="tophead-menu-left"><a href="{{ ('home') }}"><img src="{{url('img/nav/Home.png')}}" alt=""> Trang
+            <li class="tophead-menu-left"><a href="{{ route('home') }}"><img src="{{url('img/nav/Home.png')}}" alt=""> Trang
                     chủ</a></li>
-            <li class="tophead-menu-left"><a href="{{('product')}}"><img src="{{url('img/nav/Product.png')}}" alt=""> Sản phẩm</a></li>
+            <li class="tophead-menu-left"><a href="{{ route('product')}}"><img src="{{url('img/nav/Product.png')}}" alt=""> Sản phẩm</a></li>
             <!-- <div class="tophead-menu-dropdown">
                     <ul class="tophead-menu-dropdown">
                         <li><a href="">Dược phẩm không kê đơn</a></li>
@@ -291,7 +291,7 @@
             alertify.success(' Đã xoá sản phẩm!');
         });
     });
-    
+
     function RenderCart(response){
         $("#change-item-cart").empty();
         $("#change-item-cart").html(response);
@@ -315,7 +315,7 @@
         }).done(function(response){
            location.reload();
            alertify.success('Đã xoá giỏ hàng!');
-        });    
-    
+        });
+
     });
 </script>
