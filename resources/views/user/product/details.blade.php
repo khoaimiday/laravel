@@ -141,7 +141,7 @@
                                 <div class="panel-heading">
                                     Đăng bởi: Người dùng có mã <b>{{$cmt->user_id }}</b> lúc <i>{{$cmt->created_at}}</i>
                                 </div>
-                                <div class="panel-body" align="left">
+                                <div class="panel-body">
                                     <div class="panel-title">
                                         <h6> {{$cmt->title}}</h6>
                                     </div>
@@ -214,16 +214,26 @@
     </div>
 </div>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<!-- @foreach($comments as $c)
+@if($c->reply != null )
+<div class="row review d-flex justify-content-center">
+    <div class="col-2 text-center">
+        <img src="{{ asset('img/admin1.jpg')}}" alt="{{$c->name}}" class="review-image d-block"
+            style="width:100px; margin: auto">
+        <span style="font-size: .8em; ">{{$c->created_at}}</span></div>
+    <div class="col-9 review-text" style="padding: 5px 65px 0 15px;">
+        <h6><b>Title:</b> {{$c->title}}</h6>
+        <hr width="100%">
+        <p>{{$c->content}}</p>
+    </div>
+</div>
+<hr>
+@endif
+@endforeach -->
 @endsection
 
 @section('style')
 <style>
-    .panel{
-        border:1px #ddd solid;
-        border-radius:5px;
-    }
     .product_details .carousel {
         box-shadow: 0;
     }
@@ -298,6 +308,16 @@
         $('#cmt_name').focus();
     });
 
+
+        $("#cmt_submit").on("click",function(){
+            $.ajax({
+                url: "/fetchCmt",
+                method: "GET",
+            }).done(function(response){
+                $("#fetchCmt").empty();
+                $("#fetchCmt").html(response);
+            }
+        }
     });
 
 </script>
