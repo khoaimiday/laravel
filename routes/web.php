@@ -43,9 +43,10 @@ Route::group(['prefix' => 'admin/', 'middleware' => 'isLogin'], function () {
     Route::post('/news/postUpdate/{id}','NewsController@postUpdate');
     Route::get('/news/delete/{id}','NewsController@delete');
 
-    //CART
+    //ORDER
     Route::get('/order/index',['as'=>'admin-order','uses'=>'OrdersController@index']);
     Route::get('/order/close',['as'=>'closed-order','uses'=>'OrdersController@close']);
+    Route::get('/order/cancel',['as'=>'cancel-order','uses'=>'OrdersController@cancel']);
     Route::get('/order/create',['as'=>'create-order','uses'=>'OrdersController@create']);
     Route::post('/order/postCreate','OrdersController@postCreate');
     Route::get('/order/update/{id}',['as'=>'update-order','uses'=>'OrdersController@update']);
@@ -124,7 +125,7 @@ Route::get('/updateItem/{id}/{quantity}',['as'=>'updateItem','uses'=>'CartContro
 Route::get('/DeleteListItemCart/{id}',['as'=>'DeleteListItemCart','uses'=>'CartController@DeleteListItemCart']);
 Route::get('/checkOrderLogin',['as'=>'checkOrderLogin','uses'=>'OrdersController@checkOrderLogin']);
 Route::post('/checkOrder',['as'=>'checkOrder','uses'=>'OrdersController@checkOrder']);
-//Route::get('/orderconfirm',['as'=>'OrderConfirm','uses'=>'OrdersController@checkOrder']);
+
 
 
 Route::get('/contact','HomeController@contact');
@@ -138,6 +139,7 @@ Route::post('/superAdmin/AdminPostUpdate/{id}','CustomerController@AdminPostUpda
 Route::get('/superAdmin/deleteAdmin/{id}','CustomerController@deleteAdmin');
 //customer
 Route::get('customer/customerList','CustomerController@customerList');
+Route::get('test',function(){return view('test');});
 
 
 // SEARCH ROUTER

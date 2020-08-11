@@ -87,7 +87,7 @@
     </div>
 </div>
 
-        {{-- <div class="related related-products-wrapper product-section">
+        <div class="related related-products-wrapper product-section">
             <h3 class="product-section-title container-width product-section-title-related pt-half pb-half uppercase">
                 Sản phẩm liên quan</h3>
             <div class="row large-columns-4 medium-columns- small-columns-2 row-small slider row-slider slider-nav-reveal slider-nav-push flickity-enabled is-draggable"
@@ -1406,29 +1406,29 @@
                             transform="translate(100, 100) rotate(180) "></path>
                     </svg></button>
             </div>
-        </div> --}}
+        </div> 
 <script>
-    $('#tab-pwb_tab').hide();
-    $('#tab-reviews').hide();
+    // $('#tab-pwb_tab').hide();
+    // $('#tab-reviews').hide();
 
-    function showTabPwd(){
-        $('#tab-pwb_tab').show();
-        $('#tab-description').hide();
-        $('#tab-reviews').hide();
-        // window.location.href = '#tab-pwb_tab';
-    }
+    // function showTabPwd(){
+    //     $('#tab-pwb_tab').show();
+    //     $('#tab-description').hide();
+    //     $('#tab-reviews').hide();
+    //     // window.location.href = '#tab-pwb_tab';
+    // }
 
-    function showTabReview(){
-        $('#tab-pwb_tab').hide();
-        $('#tab-description').hide();
-        $('#tab-reviews').show();
-        // window.location.href = '#tab-reviews';
-    }
+    // function showTabReview(){
+    //     $('#tab-pwb_tab').hide();
+    //     $('#tab-description').hide();
+    //     $('#tab-reviews').show();
+    //     // window.location.href = '#tab-reviews';
+    // }
 
-    function showTabDesc(){
-        $('#tab-pwb_tab').hide();
-        $('#tab-description').show();
-        $('#tab-reviews').hide();
+    // function showTabDesc(){
+    //     $('#tab-pwb_tab').hide();
+    //     $('#tab-description').show();
+    //     $('#tab-reviews').hide();
         // window.location.href = '#tab-description';
     }
 

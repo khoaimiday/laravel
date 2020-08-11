@@ -68,9 +68,9 @@
                             </div>
                         </div>
                         <div class="row pb-5">
-                            <h4>Thông tin đơn hàng</h4>
+                            <h3 class="pl-5">Thông tin đơn hàng</h3>
                             <div class="col-lg-10">
-                              <table class="table table-bordered">
+                              <table class="table table-bordered pl-2">
                                 <thead>
                                     <tr>
                                         <th>Mã sản phẩm</th>
@@ -89,7 +89,7 @@
                                      </tr>
                                     @endforeach
                                     <tr>
-                                        <td class="text-right" colspan="4"><strong>Tổng tiền: </strong></td>
+                                        <td class="text-right" colspan="3"><strong>Tổng tiền: </strong></td>
                                         <td class="text-price"><strong style="color:red">{{number_format($order->totalPrice)}} đ</strong></td>
                                     </tr>
                                 </tbody>

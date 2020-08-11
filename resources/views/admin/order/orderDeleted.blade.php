@@ -1,5 +1,5 @@
 @extends('admin.Adminlayout')
-@section('title', 'CommentIndex')
+@section('title', 'OrderComplete')
 @section('content')
 <style>
     .actionButton{
@@ -22,12 +22,13 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Trang Admin - Comment</h1>
+                    <h1>Trang Admin - Order</h1>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="#">Trang chủ</a></li>
-                        <li class="breadcrumb-item active"> <a href="{{ route('admin-cmt') }}">Bình luận mới</a></li>
+                        <li class="breadcrumb-item active"> <a href="{{ route('admin-order') }}">Đơn hàng mới</a></li>
+                        <li class="breadcrumb-item active"> <a href="{{ route('closed-order') }}">Đơn hàng hoàn thành</a></li>
                     </ol>
                 </div>
             </div>
@@ -39,43 +40,41 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-header">
-                        <h3 class="card-title">Danh sách Bình luận đã xoá</h3>
+                        <h3 class="card-title">Danh sách đơn hàng đã huỷ</h3>
                     </div>
-                    @if (session()->get('delete_success'))
-                    <div class="alert alert-info pull-right" style="width:fit-content;place-self:flex-end;opacity:0.6">
-                        {{session()->get('delete_success')}}</div>
+                    @if (session('delete_success'))
+                        <div class="alert alert-info pull-right" style="width:fit-content;place-self:flex-end;opacity:0.6;margin-left:50px">
+                            {{ session('delete_success') }}
+                        </div>
                     @endif
-                    
+                       
                     <!-- /.card-header -->
                     <div class="card-body">
                         <table id="product" class="table table-bordered table-hover">
                             <thead>
-                            <tr>
+                              <tr>
                                 <th>Id</th>
-                                <th>Tài khoản</th>
-                                <th>Sản phẩm</th>
-                                <th>Ngày bình luận</th>
-                                <th>Tiêu đề</th>
-                                <th>Nội dung</th>
-                                <th>Trả lời</th>
-                                <th></th>
-                            </tr>
+                                <th>Khách hàng</th>
+                                <th>Ngày đặt hàng</th>
+                                <th>Trạng thái</th>
+                                <th>Tổng tiền</th>
+                                <th>Chỉnh sửa</th>
+                              </tr>
                             </thead>
                             <tbody>
-                            @foreach($cmts as $cmt)
-                            <tr>
-                                <td>{{ $cmt->id }}</td>
-                                <td>{{ $cmt->user_id}}</td>
-                                <td>{{ $cmt->product_id}}</td>
-                                <td>{{ $cmt->created_at }}</td>
-                                <td>{{ $cmt->title }}</td>
-                                <td>{{ $cmt->content }}</td>
-                                <td>{{ $cmt->reply }}</td>
+                            @foreach($orders as $order)
+                              <tr>
+                                <td>{{ $order->id }}</td>
+                                <td>{{ $order->user_id}}</td>
+                                <td>{{ $order->created_at }}</td>
+                                <td>{{ $order->order_delivery == 2 ? 'Khách huỷ' : 'Hết hàng' }}</></td>
+                                <td>{{ $order->totalPrice }}</td>
                                 <td class="text-right">
-                                    <a class="actionButton" href="{{ route('undo-cmt',$cmt->id)}}">Hoàn tác</a>
-                                    <a class="actionButton" href="{{ route('delete-cmt',$cmt->id) }}">Xoá</a>
+                                    <a href="{{ route('detail-order',$order->id)}}" class="actionButton">Chi tiết</a>
+                                    <a class="actionButton" href="{{ route('undo-order',$order->id) }}">Hoàn tác</a>
+                                    <a class="actionButton" href="{{ route('delete-order',$order->id) }}">Xoá</a>
                                 </td>
-                            </tr>
+                              </tr>
                             @endforeach
                             </tbody>
                         </table>

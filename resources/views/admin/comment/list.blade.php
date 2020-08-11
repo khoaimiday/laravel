@@ -42,8 +42,18 @@
                         <h3 class="card-title">Danh sách Bình luận mới</h3>
                     </div>
                     @if (session()->get('tempDel_success'))
-                    <div class="alert alert-info ml-3 mr-5">{{session()->get('tempDel_success')}}</div>
+                    <div class="alert alert-info pull-right" style="width:fit-content;place-self:flex-end;opacity:0.6;">
+                        {{session()->get('tempDel_success')}}</div>
                     @endif
+                    @if (session()->get('undo_success'))
+                    <div class="alert alert-info pull-right" style="width:fit-content;place-self:flex-end;opacity:0.6;">
+                            {{session()->get('undo_success')}}</div>
+                       @endif
+                       @if (session()->get('reply_success'))
+                        <div class="alert alert-info pull-right" style="width:fit-content;place-self:flex-end;opacity:0.6;">
+                            {{session()->get('reply_success')}}</div>
+                       @endif
+                    
                     <!-- /.card-header -->
                     <div class="card-body">
                         <table id="product" class="table table-bordered table-hover">

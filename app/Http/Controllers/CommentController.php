@@ -36,9 +36,11 @@ class CommentController extends Controller
                     'content.max'=>'Nội dung không quá 1000 ký tự',
                 ]
             );
+        if (Auth::check()){
+        
             $userId=Auth::user()->id;
             $user_cmt=User::where('id',$userId)->first();
-            $userCmt_name=Auth::user()->name;
+            $userCmt_name=$user_cmt->name;
             $prod_cmt=Product::where('id',$proId)->first();
             $prodCmt_name=$prod_cmt->product_name;
        
@@ -51,8 +53,11 @@ class CommentController extends Controller
             $newCmt->save();
 
             return back()->with('comment_success', 'Cảm ơn quý khách đã bình luận về sản phẩm này!');
-    }
-
+    
+        } else{
+            return view('auth.login');
+        }
+    }    
 
     //ADMIN
     public function list(){
@@ -70,7 +75,7 @@ class CommentController extends Controller
     }
     public function postReply(Request $rq){
         $this->validate(
-            $res,
+            $rq,
             [
                 'reply' => 'bail|max:500',
             ],
@@ -78,27 +83,25 @@ class CommentController extends Controller
                 'reply.max' => 'Nội dung không được dài quá 500 kí tự!',
             ]
             );
-            Comment::where('id',$rq->id)->update([
-                'reply'=>$rq->reply
-            ]);
-            return back()->with('reply_success', 'Đã trả lời bình luận !');
+            Comment::where('id',$rq->id)->update(['reply'=>$rq->reply]);
+            return redirect()->action('CommentController@list')->with('reply_success', 'Đã cập nhật bình luận!');
     }
     public function tempDel($id){
         Comment::where('id',$id)->update([
             'status'=>1
         ]);
-        return back()->with('tempDel_success', 'Đã xóa bình luận!');
+        return redirect()->action('CommentController@list')->with('tempDel_success', 'Đã xoá bình luận!');
     }
     public function undo($id){
     Comment::where('id',$id)->update([
         'status'=> 0
         ]);
-        return back()->with('undo_success', 'Đã hoàn tác bình luận!');
+        return redirect()->action('CommentController@list')->with('undo_success', 'Đã hoàn tác bình luận!');
     }
 
     public function delete($id){
     Comment::where('id',$id)->delete();
-    return back()->with('delete_success', 'Đã xóa bình luận!');
+    return redirect()->action('CommentController@deleted')->with('delete_success', 'Đã xóa bình luận!');
     }
 }
 

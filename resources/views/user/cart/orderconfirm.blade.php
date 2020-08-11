@@ -102,12 +102,16 @@
                     </tr>
                 @endforeach
                     <tr>
-                        <td class="text-right" colspan="4"><strong>Áp dụng giảm giá (nếu có): </strong></td>
+                        <td class="text-right" colspan="5"><strong>Áp dụng giảm giá (nếu có): </strong></td>
                         <td></td>
                       </tr>
                       <tr>
-                          <td class="text-right" colspan="4"><strong>Tổng tiền phải trả: </strong></td>
+                          <td class="text-right" colspan="5"><strong>Tổng tiền phải trả: </strong></td>
                           <td class="text-price"><strong>{{number_format($newOrder->totalPrice)}}</strong></td>
+                      </tr>
+                      <tr>
+                          <td class="text-right" colspan="5"><strong>Phí vận chuyển: </strong></td>
+                          <td class="text-price"><strong></strong></td>
                       </tr>
                 </tbody>
               </table>
@@ -118,6 +122,11 @@
                     <h5 class="text-center">Khách hàng vui lòng thanh toán khi nhận hàng!</h5>
                     <h5 class="text-center">Đơn hàng sẽ được giao trong ngày đối với đơn ở Hà Nội và TPHCM, từ 2-5 ngày đối với các tỉnh khác!</h5>
                </div>
+           </div>
+           <div class="row mt-3">
+              <div class="m-auto">
+                <a href="#" class="btn btn-default" onclick="window.print()"></i>In hoá đơn</a>
+              </div>
            </div>
         </div>
   </div>
@@ -130,4 +139,8 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     @include('fragments.footer3')
 </body>
+
+<script>
+
+</script>
 </html>

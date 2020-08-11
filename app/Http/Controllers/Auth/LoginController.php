@@ -41,7 +41,7 @@ class LoginController extends Controller
 
     protected function authenticated(Request $request, $user){
         if($user->role ==0){
-            return redirect()->action('HomeController@index');
+            return redirect()->intended($this->redirectPath());
         }else{
             return view('admin.index');
         }

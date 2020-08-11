@@ -209,7 +209,7 @@ class ProductController extends Controller
             ->select('product_types.type_name', 'brands.brand_name', 'products.*')->firstOrFail();
 
             $product = Product::find($id);
-            $cmts=Comment::where('product_id',$id)->latest()->get(); 
+            $cmts=Comment::where('product_id',$id)->latest()->paginate(3); 
         $sameProduct = Product::where('id','<>',$id)->where('product_type_id', $product->product_type_id)->limit(4)->get();
         return view('user.product.details', compact('pro','cmts','sameProduct'));
     }

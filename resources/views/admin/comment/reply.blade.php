@@ -20,12 +20,12 @@
                                 <input type="text" class="form-control" id="id" name="id" value="{{ $cmt->id }}" readonly>
                             </div>
                             <div class="form-group">
-                                <label for="txt-name">Khách hàng</label>
-                                <input type="text" class="form-control" id="user" name="user"  value="{{ $cmt->user_cmt }}" readonly>
+                                <label for="txt-name">User-Id</label>
+                                <input type="text" class="form-control" id="user" name="user"  value="{{ $cmt->user_id }}" readonly>
                             </div>
                             <div class="form-group">
                                 <label for="txt-name">Sản phẩm</label>
-                                <input type="text" class="form-control" id="product" name="product"  value="{{ $cmt->prod_cmt }}" readonly>
+                                <input type="text" class="form-control" id="product" name="product"  value="{{ $cmt->product_id }}" readonly>
                             </div>
                             <div class="form-group">
                                 <label>Ngày bình luận</label>

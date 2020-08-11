@@ -27,7 +27,8 @@
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="#">Trang chủ</a></li>
-                        <li class="breadcrumb-item active"> <a href="{{ route('closed-order') }}">Đơn hàng cũ</a></li>
+                        <li class="breadcrumb-item active"> <a href="{{ route('closed-order') }}">Đơn hàng hoàn thành</a></li>
+                        <li class="breadcrumb-item active"> <a href="{{ route('cancel-order') }}">Đơn hàng huỷ</a></li>
                     </ol>
                 </div>
             </div>
@@ -39,11 +40,21 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-header">
-                        <h3 class="card-title">Danh sách đơn hàng</h3>
+                        <h1 class="card-title revenue"></h1>
+                        <h3 class="card-title">Danh sách đơn hàng mới</h3>
                     </div>
                     @if (session()->get('tempdelete_success'))
-                    <div class="alert alert-info ml-3 mr-5">{{session()->get('tempdelete_success')}}</div>
+                    <div class="alert alert-info pull-right" style="width:fit-content;place-self:flex-end;opacity:0.6;margin-left:50px">
+                        {{session()->get('tempdelete_success')}}</div>
                     @endif
+                    @if (session()->get('undo_success'))
+                       <div class="alert alert-info pull-right" style="width:fit-content;place-self:flex-end;opacity:0.6;margin-left:50px">
+                            {{session()->get('undo_success')}}</div>
+                       @endif
+                       @if (session()->get('update_success'))
+                       <div class="alert alert-info pull-right" style="width:fit-content;place-self:flex-end;opacity:0.6;margin-left:50px">
+                            {{session()->get('update_success')}}</div>
+                       @endif
                     <!-- /.card-header -->
                     <div class="card-body">
                         <table id="product" class="table table-bordered table-hover">

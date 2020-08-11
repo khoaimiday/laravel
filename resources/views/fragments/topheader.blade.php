@@ -37,10 +37,10 @@
                         <div class="select-items">
                             <table>
                                 <tbody>
-                                    @foreach(Session::get('Cart')->products as $item)
+                                    @foreach(Session::get("Cart")->products as $item)
                                     <tr>
                                         <td class="si-pic">
-                                            <!-- <img src="{{ url('img/feature/product/'.$item['productInfo']->image) }}" alt=""> -->
+                                            <img src="{{ url('img/feature/product/'.$item['productInfo']->image) }}" alt="">
                                         </td>
                                         <td class="si-text">
                                             <div class="product-selected">
@@ -58,13 +58,13 @@
                         </div>
                         <div class="select-total">
                             <span>Tổng cộng: </span>
-                            <h5>{{number_format(Session::get('Cart') ->totalPrice)}}Đ</h5>
+                            <h5>{{number_format(Session::get("Cart") ->totalPrice)}}Đ</h5>
                         </div>
                         @endif
                     </div>
                     <div class="select-button">
                         <a href="{{route('ListOrder')}}" class="primary-btn view-cart">Xem giỏ hàng</a>
-                        <a href="#" class="primary-btn delete-btn deleteCart">Huỷ</a>
+                        <a href="{{ route('checkOrderLogin') }}" class="primary-btn delete-btn">Mua ngay</a>
                     </div>
                 </div>
             </li>
@@ -318,4 +318,5 @@
         });    
     
     });
+    
 </script>

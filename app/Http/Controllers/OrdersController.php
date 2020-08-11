@@ -89,8 +89,18 @@ class OrdersController extends Controller
 
     public function close()
     {
-        $orders= Orders::where('order_delivery','<>',0)->latest()->get();
+        $orders= Orders::where('order_delivery',1)->latest()->get();
+        // $total=0;
+        // foreach($orders->orders as $order) {
+        //     $total += $order->totalPrice;
+        // } 
+        // $ors= Orders::where('order_delivery',1)->latest()->get();
         return view('admin.order.orderComplete')->with(['orders'=>$orders]);
+    }
+    public function cancel()
+    {
+        $orders= Orders::whereIn('order_delivery',[2,3])->latest()->get();
+        return view('admin.order.orderDeleted')->with(['orders'=>$orders]);
     }
 
     public function store(Request $request)
@@ -120,21 +130,22 @@ class OrdersController extends Controller
             $order->order_address=$or['order_address'];
             $order->order_note=$or['order_note'];
             $order->save();
-            return redirect()->action('OrdersController@index');
+            return redirect()->action('OrdersController@index')->with('update_success','Cập nhật đơn hàng thành công!');;
     }
+
     public function tempdelete($id)
     {
         Orders::where('id',$id)->update([
             'order_delivery'=>2
         ]);
-        return back()->with('tempdelete_success','Huỷ đơn hàng thành công!');
+        return redirect()->action('OrdersController@index')->with('tempdelete_success','Huỷ đơn hàng thành công!');
     }
 
     public function undo($id) {
         Orders::where('id', $id)->update([
             'order_delivery'=> 0
         ]);
-        return back()->with('undo_success', 'Đã hoàn tác đơn hàng!');
+        return redirect()->action('OrdersController@index')->with('undo_success', 'Đã hoàn tác đơn hàng!');
     }
     public function delete($id)
     {   
@@ -143,6 +154,6 @@ class OrdersController extends Controller
             Order_details::where('id', $orderDetail->id)->delete();
         }
         Orders::where('id',$id)->delete();
-        return back()->with('delete_success','Xoá đơn hàng thành công!');
+        return redirect()->action('OrdersController@close')->with('delete_success','Xoá đơn hàng thành công!');
     }
 }

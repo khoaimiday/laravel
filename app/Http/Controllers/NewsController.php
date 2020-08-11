@@ -12,7 +12,7 @@ class NewsController extends Controller
 {   
     public function newsIndex()
     {
-        $news=News::latest()->paginate(5)   ;
+        $news=News::latest()->paginate(5);
         return view('user.news.news')->with(['news'=>$news]);
     }
     public function index()
@@ -51,7 +51,7 @@ class NewsController extends Controller
         $new=new News($news);
         $new->image=$imageName;
         $new->save();
-        return redirect()->action('NewsController@index');
+        return redirect()->action('NewsController@index')->with('create_success','Tạo tin mới thành công!');;
     }
 
     public function store(Request $request)
@@ -93,12 +93,12 @@ class NewsController extends Controller
             $new->topic=$news['topic'];
             $new->image=$imageName;
             $new->save();
-            return redirect()->action('NewsController@index');
+            return redirect()->action('NewsController@index')->with('update_success','Cập nhật thành công!');
         }
     public function delete($id)
     {
         $new=News::find($id);
         $new->delete();
-        return redirect()->action('NewsController@index');
+        return redirect()->action('NewsController@index')->with('delete_success','Xoá thành công!');
     }
 }

@@ -50,6 +50,22 @@
                         <h3 class="card-title">Danh sách tin tức </h3>
                     </div>
                     <!-- /.card-header -->
+                    
+                    @if (session('delete_success'))
+                        <div class="alert alert-info pull-right" style="width:fit-content;place-self:flex-end;opacity:0.6;">
+                            {{ session('delete_success') }}
+                        </div>
+                    @endif
+                    @if (session('update_success'))
+                        <div class="alert alert-info pull-right" style="width:fit-content;place-self:flex-end;opacity:0.6;">
+                            {{ session('update_success') }}
+                        </div>
+                    @endif
+                    @if (session('create_success'))
+                        <div class="alert alert-info pull-right" style="width:fit-content;place-self:flex-end;opacity:0.6;">
+                            {{ session('create_success') }}
+                        </div>
+                    @endif
                     <div class="card-body">
                         <table id="product" class="table table-bordered table-hover">
                             <thead>

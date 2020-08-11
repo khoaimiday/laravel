@@ -38,17 +38,35 @@
                                         <option value="1">Đã xác nhận</option>
                                     @endif                        
                                 </select>
-                                <label>Giao hàng</label>
+                                <label>Giao hàng</label>                            
                                 <select name="order_delivery" id="delivery">
+                                 @if ($order->order_confirm == 1)
                                     @if ($order->order_delivery == 1)
                                         <option value="1">Đã giao hàng</option>
                                         <option value="0">Chưa giao hàng</option>
-                                    @else
+                                        <option value="2">Khách huỷ</option>
+                                        <option value="3">Hết hàng</option>
+                                    @elseif ($order->order_delivery == 3)
+                                        <option value="3">Hết hàng</option>
+                                        <option value="1">Đã giao hàng</option>
+                                        <option value="0">Chưa giao hàng</option>
+                                        <option value="2">Khách huỷ</option>
+                                    @elseif ($order->order_delivery == 2)
+                                        <option value="2">Khách huỷ</option>
+                                        <option value="0">Chưa giao hàng</opti>
+                                        <option value="1">Đã giao hàng</option>
+                                        <option value="3">Hết hàng</option>
+                                    @else 
                                         <option value="0">Chưa giao hàng</option>
                                         <option value="1">Đã giao hàng</option>
-                                    @endif                                   
-                                </select>    
-                            </div>
+                                        <option value="2">Khách huỷ</option>
+                                        <option value="3">Hết hàng</option>
+                                    @endif
+                                @else                                 
+                                    <option value="0">Chưa giao hàng</option>
+                                @endif 
+                                </select>
+                            </div> s
                             <div class="form-group">
                                 <label>Tổng tiền</label>
                                 <input class="form-control" name="totalPrice" placeholder="" value="{{$order->totalPrice}}" readonly>
