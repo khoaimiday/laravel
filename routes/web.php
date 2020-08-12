@@ -73,8 +73,6 @@ Route::group(['prefix' => 'admin/', 'middleware' => 'isLogin'], function () {
     Route::get('/categories/delete/{id}','ProductTypeController@delete');
 
     //FEED BACK
-    Route::get('/feedback/feedbackList', 'HomeController@feedbackList');
-    Route::get('/feedback/delete/{id}','FeedBackController@delete');
 
     //COMMENT
     Route::get('/comment/index', 'CommentController@index');
@@ -106,23 +104,36 @@ Route::get('/cart','CartController@index');
 Route::get('/AddCart/{id}',['as'=>'AddCart','uses'=>'CartController@AddCart']);
 Route::get('/cartconfirm',function(){return view('user.cart.cartconfirm'); });
 Route::get('/cartindex',function(){return view('user.cart.cartindex'); });
-
+//feedback
 Route::get('/contact','HomeController@contact');
+Route::get('/feedback/feedbackList', 'FeedbackController@feedbackList');
 Route::post('/feedback/postFeedback','FeedbackController@postFeedback');
+Route::get('feedback/deleteFeedback/{id}', 'FeedbackController@deleteFeedback');
+Route::get('feedback/doneFeedback/{id}' , 'FeedbackController@doneFeedback');
+Route::get('feedback/pendingFeedback/{id}', 'FeedbackController@pendingFeedback');
+Route::get('feedback/onStatusFeedback/{id}', 'FeedbackController@onStatus');
+Route::get('feedback/offStatusFeedback/{id}', 'FeedbackController@offStatus');
+//FAQ
 Route::get('/FAQ','HomeController@FAQ');
+//admin
 Route::get('/superAdmin/adminList','CustomerController@adminList');
 Route::get('/superAdmin/CreateAdmin','CustomerController@CreateAdmin');
 Route::post('/superAdmin/PostCreateAdmin','CustomerController@PostCreateAdmin');
 Route::get('/superAdmin/adminUpdate/{id}','CustomerController@adminUpdate');
 Route::post('/superAdmin/AdminPostUpdate/{id}','CustomerController@AdminPostUpdate');
 Route::get('/superAdmin/deleteAdmin/{id}','CustomerController@deleteAdmin');
+Route::get('/SuperAdmin/resetPassword/{id}','CustomerController@resetPassword');
+
 //customer
-Route::get('customer/customerList','CustomerController@customerList');
+Route::get('/customer/customerList','CustomerController@customerList');
+Route::get('/customer/customerDelete/{id}','CustomerController@customerDelete');
 Route::get('/DeleteItemCart/{id}',['as'=>'DeleteItemCart','uses'=>'CartController@DeleteItemCart']);
 Route::get('/minusItem/{id}',['as'=>'minusItem','uses'=>'CartController@minusItem']);
 Route::get('/plusItem/{id}',['as'=>'plusItem','uses'=>'CartController@plusItem']);
 Route::get('/DeleteListItemCart/{id}',['as'=>'DeleteListItemCart','uses'=>'CartController@DeleteListItemCart']);
-
+Route::get('/users/detailCustomer/{id}','CustomerController@detailCustomer');
+Route::post('users/customerPostUpdate/{id}','CustomerController@customerPostUpdate');
+Route::get('/customer/customerDeleteList','CustomerController@customerDeleteList');
 
 // SEARCH ROUTER
 Route::group(['prefix' => 'search/'], function(){
