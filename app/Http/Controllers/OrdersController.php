@@ -121,8 +121,28 @@ class OrdersController extends Controller
         return view('admin.order.update',compact('order','orderDetails'));
     }
     public function postUpdate(Request $rq, $id)
-    {
+    {   
         $or=$rq->all();
+        if($this->validate(
+            $rq,
+            [
+                'order_name' => 'required|max:100',
+                'order_phone' => 'required|min:10|max:11',
+                'order_address' => 'required|max:500',
+                'order_note' => 'max:500',
+            ],
+            [
+                'order_name.required' => 'Xin vui lòng nhập tên người nhận.',
+                'order_name.max' => 'Tên không quá 100 kí tự.',
+                'order_phone.required' => 'Xin vui lòng nhập số điện thoại người nhận',
+                'order_phone.min' => 'Số điện thoại không nhỏ hơn 10 số.',
+                'order_phone.max' => 'Số điện thoại không quá 11 số.',
+                'order_address.required' => 'Xin vui lòng nhập địa chỉ người nhận.',
+                'order_address.max' => 'Địa chỉ không quá 500 kí tự.',
+                'order_note.max' => 'Ghi chú không quá 500 kí tự',
+            ]
+        )) {
+        
         $order=Orders::where('id',$id)->first();
             $order->order_confirm=$or['order_confirm'];
             $order->order_delivery=$or['order_delivery'];
@@ -130,7 +150,10 @@ class OrdersController extends Controller
             $order->order_address=$or['order_address'];
             $order->order_note=$or['order_note'];
             $order->save();
-            return redirect()->action('OrdersController@index')->with('update_success','Cập nhật đơn hàng thành công!');;
+            return redirect()->action('OrdersController@index')->with('update_success','Cập nhật đơn hàng thành công!');
+         }else{
+             return redirect()->action('OrdersController@update');
+         }
     }
 
     public function tempdelete($id)
