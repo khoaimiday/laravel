@@ -94,7 +94,7 @@
                         <li class="nav-item">
                             <a href="{{ url('admin/news/index') }}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p>Xem tin tức</p>
+                                <p>Danh sách tin tức</p>
                             </a>
                         </li>
                         <li class="nav-item">
@@ -185,6 +185,67 @@
                             <a href="{{ url('admin/brand/create') }}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Thêm nhà cung cấp</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+
+            <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                <!-- Add icons to the links using the .nav-icon class
+                     with font-awesome or any other icon font library -->
+                <li class="nav-item has-treeview">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-tachometer-alt"></i>
+                        <p>
+                            Orders
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{ route('admin-order') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Đơn hàng mới </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('closed-order') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Đơn hàng đã hoàn thành</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('cancel-order') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Đơn hàng đã huỷ</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                <!-- Add icons to the links using the .nav-icon class
+                     with font-awesome or any other icon font library -->
+                <li class="nav-item has-treeview">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-tachometer-alt"></i>
+                        <p>
+                            Comments
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{ route('admin-cmt') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Bình luận mới </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('deleted-cmt') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Bình luận đã xoá</p>
                             </a>
                         </li>
                     </ul>

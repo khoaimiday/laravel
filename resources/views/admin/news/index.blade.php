@@ -30,7 +30,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Trang Admin</h1>
+                    <h1>Trang Admin - News</h1>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
@@ -47,9 +47,29 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-header">
-                        <h3 class="card-title">Danh sách tin tức trên Blog sức khoẻ</h3>
+                        <h3 class="card-title">Danh sách tin tức </h3>
                     </div>
                     <!-- /.card-header -->
+                    @if(Session::has('flash_message'))
+                                <div class="alert alert-info pull-right" style="width:fit-content;place-self:flex-end;opacity:0.6;">
+                                    {!!Session::get('flash_message')!!}
+                                </div>
+                            @endif
+                    @if (session('delete_success'))
+                        <div class="alert alert-info pull-right" style="width:fit-content;place-self:flex-end;opacity:0.6;">
+                            {{ session('delete_success') }}
+                        </div>
+                    @endif
+                    @if (session('update_success'))
+                        <div class="alert alert-info pull-right" style="width:fit-content;place-self:flex-end;opacity:0.6;">
+                            {{ session('update_success') }}
+                        </div>
+                    @endif
+                    @if (session('create_success'))
+                        <div class="alert alert-info pull-right" style="width:fit-content;place-self:flex-end;opacity:0.6;">
+                            {{ session('create_success') }}
+                        </div>
+                    @endif
                     <div class="card-body">
                         <table id="product" class="table table-bordered table-hover">
                             <thead>

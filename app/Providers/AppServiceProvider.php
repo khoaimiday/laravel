@@ -47,12 +47,14 @@ class AppServiceProvider extends ServiceProvider
         $sttNo                      = 0;
 
 
+
         View::share([
             'productType'        =>  $productType,
             'brandGlobal'           =>  $brandGlobal,
             // 'feedbackGlobal'      =>  $feedbackGlobal,
             // 'productGlobal'         =>  $productGlobal,
             'sttNo'                 =>  $sttNo,
+    
         ]);
 
 

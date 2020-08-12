@@ -5,13 +5,17 @@
             <div class="col-md-8">
                 <div class="row" style="justify-content: flex-end;">
                     <div class="search-area" id="search-area">
-                    <form role="search" method="post" class="search-form clearfix" action="{{ url('/search/input') }}">
-                            <input type="hidden" name="post_type" value="product">
-                            <input type="search" class="field-search" placeholder="Tìm kiếm..." value="" name="s" title="Tìm kiếm">
-                            <button class="button-search">
-                                <i class="fa fa-search"></i>
-                            </button>
-                        </form>
+                        <input type="search" class="field-search" placeholder="Tìm kiếm..." id="search_input" title="Tìm kiếm" style="position: relative"
+                                onkeyup="searchAjax(this.value);"
+                                onpaste="searchAjax(this.value);"
+                                oncut="searchAjax(this.value);"
+                                oninput="searchAjax(this.value);"
+                                onfocusout="clearSearch();"
+                        >
+                        <button class="button-search" type="submit" onclick="event.preventDefault();searchAjax();">
+                            <i class="fa fa-search"></i>
+                        </button>
+                        <div id="searchList"></div>
                     </div>
                 </div>
             </div>
@@ -55,7 +59,33 @@
     </div>
 </div>
 
-
+<script>
+    function searchAjax(){
+        var query = $("#search_input").val();
+        if(query.length >0){
+        $.get('search/searchajax/' + query, function(data) {
+                $('#searchList').fadeIn();
+                $('#searchList').html(data);
+                $('#searchList').css({
+                    "position":"absolute",
+                    "z-index": "100",
+                    "top" : "40px",
+                    "width": "100%",
+                    "background-color": "white",
+                    "border": "1px solid #e9e9e9",
+                    "overflow": "scroll",
+                    "max-height": "300px",
+                    // "padding" : "0 10px"
+                })
+            });
+        }else{
+            $('#searchList').hide();
+        }
+    }
+    function clearSearch(){
+        $('#searchList').hide();
+    }
+</script>
 
 <style>
 .top-nav{

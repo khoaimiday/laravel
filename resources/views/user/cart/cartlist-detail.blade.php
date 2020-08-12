@@ -14,7 +14,9 @@
         <tbody>   
             @foreach(Session::get("Cart")->products as $item)
             <tr>
-                <td class="cart-pic first-row"><img src="{{ url('img/feature/product/'.$item['productInfo']->image)}}" alt=""></td>
+                <td class="cart-pic first-row">
+                    <img src="{{ url('img/feature/product/'.$item['productInfo']->image)}}" alt="">
+                </td>
                 <td class="cart-title first-row">
                     <h5>{{($item['productInfo']->product_name)}}</h5>
                 </td>
@@ -23,7 +25,7 @@
                     <div class="quantity">
                         <div class="pro-qty">
                             <span class="dec qtybtn" onclick="minusItem({{$item['productInfo']->id}})">-</span>
-                            <input type="text" value="{{$item['quantity']}}">
+                            <input type="text" data-id="{{$item['productInfo']->id}}" id="updateItem-{{$item['productInfo']->id}}" value="{{$item['quantity']}}">
                             <span class="inc qtybtn" onclick="plusItem({{$item['productInfo']->id}})">+</span>
                         </div>
                     </div>
@@ -43,7 +45,15 @@
                 <li class="discounttotal">Chiết khấu (Nếu có) <span></span></li>
                 <li class="cart-total">Tổng cộng <span>{{number_format(Session::get('Cart') ->totalPrice)}}Đ</span></li>
             </ul>
-            <a href="#" class="proceed-btn">Thanh toán</a>
+            <a href="{{ route('checkOrderLogin')}}" class="proceed-btn">Thanh toán</a>
+            <div class="row">
+                <div class="col-lg-6">
+                    <a href="" class="deleteCart">Huỷ Giỏ hàng</a>
+                </div>
+                <div class="col-sm-6">
+                    <a href="{{ url('/product') }}" class="buymore">Mua thêm</a>
+                </div>
+            </div>
         </div>
     </div>
 </div>

@@ -56,6 +56,36 @@ class SearchController extends Controller
         return view('user.product.index', compact('products'));
     }
 
+    public function searchHome(Request $request){
+        return view('user.searchajax');
+    }
+
+
+
+    function getSearchAjax($query)
+    {
+        $output ='';
+
+            $data = Product::where('product_name', 'LIKE', "%{$query}%")->get();
+            $output = ' <table class="table table-striped table-hover table-condensed">
+                        <tr style="height:0">
+                            <th style="width:100px"></th>
+                            <th style="width:350px"></th>
+                            <th></th>
+                        </tr>';
+            foreach($data as $row)
+            {
+                $output .= '
+                        <tr>
+                            <td><img src="' . asset('img/feature/product/'.$row->image) . '" style="width:50px"/></td>
+                            <td><a href="'. url('product/detail/'.$row->id) .'">'.$row->product_name.'</a></td>
+                            <td>'.$row->price. '</td>
+                        </tr>
+                    ';
+            }
+            $output .= '</table>';
+            echo $output;
+    }
 }
 
 

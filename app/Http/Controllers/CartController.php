@@ -18,7 +18,7 @@ class CartController extends Controller
        // $req->session()->forget('Cart');
         $product=DB::table('products')->where('id',$id)->first();
         if($product != null){
-            $oldCart = Session('Cart') ? Session('Cart') : null;
+            $oldCart = session('Cart') ? session('Cart') : null;
             $newCart = new Cart($oldCart);
             $newCart->AddCart($product,$id);
 
@@ -28,7 +28,7 @@ class CartController extends Controller
     }
 
     public function DeleteItemCart(Request $req, $id){
-        $oldCart = Session('Cart') ? Session('Cart') : null;
+        $oldCart = session('Cart') ? session('Cart') : null;
         $newCart=new Cart($oldCart);
         $newCart->DeleteItemCart($id);
         if(count($newCart->products)>0){
@@ -45,7 +45,7 @@ class CartController extends Controller
      }
 
      public function DeleteListItemCart(Request $req, $id){
-        $oldCart = Session('Cart') ? Session('Cart') : null;
+        $oldCart = session('Cart') ? session('Cart') : null;
         $newCart=new Cart($oldCart);
         $newCart->DeleteItemCart($id);
         if(count($newCart->products)>0){
@@ -58,18 +58,51 @@ class CartController extends Controller
      } 
 
      public function minusItem(Request $req, $id){
-        $oldCart = Session('Cart') ? Session('Cart') : null;
+        $oldCart = session('Cart') ? session('Cart') : null;
         $newCart=new Cart($oldCart);
         $newCart->minusItem($id);
         $req->session()->put('Cart',$newCart);     
         return view('user.cart.cartlist-detail');
      }
      public function plusItem(Request $req, $id){
-        $oldCart = Session('Cart') ? Session('Cart') : null;
+        $oldCart = session('Cart') ? session('Cart') : null;
         $newCart=new Cart($oldCart);
         $newCart->plusItem($id);
         $req->session()->put('Cart',$newCart);     
         return view('user.cart.cartlist-detail');
+     }
+
+     public function updateItem(Request $req, $id,$quantity){
+        $oldCart = session('Cart') ? session('Cart') : null;
+        $newCart=new Cart($oldCart);
+        $newCart->updateItem($id,$quantity);
+        $req->session()->put('Cart',$newCart);     
+        return view('user.cart.cartlist-detail');
+     }
+
+    public function saveCart(Request $req){        
+        foreach($req->data as $item){
+            $oldCart = session('Cart') ? session('Cart') : null;
+            $newCart=new Cart($oldCart);
+            $newCart->updateItem($item["key"], $item["value"]);
+            $req->session()->push('Cart',$newCart); 
+        }          
+        // return view('user.cart.cartlist-detail');
+     }
+     
+    public function deleteCart(Request $req){        
+        foreach($req->data as $item){
+            $oldCart = session('Cart') ? session('Cart') : null;
+            $newCart=new Cart($oldCart);
+            $newCart->DeleteItemCart($item["key"]);
+            if(count($newCart->products)>0){
+                $req->session()->put('Cart',$newCart);
+            }
+            else{
+                $req->session()->forget('Cart'); 
+            }
+        }          
+        // return view('user.cart.cartlist-detail');
      }
 }
 

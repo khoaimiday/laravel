@@ -37,9 +37,10 @@
                         <div class="select-items">
                             <table>
                                 <tbody>
-                                    @foreach(Session::get('Cart')->products as $item)
+                                    @foreach(Session::get("Cart")->products as $item)
                                     <tr>
-                                        <td class="si-pic"><img src="{{ url('img/feature/product/'.$item['productInfo']->image) }}" alt="">
+                                        <td class="si-pic">
+                                            <img src="{{ url('img/feature/product/'.$item['productInfo']->image) }}" alt="">
                                         </td>
                                         <td class="si-text">
                                             <div class="product-selected">
@@ -57,13 +58,13 @@
                         </div>
                         <div class="select-total">
                             <span>Tổng cộng: </span>
-                            <h5>{{number_format(Session::get('Cart') ->totalPrice)}}Đ</h5>
+                            <h5>{{number_format(Session::get("Cart") ->totalPrice)}}Đ</h5>
                         </div>
                         @endif
                     </div>
                     <div class="select-button">
                         <a href="{{route('ListOrder')}}" class="primary-btn view-cart">Xem giỏ hàng</a>
-                        <a href="#" class="primary-btn delete-btn">Huỷ</a>
+                        <a href="{{ route('checkOrderLogin') }}" class="primary-btn delete-btn">Mua ngay</a>
                     </div>
                 </div>
             </li>
@@ -290,11 +291,32 @@
             alertify.success(' Đã xoá sản phẩm!');
         });
     });
-
+    
     function RenderCart(response){
         $("#change-item-cart").empty();
         $("#change-item-cart").html(response);
         $("#total-quantity-badge").text($("#total-quantity-cart").val());
     }
-
+    $(".deleteCart").on("click",function(){
+        var lists=[];
+        $("table tbody tr td").each(function(){
+            $(this).find("input").each(function(){
+                var element = {key:$(this).data("id"),value:$(this).val()};
+                lists.push(element);
+            });
+        });
+        $.ajax({
+            url: '/deleteCart',
+            type: 'POST',
+            data:{
+                "_token": "{{ csrf_token() }}",
+                "data": lists
+            }
+        }).done(function(response){
+           location.reload();
+           alertify.success('Đã xoá giỏ hàng!');
+        });    
+    
+    });
+    
 </script>

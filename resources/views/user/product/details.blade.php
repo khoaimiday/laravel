@@ -11,7 +11,8 @@
     <div class="row">
         <!-- Product Image -->
         <div class="col-lg-6">
-            <div id="CarouselProduct" class="slide shadow-none" data-ride="carousel" style="max-width: 100%; max-height: auto;">
+            <div id="CarouselProduct" class="slide shadow-none" data-ride="carousel"
+                style="max-width: 100%; max-height: auto;">
                 <div class="carousel-inner">
                     <div class="carousel-item  active"> <img class="rounded"
                             src="{{ url('img/feature/product/'.$pro->image) }}" height="auto" width="90%"> </div>
@@ -77,10 +78,11 @@
             {{--End Form--}}
             {{--Form--}}
             <div class="col-md-4 pl-0">
-                    <form action="" method="POST" class="m-0">
-                        {{csrf_field()}}
-                        <button type="submit" class="btn btn-success wide btn-md btn-block add__cart"><b>Buy Now</b></button>
-                    </form>
+                <form action="" method="POST" class="m-0">
+                    {{csrf_field()}}
+                    <button type="submit" class="btn btn-success wide btn-md btn-block add__cart"><b>Buy
+                            Now</b></button>
+                </form>
             </div>
 
             {{--End Form--}}
@@ -116,63 +118,92 @@
 </div>
 </div>
 <!-- Product Description-->
-<div class="container product-description bg-white card mb-5">
-    <div class="row py-3">
+<div class="container product-description bg-white card mt-10 ">
+    <div class="row">
         <div class="col">
-            <ul class="nav nav-pills d-flex justify-content-center mb-4">
+            <ul class="nav nav-pills justify-content-center">
                 <li class="nav-item"><a data-toggle="tab" href="#description" class="nav-link active"
                         aria-selected="true" style="margin-right: 15px;">Description</a></li>
-                <li class="nav-item"><a data-toggle="tab" href="#reviews" class="nav-link" aria-selected="false"
-                        style="margin-left: 15px;">Reviews</a></li>
+                <!-- <li class="nav-item"><a data-toggle="tab" href="#reviews" class="nav-link" aria-selected="false"
+                        style="margin-left: 15px;">Reviews</a></li> -->
             </ul>
-            <div class="tab-content" style="height: 500px; overflow: scroll;">
+            <div class="tab-content" style="height: 400px;">
                 <div id="description" class="tab-pane active">
                     <div>{!!$pro->long_description!!}</div>
-                </div>
-                <div id="reviews" class="tab-pane">
-                    @foreach($comments as $c)
-                    <div class="row review d-flex justify-content-center">
-                        <div class="col-2 text-center">
-                            <img src="{{ asset('img/admin1.jpg')}}" alt="{{$c->name}}" class="review-image d-block"
-                                style="width:100px; margin: auto">
-                            <span style="font-size: .8em; ">{{$c->created_at}}</span></div>
-                        <div class="col-9 review-text" style="padding: 5px 65px 0 15px;">
-                            <h6><b>Title:</b> {{$c->title}}</h6>
-                            <hr width="100%">
-                            <p>{{$c->content}}</p>
-                        </div>
-                    </div>
-                    <hr>
-                    @endforeach
-                    @auth
-                    <div class="row review d-flex justify-content-center">
-                        <div class="col-3 text-center"><img src="" alt="{{Auth::user()->name}}"
-                                class="review-image"><span></span></div>
-                        <div class="col-9 review-text" style="padding-right: 65px;">
-                            <form role="form" action="" method="POST" enctype="multipart/form-data">
-                                {{ csrf_field() }}
-                                <div>
-                                    <h6>{{Auth::user()->name}}</h6>
-                                    <hr width=" 100%">
-                                </div>
-                                <div class="form-group">
-                                    <textarea name="postComment" id="" class="form-control"
-                                        placeholder="Looks like you want to share something ?"></textarea>
-                                </div>
-                                <div class="form-group d-flex justify-content-center">
-                                    <input type="submit" class="btn btn-success" value="Post">
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                    @endauth
                 </div>
             </div>
         </div>
     </div>
 </div>
+
+<div class="cmt">
+    <h2 align="center">Review Sản phẩm</h2>
+<div class="row justify-content-center"> 
+    <div class="col-5 text-center " >
+        @foreach($cmts as $cmt)
+        <div class="cmt-panel">
+            <div class="cmt-panel-heading" align="left">
+               <i>Tiêu đề:</i> <span class=cmt-heading-title> {{$cmt->title}}</span>
+            </div>
+            <div class="cmt-panel-body" align="left">
+                <div class="cmt-panel-content">
+                    <p>{{$cmt->content}}</p>
+                </div>
+            </div>
+            <div class="cmt-panel-footer" align="right">
+                Đăng bởi: Người dùng có mã <b>{{$cmt->user_id }}</b> lúc <i>{{$cmt->created_at}}</i>
+            </div>
+        </div>
+        <div class="cmt-reply">
+            @if ($cmt->reply != null)
+                <div class="reply-panel">
+                    <div class="reply-panel-heading" align="left">
+                        <i>Trả lời:</i> <span class=cmt-heading-title> {{$cmt->title}}</span>
+                    </div>
+                    <div class="reply-panel-body" align="left">
+                        <div class="reply-panel-content">
+                            <span class="reply-content">{{$cmt->reply}}</span>
+                        </div>
+                    </div>
+                    <div class="reply-panel-footer" align="right">
+                        <i>Admin</i>
+                    </div>
+                </div>
+            @else
+                
+            @endif
+        </div>  
+        @endforeach
+        {{ $cmts->links() }}
+    </div>
+    <div class="col-3 review-text" style="padding-right: 65px;">
+        <form role="form" action="{{route('comment',$pro->id)}}" id="cmt_form" method="POST"
+            enctype="multipart/form-data">
+            {{ csrf_field() }}
+            <div>
+                <h6>Xin chào! Bạn có thắc mắc gì về sản phẩm này không?</h6>
+                <hr width=" 100%">
+            </div>
+            <div class="form-group">
+                <label for="">Tiêu đề</label>
+                <input type="text" class="form-control" name="title">
+            </div>
+            <div class="form-group">
+                <label for="">Bình luận của bạn</label>
+                <textarea name="content" id="" class="form-control" cols="30" rows="7"
+                    placeholder="(không được để trống)" required></textarea>
+            </div>
+            <i style="font-size:8px;margin-bottom:5px">** Quý khách vui lòng đăng nhập để gửi nhận xét nhé! **</i>
+            <div class="form-group d-flex justify-content-center">
+                <input type="submit" class="btn btn-info px-4 py-2 mt-3" id="cmt_submit" value="Gửi">
+            </div>
+        </form>
+    </div>
+</div>
+</div>
+
 <!-- Product Title: You May Also Like -->
-<div class="hero hero-page gray-bg padding-small">
+<div class="hero hero-page gray-bg padding-small mt-5">
     <div class="container">
         <div class="row d-flex">
             <div class="col-lg-12">
@@ -195,12 +226,85 @@
         @endforeach
     </div>
 </div>
-
-
+<link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@700&display=swap" rel="stylesheet">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 @endsection
 
 @section('style')
 <style>
+    .cmt{
+        margin:30px;
+        padding:10px;
+        background-color:#FEFEFA;
+        border:1px solid #F7F7CE;
+        box-shadow:0 5px 10px 0(0,0,0,0.5);
+    }
+    .cmt h2{
+        font-family: 'M PLUS Rounded 1c', sans-serif;
+        padding:15px;
+        color:#BABA21;
+    }
+    .cmt-panel {
+        border: 1px #ddd solid;  
+        margin-bottom:10px;
+        background-color:white;
+        margin-top:10px;
+    }
+    .cmt-panel-heading{
+        padding:8px;
+        font-size:12px;
+        background-color:#F9F9DD;
+    }
+    .cmt-panel-heading span.cmt-heading-title{
+        font-size:16px;
+    }
+    .cmt-panel-body{
+        border-top:1px #ddd solid;
+        border-bottom:1px #ddd solid;
+        padding:8px;
+    }
+    .cmt-panel-content {
+        font-size:15px;
+        padding-left:20px;
+        padding-bottom:1px;
+    }
+    
+    .cmt-panel-footer{
+        padding:8px;
+        font-size:12px;
+        background-color:#F9F9DD;
+        
+    }
+    .cmt-reply{
+        border: 1px #ddd solid;  
+        margin-bottom:10px;
+        margin-left:50px;
+        background-color:white;
+    }
+    .reply-panel{
+
+    }
+    .reply-panel-heading{
+        padding:7px;
+        font-size:10px;
+        background-color:#E9F1EA;
+    }
+    .reply-panel-body{
+        border-top:1px #ddd solid;
+        border-bottom:1px #ddd solid;
+        padding:7px;
+    }
+    .reply-panel-content span.reply-content{
+        font-size:12px;
+        padding-left:20px;
+    }
+    .reply-panel-footer{
+        padding:6px;
+        font-size:10px;
+        background-color:#E9F1EA;
+    }
+
     .product_details .carousel {
         box-shadow: 0;
     }
@@ -252,7 +356,7 @@
 @endsection
 
 <script>
-    $(document).ready(function() {
+    $(document).ready(function () {
         $("#content-slider").lightSlider({
             loop: true,
             keyPress: true
@@ -265,7 +369,7 @@
             speed: 500,
             auto: true,
             loop: true,
-            onSliderLoad: function() {
+            onSliderLoad: function () {
                 $('#image-gallery').removeClass('cS-hidden');
             }
         });

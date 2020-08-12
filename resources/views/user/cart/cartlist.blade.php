@@ -32,38 +32,6 @@
             padding: 20px;
             box-shadow: 0 4px 15px 0 rgba(0, 0, 0, 0.2);
         }
-
-        a.btn-cart {
-            text-decoration: none;
-            font-size: 15px;
-            color: #fff;
-            opacity: 0.6;
-            background-color: #9acd32;
-            display: inline-block;
-            padding: 4px 8px;
-            margin: 5px;
-            width: auto;
-            float: right;
-            text-align: center;
-            border-radius: 20px;
-            border: 1px solid #9acd32;
-            box-shadow: 0px 6px 20px 0px rgba(0, 0, 0, 0.2);
-            transition: all ease-in-out 0.2s;
-            cursor: pointer;
-        }
-
-        a.btn-cart:hover {
-            text-decoration: none;
-            background-color: #fff;
-            opacity: 0.3;
-            border: 1px solid #ddd;
-            border-radius: 20px;
-            color: #000;
-            font-weight: 500px;
-            line-height: 25px;
-            opacity: 1.2;
-        }
-
         .cart-table {
             margin-bottom: 40px;
         }
@@ -186,59 +154,9 @@
             margin-bottom: 34px;
         }
 
-        .cart-buttons .continue-shop {
-            color: #b2b2b2;
-            border: 2px solid #ebebeb;
-            background: #ffffff;
-            margin-right: 8px;
-            padding: 12px 20px 12px 20px;
-            margin-bottom: 10px;
-        }
-
-        .cart-buttons .up-cart {
-            color: #252525;
-            background: #f3f3f3;
-            border: 2px solid #ebebeb;
-            padding: 12px 20px 12px 20px;
-        }
-
-        .discount-coupon {
-            margin-bottom: 30px;
-        }
-
-        .discount-coupon h6 {
-            color: #232530;
-            font-weight: 700;
-            text-transform: uppercase;
-            margin-bottom: 16px;
-        }
-
-        .discount-coupon .coupon-form {
-            position: relative;
-        }
-
-        .discount-coupon .coupon-form input {
-            width: 100%;
-            height: 46px;
-            border: 2px solid #ebebeb;
-            color: #b2b2b2;
-            font-size: 14px;
-            padding-left: 20px;
-        }
-
-        .discount-coupon .coupon-form .coupon-btn {
-            position: absolute;
-            right: 0;
-            top: 0;
-            color: #252525;
-            background: transparent;
-            border: 1px solid transparent;
-            padding: 13px 25px 10px 35px;
-        }
-
         .proceed-checkout ul {
             border: 2px solid #ebebeb;
-            background: #f3f3f3;
+            background: #FFF8DC;
             padding-left: 25px;
             padding-right: 25px;
             padding-top: 16px;
@@ -270,6 +188,7 @@
 
         .proceed-checkout ul li.subtotal span {
             font-weight: 700px;
+            color: #e7ab3c; 
         }
 
         .proceed-checkout ul li.cart-total {
@@ -288,20 +207,50 @@
             font-size: 14px;
             font-weight: 700;
             color: #ffffff;
+            background: #9acd32;
+            text-transform: uppercase;
+            padding: 15px 25px 14px 25px;
+            display: block;
+            text-align: center;
+            text-decoration:none;
+            margin-bottom:12px;
+        }
+        
+        .proceed-checkout .deleteCart{
+            font-size: 14px;
+            font-weight: 700;
+            color: #ffffff;
             background: #252525;
             text-transform: uppercase;
             padding: 15px 25px 14px 25px;
             display: block;
             text-align: center;
+            text-decoration:none;
+            opacity:0.6;
+            cursor: pointer;
+            box-shadow: 0px 6px 20px 0px rgba(0, 0, 0, 0.2);
+            transition: all ease-in-out 0.2s;
+        }
+        .proceed-checkout .buymore{
+            font-size: 14px;
+            font-weight: 700;
+            color: #ffffff;
+            background: #9acd32;
+            text-transform: uppercase;
+            padding: 15px 25px 14px 25px;
+            display: block;
+            text-align: center;
+            text-decoration:none;
+            opacity:0.6; 
+            cursor: pointer;
+            box-shadow: 0px 6px 20px 0px rgba(0, 0, 0, 0.2);
+            transition: all ease-in-out 0.2s;            
         }
     </style>
 
 </head>
 
 <body>
-    <div id="preloder">
-        <div class="loader"></div>
-    </div>
     @include('fragments.topheader')
 
     <div class="cart-body">
@@ -338,9 +287,10 @@
                                     <tbody>                                       
                                         @foreach(Session::get("Cart")->products as $item)
                                         <tr>
-                                            <td class="cart-pic first-row"><img
-                                                    src="{{ url('img/feature/product/'.$item['productInfo']->image)}}"
-                                                    alt=""></td>
+                                            <td class="cart-pic first-row">
+                                                <img src="{{ url('img/feature/product/'.$item['productInfo']->image)}}"
+                                                    alt="">
+                                            </td>
                                             <td class="cart-title first-row">
                                                 <h5>{{($item['productInfo']->product_name)}}</h5>
                                             </td>
@@ -350,12 +300,12 @@
                                                 <div class="quantity">
                                                     <div class="pro-qty">
                                                         <span class="dec qtybtn" onclick="minusItem({{$item['productInfo']->id}})">-</span>
-                                                        <input type="text" value="{{$item['quantity']}}">
+                                                        <input type="text" data-id="{{$item['productInfo']->id}}" value="{{$item['quantity']}}">
                                                         <span class="inc qtybtn" onclick="plusItem({{$item['productInfo']->id}})">+</span>
                                                     </div>
                                                 </div>
                                             </td>
-                                            <td class="total-price first-row" id="tempTotal-{{$item['productInfo']->id}}">{{number_format($item['price'])}}Đ</td>
+                                            <td class="total-price first-row">{{number_format($item['price'])}}Đ</td>
                                             <td class="close-td first-row"><i class="ti-close" onclick="DeleteListItemCart({{$item['productInfo']->id}});">x</i></td>
                                         </tr>
                                         @endforeach
@@ -373,9 +323,18 @@
                                             <li class="cart-total">Tổng cộng
                                                 <span>{{number_format(Session::get('Cart')->totalPrice)}}Đ</span></li>
                                         </ul>
-                                        <a href="#" class="proceed-btn">Thanh toán</a>
+                                        
+                                        <a href="{{ route('checkOrderLogin') }}" class="proceed-btn">Thanh toán</a>
+                                        <div class="row">
+                                            <div class="col-sm-6">
+                                                <i class="deleteCart">Huỷ Giỏ hàng</i>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <a href="{{ url('/product') }}" class="buymore">Mua thêm</a>
+                                            </div>
+                                        </div>
                                     </div>
-                                </div>
+                                </div>       
                             </div>
                         </div>
                     @endif
@@ -387,13 +346,7 @@
     @include('fragments.footer3')
 </body>
 <script>
-    (function ($) {
-        $(window).on('load', function () {
-            $(".loader").fadeOut();
-            $("#preloder").delay(200).fadeOut("slow");
-        }); 
-    })(jQuery);
-    
+ 
     function DeleteListItemCart(id){
         $.ajax({
             url: '/DeleteListItemCart/'+id,
@@ -418,12 +371,63 @@
         }).done(function(response){
             RenderListCart(response);
         });    
-    }    
+    }
+    $("#cartlist-detail").on("change",".pro-qty",function(){
+        $.ajax({
+            url: '/updateItem/'+$(this).find("input").data("id")+'/'+$(this).find("input").val(),
+            type: 'GET',
+        }).done(function(response){
+            RenderListCart(response);
+        });
+    });
+
     function RenderListCart(response){
         $("#cartlist-detail").empty();
         $("#cartlist-detail").html(response);
     }
     
+    $(".saveCart").on("click",function(){
+        var lists=[];
+        $("table tbody tr td").each(function(){
+            $(this).find("input").each(function(){
+                var element = {key:$(this).data("id"),value:$(this).val()};
+                lists.push(element);
+            });
+        });
+        $.ajax({
+            url: '/saveCart',
+            type: 'POST',
+            data:{
+                "_token": "{{ csrf_token() }}",
+                "data": lists
+            }
+        }).done(function(response){
+           location.reload();
+        });    
+    
+    });
+    $(".deleteCart").on("click",function(){
+        var lists=[];
+        $("table tbody tr td").each(function(){
+            $(this).find("input").each(function(){
+                var element = {key:$(this).data("id"),value:$(this).val()};
+                lists.push(element);
+            });
+        });
+        $.ajax({
+            url: '/deleteCart',
+            type: 'POST',
+            data:{
+                "_token": "{{ csrf_token() }}",
+                "data": lists
+            }
+        }).done(function(response){
+           location.reload();
+           alertify.success('Đã xoá giỏ hàng!');
+        });    
+    
+    });
+
 </script>
 
 </html>

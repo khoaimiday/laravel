@@ -29,7 +29,6 @@ Route::get('/', 'HomeController@index');
 Route::get('/home', 'HomeController@index')->name('home');
 
 
-
 //ADMIN ROUTE
 Route::group(['prefix' => 'admin/', 'middleware' => 'isLogin'], function () {
 
@@ -43,8 +42,28 @@ Route::group(['prefix' => 'admin/', 'middleware' => 'isLogin'], function () {
     Route::post('/news/postUpdate/{id}','NewsController@postUpdate');
     Route::get('/news/delete/{id}','NewsController@delete');
 
-    //CART
+    //ORDER
+    Route::get('/order/index',['as'=>'admin-order','uses'=>'OrdersController@index']);
+    Route::get('/order/close',['as'=>'closed-order','uses'=>'OrdersController@close']);
+    Route::get('/order/cancel',['as'=>'cancel-order','uses'=>'OrdersController@cancel']);
+    Route::get('/order/create',['as'=>'create-order','uses'=>'OrdersController@create']);
+    Route::post('/order/postCreate','OrdersController@postCreate');
+    Route::get('/order/update/{id}',['as'=>'update-order','uses'=>'OrdersController@update']);
+    Route::post('/order/postUpdate/{id}','OrdersController@postUpdate');
+    Route::get('/order/detail/{id}',['as'=>'detail-order','uses'=>'OrdersController@detail']);
+    Route::get('/order/receipt/{id}',['as'=>'receipt-order','uses'=>'OrdersController@receipt']);
+    Route::get('/order/tempdelete/{id}',['as'=>'tempdelete-order','uses'=>'OrdersController@tempdelete']);
+    Route::get('/order/undo/{id}',['as'=>'undo-order','uses'=>'OrdersController@undo']);
+    Route::get('/order/delete/{id}',['as'=>'delete-order','uses'=>'OrdersController@delete']);
 
+    //COMMENT
+    Route::get('/comment/list',['as'=>'admin-cmt','uses'=>'CommentController@list']);
+    Route::get('/comment/deleted',['as'=>'deleted-cmt','uses'=>'CommentController@deleted']);
+    Route::get('/comment/reply/{id}',['as'=>'reply-cmt','uses'=>'CommentController@reply']);
+    Route::post('/comment/postReply/{id}','CommentController@postReply');
+    Route::get('/comment/tempDel/{id}',['as'=>'tempDel-cmt','uses'=>'CommentController@tempDel']);
+    Route::get('/comment/undo/{id}',['as'=>'undo-cmt','uses'=>'CommentController@undo']);
+    Route::get('/comment/delete/{id}',['as'=>'delete-cmt','uses'=>'CommentController@delete']);
 
     //PRODUCT
     Route::get('/product/index', 'ProductController@indexAdmin');
@@ -74,13 +93,6 @@ Route::group(['prefix' => 'admin/', 'middleware' => 'isLogin'], function () {
 
     //FEED BACK
 
-    //COMMENT
-    Route::get('/comment/index', 'CommentController@index');
-    Route::get('/comment/create','CommentController@create');
-    Route::post('/comment/postCreate','CommentController@postCreate');
-    Route::get('/comment/update/{id}','CommentController@update');
-    Route::post('/comment/postUpdate/{id}','CommentController@postUpdate');
-    Route::get('/comment/delete/{id}','CommentController@delete');
     //ADMIN
     //CUSTOMER
 
@@ -92,19 +104,26 @@ Route::group(['prefix' => 'admin/', 'middleware' => 'isLogin'], function () {
 Route::get('/product', 'ProductController@index');
 Route::get('product/detail/{id}', 'ProductController@details');
 
-Route::get('news',['as'=>'news','uses'=>'PageController@newsIndex']);
+Route::get('news',['as'=>'news','uses'=>'NewsController@newsIndex']);
 Route::get('user/news/newsDetail/{id}',['as'=>'newsdetail','uses'=>'NewsController@newsDetail']);
-Route::post('/comment',['as'=>'comment','uses'=>'CommentController@Comment']);
-Route::get('store',['as'=>'store','uses'=>function(){
-    return view('user.store.store');} ]);
-Route::get('/cartlist',['as'=>'ListOrder','uses'=>'CartController@listOrder']);
+Route::post('/comment/{proId}',['as'=>'comment','uses'=>'CommentController@Comment']);
+Route::get('store',['as'=>'store','uses'=>function(){return view('user.store.store');} ]);
 
-Route::get('/cartconfirm',function(){return view('user.cart.cartconfirm');} );
+Route::get('/cartlist',['as'=>'ListOrder','uses'=>'CartController@listOrder']);
 Route::get('/cart','CartController@index');
 Route::get('/AddCart/{id}',['as'=>'AddCart','uses'=>'CartController@AddCart']);
-Route::get('/cartconfirm',function(){return view('user.cart.cartconfirm'); });
-Route::get('/cartindex',function(){return view('user.cart.cartindex'); });
-//feedback
+Route::get('/DeleteItemCart/{id}',['as'=>'DeleteItemCart','uses'=>'CartController@DeleteItemCart']);
+Route::get('/minusItem/{id}',['as'=>'minusItem','uses'=>'CartController@minusItem']);
+Route::get('/plusItem/{id}',['as'=>'plusItem','uses'=>'CartController@plusItem']);
+Route::post('/saveCart',['as'=>'saveCart','uses'=>'CartController@saveCart']);
+Route::post('/deleteCart',['as'=>'deleteCart','uses'=>'CartController@deleteCart']);
+Route::get('/updateItem/{id}/{quantity}',['as'=>'updateItem','uses'=>'CartController@updateItem']);
+Route::get('/DeleteListItemCart/{id}',['as'=>'DeleteListItemCart','uses'=>'CartController@DeleteListItemCart']);
+Route::get('/checkOrderLogin',['as'=>'checkOrderLogin','uses'=>'OrdersController@checkOrderLogin']);
+Route::post('/checkOrder',['as'=>'checkOrder','uses'=>'OrdersController@checkOrder']);
+
+
+
 Route::get('/contact','HomeController@contact');
 Route::get('/feedback/feedbackList', 'FeedbackController@feedbackList');
 Route::post('/feedback/postFeedback','FeedbackController@postFeedback');
@@ -137,6 +156,7 @@ Route::get('/customer/customerDeleteList','CustomerController@customerDeleteList
 
 // SEARCH ROUTER
 Route::group(['prefix' => 'search/'], function(){
+    Route::get('/searchajax/{query}', ['as'=>'searchajax', 'uses'=>'SearchController@getSearchAjax']);
     Route::get('cate/{id}', 'SearchController@filterCategories');
     Route::get('searchByFilter', 'SearchController@searchByFilter');
 });
