@@ -14,7 +14,7 @@ class CustomerController extends Controller
     // List Users
     public function adminList()
     {
-        $users = DB::table('users')->where('role','<>',0)->get();
+        $users = User::where('role','<>',0)->get();
         return view('admin.superAdmin.adminList')->with(['users'=>$users]);
     }
     public function CreateAdmin()
@@ -76,16 +76,17 @@ class CustomerController extends Controller
    }
    public function customerDelete($id)
    {
-      
-        $users = DB::table('users')->where('id',$id)->delete();
+        $cust = User::find($id)->delete();
        return redirect('/customer/customerList');  
+
    }
 
 
     //CUSTOMER
     public function customerList()
     {
-        $users = DB::table('users')->where('role',0)->get();
+        $users = User::where('role',0)->get();
+    
         return view('admin.customer.customerList')->with(['users'=>$users]);
     }
     public function detailCustomer($id)

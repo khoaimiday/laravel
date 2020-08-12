@@ -3,8 +3,8 @@
 @section('content')
 <style>
 * {
-        box-sizing: border-box;
-    }
+      box-sizing: border-box;
+  }
 
 .column {
   float: left;
