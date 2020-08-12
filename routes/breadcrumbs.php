@@ -42,15 +42,15 @@
     });
 
     // Home > Product > Categories
-    Breadcrumbs::for('category', function ($trail) {
+    Breadcrumbs::for('category', function ($trail, $cate) {
         $trail->parent('product');
-        $trail->push('Danh sach sản phẩm', route('categories',"1"));
+        $trail->push($cate->type_name, route('categories',$cate));
     });
 
     // Home > Category > Product Detail
-    Breadcrumbs::for('product-detail', function ($trail, $product) {
-        $trail->parent('category');
-        $trail->push($product->product_title, route('product-detail', $product));
+    Breadcrumbs::for('product-detail', function ($trail, $cate, $product) {
+        $trail->parent('category', $cate);
+        $trail->push($product->product_name, route('product-detail', $product));
     });
 
     // Home > Cart

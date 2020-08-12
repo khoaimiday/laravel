@@ -4,8 +4,6 @@
 @section('content')
 
 
-{{-- {{ Breadcrumbs::render('product-detail', $pro) }} --}}
-
 <!-- Product Details -->
 <div class="container product_details pt-5">
     <div class="row">
@@ -39,8 +37,8 @@
         <!-- Product Info-->
         <div class="col-lg-6">
             <div class="row">
-                <p class="product_cate"><a href="">TRANG CHỦ / SẢN PHẨM / CHĂM SÓC CÁ NHÂN / SẢN PHẨM PHÒNG TẮM / NƯỚC
-                        RỬA TAY</a></p>
+                <p class="product_cate">{{ Breadcrumbs::render('product-detail', $cate , $pro) }}
+                </p>
             </div>
             <div class="row">
                 <p class="product_name">{{$pro->product_name}}</p>
@@ -118,7 +116,7 @@
 </div>
 </div>
 <!-- Product Description-->
-<div class="container product-description bg-white card mt-10">
+<div class="container product-description bg-white mt-10" style="overflow: :scroll;">
     <div class="row">
         <div class="col">
             <ul class="nav nav-pills d-flex justify-content-center mb-4">
@@ -190,19 +188,20 @@
     </div>
 </div>
 <!-- Product Title: You May Also Like -->
-<div class="hero hero-page gray-bg padding-small mt-5">
-    <div class="container">
-        <div class="row d-flex">
-            <div class="col-lg-12">
-                <h1 style="text-align: center;" class="font-weight-bold">You May Also Like</h1>
-                </p>
+
+
+<!-- Similar Product -->
+<div class="container" style="margin-top:200px">
+    <div class="mt-5">
+        <div class="container">
+            <div class="row d-flex">
+                <div class="col-lg-12">
+                    <h1 style="text-align: center;" class="font-weight-bold">You May Also Like</h1>
+                    </p>
+                </div>
             </div>
         </div>
     </div>
-</div>
-
-<!-- Similar Product -->
-<div class="container" style="margin-bottom:200px">
     <div class="row my-4">
         @foreach($sameProduct as $p)
         <div class="col-xl-3">
