@@ -30,8 +30,8 @@
                   </tr>
                 </thead>
                 <tbody>
-
-                  @foreach($users as $u)
+                @foreach($users as $u)
+                
                   <tr>
                     <td class="align-middle">{{$u->id}}</td>
                     <td class="align-middle">{{$u->name}}</td>

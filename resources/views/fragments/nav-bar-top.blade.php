@@ -40,6 +40,9 @@
                                              document.getElementById('logout-form').submit();">
                                 {{ __('Logout') }}
                             </a>
+                            <a class="dropdown-item" href="{{url('/users/detailCustomer/'. Auth::user()->id)}}">Infomation
+                               
+                            </a>
                             
                             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                 @csrf
@@ -47,12 +50,12 @@
                         </div>
                     </li>
                     @endguest
-                    <div class="woocommerce-cart-mini">
+                    <!-- <div class="woocommerce-cart-mini">
                         <a href="https://mypharma.vn/gio-hang/">
                             <i class="fa fa-shopping-cart"></i>
                             <span class="cart-content">Giỏ hàng (0)</span>
                         </a>
-                    </div>
+                    </div> -->
                 </ul>
             </div>
         </div>

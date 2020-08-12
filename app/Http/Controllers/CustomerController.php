@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\User;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Validator;
 
 class CustomerController extends Controller
@@ -107,30 +108,8 @@ class CustomerController extends Controller
     }
     public function customerDeleteList()
     {
-        $users = DB::table('users')->where('deleted_at','<>',NULL)->get();
-        return view('admin.customer.customerDeleteList');
+        $users=User::onlyTrashed()->get();
+        return view('admin.customer.customerDeleteList')->with(['users'=>$users]);
     }
-
-
-
-
-
-
-
-
      
-
-
-    //black list
-    public function test(Request $request){
-        $email = $request->email;
-        $password = $request->password;
-        if(User::where('email',$email)->count() == 0 )
-            return back()->with(['flash_level' => 'danger','flash_message' => 'ID or Password may be incorrect.' ]);
-        elseif(User::where('email',$email)->where('role',5)->count() > 0)
-            return back()->with(['flash_level' => 'danger','flash_message' => 'You are banned. Please email Tinyhub@gmail.com for reason.' ]);
-        elseif  (Auth::attempt(['email' => $email, 'password' => $password]))
-            return redirect()->intended('/');
-        
-    }
 }
