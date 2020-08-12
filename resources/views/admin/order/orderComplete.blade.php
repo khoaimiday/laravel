@@ -39,7 +39,7 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-header">
-                        <h1 class="cart-title">Doanh thu: <strong></strong></h1>
+                        <h1 class="cart-title">Doanh thu: <strong>{{number_format($rev)}}</strong>VNĐ</h1>
                         <h3 class="card-title">Danh sách đơn hàng đã hoàn thành</h3>
                     </div>
                     <div class="card-body">
@@ -63,7 +63,7 @@
                                 <td>Đã hoàn thành</td>
                                 <td>{{ $order->totalPrice }}</td>
                                 <td class="text-right">
-                                    <a href="{{ route('detail-order',$order->id)}}" class="actionButton">Chi tiết</a>
+                                    <a href="{{ route('receipt-order',$order->id)}}" class="actionButton">Chi tiết</a>
                                 </td>
                               </tr>
                             @endforeach

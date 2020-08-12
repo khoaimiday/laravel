@@ -22,10 +22,16 @@
                             <div class="form-group">
                                 <label for="txt-name">Tiêu đề</label>
                                 <pre><input type="text" class="form-control" id="title" name="title"  value="{{ $new->title }}"></pre>
+                                @if ($errors->has('title'))
+                                        <p class="alert alert-default" style="width:fit-content;opacity:0.6;color:red">{{ $errors->first('title') }}</p>
+                                    @endif
                             </div>
                             <div class="form-group">
                                 <label>Nội dung</label>
                                 <pre><textarea class="form-control" rows="10" name="content" placeholder="Enter ...">{{ $new->content }}</textarea></pre>
+                                @if ($errors->has('content'))
+                                        <p class="alert alert-default" style="width:fit-content;opacity:0.6;color:red">{{ $errors->first('content') }}</p>
+                                    @endif
                             </div>
                             <div class="form-group">
                                 <label for="txt-price">Chủ đề</label>
@@ -40,6 +46,9 @@
                                         <label class="custom-file-label" for="image">Chọn hình</label>
                                     </div>
                                 </div>
+                                @if ($errors->has('image'))
+                                        <p class="alert alert-default" style="width:fit-content;opacity:0.6;color:red">{{ $errors->first('image') }}</p>
+                                    @endif
                             </div>
                         </div>
                         <!-- /.card-body -->

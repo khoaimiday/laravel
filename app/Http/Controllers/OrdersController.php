@@ -23,30 +23,30 @@ class OrdersController extends Controller
         }
     }
     public function checkOrder(Request $rq)
-    {
-        $this->validate(
+    {   
+        $userId=Auth::user()->id;
+        $products=$rq->session()->get('Cart');
+        $newOrder=Orders::where('user_id',$userId)->latest()->first(); 
+        if($this->validate(
             $rq,
             [
-                'name' => 'bail|required|max:100',
-                'phone' => 'bail|required|min:9|max:12',
-                'address' => 'bail|required|max:500',
-                'note' => 'bail|max:500',
+                'name' => 'required|max:100',
+                'phone' => 'required|min:10|max:11',
+                'address' => 'required|max:500',
+                'note' => 'max:500',
             ],
             [
                 'name.required' => 'Xin vui lòng nhập tên người nhận.',
                 'name.max' => 'Tên không quá 100 kí tự.',
                 'phone.required' => 'Xin vui lòng nhập số điện thoại người nhận',
-                'phone.min' => 'Số điện thoại không nhỏ hơn 9 số.',
-                'phone.max' => 'Số điện thoại không quá 12 số.',
+                'phone.min' => 'Số điện thoại không nhỏ hơn 10 số.',
+                'phone.max' => 'Số điện thoại không quá 11 số.',
                 'address.required' => 'Xin vui lòng nhập địa chỉ người nhận.',
                 'address.max' => 'Địa chỉ không quá 500 kí tự.',
                 'note.max' => 'Ghi chú không quá 500 kí tự',
             ]
-        );
-        
-            $userId=Auth::user()->id;
-            
-            $cus=User::where('id',$userId)->first();
+        )) {
+          if ($products != null){
             $order = new Orders;
             $order->user_id=$userId;
             $order->order_address=$rq['address'];
@@ -57,13 +57,8 @@ class OrdersController extends Controller
             $order->order_delivery=0; 
             $order->totalPrice=$rq->session()->get('Cart')->totalPrice;
             $order->totalQuantity=$rq->session()->get('Cart')->totalQuantity;
-            $order->save();
-             $newOrder=Orders::where('user_id',$userId)->latest()->first();
-            $productCarts=$rq->session()->get('Cart')->all();
-            $products=$rq->session()->get('Cart');
-          
-            if ($products != null){
-                foreach($products->products as $product) {
+            $order->save();     
+            foreach($products->products as $product) {
                 $orderDetail = new Order_details();
                 $orderDetail->quantity = $product['quantity'];
                 $orderDetail->price = $product['price'];
@@ -71,13 +66,16 @@ class OrdersController extends Controller
                 $orderDetail->product_id = $product['productInfo']->id;
                 $orderDetail->product_name = $product['productInfo']->product_name;   
                 $orderDetail->save(); 
-               } 
-            } 
-            
+               }    
             $orderDetails = Order_details::where('order_id',$newOrder->id )->get();     
             $rq->session()->forget('Cart');
-            return view('user.cart.orderconfirm',compact('cus','newOrder','orderDetails')); 
-        }   
+            return view('user.cart.orderconfirm',compact('newOrder','orderDetails')); 
+        } else{
+            return redirect()->action('HomeController@index')->with('order_fail','Vui lòng chọn lại sản phẩm!');
+        }}  else {
+        return redirect()->action('OrdersController@checkOrder')->old();
+        }
+    }
     
 
     //ADMIN
@@ -90,12 +88,8 @@ class OrdersController extends Controller
     public function close()
     {
         $orders= Orders::where('order_delivery',1)->latest()->get();
-        // $total=0;
-        // foreach($orders->orders as $order) {
-        //     $total += $order->totalPrice;
-        // } 
-        // $ors= Orders::where('order_delivery',1)->latest()->get();
-        return view('admin.order.orderComplete')->with(['orders'=>$orders]);
+        $rev=Orders::with('Order_details')->where('order_delivery',1)->sum('totalPrice');
+        return view('admin.order.orderComplete')->with(['orders'=>$orders,'rev'=>$rev]);
     }
     public function cancel()
     {
@@ -112,6 +106,12 @@ class OrdersController extends Controller
         $order= Orders::where('id',$id)->first();
         $orderDetails=Order_Details::where('order_id',$id)->get();
         return view('admin.order.detail',compact('order','orderDetails'));
+    }
+    public function receipt($id)
+    {
+        $order= Orders::where('id',$id)->first();
+        $orderDetails=Order_Details::where('order_id',$id)->get();
+        return view('admin.order.receipt',compact('order','orderDetails'));
     }
 
     public function update($id)

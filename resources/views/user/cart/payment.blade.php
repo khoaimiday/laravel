@@ -41,6 +41,7 @@
         }
         .cart-table {
             margin-bottom: 40px;
+            padding-top:20px;
         }
 
         .cart-table table {
@@ -58,13 +59,21 @@
             text-transform: uppercase;
         }
 
-        .cart-table table tr th.p-name {
+        .cart-table table tr.form-group td label {
             text-align: left;
+            font-size:20px;
+            float:right;
+            padding-right:20px;
         }
 
         .cart-table table tr td {
             text-align: center;
-            padding-bottom: 34px;
+            padding-right:10px; 
+            padding-top:10px;
+            padding-bottom:10px;
+            padding-left:10px;
+            border-bottom: 1px solid #ebebeb;
+            border-right: 1px solid #ebebeb;
         }
 
         .cart-table table tr td.first-row {
@@ -135,10 +144,6 @@
         }
         .proceed-checkout ul li.cart-total {
             padding-top: 10px;
-        }
-
-        .proceed-checkout ul li.cart-total span {
-            color: #e7ab3c;
         }
 
         .proceed-checkout ul li span {
@@ -213,20 +218,36 @@
                                      <p><b>Phương thức thanh toán: </b>Nhận hàng & thanh toán tiền mặt tại nhà</p>
                                      <h4 class="confirm-user">Thông tin khách hàng</h4>
                                     <tr class="form-group">
-                                        <td><label for=""> Tên người nhận</label></td>
-                                        <td><input type="text" class="form-control" name="name" value="{{$userOrder->name}}"></td>
+                                        <td><label for="">Tên người nhận *</label></td>
+                                        <td><input type="text" class="form-control" name="name" value="{{$userOrder->name}}">
+                                            @if ($errors->has('name'))
+                                                <p class="alert alert-default" style="width:fit-content;opacity:0.6;color:red;margin-bottom:-5px;">***{{ $errors->first('name') }}</p>
+                                            @endif
+                                        </td>
                                     </tr>
                                     <tr class="form-group">
-                                        <td><label for=""> Số điện thoại</label></td>
-                                        <td><input type="number" class="form-control" name="phone" value="{{$userOrder->phone}}"></td>
-                                    </tr>
+                                        <td><label for="">Số điện thoại *</label></td>
+                                        <td><input type="number" class="form-control" name="phone" value="{{$userOrder->phone}}">
+                                             @if ($errors->has('phone'))
+                                                <p class="alert alert-default" style="width:fit-content;opacity:0.6;color:red;margin-bottom:-5px;">***{{ $errors->first('phone') }}</p>
+                                            @endif
+                                        </td>
+                                      </tr>
                                     <tr class="form-group">
-                                        <td><label for=""> Địa chỉ</label></td>
-                                        <td><input type="text" class="form-control" name="address" value="{{$userOrder->address}}"></td>
+                                        <td><label for="">Địa chỉ *</label></td>
+                                        <td><input type="text" class="form-control" name="address" value="{{$userOrder->address}}">
+                                            @if ($errors->has('address'))
+                                                <p class="alert alert-default" style="width:fit-content;opacity:0.6;margin-bottom:-5px;color:red">***{{ $errors->first('address') }}</p>
+                                            @endif
+                                        </td>
                                     </tr>
                                     <tr class="form-group">
                                         <td><label for="">Ghi chú </label></td>
-                                        <td><input type="textarea" class="form-control" name="note" value="{{$userOrder->note}}"></td>
+                                        <td><input type="textarea" class="form-control" name="note" value="{{$userOrder->note}}">
+                                            @if ($errors->has('note'))
+                                                 <p class="alert alert-default" style="width:fit-content;opacity:margin-bottom:-5px;0.6;color:red;">{{ $errors->first('note') }}</p>
+                                            @endif
+                                        </td>      
                                     </tr>
                                  </table>
                             </div>

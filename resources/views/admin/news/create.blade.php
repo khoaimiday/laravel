@@ -15,26 +15,31 @@
                         <form role="form" action="{{ url('/admin/news/postCreate') }}" method="post" enctype="multipart/form-data">
                             {{ csrf_field() }}
                             <div class="card-body">
+                            @if(Session::has('flash_message'))
+                                <div class="alert alert-{!! Session::get('flash_message') !!}">
+                                    {!!Session::get('flash_message')!!}
+                                </div>
+                            @endif
                                 <div class="form-group">
                                     <label for="txt-id">Id</label>
-                                    <input type="text" class="form-control" id="id" name="id" placeholder="1">
+                                    <input type="text" class="form-control" id="id" value="{{old('id')}}" name="id" placeholder="1">
                                     @if ($errors->has('id'))
-                                        <p class="alert alert-danger">{{ $errors->first('id') }}</p>
+                                        <p class="alert alert-default" style="width:fit-content;opacity:0.6;color:red">{{ $errors->first('id') }}</p>
                                     @endif
                                 </div>
                                 <div class="form-group">
                                     <label for="txt-name">Tiêu đề</label>
-                                    <pre><input type="text" class="form-control" id="title" name="title" placeholder="Tên tiêu đề"></pre>
+                                    <input type="text" class="form-control mb-3" id="title" name="title" value="{{old('title')}}" placeholder="Tên tiêu đề">
                                     @if ($errors->has('title'))
-                                        <p class="alert alert-danger">{{ $errors->first('title') }}</p>
+                                    <p class="alert alert-default" style="width:fit-content;opacity:0.6;color:red">{{ $errors->first('title')}}</p>
                                         @endif
                                 </div>
                                 <div class="form-group">
                                     <label>Nội dung</label>
-                                    {{-- <pre><textarea class="form-control" rows="10" name="content" id="content" placeholder="..."></textarea></pre> --}}
-                                    <textarea class="form-control ckeditor" rows="10" name="content" id="content" placeholder="..."></textarea>
+                                   <pre style="white-space:normal"><input class="form-control" rows="10" name="content" value="{{old('content')}}"  id="content" placeholder="..."></input></pre> 
+                                    <!-- <textarea class="form-control ckeditor" rows="10" name="content" value="{{old('content')}}" id="content" placeholder="..."></textarea> -->
                                     @if ($errors->has('content'))
-                                        <p class="alert alert-danger">{{ $errors->first('content') }}</p>
+                                    <p class="alert alert-default" style="width:fit-content;opacity:0.6;color:red">{{ $errors->first('content') }}</p>
                                     @endif
                                     <script>
                                         CKEDITOR.replace( 'content', {
@@ -45,19 +50,19 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="txt-name">Chủ đề</label>
-                                    <input type="text" class="form-control" id="topic" name="topic" placeholder="Chủ đề (nếu có)">
+                                    <input type="text" class="form-control" id="topic" name="topic" value="{{old('topic')}}" placeholder="Chủ đề (nếu có)">
                                 </div>
                                 <div class="form-group">
                                     <label for="image">Image</label>
                                     <div class="input-group">
                                         <div class="custom-file">
-                                            <input type="file" class="custom-file-input" id="image" name="image">
+                                            <input type="file" class="custom-file-input" id="image" value="{{old('image')}}" name="image">
                                             <label class="custom-file-label" for="image">Chọn hình</label>
 
                                         </div>
                                     </div>
                                     @if ($errors->has('image'))
-                                            <p class="alert alert-danger">{{ $errors->first('image') }}</p>
+                                    <p class="alert alert-default" style="width:fit-content;opacity:0.6;color:red">{{ $errors->first('image') }}</p>
                                             @endif
                                 </div>
                             </div>

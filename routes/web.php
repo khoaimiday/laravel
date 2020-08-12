@@ -29,7 +29,6 @@ Route::get('/', 'HomeController@index');
 Route::get('/home', 'HomeController@index')->name('home');
 
 
-
 //ADMIN ROUTE
 Route::group(['prefix' => 'admin/', 'middleware' => 'isLogin'], function () {
 
@@ -52,6 +51,7 @@ Route::group(['prefix' => 'admin/', 'middleware' => 'isLogin'], function () {
     Route::get('/order/update/{id}',['as'=>'update-order','uses'=>'OrdersController@update']);
     Route::post('/order/postUpdate/{id}','OrdersController@postUpdate');
     Route::get('/order/detail/{id}',['as'=>'detail-order','uses'=>'OrdersController@detail']);
+    Route::get('/order/receipt/{id}',['as'=>'receipt-order','uses'=>'OrdersController@receipt']);
     Route::get('/order/tempdelete/{id}',['as'=>'tempdelete-order','uses'=>'OrdersController@tempdelete']);
     Route::get('/order/undo/{id}',['as'=>'undo-order','uses'=>'OrdersController@undo']);
     Route::get('/order/delete/{id}',['as'=>'delete-order','uses'=>'OrdersController@delete']);
@@ -109,13 +109,11 @@ Route::get('product/detail/{id}', 'ProductController@details');
 Route::get('news',['as'=>'news','uses'=>'NewsController@newsIndex']);
 Route::get('user/news/newsDetail/{id}',['as'=>'newsdetail','uses'=>'NewsController@newsDetail']);
 Route::post('/comment/{proId}',['as'=>'comment','uses'=>'CommentController@Comment']);
-Route::get('store',['as'=>'store','uses'=>function(){
-    return view('user.store.store');} ]);
+Route::get('store',['as'=>'store','uses'=>function(){return view('user.store.store');} ]);
 
 Route::get('/cartlist',['as'=>'ListOrder','uses'=>'CartController@listOrder']);
 Route::get('/cart','CartController@index');
 Route::get('/AddCart/{id}',['as'=>'AddCart','uses'=>'CartController@AddCart']);
-Route::get('/cartindex',function(){return view('user.cart.cartindex'); });
 Route::get('/DeleteItemCart/{id}',['as'=>'DeleteItemCart','uses'=>'CartController@DeleteItemCart']);
 Route::get('/minusItem/{id}',['as'=>'minusItem','uses'=>'CartController@minusItem']);
 Route::get('/plusItem/{id}',['as'=>'plusItem','uses'=>'CartController@plusItem']);
@@ -139,7 +137,6 @@ Route::post('/superAdmin/AdminPostUpdate/{id}','CustomerController@AdminPostUpda
 Route::get('/superAdmin/deleteAdmin/{id}','CustomerController@deleteAdmin');
 //customer
 Route::get('customer/customerList','CustomerController@customerList');
-Route::get('test',function(){return view('test');});
 
 
 // SEARCH ROUTER

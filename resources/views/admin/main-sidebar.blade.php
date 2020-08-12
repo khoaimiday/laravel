@@ -64,7 +64,7 @@
                         <li class="nav-item">
                             <a href="{{ url('admin/news/index') }}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p>Xem tin tức</p>
+                                <p>Danh sách tin tức</p>
                             </a>
                         </li>
                         <li class="nav-item">
@@ -182,7 +182,13 @@
                         <li class="nav-item">
                             <a href="{{ route('closed-order') }}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p>Đơn hàng cũ</p>
+                                <p>Đơn hàng đã hoàn thành</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('cancel-order') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Đơn hàng đã huỷ</p>
                             </a>
                         </li>
                     </ul>

@@ -123,12 +123,12 @@
                     <h5 class="text-center">Đơn hàng sẽ được giao trong ngày đối với đơn ở Hà Nội và TPHCM, từ 2-5 ngày đối với các tỉnh khác!</h5>
                </div>
            </div>
-           <div class="row mt-3">
+        </div>
+        <div class="row mt-3">
               <div class="m-auto">
-                <a href="#" class="btn btn-default" onclick="window.print()"></i>In hoá đơn</a>
+                <a href="#" class="btn btn-default" onclick="window.print()">In xác nhận</a>
               </div>
            </div>
-        </div>
   </div>
   </div>
   

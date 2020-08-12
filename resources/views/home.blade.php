@@ -86,7 +86,7 @@
 {{-- END ABOUT PAGE --}}
 
     @endsection
-
+ 
     @section('style')
     <style>
 

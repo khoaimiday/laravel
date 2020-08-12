@@ -5,7 +5,7 @@
     <style>
     * {
         box-sizing: border-box;
-    }
+      }
     .news-body {
         font-family: Arial, Helvetica, sans-serif;
         margin: 0px;
@@ -13,7 +13,7 @@
         /* background-image:url('img/news/bg1.jpg'); */
         background-size:cover;
         margin:0 40px;
-    }
+      }
     .header {
         width: 100%;
         height: 100%;
@@ -143,14 +143,14 @@
       margin-top: 20px;
       display:flex;
       font-size:20px;
-}
+    }
     .news-pagination li a{
       padding: 10px 10px;
       display: inline-block;
       color: white;
       background: none;
-      border: none;
-}
+      border: none; 
+    }
     .text-box{
       left:5%;
       max-height:100%;
@@ -290,16 +290,14 @@
           </div>
           <div class="large-4 col-4">
             <div class="post-sidebar">
-                <h4 align="center" style="color:black;font-weight:500"><b>Các tin tức liên quan</b> </h4>
+                <h4 align="center" style="color:black;font-family:'M PLUS Rounded 1c', sans-serif;font-weight:500;"><b>Các tin tức liên quan</b> </h4>
                 <div class="widge">
                   <ul style="list-style-type:none;">           
-                  @foreach ($news as $new)
-                    @if($new->topic =="Tin tức")
+                  @foreach ($ns as $n)
                     <li class="recent-news">
-                    <a href=""><img src="{{ url('images/news/'.$new->image) }}" alt=""></a>
-                    <a href="{{ url('/user/news/newsDetail/'.$new->id) }}"><p class="new-title-b">{{ $new->title }}</p></a>                
+                    <a href=""><img src="{{ url('images/news/'.$n->image) }}" alt=""></a>
+                    <a href="{{ url('/user/news/newsDetail/'.$n->id) }}"><p class="new-title-b">{{ $n->title }}</p></a>                
                     </li>
-                  @endif
                   @endforeach
                   </ul>
                 </div>
@@ -312,7 +310,7 @@
     </div> 
     <div class="image-header">
       <div class="text-box x10 md-x5 lg-x5 y85 md-y95 lg-y85">
-        <h1 class="text">
+        <h1 class="text" style="font-family:'M PLUS Rounded 1c', sans-serif">
           Chia sẻ những kiến thức và thông tin hữu ích giúp chăm sóc và bảo vệ sức khoẻ cho cả gia đình bạn.
         </h1>
       </div>

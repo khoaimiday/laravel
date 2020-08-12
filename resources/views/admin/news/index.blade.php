@@ -50,7 +50,11 @@
                         <h3 class="card-title">Danh sách tin tức </h3>
                     </div>
                     <!-- /.card-header -->
-                    
+                    @if(Session::has('flash_message'))
+                                <div class="alert alert-info pull-right" style="width:fit-content;place-self:flex-end;opacity:0.6;">
+                                    {!!Session::get('flash_message')!!}
+                                </div>
+                            @endif
                     @if (session('delete_success'))
                         <div class="alert alert-info pull-right" style="width:fit-content;place-self:flex-end;opacity:0.6;">
                             {{ session('delete_success') }}
