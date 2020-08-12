@@ -160,11 +160,11 @@
             display: block;
             text-align: center;
             text-decoration:none;
-            opacity:0.8; 
+            opacity:0.8;
             cursor: pointer;
             box-shadow: 0px 6px 20px 0px rgba(0, 0, 0, 0.5);
-            transition: all ease-in-out 0.2s;     
-            margin-bottom:20px;       
+            transition: all ease-in-out 0.2s;
+            margin-bottom:20px;
         }
         a.btn-back{
             font-size: 14px;
@@ -180,7 +180,7 @@
             cursor: pointer;
             box-shadow: 0px 6px 20px 0px rgba(0, 0, 0, 0.5);
             transition: all ease-in-out 0.2s;
-            margin-bottom:20px; 
+            margin-bottom:20px;
             margin-right:20px;
         }
         </style>
@@ -209,7 +209,7 @@
                         <div class="col-lg-8">
                          <form method="POST"  action="{{route('checkOrder')}}" method="post" enctype="multipart/form-data">   {{ csrf_field() }}
                             <div class="cart-table">
-                                <table>  
+                                <table>
                                      <p><b>Phương thức thanh toán: </b>Nhận hàng & thanh toán tiền mặt tại nhà</p>
                                      <h4 class="confirm-user">Thông tin khách hàng</h4>
                                     <tr class="form-group">
@@ -228,7 +228,7 @@
                                         <td><label for="">Ghi chú </label></td>
                                         <td><input type="textarea" class="form-control" name="note" value="{{$userOrder->note}}"></td>
                                     </tr>
-                                 </table>
+                                 </table>r
                             </div>
                             <div class="confirm">
                                 <a class="btn-back" href="{{route('ListOrder')}}" ><i class="fa fa-angle-left mr-2" aria-hidden="true"></i> Quay lại giỏ hàng</a>
@@ -239,7 +239,7 @@
                     </div>
                 </div>
             </section>
-    
+
             <section class="shopping-cart">
                 <div class="container">
                     <div class="row">
@@ -256,7 +256,7 @@
                                             <th>Thành tiền</th>
                                         </tr>
                                     </thead>
-                                    <tbody>                                       
+                                    <tbody>
                                         @foreach(Session::get("Cart")->products as $item)
                                         <tr>
                                             <td class="cart-pic first-row">
@@ -291,14 +291,14 @@
                                                 <span>{{number_format(Session::get('Cart')->totalPrice)}}Đ</span></li>
                                         </ul>
                                     </div>
-                                </div>       
+                                </div>
                             </div>
                         </div>
                     @endif
                     </div>
                 </div>
             </section>
-            
+
         </div>
     </div>
     @include('fragments.footer3')
