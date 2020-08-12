@@ -22,7 +22,7 @@
      </div>
   </div>
    <div class="container">
-           {{ Breadcrumbs::render('product') }}
+           {{ Breadcrumbs::render('store') }}
     <div class="col-xl-12">
         <div class="titleStore">
             <p>Công ty Cucumber</p>

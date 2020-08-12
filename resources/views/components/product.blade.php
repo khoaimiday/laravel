@@ -1,6 +1,6 @@
    <div class="card__product">
             <div class="box__img">
-                <a href=""><img src="{{ url('img/feature/product/'.$image) }}" alt="Product IMG" style="width:100%"/></a>
+                <a href="{{ url('product/detail/'.$id)}}"><img src="{{ url('img/feature/product/'.$image) }}" alt="Product IMG" style="width:100%"/></a>
             </div>
             <div class="box__text">
                 <div class="title__wraper">

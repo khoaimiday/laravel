@@ -7,7 +7,7 @@ use App\Comment;
 use App\User;
 use App\Product;
 use Session;
-use Auth;   
+use Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Query\Builder;
 
@@ -41,7 +41,7 @@ class CommentController extends Controller
             $userCmt_name=Auth::user()->name;
             $prod_cmt=Product::where('id',$proId)->first();
             $prodCmt_name=$prod_cmt->product_name;
-       
+
             $newCmt= new Comment;
             $newCmt->title=$rq->title;
             $newCmt->content=$rq->content;
