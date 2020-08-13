@@ -4,8 +4,6 @@
 @section('content')
 
 
-{{-- {{ Breadcrumbs::render('product-detail', $product) }} --}}
-
 <!-- Product Details -->
 <div class="container product_details pt-5">
     <div class="row">
@@ -39,8 +37,8 @@
         <!-- Product Info-->
         <div class="col-lg-6">
             <div class="row">
-                <p class="product_cate"><a href="">TRANG CHỦ / SẢN PHẨM / CHĂM SÓC CÁ NHÂN / SẢN PHẨM PHÒNG TẮM / NƯỚC
-                        RỬA TAY</a></p>
+                <p class="product_cate">{{ Breadcrumbs::render('product-detail', $cate , $pro) }}
+                </p>
             </div>
             <div class="row">
                 <p class="product_name">{{$pro->product_name}}</p>
@@ -56,7 +54,7 @@
                     <span class="uom">/{{$pro->product_unit}}</span></p>
             </div>
             <div class="row">
-                <p class="product_description">{{$pro->short_description}}</p>
+                <p class="product_description">{{!!$pro->short_description!!}}</p>
             </div>
 
             {{--Form Cart--}}
@@ -118,7 +116,11 @@
 </div>
 </div>
 <!-- Product Description-->
+<<<<<<< HEAD
 <div class="container product-description bg-white card mt-10 ">
+=======
+<div class="container product-description bg-white mt-10 ">
+>>>>>>> 9c51f071778187d6e8c41bf3f94f8840ab61b7b6
     <div class="row">
         <div class="col">
             <ul class="nav nav-pills justify-content-center">
@@ -127,7 +129,11 @@
                 <!-- <li class="nav-item"><a data-toggle="tab" href="#reviews" class="nav-link" aria-selected="false"
                         style="margin-left: 15px;">Reviews</a></li> -->
             </ul>
+<<<<<<< HEAD
             <div class="tab-content" style="height: 400px;">
+=======
+            <div class="tab-content">
+>>>>>>> 9c51f071778187d6e8c41bf3f94f8840ab61b7b6
                 <div id="description" class="tab-pane active">
                     <div>{!!$pro->long_description!!}</div>
                 </div>
@@ -138,7 +144,11 @@
 
 <div class="cmt">
     <h2 align="center">Review Sản phẩm</h2>
+<<<<<<< HEAD
 <div class="row justify-content-center"> 
+=======
+<div class="row justify-content-center">
+>>>>>>> 9c51f071778187d6e8c41bf3f94f8840ab61b7b6
     <div class="col-5 text-center " >
         @foreach($cmts as $cmt)
         <div class="cmt-panel">
@@ -170,9 +180,15 @@
                     </div>
                 </div>
             @else
+<<<<<<< HEAD
                 
             @endif
         </div>  
+=======
+
+            @endif
+        </div>
+>>>>>>> 9c51f071778187d6e8c41bf3f94f8840ab61b7b6
         @endforeach
         {{ $cmts->links() }}
     </div>
@@ -246,7 +262,11 @@
         color:#BABA21;
     }
     .cmt-panel {
+<<<<<<< HEAD
         border: 1px #ddd solid;  
+=======
+        border: 1px #ddd solid;
+>>>>>>> 9c51f071778187d6e8c41bf3f94f8840ab61b7b6
         margin-bottom:10px;
         background-color:white;
         margin-top:10px;
@@ -269,21 +289,35 @@
         padding-left:20px;
         padding-bottom:1px;
     }
+<<<<<<< HEAD
     
+=======
+
+>>>>>>> 9c51f071778187d6e8c41bf3f94f8840ab61b7b6
     .cmt-panel-footer{
         padding:8px;
         font-size:12px;
         background-color:#F9F9DD;
+<<<<<<< HEAD
         
     }
     .cmt-reply{
         border: 1px #ddd solid;  
+=======
+
+    }
+    .cmt-reply{
+        border: 1px #ddd solid;
+>>>>>>> 9c51f071778187d6e8c41bf3f94f8840ab61b7b6
         margin-bottom:10px;
         margin-left:50px;
         background-color:white;
     }
     .reply-panel{
+<<<<<<< HEAD
 
+=======
+>>>>>>> 9c51f071778187d6e8c41bf3f94f8840ab61b7b6
     }
     .reply-panel-heading{
         padding:7px;
@@ -304,11 +338,13 @@
         font-size:10px;
         background-color:#E9F1EA;
     }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 9c51f071778187d6e8c41bf3f94f8840ab61b7b6
     .product_details .carousel {
         box-shadow: 0;
     }
-
     .product_details .quantity input[type=number] {
         max-width: 2.5em;
         width: 2.5em;
@@ -321,34 +357,28 @@
         border-width: 1px;
         border-style: solid;
         border-color: -internal-light-dark(rgb(118, 118, 118), rgb(195, 195, 195));
-
     }
-
     .product_details .quantity input[type=button] {
         border-width: 1px;
         border-style: solid;
         border-color: -internal-light-dark(rgb(118, 118, 118), rgb(195, 195, 195));
     }
-
     .product_details .add__cart {
         /* padding: .25rem .5rem; */
         /* font-size: .8rem; */
         /* line-height: 1.4; */
         border-radius: 0;
     }
-
     .product_meta {
         width: 100%;
         font-size: .8em;
         margin-bottom: 1em;
     }
-
     .product_meta>span {
         display: block;
         border-top: 1px dotted #ddd;
         padding: 5px 0;
     }
-
     .product_details .from-cart .button {
         width: 30px;
     }
@@ -374,5 +404,9 @@
             }
         });
     });
+<<<<<<< HEAD
 
 </script>
+=======
+</script>
+>>>>>>> 9c51f071778187d6e8c41bf3f94f8840ab61b7b6

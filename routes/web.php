@@ -25,14 +25,17 @@ Route::get('/logout', function(){
     return view('login');
 });
 
+<<<<<<< HEAD
 Route::get('/', 'HomeController@index');
 Route::get('/home', 'HomeController@index')->name('home');
 
+=======
+>>>>>>> 9c51f071778187d6e8c41bf3f94f8840ab61b7b6
 
 //ADMIN ROUTE
 Route::group(['prefix' => 'admin/', 'middleware' => 'isLogin'], function () {
 
-    Route::get('/index','PageController@adminIndex');
+    Route::get('/index','PageController@adminIndex')->name('adminhome');
 
     //NEWS
     Route::get('/news/index',['as'=>'admin-news','uses'=>'NewsController@index']);
@@ -66,13 +69,13 @@ Route::group(['prefix' => 'admin/', 'middleware' => 'isLogin'], function () {
     Route::get('/comment/delete/{id}',['as'=>'delete-cmt','uses'=>'CommentController@delete']);
 
     //PRODUCT
-    Route::get('/product/index', 'ProductController@indexAdmin');
-    Route::get('/product/create','ProductController@create');
-    Route::post('/product/postCreate','ProductController@postCreate');
+    Route::get('/product/index', 'ProductController@indexAdmin')->name('productAdm');
+    Route::get('/product/create','ProductController@create')->name('productAdmCreate');
+    Route::post('/product/postCreate','ProductController@postCreate')->name('productAdmUpdate');
     Route::get('/product/update/{id}','ProductController@update');
     Route::post('/product/postUpdate/{id}','ProductController@postUpdate');
     Route::get('/product/delete/{id}','ProductController@delete');
-    Route::get('/product/detail/{id}','ProductController@detailAdmin');
+    Route::get('/product/detail/{id}','ProductController@detailAdmin')->name('productAdmDetail');
 
 
     //BRAND
@@ -102,14 +105,12 @@ Route::group(['prefix' => 'admin/', 'middleware' => 'isLogin'], function () {
 //USER ROUTE
 
 Route::get('/product', 'ProductController@index');
-Route::get('product/detail/{id}', 'ProductController@details');
+Route::get('product/detail/{id}', 'ProductController@details')->name('product-detail');
 
-Route::get('news',['as'=>'news','uses'=>'NewsController@newsIndex']);
 Route::get('user/news/newsDetail/{id}',['as'=>'newsdetail','uses'=>'NewsController@newsDetail']);
 Route::post('/comment/{proId}',['as'=>'comment','uses'=>'CommentController@Comment']);
 Route::get('store',['as'=>'store','uses'=>function(){return view('user.store.store');} ]);
 
-Route::get('/cartlist',['as'=>'ListOrder','uses'=>'CartController@listOrder']);
 Route::get('/cart','CartController@index');
 Route::get('/AddCart/{id}',['as'=>'AddCart','uses'=>'CartController@AddCart']);
 Route::get('/DeleteItemCart/{id}',['as'=>'DeleteItemCart','uses'=>'CartController@DeleteItemCart']);
@@ -156,8 +157,32 @@ Route::get('/customer/customerDeleteList','CustomerController@customerDeleteList
 
 // SEARCH ROUTER
 Route::group(['prefix' => 'search/'], function(){
-    Route::get('/searchajax/{query}', ['as'=>'searchajax', 'uses'=>'SearchController@getSearchAjax']);
-    Route::get('cate/{id}', 'SearchController@filterCategories');
+    Route::get('/searchajax/{query}', 'SearchController@getSearchAjax')->name('searchajax');
+    Route::get('cate/{id}', 'SearchController@filterCategories')->name('categories');
     Route::get('searchByFilter', 'SearchController@searchByFilter');
 });
 
+Route::get('test',function(){
+    return view('test');
+});
+
+
+// BREADCUM USER
+Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('product', 'ProductController@index')->name('product');
+
+Route::get('store',['as'=>'store','uses'=>function(){
+    return view('user.store.store');} ]);
+
+Route::get('news',['as'=>'news','uses'=>'NewsController@newsIndex']);
+
+Route::get('user/news/newsDetail/{id}',['as'=>'newsdetail','uses'=>'NewsController@newsDetail']);
+
+Route::get('FAQ','HomeController@FAQ')->name('FAQ');
+
+Route::get('contact','HomeController@contact')->name('contact');
+
+Route::get('/cartlist',['as'=>'ListOrder','uses'=>'CartController@listOrder']);
+
+Route::post('/checkOrder',['as'=>'checkOrder','uses'=>'OrdersController@checkOrder']);

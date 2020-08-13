@@ -8,11 +8,8 @@
                 <div class="col-sm-6">
                     <h1>Trang Admin</h1>
                 </div>
-                <div class="col-sm-6">
-                    <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="#">Trang chủ</a></li>
-                        <li class="breadcrumb-item active"> <a href="{{ url('admin/news/create') }}">Tạo mới</a></li>
-                    </ol>
+                <div class="col-sm-6" style="justify-content: flex-end;">
+                    {{ Breadcrumbs::render('productAdm') }}
                 </div>
             </div>
         </div>
@@ -90,4 +87,9 @@
             });
         });
     </script>
+    <style>
+        .breadcrumb{
+            justify-content: flex-end;
+        }
+    </style>
 @endsection

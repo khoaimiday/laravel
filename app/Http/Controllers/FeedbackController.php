@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Feedback;
+use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 
 class FeedbackController extends Controller
 {   
@@ -35,42 +36,45 @@ class FeedbackController extends Controller
     }
 
     //delete feedback
-    public function deleteFeedback($id){
+    public function deleteFeedback($id)
+    {
         Feedback::find($id)->delete();
         return redirect()->action('FeedbackController@feedbackList');
     }
 
     //done feedback
-    public function doneFeedback($id){
-       $done = Feedback::find($id);
-       $done->reply = 1;
-       $done->save();
-       return redirect()->action('FeedbackController@feedbackList');
+    public function doneFeedback($id)
+    {
+        $done = Feedback::find($id);
+        $done->feed_rep = 1;
+        $done->save();
+        return redirect()->action('FeedbackController@feedbackList');
     }
 
     //pending feedback
-     public function pendingFeedback($id){
+    public function pendingFeedback($id)
+    {
         $pending = Feedback::find($id);
         $pending->reply = 0;
         $pending->save();
         return redirect()->action('FeedbackController@feedbackList');
-     }
+    }
 
     //on status
-    public function onStatus($id){
+    public function onStatus($id)
+    {
         $on = Feedback::find($id);
         $on->status = 1;
         $on->save();
         return redirect()->action('FeedbackController@feedbackList');
-     }
+    }
 
     //off status
-    public function offStatus($id){
+    public function offStatus($id)
+    {
         $off = Feedback::find($id);
         $off->status = 0;
         $off->save();
         return redirect()->action('FeedbackController@feedbackList');
-     }
-
-
+    }
 }

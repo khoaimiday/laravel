@@ -60,8 +60,42 @@ h2{
     padding-top: 3px;
     padding-bottom: 3px;
 }
+<<<<<<< HEAD
 * {
         box-sizing: border-box;
+=======
+
+    /* FOOTER */
+    .footer {
+        /* text-align: center; */
+        overflow: hidden;
+        position: relative;
+    }
+
+    /* END FOOTER */
+
+    /* Responsive layout - when the screen is less than 700px wide, make the two columns stack on top of each other instead of next to each other */
+    @media screen and (max-width: 700px) {
+        .row {
+            flex-direction: column;
+        }
+    }
+
+    /* Responsive layout - when the screen is less than 400px wide, make the navigation links stack on top of each other instead of next to each other */
+    @media screen and (max-width: 400px) {
+        .navbar a {
+            float: none;
+            width: 100%;
+        }
+    }
+.column {
+  float: left;
+  width: 50%;
+  padding-left: 30px;
+  padding-right: 30px;
+
+
+>>>>>>> 9c51f071778187d6e8c41bf3f94f8840ab61b7b6
 }
 .row:after {
   content: "";
@@ -95,7 +129,7 @@ input[type=submit]:hover {
 .container {
   border-radius: 5px;
   padding-right: 50px;
-  
+
 }
 
 
@@ -121,6 +155,7 @@ input[type=submit]:hover {
 label{
   font-size: 20px;
 }
+<<<<<<< HEAD
 
 </style>
 
@@ -128,6 +163,96 @@ label{
 <h2>Các câu hỏi thường gặp</h2>
 <div class="box"> 
     
+=======
+.accordion {
+  background-color: white;
+  color: black;
+  cursor: pointer;
+  width: 50%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 20px;
+  transition: 0.4s;
+  padding-left: 100px;
+  padding-right: 100px;
+  padding-top: 18px;
+  padding-bottom: 18px;
+  border-top: 1px solid blue;
+  border-bottom: 1px solid blue;
+}
+
+.active, .accordion:hover {
+  background-color:white ;
+}
+
+.accordion:after {
+  content: '\002B';
+  color: black;
+  font-weight: bold;
+  float: right;
+  margin-left: 5px;
+}
+
+.active:after {
+  content: "\2212";
+}
+
+.panel {
+  padding: 0 18px;
+  background-color: white;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+}
+h2{
+  color: red;
+}
+.box{
+  padding-top: 50px;
+  padding-bottom: 50px;
+  padding-left: 20%;
+
+}
+.main
+{
+    padding-top: 50px;
+    padding-left: 75px;
+}
+.img img{
+    width: 500px;
+    height: 247px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+}
+
+</style>
+
+{{-- BODY --}}
+
+<body>
+    {{-- MY WEBSITE --}}
+
+    @include('fragments.topheader')
+    {{-- <div class="topheader2"> --}}
+    {{-- NAV-BAR-TOP --}}
+    @include('fragments.nav-bar-top')
+    {{-- NAV-BAR-TOP --}}
+    {{-- CAROU-SEL  --}}
+    <section class="carousel">
+        @include('fragments.carousel')
+    </section>
+    {{-- CAROU-SEL --}}
+    <body>
+
+<div class="main">
+    {{ Breadcrumbs::render('FAQ') }}
+
+
+<h1>Các câu hỏi thường gặp</h1>
+<div class="box">
+
+>>>>>>> 9c51f071778187d6e8c41bf3f94f8840ab61b7b6
 
 
 <button class="accordion">Làm thế nào để đăng ký trên trang web</button>
@@ -141,8 +266,8 @@ label{
       <p>1.Nhập đầy đủ thông tin </p>
       <p>2.Cuối cùng bấm nút dăng ký</p>
       <div class="img"><img src="img/faq/index2.jpg"></div>
-      
-  
+
+
 </div>
   </div>
     <button class="accordion">Làm thế nào để thay đổi thông tin tài khoản</button>
@@ -193,7 +318,33 @@ label{
 
 </div>
 </div>
+<<<<<<< HEAD
  
+=======
+
+</body>
+    {{-- FOOTER --}}
+    <div class="footer">
+        @include('fragments.footer')
+    </div>
+    {{-- FOOTER --}}
+
+    {{-- END MY WEBSITE --}}
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js">
+    </script>
+    <script src="{{ url('owlcarousel/owl.carousel.min.js') }}"></script>
+</body>
+{{-- END BODY --}}
+
+</html>
+
+{{-- SCRIPT --}}
+>>>>>>> 9c51f071778187d6e8c41bf3f94f8840ab61b7b6
 <script>
 var acc = document.getElementsByClassName("accordion");
 var i;
@@ -206,8 +357,13 @@ for (i = 0; i < acc.length; i++) {
       panel.style.maxHeight = null;
     } else {
       panel.style.maxHeight = panel.scrollHeight + "px";
-    } 
+    }
   });
 }
+<<<<<<< HEAD
 </script> 
 @endsection
+=======
+</script>
+{{-- END SCRIPT --}}
+>>>>>>> 9c51f071778187d6e8c41bf3f94f8840ab61b7b6

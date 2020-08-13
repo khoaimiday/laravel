@@ -12,7 +12,8 @@ class SearchController extends Controller
     public function filterCategories($id){
         // $cate = Product_type::where('id', $id)->first();
         $products = Product::where('product_type_id', $id)->paginate(12);
-        return view('user.product.index', compact('products'));
+        $cate = Product_type::find($id);
+        return view('user.product.prod_by_cate', compact('products','cate'));
     }
 
     public function searchByFilter(Request $request){
@@ -67,19 +68,14 @@ class SearchController extends Controller
         $output ='';
 
             $data = Product::where('product_name', 'LIKE', "%{$query}%")->get();
-            $output = ' <table class="table table-striped table-hover table-condensed">
-                        <tr style="height:0">
-                            <th style="width:100px"></th>
-                            <th style="width:350px"></th>
-                            <th></th>
-                        </tr>';
+            $output = ' <table class="table table-striped table-hover table-condensed">';
             foreach($data as $row)
             {
                 $output .= '
-                        <tr>
+                        <tr class="inputHTLM" href="'.url('product/detail/'.$row->id).'">
                             <td><img src="' . asset('img/feature/product/'.$row->image) . '" style="width:50px"/></td>
-                            <td><a href="'. url('product/detail/'.$row->id) .'">'.$row->product_name.'</a></td>
-                            <td>'.$row->price. '</td>
+                            <td style="line-height: 45px"><a href="'. url('product/detail/'.$row->id) .'">'.$row->product_name.'</a></td>
+                            <td style="line-height: 45px">'.$row->price. '</td>
                         </tr>
                     ';
             }
@@ -87,5 +83,6 @@ class SearchController extends Controller
             echo $output;
     }
 }
+
 
 

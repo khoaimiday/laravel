@@ -40,20 +40,32 @@
                                              document.getElementById('logout-form').submit();">
                                 {{ __('Logout') }}
                             </a>
+<<<<<<< HEAD
                            <a class="dropdown-item" href="{{url('/users/detailCustomer/'. Auth::user()->id)}}">Infomation</a>
                             
+=======
+                            <a class="dropdown-item" href="{{url('/users/detailCustomer/'. Auth::user()->id)}}">Infomation</a>
+>>>>>>> 9c51f071778187d6e8c41bf3f94f8840ab61b7b6
                             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                 @csrf
                             </form>
                         </div>
                     </li>
                     @endguest
+<<<<<<< HEAD
                     <!-- <div class="woocommerce-cart-mini">
+=======
+                    {{-- <div class="woocommerce-cart-mini">
+>>>>>>> 9c51f071778187d6e8c41bf3f94f8840ab61b7b6
                         <a href="https://mypharma.vn/gio-hang/">
                             <i class="fa fa-shopping-cart"></i>
                             <span class="cart-content">Giỏ hàng (0)</span>
                         </a>
+<<<<<<< HEAD
                     </div> -->
+=======
+                    </div> --}}
+>>>>>>> 9c51f071778187d6e8c41bf3f94f8840ab61b7b6
                 </ul>
             </div>
         </div>
@@ -84,12 +96,16 @@
         }
     }
     function clearSearch(){
-        $('#searchList').hide();
+        setTimeout(() => {
+            $('#searchList').hide();
+        }, 300);
     }
 </script>
 
 <style>
-.top-nav{
+.inputHTLM {
+cursor: pointer;
+}.top-nav{
     /* background-color: #9acd32; */
 }
 .customer-area {

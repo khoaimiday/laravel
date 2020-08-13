@@ -11,7 +11,7 @@
   width: 50%;
   padding-left: 30px;
   padding-right: 30px;
-  
+
 
 }
 
@@ -49,7 +49,7 @@ input[type=submit]:hover {
 .container {
   border-radius: 5px;
   padding-right: 50px;
-  
+
 }
 .column iframe{
     padding-top: 50px;
@@ -81,7 +81,21 @@ label{
 
 
 
+<<<<<<< HEAD
 
+=======
+    <body>
+
+   <!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+</head>
+<body>
+    {{ Breadcrumbs::render('contact') }}
+>>>>>>> 9c51f071778187d6e8c41bf3f94f8840ab61b7b6
 <div class="row">
  <div class="column">
  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.2725035832495!2d106.6563019820322!3d10.790428741312278!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752ecb5f1f5265%3A0x7ca605ca712192e!2zMTAxMCBDw6FjaCBN4bqhbmcgVGjDoW5nIFTDoW0sIFBoxrDhu51uZyA1LCBUw6JuIELDrG5oLCBUaMOgbmggcGjhu5EgSOG7kyBDaMOtIE1pbmgsIFZp4buHdCBOYW0!5e0!3m2!1svi!2s!4v1596107714615!5m2!1svi!2s" width="100%" height="100%" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
@@ -127,5 +141,76 @@ label{
 </div>
 </body>
 </html>
+<<<<<<< HEAD
 @endsection
     
+=======
+
+
+
+
+
+
+
+    {{-- FOOTER --}}
+    <div class="footer">
+        @include('fragments.footer')
+    </div>
+    {{-- FOOTER --}}
+
+    {{-- END MY WEBSITE --}}
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js">
+    </script>
+    <script src="{{ url('owlcarousel/owl.carousel.min.js') }}"></script>
+</body>
+{{-- END BODY --}}
+
+</html>
+
+
+{{-- SCRIPT --}}
+<script>
+    function openSearch() {
+      document.getElementById("myOverlay").style.display = "block";
+    }
+
+    function closeSearch() {
+      document.getElementById("myOverlay").style.display = "none";
+    }
+
+    // OWL-CAROUSEL
+    $(document).ready(function(){
+        $('.owl-carousel').owlCarousel({
+            items:1,
+            // margin:10,
+            loop:true,
+            autoHeight:true,
+            autoplay:true,
+            autoplayTimeout:5000,
+        });
+    });
+
+    function AddCart(id){
+        $.ajax({
+            url: '/AddCart/'+id,
+            type: 'GET',
+        }).done(function(response){
+            $("#change-item-cart").empty();
+            $("#change-item-cart").html(response);
+        });
+        alertify.alert("Cucumber","Đã thêm sản phẩm vào giỏ hàng",function(){
+                alertify.message(' Đăng nhập để giao hàng ngay!');
+        });
+    }
+
+    // $("#change-item-cart").on("click".".si-close i",function(){
+    //     console.log($(this).data("id"));
+    // });
+</script>
+{{-- END SCRIPT --}}
+>>>>>>> 9c51f071778187d6e8c41bf3f94f8840ab61b7b6
