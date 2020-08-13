@@ -57,28 +57,7 @@ form{
 </html>
 @endsection
 
-<script>
-    $(function(){
-        $('form-update').validate({
-            rules:{
-                email :{
-                    required :true,
-                    email:true,
-                },
-                password:{
-                    required:true,
-                    minlength:8
-                }
-            },
-            submitHanndler:function(){
-                console.log('xxx');
-            }
 
-        });
-
-    });
-
-</script>
 
 
  

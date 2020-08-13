@@ -6,6 +6,7 @@
   .modal-header
   {
     background-color: black;
+    color: white;
   }
 </style>
 <div class="page-holder w-100 d-flex flex-wrap">
@@ -22,7 +23,7 @@
       
 <!-- Modal Header -->
                     <div class="modal-header">
-                      <h3 class="modal-title"></h3>
+                      <h3 class="modal-title">Đăng ký</h3>
                         <button type="button" class="close" data-dismiss="modal" style="color: white;" >&times;</button>
                     </div>
 
@@ -37,26 +38,20 @@
                             {{csrf_field()}}
                               <div class="input-container">
                                 <i class="fa fa-user icon"></i>
-                                <input class="input-field" type="text" name="name" placeholder="Họ Tên">
-                                @if($errors->has('name'))
-                                    <small style="color:red;font-size:14px;">{{$errors->first('name')}}</small>
-                                @endif
+                                <input class="input-field" type="text" name="name" placeholder="Họ Tên" id="name">
+                               
                               </div>
 
                               <div class="input-container">
                                 <i class="fa fa-envelope icon"></i>
-                                <input class="input-field" type="text"name="email" placeholder="Email">
-                                @if($errors->has('email'))
-                                    <small style="color:red;font-size:14px;">{{$errors->first('email')}}</small>
-                                @endif
+                                <input class="input-field" type="text"name="email" placeholder="Email" id="email">
+                               
                               </div>
   
                               <div class="input-container">
                                 <i class="fa fa-key icon"></i>
-                                <input class="input-field" type="password"name="password" placeholder="Mật Khẩu" >
-                                @if($errors->has('password'))
-                                    <small style="color:red;font-size:14px;">{{$errors->first('password')}}</small>
-                                @endif
+                                <input class="input-field" type="password"name="password" placeholder="Mật Khẩu" id="password" >
+                                
                               </div>
                               <div class="input-container">
                                 <select name="srole" hidden>
@@ -68,7 +63,7 @@
         
 <!-- Modal footer -->
                                 <div class="modal-footer">
-                                  <button type="submit" class="btn btn-dark">Thêm</button>
+                                  <button type="submit" class="btn btn-dark" onclick="btnthem" id="btnthem">Thêm</button>
                                 </div>
                               </form>     
                             </div>
@@ -118,6 +113,37 @@
     </section>
   </div>
   @endsection
-  <script>
+  <script type="text/javascript">
+function btnthem()
+{
+  var i;
+  var hoten = document.getElementById("name");
+  if(hoten.value == "")// kiểm tra hoten có bỏ trống không
+{
+i += "Bạn chưa nhập họ tên.<br/>";
+}
+var reg_email =/^[A-Za-z0-9]+([_\.\-]?[A-Za-z0-9])*@[A-Za-z0-9]+([\.\-]?[A-Za-z0-9]+)*(\.[A-Za-z]+)+$/;
+
+var email = document.getElementById("email");
+  if(email.value!="")
+    {
+  if(reg_email.test(email.value)==false)
+    i+="Email không hợp lệ.<br/>";
+    }
+  else
+    i+="Không được bỏ trống email.<br/>";
+var password = document.getElementById("password");
+  if(password.value !="")
+  {
+  if(password.value.length<8 passwod.value.length >20)
+    i+= "Password phải có độ dài từ 8-20 ký tự.<br/>";
+  }
+  else
+    i+="Password không được bỏ trống.<br/>";
+    if(i!="")
+document.getElementById("loi").innerHTML=i+"\n";
+else
+document.getElementById("loi").innerHTML="Đăng ký thành công";
+}
 
 </script>

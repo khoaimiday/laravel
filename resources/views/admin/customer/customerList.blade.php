@@ -1,7 +1,7 @@
 @extends('admin.Adminlayout')
 @section('title', 'List customer - Admin')
 @section('content')
-
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <div class="page-holder w-100 d-flex flex-wrap">
   <div class="container-fluid px-xl-5">
     <section class="py-5">
@@ -29,6 +29,7 @@
                     <th>Created At</th>
                     <th>Updated At</th>
                     <th>Delete</th>
+                    <th>Reset</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -43,6 +44,7 @@
                     <td class="align-middle">{{$u->created_at}}</td>
                     <td class="align-middle">{{$u->updated_at}}</td>
                     <td class="align-middle"><a href="{{url('customer/customerDelete/'.$u->id)}}" class="badge badge-danger p-2"><i class="fas fa-trash-alt" style="font-size: 16px; font-weight:100;"></i></a></td>
+                    <td><a href="{{url('/SuperAdmin/resetPassword/'.$u->id)}}"><i class="fa fa-refresh" style="font-size: 16px; font-weight:100;"></i></a></td>
                   </tr>
                   @endforeach
                 </tbody>

@@ -10,13 +10,13 @@ class FeedbackController extends Controller
 
     //user post feedback
     public function postFeedback(Request $request){
-         /* $this->validate($request,
+           /*  $this->validate($request,
             [
             'feedbackName'          =>      'bail|required|regex:/^[a-zA-Z ]{2,}/i|max:255',
             'feedbackPhone'         =>      'bail|nullable|regex:/^0[1-9][0-9]{8,9}$/i',
             'feedbackEmail'         =>      'bail|required|regex:/^[a-zA-Z0-9\._]+@[a-zA-Z0-9_]+\.[a-zA-Z0-9]+[\.a-zA-Z0-9]*$/i',
             'feedbackContent'       =>      'bail|required|min:2|max:250',
-            ]);  */
+            ]);  */ 
 
         $feedback = new Feedback();
         $feedback->feed_name    =   trim($request->feedbackName);
